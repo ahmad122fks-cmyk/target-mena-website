@@ -29,11 +29,24 @@ function fontPreload(lang: 'ar' | 'en'): string {
   return `<link rel="preload" href="/assets/${file}" as="font" type="font/woff2" crossorigin>`
 }
 
+/**
+ * Preload the above-the-fold photo (the <img fetchpriority="high">) so the
+ * browser fetches it before scripts: it is the page's LCP element.
+ */
+function heroPreload(html: string): string {
+  const picture = html.match(
+    /<picture>(?:(?!<\/picture>)[\s\S])*?fetchpriority="high"[\s\S]*?<\/picture>/i,
+  )?.[0]
+  const avif = picture?.match(/<source type="image\/avif" srcset="([^"]+)" sizes="([^"]+)"/i)
+  if (!avif) return ''
+  return `<link rel="preload" as="image" type="image/avif" imagesrcset="${avif[1]}" imagesizes="${avif[2]}" fetchpriority="high">`
+}
+
 function page(url: string, lang: 'ar' | 'en'): string {
   const { html, headHtml, head } = server.render(url)
   return template
     .replace('<html lang="ar" dir="rtl">', `<html lang="${head.lang}" dir="${head.dir}">`)
-    .replace('<!--app-head-->', `${fontPreload(lang)}\n    ${headHtml}`)
+    .replace('<!--app-head-->', `${heroPreload(html)}${fontPreload(lang)}\n    ${headHtml}`)
     .replace('<!--app-html-->', html)
 }
 

@@ -60,6 +60,14 @@ test('phone menu opens and shows every main link', async ({ page }) => {
   await expect(dialog.getByRole('link')).toHaveCount(7)
 })
 
+test('index.html addresses show the home page, not the 404 page', async ({ page }) => {
+  for (const url of ['/index.html', '/en/index.html']) {
+    await page.goto(url, { waitUntil: 'networkidle' })
+    await expect(page.locator('#hero-title')).toBeVisible()
+    await expect(page.locator('#nf-title')).toHaveCount(0)
+  }
+})
+
 test('unknown URL returns a real 404 page', async ({ page }) => {
   const response = await page.goto('/this-page-does-not-exist')
   expect(response?.status()).toBe(404)

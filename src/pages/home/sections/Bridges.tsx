@@ -15,9 +15,9 @@ export function Bridges() {
     <Section labelledBy="bridges-title">
       <div className="grid items-center gap-12 lg:grid-cols-2">
         <Photo
-          picture={BOARD_PHOTOS.BBH20A}
+          picture={BOARD_PHOTOS[bridges.photo]}
           alt={t(bridges.photoAlt)}
-          sizes="(min-width: 1024px) 580px, 100vw"
+          sizes="(min-width: 1024px) 580px, calc(100vw - 32px)"
           className="rounded-2xl border"
         />
         <div className="flex flex-col gap-5 lg:order-first">

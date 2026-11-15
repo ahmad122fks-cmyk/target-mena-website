@@ -21,7 +21,8 @@
     "check:length": "tsx scripts/check-file-length.ts",
     "check:forbidden": "tsx scripts/check-forbidden.ts",
     "check:dist": "tsx scripts/check-forbidden.ts --dist && tsx scripts/check-prerender.ts",
-    "svg": "svgo --config svgo.config.js -f src/assets/calligraphy"
+    "svg": "svgo --config svgo.config.js -f src/assets/calligraphy",
+    "prepare": "git config core.hooksPath .githooks || true"
   },
   "size-limit": [
     {

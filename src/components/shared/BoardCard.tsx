@@ -31,7 +31,7 @@ export function BoardCard({ board, requestLabel }: { board: BoardSummary; reques
         <Photo
           picture={photo}
           alt={`${t(board.type)}: ${t(board.place)}`}
-          sizes="(min-width: 1024px) 390px, (min-width: 640px) 50vw, 100vw"
+          sizes="(min-width: 1024px) 390px, (min-width: 640px) 45vw, calc(100vw - 32px)"
           className="aspect-[5/3] object-cover"
         />
       ) : (

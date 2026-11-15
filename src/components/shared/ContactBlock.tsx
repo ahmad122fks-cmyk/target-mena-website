@@ -1,31 +1,17 @@
 import { Fragment } from 'react'
 import { useT } from '@/features/i18n/LangContext'
 import { CONTACT, telHref } from '@/lib/site'
-import { Calligraphy } from './Calligraphy'
 import { CtaLink } from './CtaLink'
 import { Section } from './Section'
 import { SectionHeading } from './SectionHeading'
 import { ToConfirm } from './ToConfirm'
 
-/** The one contact block, identical on every page (CLAUDE.md). Tone-on-tone calligraphy. */
+/** The one contact block, identical on every page (CLAUDE.md). Plain blue band. */
 export function ContactBlock() {
   const t = useT()
   const c = CONTACT
-  const art = (
-    <Calligraphy
-      mark="a"
-      tone="blue80"
-      className="-end-56 -bottom-40 h-[30rem] lg:-end-40 lg:top-1/2 lg:bottom-auto lg:h-[36rem] lg:-translate-y-1/2"
-    />
-  )
   return (
-    <Section
-      id="contact"
-      tone="blue"
-      labelledBy="contact-title"
-      art={art}
-      className="[&>div]:pb-56 lg:[&>div]:pb-24"
-    >
+    <Section id="contact" tone="blue" labelledBy="contact-title">
       <div className="flex max-w-2xl flex-col gap-6">
         <SectionHeading id="contact-title" eyebrow={t(c.eyebrow)} title={t(c.title)} />
         <address className="flex flex-col gap-1 text-lg not-italic">

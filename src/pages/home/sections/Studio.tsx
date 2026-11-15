@@ -1,62 +1,60 @@
-import { Badge } from '@/components/ui/badge'
+import { Artwork } from '@/components/shared/Artwork'
 import { CtaLink } from '@/components/shared/CtaLink'
-import { ImageCard } from '@/components/shared/ImageCard'
 import { Section } from '@/components/shared/Section'
 import { useLink, useT } from '@/features/i18n/LangContext'
 import { ART } from '@/lib/images'
 import content from '../home.services.content.json'
 
+type Item = { ar: string; en: string }
+
 /**
- * Production and creative side by side. The catalog's warm artwork
- * (spread 16 duotone, spread 22 multicolour calligraphy) appears once each.
+ * The page's one artistic moment: a dark showcase band (as the catalog's
+ * production pages) with the catalog artwork shown large - spread 16 yellow
+ * duotone and spread 22 multicolour calligraphy. Everything else stays clean.
  */
 export function Studio() {
   const t = useT()
   const link = useLink()
   const { production, creative, studio } = content
-  const chips = (items: { ar: string; en: string }[]) => (
-    <ul className="flex flex-wrap gap-2">
-      {items.map((item) => (
-        <li key={item.en}>
-          <Badge variant="secondary" className="px-3 py-1 text-sm font-medium">
-            {t(item)}
-          </Badge>
-        </li>
-      ))}
-    </ul>
+  const list = (items: Item[]) => (
+    <p className="text-brand-grey-40">{items.map((item) => t(item)).join(' · ')}</p>
   )
   return (
-    <Section labelledBy="studio-title">
-      <h2 id="studio-title" className="mb-10 text-3xl sm:text-4xl">
+    <Section tone="black" labelledBy="studio-title">
+      <h2 id="studio-title" className="mb-12 text-3xl sm:text-4xl">
         {t(studio.title)}
       </h2>
-      <div className="grid gap-6 lg:grid-cols-2">
-        <ImageCard
+      <div className="grid items-start gap-12 lg:grid-cols-[1.337fr_1fr] lg:gap-10">
+        <Artwork
           picture={ART.production}
           alt={t(production.artAlt)}
-          titleId="production-title"
-          title={t(production.title)}
-          light={t(production.light)}
+          ratio="1 / 1"
+          sizes="(min-width: 1024px) 680px, calc(100vw - 32px)"
         >
-          {chips(production.list)}
+          <h3 id="production-title" className="text-2xl sm:text-3xl">
+            {t(production.title)} <span className="font-light">{t(production.light)}</span>
+          </h3>
+          {list(production.list)}
           <p className="flex flex-wrap items-baseline gap-x-3">
-            <b className="ltr-run text-3xl font-semibold text-brand-blue">{t(production.stat)}</b>
-            <span>{t(production.statLabel)}</span>
+            <b className="ltr-run text-4xl font-semibold text-brand-yellow">{t(production.stat)}</b>
+            <span className="text-brand-grey-40">{t(production.statLabel)}</span>
           </p>
-          <CtaLink tone="outline" href={link(production.cta.path)} className="self-start">
+          <CtaLink tone="white" href={link(production.cta.path)} className="self-start">
             {t(production.cta.label)}
           </CtaLink>
-        </ImageCard>
-        <ImageCard
+        </Artwork>
+        <Artwork
           picture={ART.creative}
           alt={t(creative.artAlt)}
-          titleId="creative-title"
-          title={t(creative.title)}
-          light={t(creative.light)}
+          ratio="890 / 1190"
+          sizes="(min-width: 1024px) 510px, calc(100vw - 32px)"
         >
-          <p>{t(creative.lead)}</p>
-          {chips(creative.list)}
-        </ImageCard>
+          <h3 id="creative-title" className="text-2xl sm:text-3xl">
+            {t(creative.title)} <span className="block font-light">{t(creative.light)}</span>
+          </h3>
+          <p className="text-brand-grey-40">{t(creative.lead)}</p>
+          {list(creative.list)}
+        </Artwork>
       </div>
     </Section>
   )

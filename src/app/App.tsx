@@ -10,19 +10,20 @@ const PAGES: Record<PageKey, ComponentType> = { home: HomePage }
 export function App() {
   return (
     <Routes>
-      {ROUTES.map(({ path, lang, page }) => {
+      {ROUTES.flatMap(({ path, lang, page }) => {
         const Page = PAGES[page]
-        return (
+        // '/en/' and '/en/index.html' are the same page (static servers use both).
+        return [path, `${path}index.html`].map((routePath) => (
           <Route
-            key={path}
-            path={path}
+            key={routePath}
+            path={routePath}
             element={
               <SiteLayout lang={lang}>
                 <Page />
               </SiteLayout>
             }
           />
-        )
+        ))
       })}
       <Route
         path="*"

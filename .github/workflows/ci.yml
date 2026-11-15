@@ -1,0 +1,81 @@
+# Build, test and measure on every push (BUILD-BRIEF 2.4 and 8).
+# Fails if any check fails: lint, types, unit tests, file length, forbidden
+# content, prerender, bundle budget, Playwright smoke tests, Lighthouse budgets.
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    - cron: '0 0 * * *' # 03:00 Asia/Baghdad - nightly rebuild (board feed refresh from phase 2)
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: Build and test
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      # Optional secret: supplier and staff names the forbidden-content check blocks.
+      FORBIDDEN_TERMS: ${{ secrets.FORBIDDEN_TERMS }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run typecheck
+      - name: Unit tests (Vitest)
+        run: npm test
+      - name: Build + prerender + content checks
+        run: npm run build
+      - name: Bundle budget (JavaScript <= 150 KB gzip per page)
+        run: npm run size
+      - run: npx playwright install --with-deps chromium
+      - name: Smoke tests (Playwright)
+        run: npm run test:e2e
+      - name: Lighthouse CI (mobile, all scores >= 90, LCP < 2.5 s, CLS < 0.1, TBT < 200 ms)
+        run: npm run lhci
+      - uses: actions/upload-artifact@v7
+        with:
+          name: site-dist
+          path: dist
+          retention-days: 30
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: lighthouse-reports
+          path: reports/lighthouse
+          if-no-files-found: ignore
+
+  publish:
+    name: Publish the deploy branch
+    needs: test
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v8
+        with:
+          name: site-dist
+          path: dist
+      - name: Push the built files (only) to the deploy branch
+        run: |
+          cd dist
+          git init -q -b deploy
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -q -m "Build ${GITHUB_SHA::7}"
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" deploy

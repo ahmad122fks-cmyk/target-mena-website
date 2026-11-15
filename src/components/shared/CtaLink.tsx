@@ -8,7 +8,7 @@ const TONES = {
   white: 'bg-white text-brand-blue hover:bg-brand-ghost',
   black: 'bg-brand-black text-white hover:bg-brand-black/85',
   outline: 'border border-brand-blue bg-white text-brand-blue hover:bg-brand-blue-10',
-  outlineLight: 'border-2 border-white bg-transparent text-white hover:bg-white/10',
+  outlineLight: 'border-2 border-white bg-brand-blue text-white hover:bg-brand-blue-80',
 } as const
 
 export type CtaTone = keyof typeof TONES

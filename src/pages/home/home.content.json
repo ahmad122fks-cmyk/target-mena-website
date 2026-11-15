@@ -91,6 +91,7 @@
       "path": "/highway-bridges",
       "label": { "ar": "تصفح الجسور", "en": "Browse bridges" }
     },
-    "photoAlt": { "ar": "جسر إعلاني على الطريق السريع الجنوبي بين الحلة والديوانية", "en": "Highway bridge billboard on the southern highway, Hilla to Diwaniyah" }
+    "photo": "BBH38A",
+    "photoAlt": { "ar": "جسر إعلاني على الطريق السريع الجنوبي بين الديوانية والسماوة", "en": "Highway bridge billboard on the southern highway, Diwaniyah to Samawah" }
   }
 }
