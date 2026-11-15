@@ -1,62 +1,60 @@
 import type { Filters } from '@/features/boards/filter'
-import { cityOptions, formatOptions, sizeOptions } from '@/features/boards/options'
+import {
+  cityOptions,
+  facesOptions,
+  formatOptions,
+  sizeOptions,
+  type Option,
+} from '@/features/boards/options'
 import { useLang, useT } from '@/features/i18n/LangContext'
 import content from '@/pages/boards/boards.content.json'
-import { cn } from '@/lib/utils'
 import { FilterCombobox } from './FilterCombobox'
-import { SearchField } from './SearchField'
 
 type Props = {
   filters: Filters
   onChange: (patch: Partial<Filters>) => void
   cityKeys: string[]
-  stacked?: boolean
+  /** "pill": the finder bar (type, size, faces); "fields": the phone sheet (all, with labels). */
+  variant: 'pill' | 'fields'
 }
 
-/** Province, type and size (shadcn Combobox) plus code/area search. Used in the bar and the phone sheet. */
-export function BoardFilters({ filters, onChange, cityKeys, stacked = false }: Props) {
+/** The finder's dropdown filters (shadcn Combobox), as bar pills or as labelled fields. */
+export function BoardFilters({ filters, onChange, cityKeys, variant }: Props) {
   const t = useT()
   const lang = useLang()
   const f = content.filters
   const labels = { all: t(f.all), find: t(f.find), none: t(f.none) }
+  const pill = variant === 'pill'
+  const items: { key: keyof Filters; label: string; options: Option[]; search?: boolean }[] = [
+    ...(pill
+      ? []
+      : [
+          {
+            key: 'city' as const,
+            label: t(f.city),
+            options: cityOptions(cityKeys, lang),
+            search: true,
+          },
+        ]),
+    { key: 'format', label: t(f.type), options: formatOptions(lang) },
+    { key: 'size', label: t(f.size), options: sizeOptions(lang) },
+    { key: 'faces', label: t(f.faces), options: facesOptions(lang) },
+  ]
   return (
-    <div
-      className={cn(
-        'grid gap-3',
-        stacked ? 'grid-cols-1' : 'grid-cols-[1fr_1fr_1fr_1.4fr] items-end',
-      )}
-    >
-      <FilterCombobox
-        id={stacked ? 'm-city' : 'f-city'}
-        label={t(f.city)}
-        labels={labels}
-        value={filters.city}
-        searchable
-        options={cityOptions(cityKeys, lang)}
-        onChange={(city) => onChange({ city })}
-      />
-      <FilterCombobox
-        id={stacked ? 'm-format' : 'f-format'}
-        label={t(f.format)}
-        labels={labels}
-        value={filters.format}
-        options={formatOptions(lang)}
-        onChange={(format) => onChange({ format })}
-      />
-      <FilterCombobox
-        id={stacked ? 'm-size' : 'f-size'}
-        label={t(f.size)}
-        labels={labels}
-        value={filters.size}
-        options={sizeOptions(lang)}
-        onChange={(size) => onChange({ size })}
-      />
-      <SearchField
-        id={stacked ? 'm-q' : 'f-q'}
-        label={t(f.query)}
-        value={filters.query}
-        onChange={(query) => onChange({ query })}
-      />
-    </div>
+    <>
+      {items.map((item) => (
+        <FilterCombobox
+          key={item.key}
+          id={`${pill ? 'f' : 'm'}-${item.key}`}
+          label={item.label}
+          labels={labels}
+          value={filters[item.key]}
+          options={item.options}
+          searchable={item.search}
+          pill={pill}
+          onChange={(value) => onChange({ [item.key]: value })}
+        />
+      ))}
+    </>
   )
 }

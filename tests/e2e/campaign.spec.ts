@@ -6,7 +6,7 @@ test('add 3 boards, open the selection, send to the builder, review shows the 3 
   await page.goto('/en/boards/?sort=code')
   // Filters from the address apply after the page is ready: wait for them.
   await expect(page.locator('#f-sort')).toHaveValue('code')
-  const cards = page.locator('main [data-slot="card"]')
+  const cards = page.locator('main article')
   const codes: string[] = []
   for (let i = 0; i < 3; i++) {
     const card = cards.nth(i)
@@ -19,9 +19,9 @@ test('add 3 boards, open the selection, send to the builder, review shows the 3 
   // The selection survives a reload (saved in the browser).
   await page.reload()
   await open.click()
-  const sheet = page.getByRole('dialog')
-  for (const code of codes) await expect(sheet).toContainText(code)
-  await sheet.getByRole('link', { name: 'Request these boards' }).click()
+  const panel = page.getByRole('complementary', { name: 'My list' })
+  for (const code of codes) await expect(panel).toContainText(code)
+  await panel.getByRole('link', { name: /Request these boards/ }).click()
 
   await expect(page).toHaveURL(/\/en\/campaign\/$/)
   await page.getByRole('button', { name: 'Next' }).click()

@@ -1,6 +1,6 @@
 import { X } from 'lucide-react'
 import type { Filters } from '@/features/boards/filter'
-import { cityOptions, formatOptions, sizeOptions } from '@/features/boards/options'
+import { cityOptions, facesOptions, formatOptions, sizeOptions } from '@/features/boards/options'
 import { useLang, useT } from '@/features/i18n/LangContext'
 import content from '@/pages/boards/boards.content.json'
 
@@ -16,6 +16,7 @@ export function FilterChips({ filters, onChange, cityKeys }: Props) {
     filters.city && { key: 'city', label: find(cityOptions(cityKeys, lang), filters.city) },
     filters.format && { key: 'format', label: find(formatOptions(lang), filters.format) },
     filters.size && { key: 'size', label: find(sizeOptions(lang), filters.size) },
+    filters.faces && { key: 'faces', label: find(facesOptions(lang), filters.faces) },
     filters.query && { key: 'query', label: `“${filters.query}”` },
   ].filter((chip): chip is { key: keyof Filters; label: string } => Boolean(chip))
   if (!chips.length) return null
@@ -26,7 +27,7 @@ export function FilterChips({ filters, onChange, cityKeys }: Props) {
           <button
             type="button"
             onClick={() => onChange({ [chip.key]: '' })}
-            className="inline-flex min-h-9 items-center gap-1 rounded-full bg-brand-blue-10 px-3 text-sm font-medium text-brand-blue hover:bg-brand-blue-40"
+            className="inline-flex min-h-9 items-center gap-1 rounded-full border border-input bg-white px-3 text-sm text-brand-black hover:border-brand-blue"
           >
             {chip.label}
             <X className="size-4" aria-hidden="true" />
@@ -37,7 +38,7 @@ export function FilterChips({ filters, onChange, cityKeys }: Props) {
       <li>
         <button
           type="button"
-          onClick={() => onChange({ city: '', format: '', size: '', query: '' })}
+          onClick={() => onChange({ city: '', format: '', size: '', faces: '', query: '' })}
           className="min-h-9 px-2 text-sm font-semibold text-brand-blue underline-offset-4 hover:underline"
         >
           {t(content.filters.clearAll)}

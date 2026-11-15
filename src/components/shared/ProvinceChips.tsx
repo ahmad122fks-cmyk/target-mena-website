@@ -13,6 +13,8 @@ type Props = {
   selected?: string
   onPick?: (key: string) => void
   all?: { label: string; count: number }
+  /** Accessible name of the chip group. */
+  label?: string
   className?: string
 }
 
@@ -20,7 +22,15 @@ const chip =
   'inline-flex min-h-11 shrink-0 items-center gap-1.5 whitespace-nowrap rounded-full border px-4 text-[0.9375rem] lg:min-h-10'
 
 /** Pill chips "Province · count", as links or as filter buttons. */
-export function ProvinceChips({ items, hrefFor, selected, onPick, all, className }: Props) {
+export function ProvinceChips({
+  items,
+  hrefFor,
+  selected,
+  onPick,
+  all,
+  label: name,
+  className,
+}: Props) {
   const lang = useLang()
   const label = (text: string, count: number) => (
     <>
@@ -44,7 +54,11 @@ export function ProvinceChips({ items, hrefFor, selected, onPick, all, className
     </button>
   )
   return (
-    <div className={cn('flex flex-wrap gap-2.5', className)}>
+    <div
+      role={name ? 'group' : undefined}
+      aria-label={name}
+      className={cn('flex flex-wrap gap-2.5', className)}
+    >
       {all && onPick && button('', all.label, all.count)}
       {items.map(({ key, count }) =>
         hrefFor ? (

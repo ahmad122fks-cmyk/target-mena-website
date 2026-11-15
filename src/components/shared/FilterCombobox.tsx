@@ -1,4 +1,4 @@
-import { Check, ChevronsUpDown } from 'lucide-react'
+import { Check, ChevronDown } from 'lucide-react'
 import { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import {
@@ -22,29 +22,22 @@ type Props = {
   options: Option[]
   onChange: (v: string) => void
   searchable?: boolean
+  /** Pill "Type: All ⌄" for the finder bar; otherwise a labelled field (phone sheet). */
+  pill?: boolean
 }
 
 /** shadcn Combobox (Popover + Command): one filter with an "All" choice and optional search. */
-export function FilterCombobox({
-  id,
-  label,
-  labels,
-  value,
-  options,
-  onChange,
-  searchable = false,
-}: Props) {
+export function FilterCombobox(props: Props) {
+  const { id, label, labels, value, options, onChange, searchable, pill } = props
   const [open, setOpen] = useState(false)
-  const current = options.find((option) => option.value === value)
-  const choose = (next: string) => {
-    onChange(next)
-    setOpen(false)
-  }
+  const current = options.find((option) => option.value === value)?.label ?? labels.all
   return (
-    <div className="flex min-w-0 flex-col gap-1">
-      <span id={`${id}-label`} className="text-xs font-semibold">
-        {label}
-      </span>
+    <div className={cn('flex min-w-0 flex-col gap-1', pill && 'shrink-0')}>
+      {!pill && (
+        <span id={`${id}-label`} className="text-xs font-semibold">
+          {label}
+        </span>
+      )}
       <Popover open={open} onOpenChange={setOpen}>
         <PopoverTrigger asChild>
           <Button
@@ -52,14 +45,15 @@ export function FilterCombobox({
             variant="outline"
             role="combobox"
             aria-expanded={open}
-            aria-labelledby={`${id}-label ${id}`}
+            aria-labelledby={pill ? undefined : `${id}-label ${id}`}
             className={cn(
-              'h-11 w-full justify-between rounded-lg bg-white px-3 text-base font-normal',
-              current && 'border-brand-blue text-brand-blue',
+              'h-11 justify-between gap-2 border-input bg-white text-base font-normal text-brand-black shadow-none',
+              pill ? 'rounded-full px-4 text-[0.9375rem]' : 'w-full rounded-field px-3',
+              value && 'border-brand-blue text-brand-blue',
             )}
           >
-            <span className="truncate">{current?.label ?? labels.all}</span>
-            <ChevronsUpDown className="size-4 opacity-60" aria-hidden="true" />
+            <span className="truncate">{pill ? `${label}: ${current}` : current}</span>
+            <ChevronDown className="size-4 text-brand-text" aria-hidden="true" />
           </Button>
         </PopoverTrigger>
         <PopoverContent
@@ -75,7 +69,10 @@ export function FilterCombobox({
                   <CommandItem
                     key={option.value || 'all'}
                     value={option.label}
-                    onSelect={() => choose(option.value)}
+                    onSelect={() => {
+                      onChange(option.value)
+                      setOpen(false)
+                    }}
                     className="min-h-11"
                   >
                     <Check

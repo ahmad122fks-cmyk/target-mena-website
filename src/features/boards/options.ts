@@ -20,3 +20,10 @@ export function sizeOptions(lang: Lang): Option[] {
     label: content.filters[size][lang],
   }))
 }
+
+export function facesOptions(lang: Lang): Option[] {
+  return [
+    { value: '1', label: content.filters.one[lang] },
+    { value: '2', label: content.filters.two[lang] },
+  ]
+}

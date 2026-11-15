@@ -1,36 +1,36 @@
 import { Search } from 'lucide-react'
-import { Input } from '@/components/ui/input'
+import { cn } from '@/lib/utils'
 
-/** Search input with an icon (code or area). */
-export function SearchField({
-  id,
-  label,
-  value,
-  onChange,
-}: {
+type Props = {
   id: string
   label: string
+  placeholder?: string
   value: string
   onChange: (v: string) => void
-}) {
+  className?: string
+}
+
+/** Pill search with an icon (code, province or area); the label is for screen readers. */
+export function SearchField({ id, label, placeholder, value, onChange, className }: Props) {
   return (
-    <div className="flex min-w-0 flex-col gap-1">
-      <label htmlFor={id} className="text-xs font-semibold">
+    <div
+      className={cn(
+        'flex h-11 min-w-0 items-center gap-2 rounded-full border border-input bg-white px-4 focus-within:border-brand-blue',
+        className,
+      )}
+    >
+      <Search className="size-[18px] shrink-0 text-brand-text" strokeWidth={2} aria-hidden="true" />
+      <label htmlFor={id} className="sr-only">
         {label}
       </label>
-      <div className="relative">
-        <Search
-          className="pointer-events-none absolute start-3 top-1/2 size-4 -translate-y-1/2 text-brand-text"
-          aria-hidden="true"
-        />
-        <Input
-          id={id}
-          type="search"
-          value={value}
-          onChange={(e) => onChange(e.target.value)}
-          className="h-11 rounded-lg bg-white ps-9 text-base"
-        />
-      </div>
+      <input
+        id={id}
+        type="search"
+        value={value}
+        placeholder={placeholder}
+        onChange={(e) => onChange(e.target.value)}
+        className="h-full min-w-0 flex-1 bg-transparent text-[0.9375rem] text-brand-black outline-none placeholder:text-brand-text"
+      />
     </div>
   )
 }

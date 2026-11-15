@@ -35,11 +35,18 @@ export default function FiltersSheet({
         className="max-h-[85vh] gap-4 overflow-y-auto rounded-t-2xl bg-white p-5"
       >
         <SheetTitle className="text-lg text-brand-black">{t(content.filters.button)}</SheetTitle>
-        <BoardFilters filters={filters} onChange={onChange} cityKeys={cityKeys} stacked />
+        <div className="grid gap-3">
+          <BoardFilters
+            filters={filters}
+            onChange={onChange}
+            cityKeys={cityKeys}
+            variant="fields"
+          />
+        </div>
         <Button
           type="button"
           onClick={() => onOpenChange(false)}
-          className="h-12 rounded-xl text-base font-semibold"
+          className="h-12 rounded-full text-base font-medium"
         >
           {t(content.filters.show)} {formatCount(total, lang)}
         </Button>

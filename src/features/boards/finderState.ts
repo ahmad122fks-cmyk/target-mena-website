@@ -43,11 +43,12 @@ export function pageCount(total: number): number {
   return Math.max(1, Math.ceil(total / PAGE_SIZE))
 }
 
-export function pageOf<T>(items: T[], page: number): T[] {
-  return items.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE)
+/** "Show more": the first `page` batches of 24. */
+export function shownOf<T>(items: T[], page: number): T[] {
+  return items.slice(0, page * PAGE_SIZE)
 }
 
-/** Read the address bar: ?city=najaf&format=bridges&size=large&q=..&sort=size&view=list&page=2&codes=A,B&pick=1 */
+/** Read the address bar: ?city=najaf&format=bridges&size=large&faces=2&q=..&sort=size&view=list&page=2&codes=A,B&pick=1 */
 export function stateFromSearch(search: string): FinderState {
   const p = new URLSearchParams(search)
   const sort = p.get('sort') as Sort
@@ -56,6 +57,7 @@ export function stateFromSearch(search: string): FinderState {
     city: p.get('city') ?? '',
     format: p.get('format') ?? '',
     size: p.get('size') ?? '',
+    faces: p.get('faces') ?? '',
     query: p.get('q') ?? '',
     sort: SORTS.includes(sort) ? sort : 'recommended',
     view: p.get('view') === 'list' ? 'list' : 'grid',
@@ -72,6 +74,7 @@ export function searchFromState(state: FinderState): string {
   if (state.city) p.set('city', state.city)
   if (state.format) p.set('format', state.format)
   if (state.size) p.set('size', state.size)
+  if (state.faces) p.set('faces', state.faces)
   if (state.query) p.set('q', state.query)
   if (state.sort !== 'recommended') p.set('sort', state.sort)
   if (state.view !== 'grid') p.set('view', state.view)

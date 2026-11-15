@@ -60,6 +60,22 @@ test('phone menu opens and shows every main link', async ({ page }) => {
   await expect(dialog.getByRole('link')).toHaveCount(6)
 })
 
+test('finder and campaign: no horizontal scroll at phone width; list opens as a sheet', async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 375, height: 812 })
+  for (const url of ['/boards/', '/en/campaign/', '/boards/BGW03A/']) {
+    await page.goto(url)
+    const overflow = await page.evaluate(
+      () => document.documentElement.scrollWidth - window.innerWidth,
+    )
+    expect(overflow, url).toBeLessThanOrEqual(0)
+  }
+  await page.goto('/en/boards/')
+  await page.getByRole('button', { name: /My list/ }).click()
+  await expect(page.getByRole('dialog')).toContainText('Your list is empty')
+})
+
 test('index.html addresses show the home page, not the 404 page', async ({ page }) => {
   for (const url of ['/index.html', '/en/index.html']) {
     await page.goto(url, { waitUntil: 'networkidle' })

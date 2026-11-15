@@ -1,44 +1,48 @@
 import { BoardCard } from '@/components/shared/BoardCard'
-import { Pagination } from '@/components/shared/Pagination'
-import type { View } from '@/features/boards/finderState'
-import { useT } from '@/features/i18n/LangContext'
+import { PillButton } from '@/components/shared/PillButton'
+import { PAGE_SIZE, type View } from '@/features/boards/finderState'
+import { useLang, useT } from '@/features/i18n/LangContext'
 import type { Board } from '@/lib/boards'
+import { formatCount } from '@/lib/format'
 import { cn } from '@/lib/utils'
 import content from '../boards.content.json'
 
 type Props = {
   boards: Board[]
+  total: number
   view: View
-  page: number
-  pages: number
-  onPage: (page: number) => void
+  /** Side panel open: one column fewer. */
+  narrow: boolean
+  onMore: () => void
+  onAdd: () => void
 }
 
-/** One page of results (24) in grid or list view, with page numbers. */
-export function Results({ boards, view, page, pages, onPage }: Props) {
+/** The boards shown so far (24 at a time) in grid or list view, and "Show more". */
+export function Results({ boards, total, view, narrow, onMore, onAdd }: Props) {
   const t = useT()
-  const r = content.results
-  if (!boards.length) return <p className="py-10 text-lg">{t(r.none)}</p>
-  const labels = { pages: t(r.pages), prev: t(r.prev), next: t(r.next), page: t(r.page) }
-  const go = (next: number) => {
-    onPage(next)
-    document.getElementById('results-title')?.scrollIntoView({ block: 'start' })
-  }
+  const lang = useLang()
+  if (!boards.length) return <p className="py-10 text-lg">{t(content.results.none)}</p>
+  const next = Math.min(PAGE_SIZE, total - boards.length)
+  const columns =
+    view === 'list'
+      ? 'grid-cols-1'
+      : narrow
+        ? 'sm:grid-cols-2 xl:grid-cols-3'
+        : 'sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'
   return (
     <div className="flex flex-col gap-8">
-      <ul
-        className={cn(
-          'grid gap-5',
-          view === 'grid' ? 'sm:grid-cols-2 lg:grid-cols-3' : 'grid-cols-1',
-        )}
-      >
+      <ul className={cn('grid grid-cols-1 gap-[1.125rem]', columns)}>
         {boards.map((board, i) => (
-          <li key={board.code} className="flex">
-            <BoardCard board={board} layout={view} priority={i === 0} />
+          <li key={board.code} className="flex min-w-0">
+            <BoardCard board={board} layout={view} priority={i === 0} onAdd={onAdd} />
           </li>
         ))}
       </ul>
-      <Pagination page={page} pages={pages} onPage={go} labels={labels} />
+      {next > 0 && (
+        <PillButton tone="outline" onClick={onMore} className="self-center px-7">
+          {t(content.results.more)} · {formatCount(next, lang)}
+        </PillButton>
+      )}
     </div>
   )
 }

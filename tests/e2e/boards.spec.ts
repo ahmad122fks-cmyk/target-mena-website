@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test'
+import { expect, test, type Page } from '@playwright/test'
 
 test.describe('board page', () => {
   test('Arabic and English board pages show the facts and one H1', async ({ page }) => {
@@ -30,28 +30,59 @@ test.describe('board page', () => {
 })
 
 test.describe('finder', () => {
-  test('filters from the address show as chips; clear all removes them', async ({ page }) => {
+  const count = async (page: Page) =>
+    Number((await page.locator('#results-title').innerText()).match(/\d+/)?.[0])
+
+  test('filters from the address show on the pills and chips', async ({ page }) => {
     await page.goto('/en/boards/?city=najaf&format=bridges')
-    const chips = page.getByRole('button', { name: /Remove filter/ })
-    await expect(chips).toHaveCount(2)
-    const count = Number(await page.locator('#results-title .ltr-run').innerText())
-    expect(count).toBeGreaterThan(0)
-    await page.getByRole('button', { name: 'Clear all' }).click()
-    await expect(chips).toHaveCount(0)
-    await expect(page.locator('#results-title .ltr-run')).toHaveText('660')
+    const najaf = page.getByRole('button', { name: /^Najaf/ })
+    await expect(najaf).toHaveAttribute('aria-pressed', 'true')
+    await expect(page.locator('#f-format')).toContainText('Type: Bridges')
+    expect(await count(page)).toBeGreaterThan(0)
+    await page.getByRole('button', { name: /^All provinces/ }).click()
+    await expect(najaf).toHaveAttribute('aria-pressed', 'false')
+    expect(await count(page)).toBeGreaterThan(0)
   })
 
-  test('pages 24 at a time and keeps the page in the address', async ({ page }) => {
+  test('faces filter and province search', async ({ page }) => {
+    await page.goto('/en/boards/?faces=2')
+    await expect(page.locator('#f-faces')).toContainText('Faces: 2 faces')
+    expect(await count(page)).toBe(3)
+    await page.goto('/boards/?q=النجف')
+    await expect(page.locator('#f-q')).toHaveValue('النجف')
+    expect(await count(page)).toBeGreaterThanOrEqual(216)
+  })
+
+  test('shows 24 at a time; "Show more" adds 24 and keeps it in the address', async ({ page }) => {
     await page.goto('/en/boards/')
-    await expect(page.locator('main article, main [data-slot="card"]')).toHaveCount(24)
-    await page.getByRole('button', { name: 'Page 2', exact: true }).click()
+    const cards = page.locator('main article')
+    await expect(cards).toHaveCount(24)
+    await page.getByRole('button', { name: /Show more/ }).click()
+    await expect(cards).toHaveCount(48)
     await expect(page).toHaveURL(/page=2/)
+  })
+
+  test('"My list" opens as a side panel on desktop', async ({ page }, info) => {
+    test.skip(info.project.name === 'phone', 'phones get the sheet (smoke.spec.ts)')
+    await page.goto('/en/boards/?sort=code')
+    await expect(page.locator('#f-sort')).toHaveValue('code')
+    await page
+      .locator('main article')
+      .first()
+      .getByRole('button', { name: /Add to my list/ })
+      .click()
+    const panel = page.getByRole('complementary', { name: 'My list' })
+    await expect(panel).toBeVisible()
+    await expect(panel).toContainText('Total area')
+    await panel.getByRole('button', { name: 'Close my list' }).click()
+    await expect(panel).toHaveCount(0)
   })
 
   test('a shared link shows exactly those boards', async ({ page }) => {
     await page.goto('/en/boards/?codes=BGW03A,BBH20A')
-    await expect(page.locator('#results-title .ltr-run')).toHaveText('2')
-    await page.getByRole('button', { name: 'Add all to my selection' }).click()
+    await expect(page.locator('main article')).toHaveCount(2)
+    expect(await count(page)).toBe(2)
+    await page.getByRole('button', { name: 'Add all to my list' }).click()
     await expect(page.getByRole('button', { name: /My list/ })).toContainText('2')
   })
 

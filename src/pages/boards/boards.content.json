@@ -1,13 +1,19 @@
 {
   "seo": {
-    "title": { "ar": "ابحث عن لوحة إعلانية في العراق | تارگت للإعلان", "en": "Find a billboard in Iraq | Target Advertising" },
+    "title": {
+      "ar": "ابحث عن لوحة إعلانية في العراق | تارگت للإعلان",
+      "en": "Find a billboard in Iraq | Target Advertising"
+    },
     "description": {
       "ar": "ابحث في لوحات تارگت حسب المحافظة ونوع اللوحة والمساحة: جسور، أسطح، جداريات، لوحات مضاءة وشاشات. أضفها إلى قائمتك واطلبها.",
       "en": "Search Target's boards by province, type and size: bridges, rooftops, walls, backlits and screens. Add them to your selection and request them."
     }
   },
   "title": { "ar": "ابحث عن لوحة", "en": "Find a board" },
-  "intro": { "ar": "اختر المحافظة ونوع اللوحة والمساحة، وأضف اللوحات التي تناسبك إلى قائمتك.", "en": "Choose the province, board type and size, and add the boards that suit you to your selection." },
+  "intro": {
+    "ar": "اختر المحافظة والنوع والمساحة، أضف ما يعجبك إلى قائمتك، ثم اطلب القائمة كاملة.",
+    "en": "Choose the province, type and size, add what you like to your list, then request the whole list."
+  },
   "filters": {
     "label": { "ar": "فلاتر البحث", "en": "Search filters" },
     "button": { "ar": "الفلاتر", "en": "Filters" },
@@ -23,12 +29,21 @@
     "large": { "ar": "أكثر من 60 م²", "en": "Over 60 m²" },
     "clearAll": { "ar": "مسح الكل", "en": "Clear all" },
     "remove": { "ar": "إزالة الفلتر", "en": "Remove filter" },
-    "show": { "ar": "اعرض النتائج:", "en": "Show results:" }
+    "show": { "ar": "اعرض النتائج:", "en": "Show results:" },
+    "type": { "ar": "النوع", "en": "Type" },
+    "faces": { "ar": "الأوجه", "en": "Faces" },
+    "one": { "ar": "وجه واحد", "en": "1 face" },
+    "two": { "ar": "وجهان", "en": "2 faces" },
+    "placeholder": {
+      "ar": "ابحث بالرمز أو المنطقة، مثل BGW03A أو الكرادة",
+      "en": "Search by code or area, e.g. BGW03A or Karrada"
+    },
+    "provinces": { "ar": "المحافظات", "en": "Provinces" },
+    "allProvinces": { "ar": "كل المحافظات", "en": "All provinces" }
   },
   "results": {
-    "count": { "ar": "النتائج:", "en": "Results:" },
     "none": { "ar": "لا توجد لوحات بهذه الفلاتر.", "en": "No boards match these filters." },
-    "sort": { "ar": "الترتيب", "en": "Sort" },
+    "sort": { "ar": "ترتيب", "en": "Sort" },
     "recommended": { "ar": "المقترح أولاً", "en": "Recommended" },
     "code": { "ar": "الرمز", "en": "Code" },
     "province": { "ar": "المحافظة", "en": "Province" },
@@ -36,9 +51,7 @@
     "view": { "ar": "طريقة العرض", "en": "View" },
     "grid": { "ar": "شبكة", "en": "Grid" },
     "list": { "ar": "قائمة", "en": "List" },
-    "pages": { "ar": "الصفحات", "en": "Pages" },
-    "prev": { "ar": "السابق", "en": "Previous" },
-    "next": { "ar": "التالي", "en": "Next" },
-    "page": { "ar": "صفحة", "en": "Page" }
+    "more": { "ar": "عرض المزيد", "en": "Show more" },
+    "shown": { "ar": "معروض", "en": "shown" }
   }
 }

@@ -2,11 +2,11 @@ import { describe, expect, it } from 'vitest'
 import { seoFor } from '@/app/server/seo'
 import { matchRoute } from '@/app/routes'
 import raw from '@/data/boards.json'
-import { filterBoards, inSize, photosFirst } from '@/features/boards/filter'
+import { EMPTY_FILTERS, filterBoards, inSize, photosFirst } from '@/features/boards/filter'
 import {
   DEFAULT_STATE,
   pageCount,
-  pageOf,
+  shownOf,
   searchFromState,
   sortBoards,
   stateFromSearch,
@@ -19,19 +19,37 @@ const boards = raw as Board[]
 
 describe('finder filters', () => {
   it('filters by province, type, size and text', () => {
-    const najaf = filterBoards(boards, { city: 'najaf', format: '', size: '', query: '' }, 'ar')
+    const najaf = filterBoards(
+      boards,
+      { city: 'najaf', format: '', size: '', faces: '', query: '' },
+      'ar',
+    )
     expect(najaf.length).toBeGreaterThan(0)
     expect(najaf.every((b) => b.city === 'najaf')).toBe(true)
-    const bridges = filterBoards(boards, { city: '', format: 'bridges', size: '', query: '' }, 'en')
+    const bridges = filterBoards(
+      boards,
+      { city: '', format: 'bridges', size: '', faces: '', query: '' },
+      'en',
+    )
     expect(bridges.every((b) => formatOf(b.type) === 'bridges')).toBe(true)
     expect(
-      filterBoards(boards, { city: '', format: '', size: '', query: 'bgw03a' }, 'en').map(
-        (b) => b.code,
-      ),
+      filterBoards(
+        boards,
+        { city: '', format: '', size: '', faces: '', query: 'bgw03a' },
+        'en',
+      ).map((b) => b.code),
     ).toEqual(['BGW03A'])
     expect(
-      filterBoards(boards, { city: '', format: '', size: '', query: 'Karrada' }, 'en').length,
+      filterBoards(boards, { city: '', format: '', size: '', faces: '', query: 'Karrada' }, 'en')
+        .length,
     ).toBeGreaterThan(0)
+  })
+  it('filters by faces and finds a province by its name', () => {
+    const two = filterBoards(boards, { ...EMPTY_FILTERS, faces: '2' }, 'en')
+    expect(two.length).toBeGreaterThan(0)
+    expect(two.every((b) => b.faces === 2)).toBe(true)
+    const najaf = filterBoards(boards, { ...EMPTY_FILTERS, query: 'النجف' }, 'ar')
+    expect(najaf.some((b) => b.city === 'najaf')).toBe(true)
   })
   it('groups sizes by m²', () => {
     expect(inSize(12, 'small')).toBe(true)
@@ -61,7 +79,8 @@ describe('finder filters', () => {
     expect(sortBoards(boards, 'size')[0].sqm).toBe(Math.max(...boards.map((b) => b.sqm)))
     expect(sortBoards(boards, 'province')[0].city).toBe('baghdad')
     expect(pageCount(660)).toBe(28)
-    expect(pageOf(boards, 2)[0]).toBe(boards[24])
+    expect(shownOf(boards, 2)).toHaveLength(Math.min(48, boards.length))
+    expect(shownOf(boards, 1).at(-1)).toBe(boards[23])
   })
   it('shows boards with photos first', () => {
     const sorted = photosFirst(boards)
