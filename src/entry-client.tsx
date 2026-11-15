@@ -11,21 +11,27 @@ const embedded = document.getElementById('page-data')?.textContent
 
 /**
  * Pages led by a photo (finder, board pages): the prerendered page is already
- * on screen, so let that first photo (the LCP) download before the page's
- * own scripts compete for the connection. Never waits more than 2.5 s.
+ * on screen, so let that first photo (the LCP) load, decode and be drawn
+ * before the page's own scripts compete for the connection. At most 2.5 s.
  */
-function firstPhotoLoaded(): Promise<void> {
+async function firstPhotoShown(): Promise<void> {
   const img = document.querySelector<HTMLImageElement>('img[fetchpriority="high"]')
-  if (!img || img.complete) return Promise.resolve()
-  return new Promise((resolve) => {
-    img.addEventListener('load', () => resolve(), { once: true })
-    img.addEventListener('error', () => resolve(), { once: true })
-    setTimeout(resolve, 2500)
-  })
+  if (!img) return
+  const loaded = img.complete
+    ? Promise.resolve()
+    : new Promise<void>((resolve) => {
+        img.addEventListener('load', () => resolve(), { once: true })
+        img.addEventListener('error', () => resolve(), { once: true })
+      })
+  const shown = loaded
+    .then(() => img.decode())
+    .catch(() => {})
+    .then(() => new Promise<void>((resolve) => requestAnimationFrame(() => setTimeout(resolve, 0))))
+  await Promise.race([shown, new Promise<void>((resolve) => setTimeout(resolve, 2500))])
 }
 
 async function start() {
-  await firstPhotoLoaded()
+  await firstPhotoShown()
   // Built pages carry their data; `vite dev` computes it from the feed.
   let data: PageData = embedded ? JSON.parse(embedded) : { kind: 'notFound' }
   if (import.meta.env.DEV && !embedded) {
