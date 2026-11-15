@@ -32,6 +32,7 @@ export default function FiltersSheet({
         side="bottom"
         dir={useDir()}
         aria-describedby={undefined}
+        closeLabel={t(content.filters.close)}
         className="max-h-[85vh] gap-4 overflow-y-auto rounded-t-2xl bg-white p-5"
       >
         <SheetTitle className="text-lg text-brand-black">{t(content.filters.button)}</SheetTitle>

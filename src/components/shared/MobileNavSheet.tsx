@@ -19,6 +19,7 @@ export default function MobileNavSheet({ open, onOpenChange }: Props) {
         side={lang === 'ar' ? 'left' : 'right'}
         dir={dir}
         aria-describedby={undefined}
+        closeLabel={t(site.close)}
         className="w-[min(20rem,85vw)] gap-6 bg-white p-6 pt-14"
       >
         <SheetTitle className="sr-only">{t(site.navLabel)}</SheetTitle>

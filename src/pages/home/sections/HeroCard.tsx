@@ -87,13 +87,16 @@ export function HeroCard() {
         }
         className="start-3 top-0 lg:-start-[18px]"
       />
-      <FloatChip
-        icon={MapPin}
-        tint="bg-brand-yellow-10"
-        label={t(card.onSite)}
-        value={formatCount(total, lang)}
-        className="end-3 bottom-[7.5rem] lg:-end-[18px]"
-      />
+      {/* Same box as the map (560:300), so the chip never covers the tiles on phones. */}
+      <div className="pointer-events-none absolute inset-x-0 top-6 aspect-[560/300]">
+        <FloatChip
+          icon={MapPin}
+          tint="bg-brand-yellow-10"
+          label={t(card.onSite)}
+          value={formatCount(total, lang)}
+          className="end-3 bottom-3 lg:-end-[18px]"
+        />
+      </div>
       <ToConfirm what={card.mapToConfirm} className="mt-3 text-xs text-brand-text" />
     </div>
   )

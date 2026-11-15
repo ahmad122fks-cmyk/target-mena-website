@@ -4,6 +4,7 @@
   "skipLink": { "ar": "انتقل إلى المحتوى", "en": "Skip to content" },
   "navLabel": { "ar": "القائمة الرئيسية", "en": "Main menu" },
   "menuOpen": { "ar": "فتح القائمة", "en": "Open menu" },
+  "close": { "ar": "إغلاق", "en": "Close" },
   "nav": [
     {
       "path": "/boards/",

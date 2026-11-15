@@ -17,6 +17,7 @@
   "filters": {
     "label": { "ar": "فلاتر البحث", "en": "Search filters" },
     "button": { "ar": "الفلاتر", "en": "Filters" },
+    "close": { "ar": "إغلاق الفلاتر", "en": "Close filters" },
     "city": { "ar": "المحافظة", "en": "Province" },
     "format": { "ar": "نوع اللوحة", "en": "Board type" },
     "size": { "ar": "المساحة", "en": "Size" },

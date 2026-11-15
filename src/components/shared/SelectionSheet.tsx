@@ -1,5 +1,6 @@
 import { Sheet, SheetContent, SheetTitle } from '@/components/ui/sheet'
-import { useDir, useLang } from '@/features/i18n/LangContext'
+import content from '@/content/selection.json'
+import { useDir, useLang, useT } from '@/features/i18n/LangContext'
 import { SelectionPanel } from './SelectionPanel'
 
 type Props = { open: boolean; onOpenChange: (open: boolean) => void }
@@ -8,12 +9,14 @@ type Props = { open: boolean; onOpenChange: (open: boolean) => void }
 export default function SelectionSheet({ open, onOpenChange }: Props) {
   const lang = useLang()
   const dir = useDir()
+  const t = useT()
   return (
     <Sheet open={open} onOpenChange={onOpenChange}>
       <SheetContent
         side={lang === 'ar' ? 'left' : 'right'}
         dir={dir}
         aria-describedby={undefined}
+        closeLabel={t(content.close)}
         className="w-[min(26rem,92vw)] gap-0 bg-white p-0"
       >
         <SelectionPanel

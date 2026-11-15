@@ -38,3 +38,17 @@ test('every page type fits a phone and reads right-to-left in Arabic', async ({ 
   const code = page.locator('main .ltr-run', { hasText: 'BGW03A' }).first()
   expect(await code.evaluate((el) => getComputedStyle(el).direction)).toBe('ltr')
 })
+
+test('Arabic sheets put the close button at the left, clear of the title', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 })
+  await page.goto('/boards/?sort=code')
+  await page.locator('main article').first().getByRole('button', { name: 'أضف إلى قائمتي' }).click()
+  await page
+    .getByRole('button', { name: /^قائمتي/ })
+    .first()
+    .click()
+  const sheet = page.getByRole('dialog')
+  const close = (await sheet.getByRole('button', { name: 'إغلاق القائمة' }).boundingBox())!
+  const title = (await sheet.locator('h2').first().boundingBox())!
+  expect(close.x + close.width).toBeLessThanOrEqual(title.x)
+})
