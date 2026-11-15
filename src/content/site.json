@@ -31,7 +31,7 @@
     }
   ],
   "headerCta": {
-    "path": "/contact/",
+    "path": "/campaign/",
     "label": { "ar": "اطلب عرضاً", "en": "Request a proposal" }
   },
   "langSwitch": { "ar": "English", "en": "عربي" },
@@ -51,7 +51,7 @@
     "call": { "ar": "اتصل الآن", "en": "Call now" },
     "writeEmail": { "ar": "راسلنا", "en": "Email us" },
     "whatsapp": { "ar": "واتساب", "en": "WhatsApp" },
-    "whatsappToConfirm": "WhatsApp number"
+    "whatsappCta": { "ar": "راسلنا على واتساب", "en": "Message us on WhatsApp" }
   },
   "footer": {
     "rights": { "ar": "© 2026 تارگت للإعلان. جميع الحقوق محفوظة.", "en": "© 2026 Target Advertising. All rights reserved." },
@@ -65,7 +65,8 @@
   "crumbs": {
     "home": { "ar": "الرئيسية", "en": "Home" },
     "boards": { "ar": "ابحث عن لوحة", "en": "Find a board" },
-    "network": { "ar": "شبكة اللوحات", "en": "Network" }
+    "network": { "ar": "شبكة اللوحات", "en": "Network" },
+    "campaign": { "ar": "خطط حملتك", "en": "Plan your campaign" }
   },
   "breadcrumbLabel": { "ar": "مسار الصفحة", "en": "Breadcrumb" }
 }

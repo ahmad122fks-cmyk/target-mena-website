@@ -2,13 +2,15 @@ import { describe, expect, it } from 'vitest'
 import { seoFor } from '@/app/server/seo'
 import { matchRoute } from '@/app/routes'
 import raw from '@/data/boards.json'
+import { filterBoards, inSize, photosFirst } from '@/features/boards/filter'
 import {
-  filterBoards,
-  filtersFromSearch,
-  inSize,
-  photosFirst,
-  searchFromFilters,
-} from '@/features/boards/filter'
+  DEFAULT_STATE,
+  pageCount,
+  pageOf,
+  searchFromState,
+  sortBoards,
+  stateFromSearch,
+} from '@/features/boards/finderState'
 import { boardSlug, formatOf, type Board } from '@/lib/boards'
 import { formatCount } from '@/lib/format'
 import { codeVariants, matchPhoto } from '../../scripts/feed/photos'
@@ -37,10 +39,29 @@ describe('finder filters', () => {
     expect(inSize(196, 'large')).toBe(true)
     expect(inSize(196, '')).toBe(true)
   })
-  it('keeps filters in the address', () => {
-    const f = { city: 'najaf', format: 'bridges', size: 'large', query: 'x' }
-    expect(filtersFromSearch(searchFromFilters(f))).toEqual(f)
-    expect(searchFromFilters({ city: '', format: '', size: '', query: '' })).toBe('')
+  it('keeps filters, sort, view, page and shared codes in the address', () => {
+    const state = {
+      ...DEFAULT_STATE,
+      city: 'najaf',
+      format: 'bridges',
+      size: 'large',
+      query: 'x',
+      sort: 'size' as const,
+      view: 'list' as const,
+      page: 3,
+      codes: ['BGW03A', 'BBH20A'],
+      pick: true,
+    }
+    expect(stateFromSearch(searchFromState(state))).toEqual(state)
+    expect(searchFromState(DEFAULT_STATE)).toBe('')
+    expect(stateFromSearch('?page=-4&sort=evil&codes=<script>,BGW03A').page).toBe(1)
+    expect(stateFromSearch('?codes=<script>,bgw03a').codes).toEqual(['BGW03A'])
+  })
+  it('sorts by code, province and size; pages by 24', () => {
+    expect(sortBoards(boards, 'size')[0].sqm).toBe(Math.max(...boards.map((b) => b.sqm)))
+    expect(sortBoards(boards, 'province')[0].city).toBe('baghdad')
+    expect(pageCount(660)).toBe(28)
+    expect(pageOf(boards, 2)[0]).toBe(boards[24])
   })
   it('shows boards with photos first', () => {
     const sorted = photosFirst(boards)

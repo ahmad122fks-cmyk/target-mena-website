@@ -1,0 +1,20 @@
+{
+  "title": { "ar": "قائمتي", "en": "My selection" },
+  "add": { "ar": "أضف إلى قائمتي", "en": "Add to selection" },
+  "added": { "ar": "في قائمتي", "en": "In my selection" },
+  "details": { "ar": "التفاصيل", "en": "Details" },
+  "remove": { "ar": "إزالة", "en": "Remove" },
+  "clear": { "ar": "مسح القائمة", "en": "Clear" },
+  "empty": { "ar": "قائمتك فارغة. أضف لوحات من صفحة البحث.", "en": "Your selection is empty. Add boards from the finder." },
+  "browse": { "ar": "ابحث عن لوحات", "en": "Find boards" },
+  "request": { "ar": "اطلب هذه اللوحات", "en": "Request these boards" },
+  "share": { "ar": "انسخ رابط القائمة", "en": "Copy selection link" },
+  "copied": { "ar": "نُسخ الرابط", "en": "Link copied" },
+  "open": { "ar": "افتح قائمتي", "en": "Open my selection" },
+  "shared": { "ar": "قائمة لوحات مُرسلة إليك", "en": "A shared selection of boards" },
+  "addAll": { "ar": "أضف الكل إلى قائمتي", "en": "Add all to my selection" },
+  "showAll": { "ar": "اعرض كل اللوحات", "en": "Show all boards" },
+  "picker": { "ar": "اختر لوحات لحملتك، ثم ارجع إلى الطلب.", "en": "Choose boards for your campaign, then go back to your request." },
+  "planWith": { "ar": "خطط حملة بهذه اللوحة", "en": "Plan a campaign with this board" },
+  "backToCampaign": { "ar": "ارجع إلى الطلب", "en": "Back to my request" }
+}

@@ -8,6 +8,7 @@ import fs from 'node:fs/promises'
 import path from 'node:path'
 import { pathToFileURL } from 'node:url'
 import { fontPreload, heroPreload, modulePreloads } from './prerender-head'
+import { seoFiles } from './seo-files'
 
 const DIST = path.resolve('dist')
 type Rendered = {
@@ -55,6 +56,13 @@ for (const url of paths) {
 }
 // One 404 page for every unknown URL (the server sends it with status 404).
 await fs.writeFile(path.join(DIST, '404.html'), page('/404/'))
+
+// Sitemaps and robots.txt (BUILD-BRIEF 7).
+for (const [name, content] of Object.entries(
+  seoFiles(paths, new Date().toISOString().slice(0, 10)),
+)) {
+  await fs.writeFile(path.join(DIST, name), content)
+}
 
 await fs.rm(path.resolve('dist-ssr'), { recursive: true, force: true })
 console.log(`Prerendered ${paths.length + 1} pages (${paths.length / 2} per language + 404).`)

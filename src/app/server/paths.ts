@@ -7,6 +7,7 @@ export function allPaths(): string[] {
   const bases = [
     '/',
     '/boards/',
+    '/campaign/',
     ...BOARDS.map(boardPath),
     '/network/',
     ...provinceCounts().map((city) => `/network/${city.key}/`),

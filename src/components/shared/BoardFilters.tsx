@@ -1,70 +1,62 @@
-import cities from '@/data/cities.json'
 import type { Filters } from '@/features/boards/filter'
+import { cityOptions, formatOptions, sizeOptions } from '@/features/boards/options'
 import { useLang, useT } from '@/features/i18n/LangContext'
 import content from '@/pages/boards/boards.content.json'
-import { FORMATS } from '@/lib/boards'
-import { FilterSelect } from './FilterSelect'
-import { FormField } from './FormField'
+import { cn } from '@/lib/utils'
+import { FilterCombobox } from './FilterCombobox'
+import { SearchField } from './SearchField'
 
-type Props = { filters: Filters; onChange: (next: Filters) => void; cityKeys: string[] }
+type Props = {
+  filters: Filters
+  onChange: (patch: Partial<Filters>) => void
+  cityKeys: string[]
+  stacked?: boolean
+}
 
-/** Province, type, size and text search for the board finder. */
-export function BoardFilters({ filters, onChange, cityKeys }: Props) {
+/** Province, type and size (shadcn Combobox) plus code/area search. Used in the bar and the phone sheet. */
+export function BoardFilters({ filters, onChange, cityKeys, stacked = false }: Props) {
   const t = useT()
   const lang = useLang()
   const f = content.filters
-  const set = (key: keyof Filters) => (value: string) => onChange({ ...filters, [key]: value })
-  const cityOptions = cityKeys.map((key) => ({
-    value: key,
-    label: (cities as Record<string, { ar: string; en: string }>)[key][lang],
-  }))
+  const labels = { all: t(f.all), find: t(f.find), none: t(f.none) }
   return (
     <div
-      role="search"
-      aria-label={t(f.label)}
-      className="grid gap-4 sm:grid-cols-2 lg:grid-cols-[1fr_1fr_1fr_1.3fr_auto] lg:items-end"
+      className={cn(
+        'grid gap-3',
+        stacked ? 'grid-cols-1' : 'grid-cols-[1fr_1fr_1fr_1.4fr] items-end',
+      )}
     >
-      <FilterSelect
-        id="f-city"
+      <FilterCombobox
+        id={stacked ? 'm-city' : 'f-city'}
         label={t(f.city)}
-        all={t(f.all)}
+        labels={labels}
         value={filters.city}
-        onChange={set('city')}
-        options={cityOptions}
+        searchable
+        options={cityOptions(cityKeys, lang)}
+        onChange={(city) => onChange({ city })}
       />
-      <FilterSelect
-        id="f-format"
+      <FilterCombobox
+        id={stacked ? 'm-format' : 'f-format'}
         label={t(f.format)}
-        all={t(f.all)}
+        labels={labels}
         value={filters.format}
-        onChange={set('format')}
-        options={FORMATS.map((format) => ({ value: format.key, label: format.label[lang] }))}
+        options={formatOptions(lang)}
+        onChange={(format) => onChange({ format })}
       />
-      <FilterSelect
-        id="f-size"
+      <FilterCombobox
+        id={stacked ? 'm-size' : 'f-size'}
         label={t(f.size)}
-        all={t(f.all)}
+        labels={labels}
         value={filters.size}
-        onChange={set('size')}
-        options={(['small', 'medium', 'large'] as const).map((size) => ({
-          value: size,
-          label: t(f[size]),
-        }))}
+        options={sizeOptions(lang)}
+        onChange={(size) => onChange({ size })}
       />
-      <FormField
-        name="q"
-        type="search"
+      <SearchField
+        id={stacked ? 'm-q' : 'f-q'}
         label={t(f.query)}
         value={filters.query}
-        onChange={(e) => set('query')(e.target.value)}
+        onChange={(query) => onChange({ query })}
       />
-      <button
-        type="button"
-        onClick={() => onChange({ city: '', format: '', size: '', query: '' })}
-        className="min-h-12 rounded-xl px-4 font-semibold text-brand-blue hover:bg-brand-blue-10"
-      >
-        {t(f.reset)}
-      </button>
     </div>
   )
 }

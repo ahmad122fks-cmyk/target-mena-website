@@ -1,46 +1,44 @@
-import { useEffect, useState } from 'react'
 import { BoardCard } from '@/components/shared/BoardCard'
-import { Container } from '@/components/shared/Section'
-import { Button } from '@/components/ui/button'
+import { Pagination } from '@/components/shared/Pagination'
+import type { View } from '@/features/boards/finderState'
 import { useT } from '@/features/i18n/LangContext'
 import type { Board } from '@/lib/boards'
+import { cn } from '@/lib/utils'
 import content from '../boards.content.json'
 
-const PAGE = 24
+type Props = {
+  boards: Board[]
+  view: View
+  page: number
+  pages: number
+  onPage: (page: number) => void
+}
 
-/** Results grid, 24 at a time (keeps the page light on phones). */
-export function Results({ boards, resetKey }: { boards: Board[]; resetKey: string }) {
+/** One page of results (24) in grid or list view, with page numbers. */
+export function Results({ boards, view, page, pages, onPage }: Props) {
   const t = useT()
   const r = content.results
-  const [shown, setShown] = useState(PAGE)
-  useEffect(() => setShown(PAGE), [resetKey])
+  if (!boards.length) return <p className="py-10 text-lg">{t(r.none)}</p>
+  const labels = { pages: t(r.pages), prev: t(r.prev), next: t(r.next), page: t(r.page) }
+  const go = (next: number) => {
+    onPage(next)
+    document.getElementById('results-title')?.scrollIntoView({ block: 'start' })
+  }
   return (
-    <section aria-labelledby="results-title">
-      <Container className="flex flex-col gap-6 py-10 lg:py-14">
-        <h2 id="results-title" className="text-xl" aria-live="polite">
-          {t(r.count)} <span className="ltr-run">{boards.length}</span>
-        </h2>
-        {boards.length === 0 ? (
-          <p>{t(r.none)}</p>
-        ) : (
-          <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {boards.slice(0, shown).map((board) => (
-              <li key={board.code} className="flex">
-                <BoardCard board={board} requestLabel={t(r.request)} />
-              </li>
-            ))}
-          </ul>
+    <div className="flex flex-col gap-8">
+      <ul
+        className={cn(
+          'grid gap-5',
+          view === 'grid' ? 'sm:grid-cols-2 lg:grid-cols-3' : 'grid-cols-1',
         )}
-        {shown < boards.length && (
-          <Button
-            variant="outline"
-            onClick={() => setShown(shown + PAGE)}
-            className="h-12 self-center rounded-xl px-8 text-base font-semibold text-brand-blue"
-          >
-            {t(r.more)}
-          </Button>
-        )}
-      </Container>
-    </section>
+      >
+        {boards.map((board, i) => (
+          <li key={board.code} className="flex">
+            <BoardCard board={board} layout={view} priority={i === 0} />
+          </li>
+        ))}
+      </ul>
+      <Pagination page={page} pages={pages} onPage={go} labels={labels} />
+    </div>
   )
 }

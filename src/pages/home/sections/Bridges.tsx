@@ -12,7 +12,7 @@ export function Bridges() {
   const link = useLink()
   const { bridges } = content
   return (
-    <Section labelledBy="bridges-title">
+    <Section labelledBy="bridges-title" deferred>
       <div className="grid items-center gap-12 lg:grid-cols-2">
         <Photo
           picture={BOARD_PHOTOS[bridges.photo]}

@@ -1,4 +1,5 @@
 import boardsContent from '@/pages/boards/boards.content.json'
+import campaign from '@/pages/campaign/campaign.content.json'
 import board from '@/pages/board/board.content.json'
 import format from '@/pages/format/format.content.json'
 import home from '@/pages/home/home.content.json'
@@ -55,6 +56,8 @@ export function seoFor(data: PageData, lang: Lang): { title: string; description
       return pick(boardsContent.seo)
     case 'network':
       return pick(network.seo)
+    case 'static':
+      return pick(campaign.seo)
     case 'board':
       return boardSeo(data.board, lang)
     case 'province': {

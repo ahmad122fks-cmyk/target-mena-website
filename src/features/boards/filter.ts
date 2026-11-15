@@ -28,27 +28,6 @@ export function filterBoards(boards: Board[], filters: Filters, lang: Lang): Boa
   )
 }
 
-/** Filters from / to the address bar (?city=najaf&format=bridges), so results can be shared. */
-export function filtersFromSearch(search: string): Filters {
-  const params = new URLSearchParams(search)
-  return {
-    city: params.get('city') ?? '',
-    format: params.get('format') ?? '',
-    size: params.get('size') ?? '',
-    query: params.get('q') ?? '',
-  }
-}
-
-export function searchFromFilters(filters: Filters): string {
-  const params = new URLSearchParams()
-  if (filters.city) params.set('city', filters.city)
-  if (filters.format) params.set('format', filters.format)
-  if (filters.size) params.set('size', filters.size)
-  if (filters.query) params.set('q', filters.query)
-  const text = params.toString()
-  return text ? `?${text}` : ''
-}
-
 /** Boards with a real photo first (stable order otherwise), so results look complete. */
 export function photosFirst(boards: Board[]): Board[] {
   return [...boards.filter((board) => board.photo), ...boards.filter((board) => !board.photo)]

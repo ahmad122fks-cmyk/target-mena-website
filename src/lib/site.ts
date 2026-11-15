@@ -9,6 +9,15 @@ export const LOGO_WHITE = '/brand/target-logo-white.svg'
 
 export const CONTACT = site.contact
 
+/** WhatsApp number (Ahmad, 15 Nov 2026). */
+export const WHATSAPP = '+964 771 977 7199'
+
+/**
+ * Leads API (BUILD-BRIEF 5): set to 'https://admin.target-mena.cloud/api/public/leads'
+ * once it exists. While empty, requests go out by WhatsApp or email instead.
+ */
+export const LEADS_ENDPOINT = ''
+
 /** '+964 771 977 7199' -> 'tel:+9647719777199' */
 export function telHref(phone: string): string {
   return `tel:${phone.replace(/\s+/g, '')}`

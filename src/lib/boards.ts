@@ -72,7 +72,7 @@ export function boardSlug(code: string): string {
   return code.toUpperCase().replace(/[^A-Z0-9-]/g, '')
 }
 
-export function boardPath(board: Board): string {
+export function boardPath(board: Pick<Board, 'code'>): string {
   return `/boards/${boardSlug(board.code)}/`
 }
 

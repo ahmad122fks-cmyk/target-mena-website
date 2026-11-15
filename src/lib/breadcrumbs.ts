@@ -30,6 +30,8 @@ export function trailFor(data: PageData, lang: Lang): Crumb[] {
     }
     case 'network':
       return [home, network]
+    case 'static':
+      return [home, at(c.campaign[lang], '/campaign/')]
     case 'province':
       return [home, network, at(cityLabel(data.city, lang), `/network/${data.city}/`)]
     case 'format':

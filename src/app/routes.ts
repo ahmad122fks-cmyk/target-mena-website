@@ -1,7 +1,7 @@
 import { matchPath } from 'react-router'
 import type { Lang } from '@/features/i18n/lang'
 
-export type PageKey = 'home' | 'boards' | 'board' | 'network' | 'province' | 'format'
+export type PageKey = 'home' | 'boards' | 'board' | 'network' | 'province' | 'format' | 'campaign'
 
 /** URL patterns (Arabic; English adds /en). Every URL ends with a slash. */
 const PATTERNS: { pattern: string; page: PageKey }[] = [
@@ -11,6 +11,7 @@ const PATTERNS: { pattern: string; page: PageKey }[] = [
   { pattern: '/network/', page: 'network' },
   { pattern: '/network/:province/', page: 'province' },
   { pattern: '/formats/:format/', page: 'format' },
+  { pattern: '/campaign/', page: 'campaign' },
 ]
 
 export type RouteMatch = { page: PageKey; lang: Lang; params: Record<string, string>; base: string }

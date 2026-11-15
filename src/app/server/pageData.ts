@@ -23,6 +23,7 @@ export function getPageData(match: RouteMatch | null): PageData {
     return { kind: 'home', featured }
   }
   if (page === 'boards') return { kind: 'boards', boards: BOARDS }
+  if (page === 'campaign') return { kind: 'static', page: 'campaign' }
   if (page === 'board') {
     const board = findBoard(params.code)
     return board ? { kind: 'board', board, nearby: nearby(board) } : NOT_FOUND

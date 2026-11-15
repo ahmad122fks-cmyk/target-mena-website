@@ -9,4 +9,5 @@ export const PAGES: PageRegistry = {
   network: lazy(() => import('@/pages/network')),
   province: lazy(() => import('@/pages/province')),
   format: lazy(() => import('@/pages/format')),
+  campaign: lazy(() => import('@/pages/campaign')),
 }

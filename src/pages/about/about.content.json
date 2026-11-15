@@ -1,0 +1,28 @@
+{
+  "seo": {
+    "title": { "ar": "من نحن | تارگت للإعلان", "en": "About us | Target Advertising" },
+    "description": { "ar": "في تارگت، نتخصص في تقديم حلول تسويقية مبتكرة تحقق نتائج حقيقية. رؤيتنا ورسالتنا وقيمنا الأساسية.", "en": "At Target, we specialize in delivering innovative marketing solutions that drive real results. Our vision, mission and core values." }
+  },
+  "title": { "ar": "من نحن", "en": "About us" },
+  "intro": { "ar": "في تارگت، نتخصص في تقديم حلول تسويقية مبتكرة تحقق نتائج حقيقية. ومن خلال المزج بين الاستراتيجية الإبداعية والرؤى المبنية على البيانات، نساعد العلامات التجارية على التواصل مع جمهورها وتحقيق أهدافها. وتضمن خدماتنا المتكاملة، من الإعلانات الخارجية إلى الإعلام الرقمي والتصميم الإبداعي، أقصى تأثير في سوق اليوم التنافسي.", "en": "At Target, we specialize in delivering innovative marketing solutions that drive real results. With a blend of creative strategy and data-driven insights, we help brands connect with their audiences and achieve their goals. Our comprehensive services, from outdoor advertising to digital media and creative design, ensure maximum impact in today's competitive market." },
+  "blocks": [
+    { "type": "grid", "columns": 2, "items": [
+      { "title": { "ar": "رؤيتنا", "en": "Vision" }, "text": { "ar": "إحداث نقلة في صناعة التسويق في العراق، من خلال بناء روابط حقيقية وذات معنى بين العلامات التجارية والمستهلكين.", "en": "To revolutionize the marketing industry in Iraq by establishing authentic and meaningful connections between brands and consumers." } },
+      { "title": { "ar": "رسالتنا", "en": "Mission" }, "text": { "ar": "تقديم حلول إعلانية مبتكرة ومتصلة بالثقافة المحلية، تمكّن الشركات من النمو والازدهار في البيئة الاجتماعية والاقتصادية الفريدة للعراق. هدفنا إعادة تعريف معايير الصناعة وتحقيق نتائج مؤثرة لعملائنا.", "en": "To provide innovative, culturally relevant advertising solutions that empower businesses to grow and thrive in Iraq's unique socio-economic environment. Our goal is to redefine industry standards and drive impactful results for our clients." } }
+    ] },
+    { "type": "text", "tone": "ghost", "paragraphs": [
+      { "ar": "في تارگت للإعلان، نتخصص في صياغة استراتيجيات تسويقية مصممة خصيصاً تربط العلامات التجارية بجمهورها المثالي. ومن خلال المزج بين الرؤى المبنية على البيانات والإبداع، نقدّم حملات عالية التأثير مصممة لتحقيق نجاح قابل للقياس.", "en": "At Target Advertising, we specialize in crafting bespoke marketing strategies that connect brands with their ideal audiences. By blending data-driven insights with creative brilliance, we deliver high-impact campaigns designed to achieve measurable success." },
+      { "ar": "التزامنا الدائم بالابتكار يضمن أن يبقى عملاؤنا في الطليعة في سوق اليوم المتغير.", "en": "Our relentless commitment to innovation ensures that our clients stay ahead of the curve in today's dynamic marketplace." }
+    ] },
+    { "type": "grid", "title": { "ar": "قيمنا الأساسية", "en": "Our core values" }, "columns": 4, "items": [
+      { "title": { "ar": "الابتكار", "en": "Innovation" }, "text": { "ar": "ابتكار حلول إبداعية وفعّالة.", "en": "Pioneering creative and effective solutions." } },
+      { "title": { "ar": "الأصالة", "en": "Authenticity" }, "text": { "ar": "بناء روابط حقيقية بين العلامات التجارية والمستهلكين.", "en": "Building genuine connections between brands and consumers." } },
+      { "title": { "ar": "التميّز", "en": "Excellence" }, "text": { "ar": "السعي إلى أعلى جودة في جميع خدماتنا.", "en": "Striving for superior quality in all our services." } },
+      { "title": { "ar": "التعاون", "en": "Collaboration" }, "text": { "ar": "الشراكة مع عملائنا لتحقيق نجاح مشترك.", "en": "Partnering with clients to achieve mutual success." } },
+      { "title": { "ar": "الارتباط بالثقافة", "en": "Cultural relevance" }, "text": { "ar": "تكييف الاستراتيجيات مع البيئة الاجتماعية والاقتصادية والثقافية الفريدة للعراق.", "en": "Tailoring strategies to Iraq's unique socio-economic and cultural environment." } },
+      { "title": { "ar": "النزاهة", "en": "Integrity" }, "text": { "ar": "العمل بشفافية وصدق واحترافية.", "en": "Operating with transparency, honesty, and professionalism." } },
+      { "title": { "ar": "التأثير", "en": "Impact" }, "text": { "ar": "بناء حملات تُلهم وتُشرك وتحقق نتائج قابلة للقياس.", "en": "Building campaigns that inspire, engage, and deliver measurable outcomes." } },
+      { "title": { "ar": "المرونة", "en": "Adaptability" }, "text": { "ar": "سرعة الاستجابة والتكيف في سوق سريع التغير.", "en": "Staying agile and responsive in a fast-changing market." } }
+    ] }
+  ]
+}

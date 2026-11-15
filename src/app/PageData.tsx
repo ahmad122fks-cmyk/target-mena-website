@@ -17,6 +17,7 @@ export type PageData =
     }
   | { kind: 'province'; city: string; boards: Board[] }
   | { kind: 'format'; format: string; boards: Board[] }
+  | { kind: 'static'; page: 'campaign' }
   | { kind: 'notFound' }
 
 const PageDataContext = createContext<PageData>({ kind: 'notFound' })

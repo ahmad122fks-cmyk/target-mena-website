@@ -8,4 +8,5 @@ export const PAGE_SOURCES: Record<PageKey, string> = {
   network: 'src/pages/network/index.tsx',
   province: 'src/pages/province/index.tsx',
   format: 'src/pages/format/index.tsx',
+  campaign: 'src/pages/campaign/index.tsx',
 }

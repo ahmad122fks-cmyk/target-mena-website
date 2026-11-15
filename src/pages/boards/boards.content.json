@@ -2,28 +2,43 @@
   "seo": {
     "title": { "ar": "ابحث عن لوحة إعلانية في العراق | تارگت للإعلان", "en": "Find a billboard in Iraq | Target Advertising" },
     "description": {
-      "ar": "ابحث في لوحات تارگت حسب المحافظة ونوع اللوحة والمساحة: جسور، أسطح، جداريات، لوحات مضاءة وشاشات. اطلب اللوحة مباشرة.",
-      "en": "Search Target's boards by province, type and size: bridges, rooftops, walls, backlits and screens. Request a board directly."
+      "ar": "ابحث في لوحات تارگت حسب المحافظة ونوع اللوحة والمساحة: جسور، أسطح، جداريات، لوحات مضاءة وشاشات. أضفها إلى قائمتك واطلبها.",
+      "en": "Search Target's boards by province, type and size: bridges, rooftops, walls, backlits and screens. Add them to your selection and request them."
     }
   },
   "title": { "ar": "ابحث عن لوحة", "en": "Find a board" },
-  "intro": { "ar": "اختر المحافظة ونوع اللوحة والمساحة، ثم اطلب اللوحة التي تناسبك.", "en": "Choose the province, board type and size, then request the board that suits you." },
+  "intro": { "ar": "اختر المحافظة ونوع اللوحة والمساحة، وأضف اللوحات التي تناسبك إلى قائمتك.", "en": "Choose the province, board type and size, and add the boards that suit you to your selection." },
   "filters": {
     "label": { "ar": "فلاتر البحث", "en": "Search filters" },
+    "button": { "ar": "الفلاتر", "en": "Filters" },
     "city": { "ar": "المحافظة", "en": "Province" },
     "format": { "ar": "نوع اللوحة", "en": "Board type" },
     "size": { "ar": "المساحة", "en": "Size" },
     "query": { "ar": "ابحث بالرمز أو المنطقة", "en": "Search by code or area" },
     "all": { "ar": "الكل", "en": "All" },
+    "find": { "ar": "ابحث…", "en": "Search…" },
+    "none": { "ar": "لا نتائج", "en": "No results" },
     "small": { "ar": "حتى 20 م²", "en": "Up to 20 m²" },
     "medium": { "ar": "من 20 إلى 60 م²", "en": "20 to 60 m²" },
     "large": { "ar": "أكثر من 60 م²", "en": "Over 60 m²" },
-    "reset": { "ar": "مسح الفلاتر", "en": "Clear filters" }
+    "clearAll": { "ar": "مسح الكل", "en": "Clear all" },
+    "remove": { "ar": "إزالة الفلتر", "en": "Remove filter" },
+    "show": { "ar": "اعرض النتائج:", "en": "Show results:" }
   },
   "results": {
     "count": { "ar": "النتائج:", "en": "Results:" },
-    "more": { "ar": "عرض المزيد", "en": "Show more" },
     "none": { "ar": "لا توجد لوحات بهذه الفلاتر.", "en": "No boards match these filters." },
-    "request": { "ar": "اطلب هذه اللوحة", "en": "Request this board" }
+    "sort": { "ar": "الترتيب", "en": "Sort" },
+    "recommended": { "ar": "المقترح أولاً", "en": "Recommended" },
+    "code": { "ar": "الرمز", "en": "Code" },
+    "province": { "ar": "المحافظة", "en": "Province" },
+    "size": { "ar": "المساحة (الأكبر أولاً)", "en": "Size (largest first)" },
+    "view": { "ar": "طريقة العرض", "en": "View" },
+    "grid": { "ar": "شبكة", "en": "Grid" },
+    "list": { "ar": "قائمة", "en": "List" },
+    "pages": { "ar": "الصفحات", "en": "Pages" },
+    "prev": { "ar": "السابق", "en": "Previous" },
+    "next": { "ar": "التالي", "en": "Next" },
+    "page": { "ar": "صفحة", "en": "Page" }
   }
 }

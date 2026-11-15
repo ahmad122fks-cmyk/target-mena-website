@@ -10,51 +10,54 @@ test.describe('board page', () => {
       expect(response?.status()).toBe(200)
       await expect(page.locator('html')).toHaveAttribute('lang', lang)
       await expect(page.locator('h1')).toHaveCount(1)
-      await expect(page.locator('main')).toContainText('BGW03A')
       await expect(page.locator('main')).toContainText('9.8 × 20')
     }
   })
 
-  test('request form shows an error, then success', async ({ page }) => {
-    await page.goto('/en/boards/BGW03A/')
-    const form = page.locator('form#request')
-    await form.getByRole('button', { name: 'Send request' }).click()
-    await expect(form.getByRole('alert')).toBeVisible()
-    await form.getByLabel('Name').fill('Test')
-    await form.getByLabel('Phone number').fill('+964 700 000 0000')
-    await form.getByRole('button', { name: 'Send request' }).click()
-    await expect(form.getByRole('status')).toBeVisible()
-  })
-
-  test('honeypot: a filled hidden field never opens email', async ({ page }) => {
+  test('adds the board to the selection from its page', async ({ page }) => {
     await page.goto('/en/boards/BGW03A/')
     await page
-      .locator('input[name="website"]')
-      .evaluate((el: HTMLInputElement) => (el.value = 'bot'))
-    await page.locator('form#request').getByRole('button', { name: 'Send request' }).click()
-    await expect(page.locator('form#request').getByRole('status')).toBeVisible()
-    await expect(page).toHaveURL(/boards\/BGW03A/)
+      .locator('main')
+      .getByRole('button', { name: /Add to selection/ })
+      .first()
+      .click()
+    await expect(page.getByRole('button', { name: /My selection/ })).toContainText('1')
   })
 
   test('unknown board code returns 404', async ({ page }) => {
-    const response = await page.goto('/boards/NOT-A-BOARD/')
-    expect(response?.status()).toBe(404)
+    expect((await page.goto('/boards/NOT-A-BOARD/'))?.status()).toBe(404)
   })
 })
 
-test.describe('finder and network', () => {
-  test('filters by province from the address', async ({ page }) => {
-    await page.goto('/en/boards/?city=najaf')
-    await expect(page.locator('#f-city')).toHaveValue('najaf')
+test.describe('finder', () => {
+  test('filters from the address show as chips; clear all removes them', async ({ page }) => {
+    await page.goto('/en/boards/?city=najaf&format=bridges')
+    const chips = page.getByRole('button', { name: /Remove filter/ })
+    await expect(chips).toHaveCount(2)
     const count = Number(await page.locator('#results-title .ltr-run').innerText())
     expect(count).toBeGreaterThan(0)
-    expect(count).toBeLessThan(660)
+    await page.getByRole('button', { name: 'Clear all' }).click()
+    await expect(chips).toHaveCount(0)
+    await expect(page.locator('#results-title .ltr-run')).toHaveText('660')
+  })
+
+  test('pages 24 at a time and keeps the page in the address', async ({ page }) => {
+    await page.goto('/en/boards/')
+    await expect(page.locator('main article, main [data-slot="card"]')).toHaveCount(24)
+    await page.getByRole('button', { name: 'Page 2', exact: true }).click()
+    await expect(page).toHaveURL(/page=2/)
+  })
+
+  test('a shared link shows exactly those boards', async ({ page }) => {
+    await page.goto('/en/boards/?codes=BGW03A,BBH20A')
+    await expect(page.locator('#results-title .ltr-run')).toHaveText('2')
+    await page.getByRole('button', { name: 'Add all to my selection' }).click()
+    await expect(page.getByRole('button', { name: /My selection/ })).toContainText('2')
   })
 
   test('network, province and format pages load', async ({ page }) => {
     for (const url of ['/network/', '/en/network/najaf/', '/formats/bridges/']) {
-      const response = await page.goto(url)
-      expect(response?.status()).toBe(200)
+      expect((await page.goto(url))?.status()).toBe(200)
       await expect(page.locator('h1')).toHaveCount(1)
     }
   })

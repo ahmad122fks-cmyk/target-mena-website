@@ -13,7 +13,7 @@ export function fontPreload(assets: string[], lang: 'ar' | 'en'): string {
 /** The above-the-fold photo (<img fetchpriority="high">), the page's LCP element. */
 export function heroPreload(html: string): string {
   const picture = html.match(
-    /<picture>(?:(?!<\/picture>)[\s\S])*?fetchpriority="high"[\s\S]*?<\/picture>/i,
+    /<picture[^>]*>(?:(?!<\/picture>)[\s\S])*?fetchpriority="high"[\s\S]*?<\/picture>/i,
   )?.[0]
   const avif = picture?.match(/<source type="image\/avif" srcset="([^"]+)" sizes="([^"]+)"/i)
   if (avif)

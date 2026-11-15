@@ -2,6 +2,7 @@ import { useEffect, type ReactNode } from 'react'
 import { ContactBlock } from '@/components/shared/ContactBlock'
 import { Footer } from '@/components/shared/Footer'
 import { Header } from '@/components/shared/Header'
+import { SelectionButton } from '@/components/shared/SelectionButton'
 import { dirOf, type Lang } from '@/features/i18n/lang'
 import { LangProvider } from '@/features/i18n/LangContext'
 
@@ -23,6 +24,7 @@ export function SiteLayout({ lang, children }: { lang: Lang; children: ReactNode
       </main>
       <ContactBlock />
       <Footer />
+      <SelectionButton />
     </LangProvider>
   )
 }

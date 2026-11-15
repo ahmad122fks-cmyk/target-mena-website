@@ -27,7 +27,7 @@ export function Nearby({ board, nearby }: { board: Board; nearby: Board[] }) {
       <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {nearby.map((other) => (
           <li key={other.code} className="flex">
-            <BoardCard board={other} requestLabel={t(content.request)} />
+            <BoardCard board={other} />
           </li>
         ))}
       </ul>

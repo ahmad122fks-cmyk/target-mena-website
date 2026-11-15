@@ -1,5 +1,6 @@
 import BoardPage from '@/pages/board'
 import BoardsPage from '@/pages/boards'
+import CampaignPage from '@/pages/campaign'
 import FormatPage from '@/pages/format'
 import HomePage from '@/pages/home'
 import NetworkPage from '@/pages/network'
@@ -14,4 +15,5 @@ export const PAGES: PageRegistry = {
   network: NetworkPage,
   province: ProvincePage,
   format: FormatPage,
+  campaign: CampaignPage,
 }

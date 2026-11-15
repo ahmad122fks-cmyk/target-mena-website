@@ -20,7 +20,7 @@ export function Studio() {
     <p className="text-brand-grey-40">{items.map((item) => t(item)).join(' · ')}</p>
   )
   return (
-    <Section tone="black" labelledBy="studio-title">
+    <Section tone="black" labelledBy="studio-title" deferred>
       <h2 id="studio-title" className="mb-12 text-3xl sm:text-4xl">
         {t(studio.title)}
       </h2>

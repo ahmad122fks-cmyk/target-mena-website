@@ -1,10 +1,9 @@
 import { Fragment } from 'react'
 import { useT } from '@/features/i18n/LangContext'
-import { CONTACT, telHref } from '@/lib/site'
+import { CONTACT, telHref, WHATSAPP } from '@/lib/site'
 import { CtaLink } from './CtaLink'
 import { Section } from './Section'
 import { SectionHeading } from './SectionHeading'
-import { ToConfirm } from './ToConfirm'
 
 /** The one contact block, identical on every page (CLAUDE.md). Plain blue band. */
 export function ContactBlock() {
@@ -41,13 +40,13 @@ export function ContactBlock() {
           <CtaLink tone="white" href={telHref(c.phones[0])}>
             {t(c.call)}
           </CtaLink>
+          <CtaLink tone="outlineLight" href={`https://wa.me/${WHATSAPP.replace(/\D/g, '')}`}>
+            {t(c.whatsappCta)}
+          </CtaLink>
           <CtaLink tone="outlineLight" href={`mailto:${c.email}`}>
             {t(c.writeEmail)}
           </CtaLink>
         </div>
-        <p className="flex flex-wrap items-center gap-2 font-semibold">
-          {t(c.whatsapp)} <ToConfirm what={c.whatsappToConfirm} />
-        </p>
       </div>
     </Section>
   )

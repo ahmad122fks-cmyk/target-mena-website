@@ -15,7 +15,7 @@ export function Clients() {
   const t = useT()
   const { clients } = content
   return (
-    <Section labelledBy="clients-title" className="border-t [&>div]:py-12">
+    <Section labelledBy="clients-title" deferred className="border-t [&>div]:py-12">
       <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6">
         <h2 id="clients-title" className="text-base font-medium text-brand-text">
           {t(clients.title)}

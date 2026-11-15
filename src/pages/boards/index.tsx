@@ -1,50 +1,65 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useMemo } from 'react'
 import { usePageData } from '@/app/PageData'
-import { BoardFilters } from '@/components/shared/BoardFilters'
 import { PageHero } from '@/components/shared/PageHero'
 import { Container } from '@/components/shared/Section'
-import {
-  EMPTY_FILTERS,
-  filterBoards,
-  filtersFromSearch,
-  photosFirst,
-  searchFromFilters,
-  type Filters,
-} from '@/features/boards/filter'
+import { filterBoards } from '@/features/boards/filter'
+import { pageCount, pageOf, sortBoards } from '@/features/boards/finderState'
+import { useFinderState } from '@/features/boards/useFinderState'
 import { useLang, useT } from '@/features/i18n/LangContext'
 import { trailFor } from '@/lib/breadcrumbs'
 import content from './boards.content.json'
+import { PickerBanner, SharedBanner } from './sections/Banners'
+import { FilterBar } from './sections/FilterBar'
 import { Results } from './sections/Results'
+import { ResultsBar } from './sections/ResultsBar'
 
-/** Board finder: every published board, filtered in the browser. */
+/** Board finder: filters, chips, sort, grid/list, 24 per page; everything kept in the address. */
 export default function BoardsPage() {
   const data = usePageData('boards')
   const t = useT()
   const lang = useLang()
-  const [filters, setFilters] = useState<Filters>(EMPTY_FILTERS)
-  // Read ?city=&format= after hydration so the prerendered HTML always matches.
-  useEffect(() => setFilters(filtersFromSearch(window.location.search)), [])
-  const change = (next: Filters) => {
-    setFilters(next)
-    window.history.replaceState(null, '', `${window.location.pathname}${searchFromFilters(next)}`)
-  }
+  const [state, update] = useFinderState()
   const cityKeys = useMemo(
     () => [...new Set(data.boards.map((board) => board.city))],
     [data.boards],
   )
-  const results = useMemo(
-    () => photosFirst(filterBoards(data.boards, filters, lang)),
-    [data.boards, filters, lang],
+  const shared = useMemo(
+    () => data.boards.filter((board) => state.codes.includes(board.code)),
+    [data.boards, state.codes],
   )
+  const results = useMemo(
+    () =>
+      sortBoards(filterBoards(state.codes.length ? shared : data.boards, state, lang), state.sort),
+    [data.boards, shared, state, lang],
+  )
+  const pages = pageCount(results.length)
+  const page = Math.min(state.page, pages)
   return (
     <>
       <PageHero crumbs={trailFor(data, lang)} title={t(content.title)} intro={t(content.intro)} />
-      <section aria-label={t(content.filters.label)} className="border-b bg-brand-ghost">
-        <Container className="py-6">
-          <BoardFilters filters={filters} onChange={change} cityKeys={cityKeys} />
+      <FilterBar filters={state} onChange={update} cityKeys={cityKeys} total={results.length} />
+      <section aria-labelledby="results-title">
+        <Container className="flex flex-col gap-6 py-8 lg:py-10">
+          {state.pick && <PickerBanner />}
+          {state.codes.length > 0 && (
+            <SharedBanner boards={shared} onShowAll={() => update({ codes: [] })} />
+          )}
+          <ResultsBar
+            total={results.length}
+            sort={state.sort}
+            view={state.view}
+            onSort={(sort) => update({ sort })}
+            onView={(view) => update({ view })}
+          />
+          <Results
+            boards={pageOf(results, page)}
+            view={state.view}
+            page={page}
+            pages={pages}
+            onPage={(next) => update({ page: next })}
+          />
         </Container>
       </section>
-      <Results boards={results} resetKey={searchFromFilters(filters)} />
     </>
   )
 }

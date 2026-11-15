@@ -17,7 +17,7 @@ export function Services() {
   const link = useLink()
   const { services } = content
   return (
-    <Section tone="ghost" labelledBy="services-title">
+    <Section tone="ghost" labelledBy="services-title" deferred>
       <h2 id="services-title" className="mb-10 text-3xl sm:text-4xl">
         {t(services.title)}
       </h2>

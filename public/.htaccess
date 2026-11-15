@@ -1,0 +1,51 @@
+# target-mena.com - server rules for Apache (BUILD-BRIEF 7 and 8).
+# Nginx versions of the same rules are in DEPLOY.md.
+
+Options -Indexes -MultiViews
+DirectoryIndex index.html
+ErrorDocument 404 /404.html
+
+RewriteEngine On
+
+# HTTPS and no "www" (301)
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTP_HOST} ^www\. [NC]
+RewriteRule ^ https://target-mena.com%{REQUEST_URI} [R=301,L]
+
+# Old cache folders: forbidden (403)
+RewriteRule ^target-[^/]*-cache(/|$) - [F,L]
+
+# Old product pages: gone (410)
+RewriteRule ^product(/.*)?$ - [G,L]
+
+# Old site addresses -> new pages (301)
+RewriteRule ^services/?$ /en/ [R=301,L]
+RewriteRule ^locations/?$ /en/network/ [R=301,L]
+RewriteRule ^panels/?$ /en/network/ [R=301,L]
+RewriteRule ^tv/?$ /en/alrabiaa/ [R=301,L]
+RewriteRule ^products(/.*)?$ /en/boards/ [R=301,L]
+RewriteRule ^projects/?$ /en/work/ [R=301,L]
+RewriteRule ^project/.*$ /en/work/ [R=301,L]
+RewriteRule ^plan/.*$ /en/alrabiaa/ [R=301,L]
+RewriteRule ^country/.*$ /en/network/ [R=301,L]
+# /about and /contact are NOT redirected: they are now the Arabic About and
+# Contact pages (each links to its English version). See DEPLOY.md.
+
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  # Hashed build files never change; everything else is checked daily.
+  <If "%{REQUEST_URI} =~ m#^/assets/#">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </If>
+  <ElseIf "%{REQUEST_URI} =~ m#\.(avif|webp|jpg|png|svg|woff2)$#">
+    Header set Cache-Control "public, max-age=604800"
+  </ElseIf>
+  <Else>
+    Header set Cache-Control "no-cache"
+  </Else>
+</IfModule>
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml application/xml application/javascript application/json image/svg+xml
+</IfModule>

@@ -25,16 +25,35 @@ type Props = {
   art?: ReactNode
   /** Skip the standard container (the section lays itself out). */
   bare?: boolean
+  /**
+   * Below the fold: the browser skips laying it out (and loading its lazy
+   * photos) until the visitor scrolls near it. Keeps the first view fast.
+   */
+  deferred?: boolean
   className?: string
   children: ReactNode
 }
 
-export function Section({ tone = 'white', id, labelledBy, art, bare, className, children }: Props) {
+export function Section({
+  tone = 'white',
+  id,
+  labelledBy,
+  art,
+  bare,
+  deferred,
+  className,
+  children,
+}: Props) {
   return (
     <section
       id={id}
       aria-labelledby={labelledBy}
-      className={cn('relative overflow-hidden', SECTION_TONES[tone], className)}
+      className={cn(
+        'relative overflow-hidden',
+        deferred && '[contain-intrinsic-size:auto_900px] [content-visibility:auto]',
+        SECTION_TONES[tone],
+        className,
+      )}
     >
       {art}
       {bare ? children : <Container className="py-16 lg:py-24">{children}</Container>}

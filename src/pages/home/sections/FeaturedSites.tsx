@@ -11,7 +11,7 @@ export function FeaturedSites() {
   const link = useLink()
   const { featured } = content
   return (
-    <Section tone="ghost" labelledBy="featured-title">
+    <Section tone="ghost" labelledBy="featured-title" deferred>
       <div className="mb-10 flex flex-wrap items-end justify-between gap-3">
         <h2 id="featured-title" className="text-3xl sm:text-4xl">
           {t(featured.title)}
@@ -26,7 +26,7 @@ export function FeaturedSites() {
       <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {boards.map((board) => (
           <li key={board.code} className="flex">
-            <BoardCard board={board} requestLabel={t(featured.request)} />
+            <BoardCard board={board} />
           </li>
         ))}
       </ul>

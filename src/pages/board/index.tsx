@@ -1,14 +1,14 @@
 import { usePageData } from '@/app/PageData'
 import { Breadcrumbs } from '@/components/shared/Breadcrumbs'
-import { RequestForm } from '@/components/shared/RequestForm'
 import { Container } from '@/components/shared/Section'
 import { useLang } from '@/features/i18n/LangContext'
 import { trailFor } from '@/lib/breadcrumbs'
+import { BoardActions } from './sections/BoardActions'
 import { BoardDetails } from './sections/BoardDetails'
 import { BoardMedia } from './sections/BoardMedia'
 import { Nearby } from './sections/Nearby'
 
-/** One board (approved demo "Board page"): real photo, facts, map, request form, nearby sites. */
+/** One board (approved demo "Board page"): real photo, facts, map, add to selection, nearby sites. */
 export default function BoardPage() {
   const data = usePageData('board')
   const lang = useLang()
@@ -21,7 +21,7 @@ export default function BoardPage() {
         <BoardMedia board={data.board} />
         <div className="flex flex-col gap-8">
           <BoardDetails board={data.board} />
-          <RequestForm code={data.board.code} />
+          <BoardActions board={data.board} />
         </div>
       </Container>
       <Nearby board={data.board} nearby={data.nearby} />
