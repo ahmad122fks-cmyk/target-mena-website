@@ -3,6 +3,7 @@
 
 Options -Indexes -MultiViews
 DirectoryIndex index.html
+AddDefaultCharset UTF-8
 ErrorDocument 404 /404.html
 
 RewriteEngine On
@@ -47,5 +48,5 @@ RewriteRule ^country/.*$ /en/network/ [R=301,L]
 </IfModule>
 
 <IfModule mod_deflate.c>
-  AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml application/xml application/javascript application/json image/svg+xml
+  AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml application/xml text/javascript application/javascript application/json image/svg+xml
 </IfModule>

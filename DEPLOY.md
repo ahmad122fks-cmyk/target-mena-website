@@ -82,7 +82,8 @@ server {
   error_page 404 /404.html;
 
   gzip on;
-  gzip_types text/css text/plain application/javascript application/json application/xml image/svg+xml;
+  charset utf-8;
+  gzip_types text/css text/plain text/javascript application/javascript application/json application/xml image/svg+xml;
 
   # Old cache folders: forbidden. Old product pages: gone.
   location ~ ^/target-[^/]*-cache(/|$) { return 403; }
