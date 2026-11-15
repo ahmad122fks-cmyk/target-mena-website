@@ -5,3 +5,11 @@ npx --no-install tsx scripts/check-forbidden.ts --staged || {
   echo "Commit blocked: remove the forbidden content above, then commit again."
   exit 1
 }
+# Site files silently caught by a .gitignore rule (e.g. "*Planner*") would be
+# missing from the repo and break the build on GitHub. Only *.private.* may be ignored.
+ignored=$(git ls-files --others --ignored --exclude-standard src public scripts tests | grep -v '\.private\.')
+if [ -n "$ignored" ]; then
+  echo "Commit blocked: these site files are ignored by .gitignore and would be missing on GitHub:"
+  echo "$ignored"
+  exit 1
+fi

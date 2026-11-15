@@ -1,8 +1,8 @@
+import { AlrabiaaSales } from './sections/AlrabiaaSales'
 import { Feed } from './sections/Feed'
 import { Formats } from './sections/Formats'
 import { Hero } from './sections/Hero'
 import { Numbers } from './sections/Numbers'
-import { Planner } from './sections/Planner'
 import { Platform } from './sections/Platform'
 import { Portal } from './sections/Portal'
 import { Provinces } from './sections/Provinces'
@@ -26,7 +26,7 @@ export default function HomePage() {
       <Provinces />
       <Platform />
       <Portal />
-      <Planner />
+      <AlrabiaaSales />
       <Services />
       <Numbers />
     </>
