@@ -1,10 +1,12 @@
+import { usePageData } from '@/app/PageData'
 import { BoardCard } from '@/components/shared/BoardCard'
 import { Section } from '@/components/shared/Section'
 import { useLink, useT } from '@/features/i18n/LangContext'
 import content from '../home.content.json'
 
-/** Three real sites from the approved demo (data checked against the inventory, no prices). */
+/** Three real sites from the approved demo, read from the board feed (no prices). */
 export function FeaturedSites() {
+  const { featured: boards } = usePageData('home')
   const t = useT()
   const link = useLink()
   const { featured } = content
@@ -21,11 +23,13 @@ export function FeaturedSites() {
           {t(featured.all.label)}
         </a>
       </div>
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {featured.boards.map((board) => (
-          <BoardCard key={board.code} board={board} requestLabel={t(featured.request)} />
+      <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {boards.map((board) => (
+          <li key={board.code} className="flex">
+            <BoardCard board={board} requestLabel={t(featured.request)} />
+          </li>
         ))}
-      </div>
+      </ul>
     </Section>
   )
 }

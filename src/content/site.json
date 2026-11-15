@@ -6,32 +6,32 @@
   "menuOpen": { "ar": "فتح القائمة", "en": "Open menu" },
   "nav": [
     {
-      "path": "/network",
+      "path": "/network/",
       "label": { "ar": "شبكة اللوحات", "en": "Network" }
     },
     {
-      "path": "/boards",
+      "path": "/boards/",
       "label": { "ar": "ابحث عن لوحة", "en": "Find a board" }
     },
     {
-      "path": "/highway-bridges",
+      "path": "/highway-bridges/",
       "label": { "ar": "جسور الطرق السريعة", "en": "Highway bridges" }
     },
     {
-      "path": "/production",
+      "path": "/production/",
       "label": { "ar": "الإنتاج والفعاليات", "en": "Production & events" }
     },
     {
-      "path": "/alrabiaa",
+      "path": "/alrabiaa/",
       "label": { "ar": "قناة الرابعة", "en": "Alrabiaa TV" }
     },
     {
-      "path": "/contact",
+      "path": "/contact/",
       "label": { "ar": "اتصل بنا", "en": "Contact" }
     }
   ],
   "headerCta": {
-    "path": "/contact",
+    "path": "/contact/",
     "label": { "ar": "اطلب عرضاً", "en": "Request a proposal" }
   },
   "langSwitch": { "ar": "English", "en": "عربي" },
@@ -56,10 +56,16 @@
   "footer": {
     "rights": { "ar": "© 2026 تارگت للإعلان. جميع الحقوق محفوظة.", "en": "© 2026 Target Advertising. All rights reserved." },
     "privacy": {
-      "path": "/privacy",
+      "path": "/privacy/",
       "label": { "ar": "الخصوصية", "en": "Privacy" }
     },
     "footerNav": { "ar": "روابط التذييل", "en": "Footer links" }
   },
-  "photoOnRequest": { "ar": "الصورة عند الطلب", "en": "Photo on request" }
+  "photoOnRequest": { "ar": "الصورة عند الطلب", "en": "Photo on request" },
+  "crumbs": {
+    "home": { "ar": "الرئيسية", "en": "Home" },
+    "boards": { "ar": "ابحث عن لوحة", "en": "Find a board" },
+    "network": { "ar": "شبكة اللوحات", "en": "Network" }
+  },
+  "breadcrumbLabel": { "ar": "مسار الصفحة", "en": "Breadcrumb" }
 }

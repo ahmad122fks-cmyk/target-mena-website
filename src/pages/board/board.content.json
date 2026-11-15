@@ -1,0 +1,29 @@
+{
+  "seo": {
+    "title": { "ar": "لوحة {type} في {place}، {city} | {code} | تارگت", "en": "{type} billboard in {place}, {city} | {code} | Target" },
+    "description": {
+      "ar": "لوحة {type} {code} في {place}، {city}. القياس {size}، المساحة {sqm}، {faces}. صورة حقيقية للموقع، اطلب اللوحة مباشرة من تارگت.",
+      "en": "{type} billboard {code} in {place}, {city}. Size {size}, area {sqm}, {faces}. Real site photo. Request this board directly from Target."
+    }
+  },
+  "typeTitle": {
+    "bridge": { "ar": "جسر", "en": "Bridge" },
+    "rooftop": { "ar": "سطح", "en": "Rooftop" },
+    "wall": { "ar": "جدارية", "en": "Wall" },
+    "wallsign": { "ar": "جدارية", "en": "Wall sign" },
+    "backlit": { "ar": "مضاءة", "en": "Backlit" },
+    "mupi": { "ar": "موبي", "en": "Mupi" },
+    "unipole": { "ar": "يونيبول", "en": "Unipole" },
+    "megapole": { "ar": "ميغابول", "en": "Megapole" },
+    "screen": { "ar": "شاشة LED", "en": "LED screen" }
+  },
+  "size": { "ar": "القياس (ارتفاع × عرض)", "en": "Size (height × width)" },
+  "sqm": { "ar": "المساحة", "en": "Area" },
+  "faces": { "ar": "عدد الأوجه", "en": "Faces" },
+  "location": { "ar": "الموقع", "en": "Location" },
+  "map": { "ar": "افتح الموقع في خرائط Google", "en": "Open in Google Maps" },
+  "realPhoto": { "ar": "صورة حقيقية للموقع، دون تعديل.", "en": "Real site photo, unedited." },
+  "nearby": { "ar": "مواقع قريبة", "en": "Nearby sites" },
+  "request": { "ar": "اطلب هذه اللوحة", "en": "Request this board" },
+  "allIn": { "ar": "كل لوحات {city}", "en": "All boards in {city}" }
+}

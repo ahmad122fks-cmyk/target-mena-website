@@ -1,14 +1,18 @@
 /*
  * Lighthouse CI budgets (BUILD-BRIEF 2.4): mobile preset, every score >= 90,
  * LCP < 2.5 s, CLS < 0.1, TBT < 200 ms. The GitHub Action fails otherwise.
- * Phase 1 pages: home AR and EN. Phases 2-3 add a board page, the finder
- * and contact. Reports stay on disk (nothing is uploaded anywhere).
+ * Pages: home AR and EN, one board page, the board finder; phase 3 adds contact. Reports stay on disk (nothing is uploaded anywhere).
  */
 module.exports = {
   ci: {
     collect: {
       staticDistDir: './dist',
-      url: ['http://localhost/index.html', 'http://localhost/en/index.html'],
+      url: [
+        'http://localhost/index.html',
+        'http://localhost/en/index.html',
+        'http://localhost/boards/BGW03A/index.html',
+        'http://localhost/boards/index.html',
+      ],
       numberOfRuns: 3,
       settings: { chromeFlags: '--no-sandbox --headless=new' },
     },

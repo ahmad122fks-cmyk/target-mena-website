@@ -10,7 +10,7 @@
     "light": { "ar": "في كل مكان في العراق.", "en": "in Iraq." },
     "lead": { "ar": "لوحات على الأسطح والجسور والجدران في بغداد والنجف والمحافظات، وجسور على الطرق السريعة، مع الإنتاج والبث على قناة الرابعة.", "en": "Rooftops, bridges and walls across Baghdad, Najaf and the provinces, highway bridges between cities, plus production and airtime on Alrabiaa TV." },
     "primary": {
-      "path": "/boards",
+      "path": "/boards/",
       "label": { "ar": "ابحث عن لوحة", "en": "Find a board" }
     },
     "secondary": {
@@ -46,41 +46,14 @@
   "featured": {
     "title": { "ar": "مواقع مختارة", "en": "Featured sites" },
     "all": {
-      "path": "/boards",
+      "path": "/boards/",
       "label": { "ar": "كل اللوحات", "en": "All boards" }
     },
     "request": { "ar": "اطلب هذه اللوحة", "en": "Request this board" },
-    "boards": [
-      {
-        "code": "BGW03A",
-        "type": { "ar": "جدارية", "en": "Wall" },
-        "place": { "ar": "الكرادة · شارع النضال", "en": "Karrada · Al-Nidhal Street" },
-        "city": { "ar": "بغداد", "en": "Baghdad" },
-        "height": 9.8,
-        "width": 20,
-        "sqm": 196,
-        "faces": 1
-      },
-      {
-        "code": "BGW02A",
-        "type": { "ar": "جدارية", "en": "Wall" },
-        "place": { "ar": "الكرادة · باتجاه ساحة كهرمانة", "en": "Karrada · facing Kahramana Square" },
-        "city": { "ar": "بغداد", "en": "Baghdad" },
-        "height": 10,
-        "width": 8,
-        "sqm": 80,
-        "faces": 1
-      },
-      {
-        "code": "BBH20A",
-        "type": { "ar": "جسر", "en": "Bridge" },
-        "place": { "ar": "الطريق السريع الجنوبي · حلة ← ديوانية", "en": "Southern highway · Hilla → Diwaniyah" },
-        "city": { "ar": "طريق سريع", "en": "Highway" },
-        "height": 1.8,
-        "width": 40,
-        "sqm": 72,
-        "faces": 1
-      }
+    "codes": [
+      "BGW03A",
+      "BGW02A",
+      "BBH20A"
     ]
   },
   "bridges": {
@@ -88,7 +61,7 @@
     "title": { "ar": "علامتك على الطريق بين المحافظات.", "en": "Your brand on the road between provinces." },
     "lead": { "ar": "جسور على الطريق السريع الجنوبي والغربي، كل وجه باتجاه المحافظة التي يقود إليها. اختر الاتجاه، ونحن نتولى التصميم والطباعة والتركيب.", "en": "Bridges on the southern and western highways, each face pointing to the province it leads to. Pick the direction; we handle design, printing and installation." },
     "cta": {
-      "path": "/highway-bridges",
+      "path": "/highway-bridges/",
       "label": { "ar": "تصفح الجسور", "en": "Browse bridges" }
     },
     "photo": "BBH38A",

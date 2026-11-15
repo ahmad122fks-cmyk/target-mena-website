@@ -1,0 +1,17 @@
+{
+  "seo": {
+    "title": { "ar": "شبكة لوحات تارگت في العراق | تارگت للإعلان", "en": "Target's billboard network in Iraq | Target Advertising" },
+    "description": {
+      "ar": "لوحات تارگت في بغداد والنجف وكربلاء وبابل والمحافظات، وجسور الطرق السريعة. اختر المحافظة أو نوع اللوحة.",
+      "en": "Target's boards in Baghdad, Najaf, Karbala, Babel and other provinces, plus highway bridges. Choose a province or board type."
+    }
+  },
+  "title": { "ar": "شبكة لوحات تارگت", "en": "Target's billboard network" },
+  "intro": {
+    "ar": "لوحاتنا في بغداد والمحافظات وعلى الطرق السريعة بين المدن. اختر المحافظة أو نوع اللوحة.",
+    "en": "Our boards in Baghdad, the provinces and on the highways between cities. Choose a province or a board type."
+  },
+  "provinces": { "ar": "المحافظات", "en": "Provinces" },
+  "highways": { "ar": "الطرق السريعة", "en": "Highways" },
+  "formats": { "ar": "أنواع اللوحات", "en": "Board types" }
+}

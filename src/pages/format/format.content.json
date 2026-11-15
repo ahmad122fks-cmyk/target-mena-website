@@ -1,0 +1,12 @@
+{
+  "seo": {
+    "title": { "ar": "{format} الإعلانية في العراق | تارگت للإعلان", "en": "{format} in Iraq | Target Advertising" },
+    "description": {
+      "ar": "{count} من {format} في {cities}. لكل لوحة قياسها وموقعها، واطلبها مباشرة من تارگت.",
+      "en": "{count} ({format}) in {cities}. Each board with its size and location; request it directly from Target."
+    }
+  },
+  "title": { "ar": "{format}", "en": "{format}" },
+  "intro": { "ar": "{count} في {cities}. اختر اللوحة لترى صورتها وقياسها واطلبها.", "en": "{count} in {cities}. Choose a board to see its photo and size, and request it." },
+  "finder": { "ar": "ابحث وصفِّ {format}", "en": "Search and filter {format}" }
+}

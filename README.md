@@ -19,7 +19,18 @@ npm test               # unit tests (Vitest)
 npm run test:e2e       # smoke tests on dist/ (Playwright)
 npm run size           # JavaScript budget (150 KB gzip per page)
 npm run lhci           # Lighthouse CI budgets (mobile)
+npm run feed           # inventory export -> src/data/boards.json (on Ahmad's Mac; whitelist only)
+npm run photos         # photo folder -> public/photos (AVIF + WebP) and the feed
 ```
+
+## Board data
+
+`src/data/boards.json` is the **whitelisted** board feed (no prices, no
+suppliers): Target-owned sites only (`scripts/data/target-owned-codes.json`,
+from the catalog's all-sites list, stock = Target). It is built on Ahmad's Mac
+from the inventory export, which is never committed. Photos held for review are
+listed in a private file and never published. Every URL ends with a slash
+(`/boards/BGW03A/`); the server should serve `index.html` from each folder.
 
 ## Folders
 

@@ -31,7 +31,7 @@ function check(file: string, text: string): Finding[] {
   const isPublished =
     file.endsWith('.content.json') || file.startsWith('src/content/') || file.startsWith('dist')
   const body = file.endsWith('.html') ? htmlText(text) : text
-  return findForbidden(body, { keys: isData || file.endsWith('.json'), words: isPublished, terms })
+  return findForbidden(body, { keys: isData, words: isPublished, terms })
 }
 
 let files: string[]

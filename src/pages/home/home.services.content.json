@@ -5,25 +5,25 @@
     "items": [
       {
         "icon": "outdoor",
-        "path": "/network",
+        "path": "/network/",
         "title": { "ar": "الإعلانات الخارجية", "en": "Outdoor advertising" },
         "text": { "ar": "أسطح، جسور، جداريات، لوحات مضاءة، يونيبول وشاشات في بغداد والمحافظات.", "en": "Rooftops, bridges, walls, backlits, unipoles and screens in Baghdad and the provinces." }
       },
       {
         "icon": "production",
-        "path": "/production",
+        "path": "/production/",
         "title": { "ar": "الإنتاج", "en": "Production" },
         "text": { "ar": "إعلانات تلفزيونية وحملات بإنتاج عالٍ، ومخرجون وطواقم محترفة، وإعلانات منتجة بالذكاء الاصطناعي.", "en": "High-production TV commercials and campaigns, experienced directors and crews, and AI-produced commercials." }
       },
       {
         "icon": "events",
-        "path": "/events",
+        "path": "/events/",
         "title": { "ar": "الفعاليات", "en": "Events" },
         "text": { "ar": "تنظيم الفعاليات وتغطيتها من الفكرة إلى التنفيذ.", "en": "Event management and coverage, from idea to execution." }
       },
       {
         "icon": "tv",
-        "path": "/alrabiaa",
+        "path": "/alrabiaa/",
         "title": { "ar": "قناة الرابعة", "en": "Alrabiaa TV" },
         "text": { "ar": "الموزع الحصري للإعلان والترويج على قناة الرابعة: رعايات وحملات على مدار العام.", "en": "Exclusive distributor for advertising and promotion on Alrabiaa TV: sponsorships and campaigns all year round." }
       }
@@ -42,7 +42,7 @@
     "stat": { "ar": "+35", "en": "35+" },
     "statLabel": { "ar": "إنتاجاً منجزاً: حملات عالية الإنتاج وإعلانات تلفزيونية", "en": "productions delivered: high-production campaigns and TV commercials" },
     "cta": {
-      "path": "/production",
+      "path": "/production/",
       "label": { "ar": "الإنتاج والفعاليات", "en": "Production & events" }
     },
     "artAlt": { "ar": "كاميرا تصوير سينمائي بالأصفر مع خط تارگت العربي، من الملف التعريفي", "en": "Film camera in Target yellow with Target's Arabic calligraphy, from the catalog" }

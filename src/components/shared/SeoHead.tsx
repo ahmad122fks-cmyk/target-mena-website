@@ -1,4 +1,4 @@
-import type { PageHead } from '@/app/head'
+import type { PageHead } from '@/app/server/head'
 
 /**
  * Everything Google and WhatsApp read without running JavaScript. Rendered

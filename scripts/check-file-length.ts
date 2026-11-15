@@ -8,7 +8,12 @@ import path from 'node:path'
 
 const ROOTS = ['src', 'scripts', 'tests']
 const EXTENSIONS = new Set(['.ts', '.tsx', '.css', '.json'])
-const EXCLUDE = [path.join('src', 'components', 'ui')]
+// shadcn/ui files and generated data files are excluded
+const EXCLUDE = [
+  path.join('src', 'components', 'ui'),
+  path.join('src', 'data'),
+  path.join('scripts', 'data'),
+]
 const HARD_LIMIT = 200
 
 function walk(dir: string): string[] {

@@ -19,3 +19,12 @@ export function formatFaces(faces: number, lang: Lang): string {
   if (faces === 2) return 'وجهان'
   return `${faces} أوجه`
 }
+
+/** "216 لوحة" / "3 لوحات" / "216 boards" - Arabic number agreement. */
+export function formatCount(n: number, lang: Lang): string {
+  if (lang === 'en') return n === 1 ? '1 board' : `${n} boards`
+  if (n === 1) return 'لوحة واحدة'
+  if (n === 2) return 'لوحتان'
+  if (n >= 3 && n <= 10) return `${n} لوحات`
+  return `${n} لوحة`
+}

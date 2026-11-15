@@ -1,38 +1,28 @@
-import type { ComponentType } from 'react'
-import { Route, Routes } from 'react-router'
-import HomePage from '@/pages/home'
+import { Suspense, type ComponentType } from 'react'
+import { useLocation } from 'react-router'
 import NotFoundPage from '@/pages/not-found'
 import { SiteLayout } from './layouts/SiteLayout'
-import { ROUTES, type PageKey } from './routes'
+import { PageDataProvider, type PageData } from './PageData'
+import { matchRoute, type PageKey } from './routes'
 
-const PAGES: Record<PageKey, ComponentType> = { home: HomePage }
+export type PageRegistry = Record<PageKey, ComponentType>
 
-export function App() {
+/**
+ * One app for every page. The server passes the pages as plain components;
+ * the browser passes lazy ones, so each page only downloads its own code.
+ */
+export function App({ pages, data }: { pages: PageRegistry; data: PageData }) {
+  const { pathname } = useLocation()
+  const match = matchRoute(pathname)
+  const found = match !== null && data.kind !== 'notFound'
+  const Page = found ? pages[match.page] : NotFoundPage
   return (
-    <Routes>
-      {ROUTES.flatMap(({ path, lang, page }) => {
-        const Page = PAGES[page]
-        // '/en/' and '/en/index.html' are the same page (static servers use both).
-        return [path, `${path}index.html`].map((routePath) => (
-          <Route
-            key={routePath}
-            path={routePath}
-            element={
-              <SiteLayout lang={lang}>
-                <Page />
-              </SiteLayout>
-            }
-          />
-        ))
-      })}
-      <Route
-        path="*"
-        element={
-          <SiteLayout lang="ar">
-            <NotFoundPage />
-          </SiteLayout>
-        }
-      />
-    </Routes>
+    <SiteLayout lang={found ? match.lang : 'ar'}>
+      <PageDataProvider value={data}>
+        <Suspense fallback={null}>
+          <Page />
+        </Suspense>
+      </PageDataProvider>
+    </SiteLayout>
   )
 }

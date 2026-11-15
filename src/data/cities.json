@@ -1,0 +1,23 @@
+{
+  "baghdad": { "en": "Baghdad", "ar": "بغداد", "kind": "province", "aliases": ["Baghdad"] },
+  "najaf": { "en": "Najaf", "ar": "النجف", "kind": "province", "aliases": ["Najaf"] },
+  "karbala": { "en": "Karbala", "ar": "كربلاء", "kind": "province", "aliases": ["Karbala", "Karbalaa"] },
+  "babel": { "en": "Babel", "ar": "بابل", "kind": "province", "aliases": ["Babel", "Babil"] },
+  "diwaniyah": { "en": "Diwaniyah", "ar": "الديوانية", "kind": "province", "aliases": ["Diwaniyah", "Diwanieh"] },
+  "samawa": { "en": "Samawa", "ar": "السماوة", "kind": "province", "aliases": ["Samawa", "Samawah"] },
+  "basra": { "en": "Basra", "ar": "البصرة", "kind": "province", "aliases": ["Basra"] },
+  "kut": { "en": "Kut", "ar": "الكوت", "kind": "province", "aliases": ["Kut", "Kout"] },
+  "amara": { "en": "Amara", "ar": "العمارة", "kind": "province", "aliases": ["Amara"] },
+  "nasiriyah": { "en": "Nasiriyah", "ar": "الناصرية", "kind": "province", "aliases": ["Nasiriyah", "Nasrieh"] },
+  "diyala": { "en": "Diyala", "ar": "ديالى", "kind": "province", "aliases": ["Diyala", "Diala"] },
+  "anbar": { "en": "Anbar", "ar": "الأنبار", "kind": "province", "aliases": ["Anbar"] },
+  "erbil": { "en": "Erbil", "ar": "أربيل", "kind": "province", "aliases": ["Erbil"] },
+  "mosul": { "en": "Mosul", "ar": "الموصل", "kind": "province", "aliases": ["Mosul", "Musel"] },
+  "duhok": { "en": "Duhok", "ar": "دهوك", "kind": "province", "aliases": ["Duhok"] },
+  "sulaymaniyah": { "en": "Sulaymaniyah", "ar": "السليمانية", "kind": "province", "aliases": ["Sulaymaniyah"] },
+  "salahaldin": { "en": "Salah al-Din", "ar": "صلاح الدين", "kind": "province", "aliases": ["Salah Din", "Salah al-Din"] },
+  "kirkuk": { "en": "Kirkuk", "ar": "كركوك", "kind": "province", "aliases": ["Kirkuk"] },
+  "halabja": { "en": "Halabja", "ar": "حلبجة", "kind": "province", "aliases": ["Halabja"] },
+  "highway-south": { "en": "Highway South", "ar": "الطريق السريع الجنوبي", "kind": "highway", "aliases": ["Highway South"] },
+  "highway-west": { "en": "Highway West", "ar": "الطريق السريع الغربي", "kind": "highway", "aliases": ["Highway West", "Highwagh West"] }
+}
