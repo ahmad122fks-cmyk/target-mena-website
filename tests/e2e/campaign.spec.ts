@@ -11,9 +11,9 @@ test('add 3 boards, open the selection, send to the builder, review shows the 3 
   for (let i = 0; i < 3; i++) {
     const card = cards.nth(i)
     codes.push((await card.locator('.ltr-run').first().innerText()).trim())
-    await card.getByRole('button', { name: /Add to selection/ }).click()
+    await card.getByRole('button', { name: /Add to my list/ }).click()
   }
-  const open = page.getByRole('button', { name: /My selection/ })
+  const open = page.getByRole('button', { name: /My list/ })
   await expect(open).toContainText('3')
 
   // The selection survives a reload (saved in the browser).

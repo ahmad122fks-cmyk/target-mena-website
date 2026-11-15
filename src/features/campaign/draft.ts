@@ -1,7 +1,7 @@
+import { DRAFT_KEY as KEY } from './prefill'
 import { EMPTY_VALUES, type CampaignValues } from './schema'
 
 /** The form is kept in this browser while the visitor works (survives reloads and failed sends). */
-const KEY = 'target-campaign-draft-v1'
 
 export function loadDraft(): CampaignValues {
   try {

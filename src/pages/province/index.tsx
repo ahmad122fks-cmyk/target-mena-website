@@ -1,6 +1,6 @@
 import { usePageData } from '@/app/PageData'
 import { BoardGroups } from '@/components/shared/BoardGroups'
-import { CtaLink } from '@/components/shared/CtaLink'
+import { PillButton } from '@/components/shared/PillButton'
 import { PageHero } from '@/components/shared/PageHero'
 import { useLang, useLink, useT } from '@/features/i18n/LangContext'
 import { cityLabel, FORMATS, formatOf } from '@/lib/boards'
@@ -28,9 +28,9 @@ export default function ProvincePage() {
         title={fill(t(content.title), values)}
         intro={fill(t(content.intro), values)}
       >
-        <CtaLink tone="outline" href={link(`/boards/?city=${data.city}`)} className="self-start">
+        <PillButton tone="outline" href={link(`/boards/?city=${data.city}`)} className="self-start">
           {fill(t(content.finder), values)}
-        </CtaLink>
+        </PillButton>
       </PageHero>
       <BoardGroups groups={groups} />
     </>

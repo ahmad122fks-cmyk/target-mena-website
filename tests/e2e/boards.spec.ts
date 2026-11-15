@@ -18,10 +18,10 @@ test.describe('board page', () => {
     await page.goto('/en/boards/BGW03A/')
     await page
       .locator('main')
-      .getByRole('button', { name: /Add to selection/ })
+      .getByRole('button', { name: /Add to my list/ })
       .first()
       .click()
-    await expect(page.getByRole('button', { name: /My selection/ })).toContainText('1')
+    await expect(page.getByRole('button', { name: /My list/ })).toContainText('1')
   })
 
   test('unknown board code returns 404', async ({ page }) => {
@@ -52,7 +52,7 @@ test.describe('finder', () => {
     await page.goto('/en/boards/?codes=BGW03A,BBH20A')
     await expect(page.locator('#results-title .ltr-run')).toHaveText('2')
     await page.getByRole('button', { name: 'Add all to my selection' }).click()
-    await expect(page.getByRole('button', { name: /My selection/ })).toContainText('2')
+    await expect(page.getByRole('button', { name: /My list/ })).toContainText('2')
   })
 
   test('network, province and format pages load', async ({ page }) => {

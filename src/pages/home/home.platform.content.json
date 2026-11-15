@@ -1,0 +1,112 @@
+{
+  "formats": {
+    "title": { "ar": "كل الأنواع، وفريق واحد للحجز", "en": "Every format, one team to book" },
+    "note": {
+      "ar": "أيضاً: أسطح، لوحات مضاءة، يونيبول وشاشات. كل الصور حقيقية للمواقع.",
+      "en": "Also: rooftops, backlits, unipoles and screens. Every photo is a real site."
+    },
+    "items": [
+      {
+        "code": "BGW03A",
+        "path": "/formats/walls/",
+        "label": { "ar": "جداريات", "en": "Walls" },
+        "alt": {
+          "ar": "جدارية في شارع النضال، الكرادة، بغداد",
+          "en": "Wall billboard on Al-Nidal Street, Karrada, Baghdad"
+        }
+      },
+      {
+        "code": "BBH20A",
+        "path": "/formats/bridges/",
+        "label": { "ar": "جسور الطرق السريعة", "en": "Highway bridges" },
+        "alt": {
+          "ar": "جسر إعلاني على الطريق السريع الجنوبي بين الحلة والديوانية",
+          "en": "Highway bridge billboard on the southern highway, Hilla to Diwaniyah"
+        }
+      },
+      {
+        "code": "BGW02A",
+        "path": "/network/baghdad/",
+        "label": { "ar": "مواقع بغداد", "en": "Baghdad sites" },
+        "alt": {
+          "ar": "جدارية باتجاه ساحة كهرمانة، الكرادة، بغداد",
+          "en": "Wall billboard facing Kahramana Square, Karrada, Baghdad"
+        }
+      },
+      {
+        "code": "BBH38A",
+        "path": "/network/highway-south/",
+        "label": { "ar": "بين المحافظات", "en": "Between provinces" },
+        "alt": {
+          "ar": "جسر إعلاني على الطريق السريع الجنوبي بين الديوانية والسماوة",
+          "en": "Highway bridge billboard on the southern highway, Diwaniyah to Samawah"
+        }
+      }
+    ]
+  },
+  "provinces": {
+    "title": {
+      "ar": "في بغداد والمحافظات وعلى الطرق السريعة",
+      "en": "In Baghdad, the provinces and on the highways"
+    }
+  },
+  "platform": {
+    "eyebrow": { "ar": "المنصة", "en": "The platform" },
+    "title": { "ar": "حملتك كلها في مكان واحد", "en": "Your whole campaign in one place" },
+    "search": {
+      "eyebrow": { "ar": "ابحث", "en": "Search" },
+      "title": {
+        "ar": "فلترة حسب المحافظة والنوع والمساحة.",
+        "en": "Filter by province, type and area."
+      },
+      "text": {
+        "ar": "قائمة أو شبكة، مع رابط تشاركه مع فريقك.",
+        "en": "List or grid, with a link you can share with your team."
+      },
+      "chips": [
+        { "ar": "بغداد", "en": "Baghdad" },
+        { "ar": "جدارية", "en": "Wall" },
+        { "ar": "أكبر من 60 م²", "en": "Over 60 m²" }
+      ],
+      "link": {
+        "path": "/boards/",
+        "label": { "ar": "افتح البحث ←", "en": "Open the finder →" }
+      }
+    },
+    "list": {
+      "eyebrow": { "ar": "قائمتي", "en": "My list" },
+      "title": {
+        "ar": "اجمع اللوحات التي تعجبك في قائمة واحدة.",
+        "en": "Collect the boards you like in one list."
+      },
+      "text": {
+        "ar": "تبقى محفوظة على جهازك، وتطلبها كلها بضغطة واحدة.",
+        "en": "It stays saved on your device, and you request them all in one go."
+      },
+      "codes": ["BGW03A", "BBH20A"],
+      "link": {
+        "path": "/boards/",
+        "label": { "ar": "افتح قائمتي ←", "en": "Open my list →" }
+      }
+    },
+    "plan": {
+      "eyebrow": { "ar": "خطط حملتك", "en": "Plan your campaign" },
+      "title": {
+        "ar": "المدة والميزانية والخدمات في طلب واحد.",
+        "en": "Timing, budget and services in one request."
+      },
+      "text": {
+        "ar": "أربع خطوات قصيرة، ثم يتواصل معك فريق المبيعات بالعرض.",
+        "en": "Four short steps, then our sales team contacts you with a proposal."
+      },
+      "steps": {
+        "ar": "بياناتك · الحملة · اللوحات · المراجعة",
+        "en": "Details · Campaign · Boards · Review"
+      },
+      "link": {
+        "path": "/campaign/",
+        "label": { "ar": "ابدأ التخطيط ←", "en": "Start planning →" }
+      }
+    }
+  }
+}

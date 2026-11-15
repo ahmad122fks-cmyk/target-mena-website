@@ -57,7 +57,7 @@ test('phone menu opens and shows every main link', async ({ page }) => {
   await page.getByRole('button', { name: 'فتح القائمة' }).click()
   const dialog = page.getByRole('dialog')
   await expect(dialog).toBeVisible()
-  await expect(dialog.getByRole('link')).toHaveCount(7)
+  await expect(dialog.getByRole('link')).toHaveCount(6)
 })
 
 test('index.html addresses show the home page, not the 404 page', async ({ page }) => {

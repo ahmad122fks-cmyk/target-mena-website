@@ -1,4 +1,4 @@
-import { CtaLink } from '@/components/shared/CtaLink'
+import { PillButton } from '@/components/shared/PillButton'
 import { useLang, useT } from '@/features/i18n/LangContext'
 import content from '@/pages/campaign/campaign.content.json'
 import { mailtoUrl, whatsappUrl } from './message'
@@ -28,10 +28,10 @@ export function SendResult({ result, message, name }: Props) {
       <h2 className="text-xl">{result === 'error' ? t(r.error) : t(r.fallbackTitle)}</h2>
       {result === 'fallback' && <p>{t(r.fallbackText)}</p>}
       <div className="flex flex-wrap gap-3">
-        <CtaLink href={whatsappUrl(message)}>{t(r.whatsapp)}</CtaLink>
-        <CtaLink tone="outline" href={mailtoUrl(message, lang, name)}>
+        <PillButton href={whatsappUrl(message)}>{t(r.whatsapp)}</PillButton>
+        <PillButton tone="outline" href={mailtoUrl(message, lang, name)}>
           {t(r.email)}
-        </CtaLink>
+        </PillButton>
       </div>
     </div>
   )

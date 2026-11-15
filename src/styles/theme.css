@@ -8,8 +8,12 @@
   --color-brand-blue-80: #3481b8;
   --color-brand-blue-60: #67a0ca;
   --color-brand-blue-40: #99c0db;
-  /* light tint the guideline uses for calligraphy on white (page 40) */
+  /* 10% tints (same white mix): fills behind text, chips, icon tiles.
+     blue-10 is also the guideline page 40 calligraphy tint. */
   --color-brand-blue-10: #e8f1f7;
+  --color-brand-yellow-10: #fef7e8;
+  --color-brand-grey-10: #f1f5f7;
+  --color-brand-green-10: #eaf8f5;
   --color-brand-yellow: #f7af1c;
   --color-brand-yellow-80: #f9bf49;
   --color-brand-yellow-60: #facf77;
@@ -26,6 +30,15 @@
   --color-brand-white: #ffffff;
   --color-brand-text: #4d4d4f;
   --color-brand-ghost: #f5fafa;
+  /* Hairline between sections and around cards (Ahmad's design reference, 15 Nov 2026) */
+  --color-line: #e6eef4;
+
+  /* Shapes: pills for buttons and chips, 20 px cards, 12 px fields */
+  --radius-card: 1.25rem;
+  --radius-field: 0.75rem;
+  /* Soft blue-tinted shadows, only on floating things (DESIGN.md 6) */
+  --shadow-soft: 0 10px 30px rgb(1 97 166 / 0.06);
+  --shadow-float: 0 24px 60px rgb(1 97 166 / 0.1);
 
   --font-sans: 'Readex Pro Variable', 'Readex Pro', system-ui, 'Segoe UI', Tahoma, sans-serif;
 }
@@ -48,7 +61,7 @@
   --accent: #f7af1c;
   --accent-foreground: #000000;
   --destructive: #000000;
-  --border: #c6d8e0;
+  --border: #e6eef4;
   --input: #c6d8e0;
   --ring: #0161a6;
 }

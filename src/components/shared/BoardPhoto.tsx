@@ -11,15 +11,25 @@ type Props = {
   priority?: boolean
   /** Frame classes (e.g. "aspect-[16/10]"); the photo keeps its true ratio inside it. */
   className?: string
+  /** false = an empty frame when there is no photo (tiny thumbnails). */
+  label?: boolean
 }
 
 /** Real board photo (AVIF 480/720/960 px, WebP fallback), never cropped or stretched; else "Photo on request". */
-export function BoardPhoto({ board, alt, sizes, priority = false, className }: Props) {
+export function BoardPhoto({
+  board,
+  alt,
+  sizes,
+  priority = false,
+  className,
+  label = true,
+}: Props) {
   const t = useT()
   const { photo } = board
   // Photos further down appear only when the visitor scrolls near them.
   const [ref, near] = useNearViewport<HTMLDivElement>(!priority)
   const frame = cn('flex items-center justify-center overflow-hidden bg-brand-ghost', className)
+  if (!photo && !label) return <div className={frame} aria-hidden="true" />
   if (!photo)
     return (
       <div className={cn(frame, 'p-3 text-center text-sm text-brand-text')}>

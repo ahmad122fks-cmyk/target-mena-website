@@ -1,70 +1,97 @@
 {
   "seo": {
-    "title": { "ar": "تارگت للإعلان | لوحات إعلانية في بغداد والعراق", "en": "Target Advertising | Billboards and outdoor ads in Iraq" },
-    "description": { "ar": "نجعل علامتك حاضرة في كل مكان في العراق: لوحات على الأسطح والجسور والجدران، جسور الطرق السريعة، الإنتاج والفعاليات، وقناة الرابعة.", "en": "We make brands impossible to miss in Iraq: rooftops, bridges and walls, highway bridges, production and events, and Alrabiaa TV." },
+    "title": {
+      "ar": "تارگت للإعلان | لوحات إعلانية في بغداد والعراق",
+      "en": "Target Advertising | Billboards and outdoor ads in Iraq"
+    },
+    "description": {
+      "ar": "نجعل علامتك حاضرة في كل مكان في العراق: لوحات على الأسطح والجسور والجدران، جسور الطرق السريعة، الإنتاج والفعاليات، وقناة الرابعة.",
+      "en": "We make brands impossible to miss in Iraq: rooftops, bridges and walls, highway bridges, production and events, and Alrabiaa TV."
+    },
     "breadcrumb": { "ar": "الرئيسية", "en": "Home" }
   },
   "hero": {
-    "eyebrow": { "ar": "إعلانات خارجية · إنتاج · فعاليات · تلفزيون", "en": "Outdoor · Production · Events · TV" },
-    "title": { "ar": "نجعل علامتك حاضرة", "en": "We make brands impossible to miss" },
-    "light": { "ar": "في كل مكان في العراق.", "en": "in Iraq." },
-    "lead": { "ar": "لوحات على الأسطح والجسور والجدران في بغداد والنجف والمحافظات، وجسور على الطرق السريعة، مع الإنتاج والبث على قناة الرابعة.", "en": "Rooftops, bridges and walls across Baghdad, Najaf and the provinces, highway bridges between cities, plus production and airtime on Alrabiaa TV." },
-    "primary": {
-      "path": "/boards/",
-      "label": { "ar": "ابحث عن لوحة", "en": "Find a board" }
+    "title": {
+      "ar": "نجعل علامتك حاضرة في كل مكان في العراق.",
+      "en": "We make brands impossible to miss in Iraq."
     },
-    "secondary": {
-      "path": "#contact",
-      "label": { "ar": "تواصل معنا", "en": "Contact us" }
+    "lead": {
+      "ar": "اختر لوحاتك من شبكتنا في بغداد والمحافظات وعلى الطرق السريعة، أو أخبرنا بهدفك وميزانيتك ودع فريقنا يخطط الحملة كاملة.",
+      "en": "Choose your boards from our network in Baghdad, the provinces and on the highways, or tell us your goal and budget and let our team plan the whole campaign."
     },
-    "photo": {
-      "code": "BGW02A",
-      "alt": { "ar": "لوحة جدارية في الكرادة باتجاه ساحة كهرمانة، بغداد", "en": "Wall billboard in Karrada facing Kahramana Square, Baghdad" },
-      "caption": { "ar": "الكرادة، باتجاه ساحة كهرمانة · صورة حقيقية للموقع", "en": "Karrada, facing Kahramana Square · real site photo" }
+    "searchLabel": { "ar": "بحث سريع عن لوحة", "en": "Quick board search" },
+    "searchPlaceholder": {
+      "ar": "المحافظة أو المنطقة أو رمز اللوحة",
+      "en": "Province, area or board code"
+    },
+    "searchButton": { "ar": "ابحث", "en": "Search" },
+    "planHint": { "ar": "تفضّل أن نخطط عنك؟", "en": "Prefer that we plan it for you?" },
+    "planLink": {
+      "path": "/campaign/",
+      "label": { "ar": "خطط حملتك معنا ←", "en": "Plan your campaign with us →" }
+    },
+    "card": {
+      "label": { "ar": "مثال على قائمة لوحات", "en": "Example of a board list" },
+      "selected": { "ar": "اللوحات المختارة", "en": "Boards selected" },
+      "area": { "ar": "المساحة الإجمالية", "en": "Total area" },
+      "status": { "ar": "الحالة", "en": "Status" },
+      "ready": { "ar": "جاهزة للطلب", "en": "Ready to request" },
+      "list": { "ar": "قائمتي", "en": "My list" },
+      "onSite": { "ar": "على الموقع", "en": "On the site" },
+      "mapToConfirm": "hero map: illustration or a real photo"
     }
   },
-  "factsTitle": { "ar": "تارگت بالأرقام", "en": "Target at a glance" },
-  "facts": [
-    {
-      "toConfirm": "network size (668 / 775 / 793 / 870 in different documents)",
-      "label": { "ar": "موقعاً ضمن شبكة تارگت", "en": "sites in Target's network" }
-    },
-    {
-      "value": { "ar": "جسور الطرق السريعة", "en": "Highway bridges" },
-      "label": { "ar": "حضور على الطرق بين المحافظات", "en": "on the roads between provinces" }
-    },
-    {
-      "value": { "ar": "+35", "en": "35+" },
-      "number": true,
-      "label": { "ar": "حملة وإعلاناً تلفزيونياً من إنتاجنا", "en": "campaigns and TVCs produced" }
-    },
-    {
-      "value": { "ar": "قناة الرابعة", "en": "Alrabiaa TV" },
-      "label": { "ar": "الموزع الحصري للإعلان والترويج", "en": "exclusive distributor for advertising and promotion" }
+  "team": {
+    "title": { "ar": "فريق كامل، لا مجرد لوحة.", "en": "A full team, not just a board." },
+    "text": {
+      "ar": "عندما تحجز مع تارگت، يتولى فريقنا اختيار المواقع والتصميم والطباعة والتركيب ومتابعة الحملة حتى نهايتها. أنت تحدد الهدف، ونحن ننفذ. جهة واحدة بدل التنقل بين عشرات المالكين.",
+      "en": "When you book with Target, our team handles site selection, design, printing, installation and follow-up until the campaign ends. You set the goal; we deliver. One partner instead of going between dozens of owners."
     }
-  ],
+  },
+  "ways": {
+    "title": { "ar": "طريقتان للعمل معنا", "en": "Two ways to work with us" },
+    "lead": {
+      "ar": "دع فريقنا يخطط الحملة، أو اختر اللوحات بنفسك وأرسل قائمتك. في الحالتين يصلك عرض من فريق المبيعات.",
+      "en": "Let our team plan the campaign, or choose the boards yourself and send your list. Either way, our sales team sends you a proposal."
+    },
+    "plan": {
+      "eyebrow": { "ar": "خطط حملتك", "en": "Plan your campaign" },
+      "title": {
+        "ar": "أخبرنا بالهدف والمدة والميزانية، ونحن نختار اللوحات.",
+        "en": "Tell us the goal, timing and budget, and we choose the boards."
+      },
+      "text": {
+        "ar": "يقترح فريقنا المواقع المناسبة في المحافظات التي تريدها، ويجهز التصميم والطباعة والتركيب، ويبقى معك حتى انتهاء الحملة.",
+        "en": "Our team proposes the right sites in the provinces you want, prepares design, printing and installation, and stays with you until the campaign ends."
+      },
+      "cta": {
+        "path": "/campaign/",
+        "label": { "ar": "ابدأ التخطيط ←", "en": "Start planning →" }
+      }
+    },
+    "choose": {
+      "eyebrow": { "ar": "اختر بنفسك", "en": "Choose yourself" },
+      "title": {
+        "ar": "تصفح الشبكة، وأضف اللوحات إلى قائمتك، واطلبها دفعة واحدة.",
+        "en": "Browse the network, add boards to your list, and request them in one go."
+      },
+      "text": {
+        "ar": "صور حقيقية للمواقع، والمقاس والمساحة وعدد الأوجه، والموقع على الخريطة. بدون تسجيل دخول.",
+        "en": "Real site photos, size, area and number of faces, and the location on the map. No sign-in."
+      },
+      "links": [
+        {
+          "path": "/boards/",
+          "label": { "ar": "ابحث عن لوحة ←", "en": "Find a board →" }
+        },
+        {
+          "path": "/formats/bridges/",
+          "label": { "ar": "جسور الطرق السريعة ←", "en": "Highway bridges →" }
+        }
+      ]
+    }
+  },
   "featured": {
-    "title": { "ar": "مواقع مختارة", "en": "Featured sites" },
-    "all": {
-      "path": "/boards/",
-      "label": { "ar": "كل اللوحات", "en": "All boards" }
-    },
-    "request": { "ar": "اطلب هذه اللوحة", "en": "Request this board" },
-    "codes": [
-      "BGW03A",
-      "BGW02A",
-      "BBH20A"
-    ]
-  },
-  "bridges": {
-    "eyebrow": { "ar": "جسور الطرق السريعة", "en": "Highway bridges" },
-    "title": { "ar": "علامتك على الطريق بين المحافظات.", "en": "Your brand on the road between provinces." },
-    "lead": { "ar": "جسور على الطريق السريع الجنوبي والغربي، كل وجه باتجاه المحافظة التي يقود إليها. اختر الاتجاه، ونحن نتولى التصميم والطباعة والتركيب.", "en": "Bridges on the southern and western highways, each face pointing to the province it leads to. Pick the direction; we handle design, printing and installation." },
-    "cta": {
-      "path": "/highway-bridges/",
-      "label": { "ar": "تصفح الجسور", "en": "Browse bridges" }
-    },
-    "photo": "BBH38A",
-    "photoAlt": { "ar": "جسر إعلاني على الطريق السريع الجنوبي بين الديوانية والسماوة", "en": "Highway bridge billboard on the southern highway, Diwaniyah to Samawah" }
+    "codes": ["BGW03A", "BGW02A", "BBH20A"]
   }
 }

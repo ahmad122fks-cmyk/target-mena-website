@@ -1,51 +1,82 @@
-import { CalendarDays, Clapperboard, MapPinned, Tv, type LucideIcon } from 'lucide-react'
-import { Card, CardContent } from '@/components/ui/card'
+import alrabiaa from '@/assets/clients/alrabiaa.png'
+import { Calligraphy } from '@/components/shared/Calligraphy'
+import { Photo } from '@/components/shared/Photo'
 import { Section } from '@/components/shared/Section'
+import { SectionHeading } from '@/components/shared/SectionHeading'
 import { useLink, useT } from '@/features/i18n/LangContext'
+import { ART } from '@/lib/images'
 import content from '../home.services.content.json'
+import { ChannelCard } from './ChannelCard'
 
-const ICONS: Record<string, LucideIcon> = {
-  outdoor: MapPinned,
-  production: Clapperboard,
-  events: CalendarDays,
-  tv: Tv,
-}
-
-/** What we do: outdoor first, then production, events, TV (BUILD-BRIEF 3). */
+/** "More than boards": outdoor (grey), production (yellow), creative (white), Alrabiaa (green). */
 export function Services() {
   const t = useT()
   const link = useLink()
-  const { services } = content
+  const { services: s } = content
+  const go = (item: { path: string; label: { ar: string; en: string } }) => ({
+    href: link(item.path),
+    label: t(item.label),
+  })
   return (
-    <Section tone="ghost" labelledBy="services-title" deferred>
-      <h2 id="services-title" className="mb-10 text-3xl sm:text-4xl">
-        {t(services.title)}
-      </h2>
-      <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        {services.items.map((item) => {
-          const Icon = ICONS[item.icon]
-          return (
-            <li key={item.path} className="flex">
-              <Card className="w-full gap-0 py-0 shadow-none">
-                <CardContent className="flex flex-1 flex-col gap-3 p-6">
-                  <span className="flex size-11 items-center justify-center rounded-xl bg-brand-blue-10 text-brand-blue">
-                    <Icon className="size-5" strokeWidth={1.75} aria-hidden="true" />
-                  </span>
-                  <h3 className="text-xl">{t(item.title)}</h3>
-                  <p className="flex-1 text-[0.95rem]">{t(item.text)}</p>
-                  <a
-                    href={link(item.path)}
-                    className="inline-flex min-h-11 items-center font-semibold text-brand-blue hover:underline"
-                  >
-                    {t(services.more)}
-                    <span className="sr-only"> – {t(item.title)}</span>
-                  </a>
-                </CardContent>
-              </Card>
-            </li>
-          )
-        })}
-      </ul>
+    <Section id="services" tone="ghost" labelledBy="services-title" deferred>
+      <SectionHeading id="services-title" title={t(s.title)} center />
+      <div className="mt-8 grid gap-5 lg:grid-cols-2">
+        <ChannelCard
+          tone="grey"
+          eyebrow={t(s.outdoor.eyebrow)}
+          title={t(s.outdoor.title)}
+          link={go(s.outdoor.link)}
+        >
+          <Calligraphy
+            mark="a"
+            tone="white"
+            className="-end-[60px] -bottom-[80px] w-[260px] opacity-[0.22]"
+          />
+        </ChannelCard>
+        <ChannelCard
+          tone="yellow"
+          eyebrow={t(s.production.eyebrow)}
+          title={t(s.production.title)}
+          link={go(s.production.link)}
+          media={
+            <Photo
+              picture={ART.production}
+              alt={t(s.production.artAlt)}
+              sizes="(min-width: 1024px) 280px, 100vw"
+              className="aspect-square h-full object-cover"
+            />
+          }
+        />
+        <ChannelCard
+          tone="white"
+          eyebrow={t(s.creative.eyebrow)}
+          title={t(s.creative.title)}
+          link={go(s.creative.link)}
+          media={
+            <Photo
+              picture={ART.creative}
+              alt={t(s.creative.artAlt)}
+              sizes="(min-width: 1024px) 250px, 100vw"
+              className="aspect-[890/1190] max-h-[340px] object-cover object-left lg:h-full lg:max-h-none"
+            />
+          }
+        />
+        <ChannelCard
+          tone="green"
+          eyebrow={t(s.alrabiaa.eyebrow)}
+          title={t(s.alrabiaa.title)}
+          link={go(s.alrabiaa.link)}
+        >
+          <img
+            src={alrabiaa}
+            width={70}
+            height={92}
+            alt={t(s.alrabiaa.logoAlt)}
+            loading="lazy"
+            className="mt-1.5 h-11 w-auto self-start"
+          />
+        </ChannelCard>
+      </div>
     </Section>
   )
 }

@@ -6,60 +6,109 @@
   "menuOpen": { "ar": "فتح القائمة", "en": "Open menu" },
   "nav": [
     {
-      "path": "/network/",
-      "label": { "ar": "شبكة اللوحات", "en": "Network" }
-    },
-    {
       "path": "/boards/",
       "label": { "ar": "ابحث عن لوحة", "en": "Find a board" }
     },
     {
-      "path": "/highway-bridges/",
-      "label": { "ar": "جسور الطرق السريعة", "en": "Highway bridges" }
+      "path": "/network/",
+      "label": { "ar": "الشبكة والمحافظات", "en": "Network & provinces" }
     },
     {
-      "path": "/production/",
-      "label": { "ar": "الإنتاج والفعاليات", "en": "Production & events" }
+      "path": "/#services",
+      "label": { "ar": "الخدمات", "en": "Services" }
     },
     {
       "path": "/alrabiaa/",
       "label": { "ar": "قناة الرابعة", "en": "Alrabiaa TV" }
     },
     {
-      "path": "/contact/",
+      "path": "#contact",
       "label": { "ar": "اتصل بنا", "en": "Contact" }
     }
   ],
   "headerCta": {
     "path": "/campaign/",
-    "label": { "ar": "اطلب عرضاً", "en": "Request a proposal" }
+    "label": { "ar": "خطط حملتك", "en": "Plan your campaign" }
   },
   "langSwitch": { "ar": "English", "en": "عربي" },
   "contact": {
-    "eyebrow": { "ar": "للحجز والاستفسار", "en": "Bookings and enquiries" },
-    "title": { "ar": "لنبنِ الحضور معاً.", "en": "Let's build presence." },
+    "title": { "ar": "لنعمل معاً.", "en": "Let's work together." },
+    "lead": {
+      "ar": "أخبرنا بالهدف، وفريقنا يتولى الباقي.",
+      "en": "Tell us the goal, and our team handles the rest."
+    },
+    "phoneLabel": { "ar": "رقم هاتفك", "en": "Your phone number" },
+    "submit": { "ar": "اطلب عرضاً", "en": "Request a proposal" },
+    "orCall": { "ar": "أو تواصل معنا مباشرة:", "en": "Or reach us directly:" },
     "address": { "ar": "بغداد – الجادرية", "en": "Baghdad – Al Jaderiyah" },
-    "phones": [
-      "+964 771 977 7199",
-      "+964 784 466 6000",
-      "+964 774 466 6000"
-    ],
+    "phones": ["+964 771 977 7199", "+964 784 466 6000", "+964 774 466 6000"],
     "email": "info@target-mena.com",
-    "phonesLabel": { "ar": "الهاتف", "en": "Phone" },
-    "emailLabel": { "ar": "البريد الإلكتروني", "en": "Email" },
-    "addressLabel": { "ar": "العنوان", "en": "Address" },
-    "call": { "ar": "اتصل الآن", "en": "Call now" },
-    "writeEmail": { "ar": "راسلنا", "en": "Email us" },
-    "whatsapp": { "ar": "واتساب", "en": "WhatsApp" },
-    "whatsappCta": { "ar": "راسلنا على واتساب", "en": "Message us on WhatsApp" }
+    "whatsappCta": { "ar": "واتساب", "en": "WhatsApp" }
   },
   "footer": {
-    "rights": { "ar": "© 2026 تارگت للإعلان. جميع الحقوق محفوظة.", "en": "© 2026 Target Advertising. All rights reserved." },
+    "rights": { "ar": "© 2026 تارگت للإعلان", "en": "© 2026 Target Advertising" },
     "privacy": {
       "path": "/privacy/",
       "label": { "ar": "الخصوصية", "en": "Privacy" }
     },
-    "footerNav": { "ar": "روابط التذييل", "en": "Footer links" }
+    "footerNav": { "ar": "روابط التذييل", "en": "Footer links" },
+    "columns": [
+      {
+        "title": { "ar": "الشبكة", "en": "Network" },
+        "links": [
+          {
+            "path": "/boards/",
+            "label": { "ar": "ابحث عن لوحة", "en": "Find a board" }
+          },
+          {
+            "path": "/highway-bridges/",
+            "label": { "ar": "جسور الطرق السريعة", "en": "Highway bridges" }
+          },
+          {
+            "path": "/network/",
+            "label": { "ar": "المحافظات", "en": "Provinces" }
+          },
+          {
+            "path": "/campaign/",
+            "label": { "ar": "خطط حملتك", "en": "Plan your campaign" }
+          }
+        ]
+      },
+      {
+        "title": { "ar": "الخدمات", "en": "Services" },
+        "links": [
+          {
+            "path": "/network/",
+            "label": { "ar": "الإعلانات الخارجية", "en": "Outdoor advertising" }
+          },
+          {
+            "path": "/production/",
+            "label": { "ar": "الإنتاج الفني", "en": "Production" }
+          },
+          {
+            "path": "/#services",
+            "label": { "ar": "الخدمات الإبداعية", "en": "Creative services" }
+          },
+          {
+            "path": "/alrabiaa/",
+            "label": { "ar": "قناة الرابعة", "en": "Alrabiaa TV" }
+          }
+        ]
+      },
+      {
+        "title": { "ar": "الشركة", "en": "Company" },
+        "links": [
+          {
+            "path": "/about/",
+            "label": { "ar": "من نحن", "en": "About us" }
+          },
+          {
+            "path": "#contact",
+            "label": { "ar": "اتصل بنا", "en": "Contact" }
+          }
+        ]
+      }
+    ]
   },
   "photoOnRequest": { "ar": "الصورة عند الطلب", "en": "Photo on request" },
   "crumbs": {

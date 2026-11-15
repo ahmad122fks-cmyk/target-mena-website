@@ -1,5 +1,5 @@
 import { Plus } from 'lucide-react'
-import { CtaLink } from '@/components/shared/CtaLink'
+import { PillButton } from '@/components/shared/PillButton'
 import { SelectionItem } from '@/components/shared/SelectionItem'
 import { useLink, useT } from '@/features/i18n/LangContext'
 import { useSelection } from '@/features/selection/store'
@@ -29,10 +29,10 @@ export function BoardsStep({ error }: { error: boolean }) {
           {t(content.errors.boards)}
         </p>
       )}
-      <CtaLink tone="outline" href={link('/boards/?pick=1')} className="self-start">
+      <PillButton tone="outline" href={link('/boards/?pick=1')} className="self-start">
         <Plus className="size-4" aria-hidden="true" />
         {t(content.boards.addMore)}
-      </CtaLink>
+      </PillButton>
     </div>
   )
 }

@@ -1,4 +1,4 @@
-import { CtaLink } from '@/components/shared/CtaLink'
+import { PillButton } from '@/components/shared/PillButton'
 import { Section } from '@/components/shared/Section'
 import { LANGS, localePath } from '@/features/i18n/lang'
 import content from './not-found.content.json'
@@ -28,14 +28,14 @@ export default function NotFoundPage() {
             <p>{content.text[lang]}</p>
             <div className="flex flex-wrap gap-3">
               {content.links.map((item) => (
-                <CtaLink
+                <PillButton
                   key={item.path}
                   href={localePath(lang, item.path)}
                   tone={item.path === '/' ? 'blue' : 'white'}
                   className="border border-brand-blue"
                 >
                   {item.label[lang]}
-                </CtaLink>
+                </PillButton>
               ))}
             </div>
           </div>

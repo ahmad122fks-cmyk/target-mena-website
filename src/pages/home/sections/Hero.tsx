@@ -1,48 +1,38 @@
-import { CtaLink } from '@/components/shared/CtaLink'
-import { Photo } from '@/components/shared/Photo'
 import { Section } from '@/components/shared/Section'
 import { SectionHeading } from '@/components/shared/SectionHeading'
 import { useLink, useT } from '@/features/i18n/LangContext'
-import { BOARD_PHOTOS } from '@/lib/images'
 import content from '../home.content.json'
+import { HeroCard } from './HeroCard'
+import { HeroSearch } from './HeroSearch'
 
-/** Clean white hero: one message, two actions, one real board photo. */
+/** Ghost hero: headline, pill search, "plan with us" link; the "my list" product card beside it. */
 export function Hero() {
   const t = useT()
   const link = useLink()
   const { hero } = content
   return (
-    <Section labelledBy="hero-title">
-      <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_1fr]">
-        <div className="flex flex-col gap-6">
+    <Section tone="ghost" labelledBy="hero-title" className="border-t-0">
+      <div className="flex flex-wrap items-center gap-x-14 gap-y-10 lg:pt-0">
+        <div className="flex min-w-0 flex-[1_1_28rem] flex-col gap-6">
           <SectionHeading
             id="hero-title"
             level={1}
-            eyebrow={t(hero.eyebrow)}
+            size="hero"
             title={t(hero.title)}
-            light={t(hero.light)}
+            lead={t(hero.lead)}
           />
-          <p className="max-w-xl text-lg leading-relaxed">{t(hero.lead)}</p>
-          <div className="flex flex-wrap gap-3">
-            <CtaLink href={link(hero.primary.path)}>{t(hero.primary.label)}</CtaLink>
-            <CtaLink tone="outline" href={link(hero.secondary.path)}>
-              {t(hero.secondary.label)}
-            </CtaLink>
-          </div>
+          <HeroSearch />
+          <p className="text-sm">
+            {t(hero.planHint)}{' '}
+            <a
+              href={link(hero.planLink.path)}
+              className="font-medium text-brand-blue hover:underline"
+            >
+              {t(hero.planLink.label)}
+            </a>
+          </p>
         </div>
-        <figure className="flex flex-col gap-3">
-          <Photo
-            picture={BOARD_PHOTOS[hero.photo.code]}
-            alt={t(hero.photo.alt)}
-            sizes="(min-width: 1024px) 580px, calc(100vw - 32px)"
-            priority
-            className="rounded-2xl border"
-          />
-          <figcaption className="text-sm">
-            <span className="ltr-run font-semibold text-brand-blue">{hero.photo.code}</span> ·{' '}
-            {t(hero.photo.caption)}
-          </figcaption>
-        </figure>
+        <HeroCard />
       </div>
     </Section>
   )

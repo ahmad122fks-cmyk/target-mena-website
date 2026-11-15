@@ -1,28 +1,23 @@
 import type { ReactNode } from 'react'
 import { cn } from '@/lib/utils'
 
-/**
- * Section colour rhythm (DESIGN.md). Each tone sets its own text, heading
- * and eyebrow colours so every combination keeps WCAG AA contrast.
- */
+/** Bands alternate white and ghost (hairline top and bottom); black only for the footer look. */
 export const SECTION_TONES = {
   white: 'bg-white',
-  ghost: 'bg-brand-ghost',
-  blue: 'bg-brand-blue text-white [--heading:var(--color-brand-white)] [--eyebrow:var(--color-brand-white)]',
-  grey: 'bg-brand-grey text-brand-black [--eyebrow:var(--color-brand-black)]',
-  yellow: 'bg-brand-yellow text-brand-black [--eyebrow:var(--color-brand-black)]',
-  black:
-    'bg-brand-black text-white [--heading:var(--color-brand-white)] [--eyebrow:var(--color-brand-yellow)]',
+  ghost: 'border-y border-line bg-brand-ghost',
+  black: 'bg-brand-black text-white [--heading:var(--color-brand-white)]',
 } as const
 
 export type SectionTone = keyof typeof SECTION_TONES
+
+const PADDING = { lg: 'py-16 lg:py-24', md: 'py-14 lg:py-[4.5rem]' } as const
 
 type Props = {
   tone?: SectionTone
   id?: string
   labelledBy: string
-  /** Decorative calligraphy, absolutely positioned inside the section. */
-  art?: ReactNode
+  /** Vertical space: 96 px (default) or 72 px for short bands. */
+  pad?: keyof typeof PADDING
   /** Skip the standard container (the section lays itself out). */
   bare?: boolean
   /**
@@ -38,7 +33,7 @@ export function Section({
   tone = 'white',
   id,
   labelledBy,
-  art,
+  pad = 'lg',
   bare,
   deferred,
   className,
@@ -55,15 +50,23 @@ export function Section({
         className,
       )}
     >
-      {art}
-      {bare ? children : <Container className="py-16 lg:py-24">{children}</Container>}
+      {bare ? children : <Container className={PADDING[pad]}>{children}</Container>}
     </section>
   )
 }
 
-export function Container({ className, children }: { className?: string; children: ReactNode }) {
+type ContainerProps = { wide?: boolean; className?: string; children: ReactNode }
+
+/** 1240 px column (1320 px for the finder), 16 / 24 px side padding. */
+export function Container({ wide, className, children }: ContainerProps) {
   return (
-    <div className={cn('relative mx-auto w-full max-w-[1240px] px-4 sm:px-6', className)}>
+    <div
+      className={cn(
+        'relative mx-auto w-full px-4 sm:px-6',
+        wide ? 'max-w-[1320px]' : 'max-w-[1240px]',
+        className,
+      )}
+    >
       {children}
     </div>
   )

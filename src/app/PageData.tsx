@@ -7,7 +7,13 @@ import type { Board } from '@/lib/boards'
  * board feed just to hydrate one page.
  */
 export type PageData =
-  | { kind: 'home'; featured: Board[] }
+  | {
+      kind: 'home'
+      featured: Board[]
+      /** Published boards per province or highway, most first (from boards.json). */
+      provinces: { key: string; count: number }[]
+      total: number
+    }
   | { kind: 'boards'; boards: Board[] }
   | { kind: 'board'; board: Board; nearby: Board[] }
   | {

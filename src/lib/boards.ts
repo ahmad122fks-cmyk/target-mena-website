@@ -57,12 +57,12 @@ export function isHighway(city: string): boolean {
 }
 
 /** Area in the page language ('الكرادة' -> 'Karrada'); undefined if none. */
-export function areaLabel(board: Board, lang: Lang): string | undefined {
+export function areaLabel(board: Pick<Board, 'area'>, lang: Lang): string | undefined {
   return board.area ? (areas as Record<string, Localized>)[board.area]?.[lang] : undefined
 }
 
 /** Short place line: "Karrada · شارع النضال" (descriptions exist in Arabic only). */
-export function placeLine(board: Board, lang: Lang): string {
+export function placeLine(board: Pick<Board, 'area' | 'description'>, lang: Lang): string {
   const area = areaLabel(board, lang)
   return area && area !== board.description ? `${area} · ${board.description}` : board.description
 }

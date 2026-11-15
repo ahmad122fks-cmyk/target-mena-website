@@ -1,68 +1,77 @@
 {
   "services": {
-    "title": { "ar": "ماذا نقدم", "en": "What we do" },
-    "more": { "ar": "اعرف المزيد", "en": "Learn more" },
-    "items": [
-      {
-        "icon": "outdoor",
-        "path": "/network/",
-        "title": { "ar": "الإعلانات الخارجية", "en": "Outdoor advertising" },
-        "text": { "ar": "أسطح، جسور، جداريات، لوحات مضاءة، يونيبول وشاشات في بغداد والمحافظات.", "en": "Rooftops, bridges, walls, backlits, unipoles and screens in Baghdad and the provinces." }
+    "title": { "ar": "أكثر من لوحات", "en": "More than boards" },
+    "outdoor": {
+      "eyebrow": { "ar": "الإعلانات الخارجية", "en": "Outdoor advertising" },
+      "title": {
+        "ar": "أسطح وجسور وجداريات ولوحات مضاءة وشاشات.",
+        "en": "Rooftops, bridges, walls, backlits and screens."
       },
-      {
-        "icon": "production",
-        "path": "/production/",
-        "title": { "ar": "الإنتاج", "en": "Production" },
-        "text": { "ar": "إعلانات تلفزيونية وحملات بإنتاج عالٍ، ومخرجون وطواقم محترفة، وإعلانات منتجة بالذكاء الاصطناعي.", "en": "High-production TV commercials and campaigns, experienced directors and crews, and AI-produced commercials." }
-      },
-      {
-        "icon": "events",
-        "path": "/events/",
-        "title": { "ar": "الفعاليات", "en": "Events" },
-        "text": { "ar": "تنظيم الفعاليات وتغطيتها من الفكرة إلى التنفيذ.", "en": "Event management and coverage, from idea to execution." }
-      },
-      {
-        "icon": "tv",
-        "path": "/alrabiaa/",
-        "title": { "ar": "قناة الرابعة", "en": "Alrabiaa TV" },
-        "text": { "ar": "الموزع الحصري للإعلان والترويج على قناة الرابعة: رعايات وحملات على مدار العام.", "en": "Exclusive distributor for advertising and promotion on Alrabiaa TV: sponsorships and campaigns all year round." }
+      "link": {
+        "path": "/boards/",
+        "label": { "ar": "ابحث عن لوحة ←", "en": "Find a board →" }
       }
-    ]
-  },
-  "production": {
-    "title": { "ar": "الإنتاج", "en": "Production" },
-    "light": { "ar": "الفني", "en": "Services" },
-    "list": [
-      { "ar": "الإعلانات التلفزيونية", "en": "TV Commercials" },
-      { "ar": "الإنتاج الصوتي", "en": "Audio Production" },
-      { "ar": "فيديوهات ثلاثية الأبعاد", "en": "3D videos" },
-      { "ar": "الستوري بورد والرسوم المتحركة", "en": "Storyboarding & Animation" },
-      { "ar": "إعلانات بالذكاء الاصطناعي", "en": "AI Commercials" }
-    ],
-    "stat": { "ar": "+35", "en": "35+" },
-    "statLabel": { "ar": "إنتاجاً منجزاً: حملات عالية الإنتاج وإعلانات تلفزيونية", "en": "productions delivered: high-production campaigns and TV commercials" },
-    "cta": {
-      "path": "/production/",
-      "label": { "ar": "الإنتاج والفعاليات", "en": "Production & events" }
     },
-    "artAlt": { "ar": "كاميرا تصوير سينمائي بالأصفر مع خط تارگت العربي، من الملف التعريفي", "en": "Film camera in Target yellow with Target's Arabic calligraphy, from the catalog" }
+    "production": {
+      "eyebrow": { "ar": "الإنتاج الفني", "en": "Production" },
+      "title": {
+        "ar": "إعلانات تلفزيونية، إنتاج صوتي، فيديو ثلاثي الأبعاد وستوري بورد.",
+        "en": "TV commercials, audio production, 3D video and storyboards."
+      },
+      "link": {
+        "path": "#contact",
+        "label": { "ar": "تواصل معنا ←", "en": "Contact us →" }
+      },
+      "artAlt": {
+        "ar": "كاميرا تصوير سينمائي بالأصفر مع خط تارگت العربي، من الملف التعريفي",
+        "en": "Film camera in Target yellow with Target's Arabic calligraphy, from the catalog"
+      }
+    },
+    "creative": {
+      "eyebrow": { "ar": "الخدمات الإبداعية", "en": "Creative services" },
+      "title": {
+        "ar": "الحملات، محتوى السوشيال ميديا، العلامة والهوية، وتصميم UI/UX.",
+        "en": "Campaigns, social media content, branding and identity, and UI/UX design."
+      },
+      "link": {
+        "path": "#contact",
+        "label": { "ar": "تواصل معنا ←", "en": "Contact us →" }
+      },
+      "artAlt": {
+        "ar": "عمل فني بالخط العربي متعدد الألوان من الملف التعريفي لتارگت",
+        "en": "Multicolour Arabic calligraphy artwork from Target's catalog"
+      }
+    },
+    "alrabiaa": {
+      "eyebrow": { "ar": "قناة الرابعة", "en": "Alrabiaa TV" },
+      "title": {
+        "ar": "تارگت الوكيل الحصري لبيع المساحات الإعلانية على قناة الرابعة.",
+        "en": "Target is the exclusive agent for advertising airtime on Alrabiaa TV."
+      },
+      "logoAlt": { "ar": "شعار قناة الرابعة", "en": "Alrabiaa TV logo" },
+      "link": {
+        "path": "#contact",
+        "label": { "ar": "اطلب جدول البث ←", "en": "Ask for the broadcast schedule →" }
+      }
+    }
   },
-  "creative": {
-    "title": { "ar": "نحن لا نكتفي بالإبداع؛", "en": "We don't just create;" },
-    "light": { "ar": "بل نصنع التجارب.", "en": "we craft experiences." },
-    "lead": { "ar": "مخرجاتنا الإبداعية مصممة لتلامس جمهورك وتنسجم تماماً مع هوية علامتك وأهدافها.", "en": "Our creative outputs are tailored to resonate with your audience while aligning perfectly with your brand identity and objectives." },
-    "list": [
-      { "ar": "الحملات", "en": "Campaigns" },
-      { "ar": "محتوى السوشيال ميديا", "en": "Social Media Content" },
-      { "ar": "تصميم UI/UX", "en": "UI/UX Design" },
-      { "ar": "العلامة والهوية", "en": "Branding & Identity" },
-      { "ar": "التصميم ثلاثي الأبعاد", "en": "3D Design" },
-      { "ar": "فيديوهات وتصاميم بالذكاء الاصطناعي", "en": "AI Videos & Design" }
-    ],
-    "artAlt": { "ar": "عمل فني بالخط العربي متعدد الألوان من الملف التعريفي لتارگت", "en": "Multicolour Arabic calligraphy artwork from Target's catalog" }
-  },
-  "clients": {
-    "title": { "ar": "يثق بنا", "en": "Trusted by" },
+  "numbers": {
+    "title": { "ar": "علامات تعمل مع تارگت", "en": "Brands that work with Target" },
+    "boards": {
+      "ar": "لوحة منشورة على الموقع، بمقاساتها ومواقعها.",
+      "en": "boards published on the site, with sizes and locations."
+    },
+    "networkToConfirm": "network size: 660 published here vs 668 owned / 775",
+    "produced": { "ar": "+35", "en": "35+" },
+    "producedLabel": {
+      "ar": "حملة وإعلاناً تلفزيونياً من إنتاج تارگت.",
+      "en": "campaigns and TV commercials produced by Target."
+    },
+    "exclusive": { "ar": "حصري", "en": "Exclusive" },
+    "exclusiveLabel": {
+      "ar": "وكيل مبيعات الإعلانات على قناة الرابعة.",
+      "en": "advertising sales agent for Alrabiaa TV."
+    },
     "logos": [
       {
         "file": "qi",
@@ -73,12 +82,6 @@
         "alt": { "ar": "قناة الرابعة", "en": "Alrabiaa TV" }
       }
     ],
-    "textOnly": [
-      { "ar": "Earthlink", "en": "Earthlink" }
-    ],
-    "toConfirm": "other client logos allowed on the site"
-  },
-  "studio": {
-    "title": { "ar": "الإنتاج والإبداع", "en": "Production and creative" }
+    "logosToConfirm": "other client logos allowed on the site"
   }
 }

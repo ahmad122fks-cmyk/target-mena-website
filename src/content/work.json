@@ -3,7 +3,10 @@
   "recent": [
     { "ar": "إعلان الدفع من كي كارد · كي كارد", "en": "Qi Card Payment TVC · Qi Card" },
     { "ar": "إعلان الائتمان من كي كارد · كي كارد", "en": "Qi Credit TVC · Qi Card" },
-    { "ar": "حملة رمضان لديجيتال زون · ديجيتال زون", "en": "Digital Zone Ramadan campaign · Digital Zone" }
+    {
+      "ar": "حملة رمضان لديجيتال زون · ديجيتال زون",
+      "en": "Digital Zone Ramadan campaign · Digital Zone"
+    }
   ],
   "clientsTitle": { "ar": "عملاء الإنتاج", "en": "Production clients" },
   "clients": [
@@ -16,5 +19,8 @@
     { "ar": "Kalleh", "en": "Kalleh" },
     { "ar": "Eatix", "en": "Eatix" }
   ],
-  "retained": { "ar": "الوكالة المعتمدة لمجموعة كي والرابعة.", "en": "Retained agency for Qi Group and Alrabiaa." }
+  "retained": {
+    "ar": "الوكالة المعتمدة لمجموعة كي والرابعة.",
+    "en": "Retained agency for Qi Group and Alrabiaa."
+  }
 }

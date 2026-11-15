@@ -1,26 +1,28 @@
-import { Bridges } from './sections/Bridges'
-import { Clients } from './sections/Clients'
-import { Facts } from './sections/Facts'
-import { FeaturedSites } from './sections/FeaturedSites'
+import { Formats } from './sections/Formats'
 import { Hero } from './sections/Hero'
+import { Numbers } from './sections/Numbers'
+import { Platform } from './sections/Platform'
+import { Provinces } from './sections/Provinces'
 import { Services } from './sections/Services'
-import { Studio } from './sections/Studio'
+import { Team } from './sections/Team'
+import { TwoWays } from './sections/TwoWays'
 
 /**
- * Home (Arabic at /, English at /en/). Order follows the approved demo and
- * the catalog: outdoor first, then production and creative, then clients.
- * The contact block and footer come from SiteLayout.
+ * Home (Arabic at /, English at /en/), rebuilt from the approved design
+ * reference: bands alternate ghost and white. The contact block and the
+ * black footer come from SiteLayout.
  */
 export default function HomePage() {
   return (
     <>
       <Hero />
-      <Facts />
-      <FeaturedSites />
-      <Bridges />
+      <Team />
+      <TwoWays />
+      <Formats />
+      <Provinces />
+      <Platform />
       <Services />
-      <Studio />
-      <Clients />
+      <Numbers />
     </>
   )
 }

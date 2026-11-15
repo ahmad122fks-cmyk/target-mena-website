@@ -1,7 +1,7 @@
 import { Sheet, SheetContent, SheetTitle } from '@/components/ui/sheet'
 import site from '@/content/site.json'
 import { useDir, useLang, useLink, useT } from '@/features/i18n/LangContext'
-import { CtaLink } from './CtaLink'
+import { PillButton } from './PillButton'
 import { NavLinks } from './NavLinks'
 
 type Props = { open: boolean; onOpenChange: (open: boolean) => void }
@@ -24,7 +24,7 @@ export default function MobileNavSheet({ open, onOpenChange }: Props) {
         <nav aria-label={t(site.navLabel)}>
           <NavLinks column />
         </nav>
-        <CtaLink href={link(site.headerCta.path)}>{t(site.headerCta.label)}</CtaLink>
+        <PillButton href={link(site.headerCta.path)}>{t(site.headerCta.label)}</PillButton>
       </SheetContent>
     </Sheet>
   )

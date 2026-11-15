@@ -1,4 +1,4 @@
-import { CtaLink } from '@/components/shared/CtaLink'
+import { PillButton } from '@/components/shared/PillButton'
 import { SelectionToggle } from '@/components/shared/SelectionToggle'
 import content from '@/content/selection.json'
 import { useLink, useT } from '@/features/i18n/LangContext'
@@ -14,9 +14,9 @@ export function BoardActions({ board }: { board: Board }) {
       <h2 className="text-xl">{t(content.title)}</h2>
       <SelectionToggle board={board} className="h-12 w-full" />
       <div onClickCapture={() => selection.add([board])}>
-        <CtaLink href={link('/campaign/')} className="w-full">
+        <PillButton href={link('/campaign/')} className="w-full">
           {t(content.planWith)}
-        </CtaLink>
+        </PillButton>
       </div>
     </div>
   )

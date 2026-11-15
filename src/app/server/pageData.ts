@@ -20,7 +20,8 @@ export function getPageData(match: RouteMatch | null): PageData {
   const { page, params } = match
   if (page === 'home') {
     const featured = home.featured.codes.map(findBoard).filter((board) => board !== undefined)
-    return { kind: 'home', featured }
+    const provinces = provinceCounts().sort((a, b) => b.count - a.count)
+    return { kind: 'home', featured, provinces, total: BOARDS.length }
   }
   if (page === 'boards') return { kind: 'boards', boards: BOARDS }
   if (page === 'campaign') return { kind: 'static', page: 'campaign' }
