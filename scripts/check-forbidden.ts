@@ -32,6 +32,11 @@ function check(file: string, text: string): Finding[] {
   const isData = file.startsWith('src/data/') || (built && file.endsWith('.json'))
   const isPublished = file.endsWith('.content.json') || file.startsWith('src/content/') || built
   const html = file.endsWith('.html')
+  // Built scripts and styles: every word except "$" (ordinary code there).
+  if (built && /\.(js|css)$/.test(file))
+    return findForbidden(text, { words: true, terms }).filter(
+      (f) => f.rule !== 'forbidden word /\\$/',
+    )
   const found = findForbidden(html ? htmlText(text) : text, {
     keys: isData,
     words: isPublished,
@@ -41,7 +46,7 @@ function check(file: string, text: string): Finding[] {
 }
 
 let files: string[]
-if (mode === '--dist') files = walk('dist', ['.html', '.json', '.xml', '.txt'])
+if (mode === '--dist') files = walk('dist', ['.html', '.json', '.xml', '.txt', '.js', '.css'])
 else if (mode === '--staged') {
   files = execSync('git diff --cached --name-only --diff-filter=ACM', { encoding: 'utf8' })
     .split('\n')

@@ -6,9 +6,11 @@ import { EMPTY_VALUES, type CampaignValues } from './schema'
 export function loadDraft(): CampaignValues {
   try {
     const saved = JSON.parse(window.localStorage.getItem(KEY) ?? 'null')
-    return saved && typeof saved === 'object'
-      ? { ...EMPTY_VALUES, ...saved, website: '' }
-      : EMPTY_VALUES
+    if (!saved || typeof saved !== 'object') return EMPTY_VALUES
+    const values = { ...EMPTY_VALUES, ...saved, website: '' }
+    // Older test drafts used other currency codes: fall back to dinar.
+    if (values.currency !== 'dollar') values.currency = 'dinar'
+    return values
   } catch {
     return EMPTY_VALUES
   }

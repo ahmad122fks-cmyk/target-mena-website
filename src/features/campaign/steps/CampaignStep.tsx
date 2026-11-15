@@ -53,8 +53,8 @@ export function CampaignStep({ control }: { control: Control<CampaignValues> }) 
           name: 'currency',
           label: t(f.currency),
           options: [
-            { value: 'IQD', label: t(f.iqd) },
-            { value: 'USD', label: t(f.usd) },
+            { value: 'dinar', label: t(f.dinar) },
+            { value: 'dollar', label: t(f.dollar) },
           ],
         }}
         hint={t(f.budgetNote)}

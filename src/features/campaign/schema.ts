@@ -21,7 +21,7 @@ export function campaignSchema(t: (v: Localized) => string) {
     durationValue: z.string().check(z.trim(), z.regex(/^[1-9]\d{0,2}$/, t(e.number))),
     durationUnit: z.enum(['weeks', 'months']),
     budget: z.string().check(z.trim(), z.regex(/^\d{0,15}$/, t(e.number))),
-    currency: z.enum(['IQD', 'USD']),
+    currency: z.enum(['dinar', 'dollar']),
     objective: z.string().check(z.trim(), z.maxLength(1000)),
     services: z.array(z.enum(SERVICES)),
     website: z.string().check(z.maxLength(0)), // honeypot: people leave it empty
@@ -41,7 +41,7 @@ export const EMPTY_VALUES: CampaignValues = {
   durationValue: '',
   durationUnit: 'months',
   budget: '',
-  currency: 'IQD',
+  currency: 'dinar',
   objective: '',
   services: [],
   website: '',

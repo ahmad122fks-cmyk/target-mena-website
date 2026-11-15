@@ -36,8 +36,8 @@
       "en": "Our team uses it only to suggest what suits you best."
     },
     "currency": { "ar": "العملة", "en": "Currency" },
-    "iqd": { "ar": "دينار", "en": "Dinar" },
-    "usd": { "ar": "دولار", "en": "Dollar" },
+    "dinar": { "ar": "دينار", "en": "Dinar" },
+    "dollar": { "ar": "دولار", "en": "Dollar" },
     "objective": { "ar": "الهدف (اختياري)", "en": "Objective (optional)" },
     "services": { "ar": "خدمات إضافية", "en": "Extra services" },
     "printing": { "ar": "الطباعة والتركيب", "en": "Printing and installation" },

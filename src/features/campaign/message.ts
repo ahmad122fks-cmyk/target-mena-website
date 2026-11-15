@@ -28,7 +28,7 @@ export function buildCampaignMessage(v: CampaignValues, codes: string[], lang: L
     [f.campaignName, v.campaignName],
     [f.startDate, v.startDate],
     [f.duration, duration],
-    [f.budget, v.budget ? `${v.budget} ${v.currency} (${t(m.clientFigure)})` : ''],
+    [f.budget, v.budget ? `${v.budget} ${t(f[v.currency])} (${t(m.clientFigure)})` : ''],
     [f.objective, v.objective],
     [f.services, services],
   ]

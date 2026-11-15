@@ -15,7 +15,7 @@ const values: CampaignValues = {
   durationValue: '2',
   durationUnit: 'months',
   budget: '5000000',
-  currency: 'IQD',
+  currency: 'dinar',
   objective: 'Launch',
   services: ['printing', 'alrabiaa'],
 }
@@ -27,7 +27,7 @@ describe('campaign message builder', () => {
     expect(text).toContain('Campaign request: Ramadan')
     expect(text).toContain('Province: Najaf')
     expect(text).toContain('Duration: 2 months')
-    expect(text).toContain("5000000 IQD (client's figure)")
+    expect(text).toContain("5000000 Dinar (client's figure)")
     expect(text).toContain('Printing and installation, Alrabiaa TV')
     expect(text).toContain('Boards (3): BGW03A, BGW02A, BBH20A')
     expect(text).not.toMatch(/price|total|available/i)

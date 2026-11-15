@@ -19,7 +19,7 @@ export function CampaignSummary({ control }: { control: Control<CampaignValues> 
   const s = content.summary
   const f = content.fields
   const area = Math.round(items.reduce((sum, item) => sum + item.sqm, 0) * 100) / 100
-  const money = t(currency === 'USD' ? f.usd : f.iqd)
+  const money = t(f[currency])
   const rows: [string, ReactNode][] = [
     [t(s.boards), <span className="ltr-run">{items.length}</span>],
     [t(s.area), <span className="ltr-run">{formatSqm(area, lang)}</span>],
