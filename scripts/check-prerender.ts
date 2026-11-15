@@ -18,6 +18,7 @@ function pages(dir: string): string[] {
 
 const errors: string[] = []
 const titles = new Map<string, string>()
+const descriptions = new Map<string, string>()
 const files = pages(DIST)
 for (const file of files) {
   const rel = path.relative(DIST, file)
@@ -33,11 +34,25 @@ for (const file of files) {
   }
   const description = html.match(/<meta name="description" content="([^"]+)"/)?.[1]
   if (!description) fail('missing meta description')
-  else if (description.length > 155) fail(`description over 155 characters (${description.length})`)
+  else {
+    if (description.length > 155) fail(`description over 155 characters (${description.length})`)
+    if (descriptions.has(description))
+      fail(`description also used by ${descriptions.get(description)}`)
+    descriptions.set(description, rel)
+  }
   if (!html.includes(en ? '<html lang="en" dir="ltr">' : '<html lang="ar" dir="rtl">'))
     fail('wrong <html lang dir>')
   if (!html.includes('rel="canonical"')) fail('missing canonical')
-  if (rel !== '404.html' && !/hreflang="x-default"/i.test(html)) fail('missing hreflang pair')
+  if (rel !== '404.html')
+    for (const lang of ['ar', 'en', 'x-default'])
+      if (!new RegExp(`hreflang="${lang}"`, 'i').test(html)) fail(`missing hreflang ${lang}`)
+  const canonical = html.match(/rel="canonical" href="([^"]+)"/)?.[1] ?? ''
+  const self = `https://target-mena.com/${rel.replace(/index\.html$/, '')}`
+  if (rel !== '404.html' && canonical !== self)
+    fail(`canonical ${canonical} is not this page (${self})`)
+  const image = html.match(/property="og:image" content="https:\/\/target-mena\.com\/([^"]+)"/)?.[1]
+  if (!image) fail('missing og:image')
+  else if (!fs.existsSync(path.join(DIST, image))) fail(`og:image file missing: ${image}`)
   const jsonLd = html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)?.[1]
   if (!jsonLd) fail('missing JSON-LD')
   else JSON.parse(jsonLd)

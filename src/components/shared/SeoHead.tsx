@@ -21,7 +21,12 @@ export function SeoHead({ head }: { head: PageHead }) {
       <meta property="og:description" content={head.description} />
       <meta property="og:url" content={head.canonical} />
       <meta property="og:locale" content={head.lang === 'ar' ? 'ar_IQ' : 'en_US'} />
-      <meta name="twitter:card" content="summary" />
+      <meta property="og:image" content={head.image} />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta property="og:image:alt" content={head.title} />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:image" content={head.image} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd }} />
     </>
   )

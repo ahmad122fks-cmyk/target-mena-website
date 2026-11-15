@@ -1,6 +1,6 @@
 import site from '@/content/site.json'
 import { dirOf, localePath, type Lang } from '@/features/i18n/lang'
-import { cityLabel, placeLine, type Board } from '@/lib/boards'
+import { boardSlug, cityLabel, placeLine, type Board } from '@/lib/boards'
 import { trailFor } from '@/lib/breadcrumbs'
 import { absoluteUrl, SITE_URL } from '@/lib/site'
 import { ARTICLES } from '@/features/insights/articles'
@@ -17,6 +17,8 @@ export type PageHead = {
   canonical: string
   alternates: { hrefLang: string; href: string }[]
   siteName: string
+  /** 1200 x 630 share image (scripts/build-share-images.ts). */
+  image: string
   noindex: boolean
   status: number
   jsonLd: object
@@ -67,6 +69,11 @@ export function getHead(match: RouteMatch | null, data: PageData): PageHead {
         ]
       : [],
     siteName: site.name[lang],
+    image: absoluteUrl(
+      data.kind === 'board' && data.board.photo
+        ? `/share/boards/${boardSlug(data.board.code)}.jpg`
+        : '/share/target.jpg',
+    ),
     // Insights stays out of search engines until it has its first article.
     noindex: !found || (data.kind === 'static' && data.page === 'insights' && !ARTICLES.length),
     status: found ? 200 : 404,
