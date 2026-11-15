@@ -50,3 +50,7 @@ reports/screens/
 *.tsbuildinfo
 *.log
 .DS_Store
+
+# Private lists (supplier and staff names for the forbidden-words check)
+*.private.*
+reports/lighthouse/

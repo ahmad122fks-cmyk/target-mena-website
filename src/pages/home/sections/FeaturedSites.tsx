@@ -1,0 +1,26 @@
+import { BoardCard } from '@/components/shared/BoardCard'
+import { Section } from '@/components/shared/Section'
+import { useLink, useT } from '@/features/i18n/LangContext'
+import content from '../home.content.json'
+
+/** Three real sites from the approved demo (data checked against the inventory, no prices). */
+export function FeaturedSites() {
+  const t = useT()
+  const link = useLink()
+  const { featured } = content
+  return (
+    <Section labelledBy="featured-title" className="[&>div]:pt-6 [&>div]:lg:pt-8">
+      <div className="mb-6 flex flex-wrap items-baseline justify-between gap-3">
+        <h2 id="featured-title" className="text-3xl sm:text-4xl">{t(featured.title)}</h2>
+        <a href={link(featured.all.path)} className="inline-flex min-h-11 items-center font-semibold text-brand-blue hover:underline">
+          {t(featured.all.label)}
+        </a>
+      </div>
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {featured.boards.map((board) => (
+          <BoardCard key={board.code} board={board} requestLabel={t(featured.request)} />
+        ))}
+      </div>
+    </Section>
+  )
+}

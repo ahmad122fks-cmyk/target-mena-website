@@ -1,0 +1,9 @@
+dist
+dist-ssr
+node_modules
+.tools.nosync
+assets-source
+src/components/ui
+reports
+*.svg
+package-lock.json

@@ -1,0 +1,7 @@
+/*
+ * Readex Pro (official brand font) for Arabic and English, self-hosted.
+ * One variable WOFF2 per script subset (weights 160-700 in one file):
+ * Arabic ~23 KB, Latin ~31 KB. unicode-range means a page only downloads
+ * the subsets it uses. No other fonts are allowed (DESIGN.md).
+ */
+@import '@fontsource-variable/readex-pro/wght.css';

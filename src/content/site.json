@@ -1,0 +1,65 @@
+{
+  "name": { "ar": "تارگت للإعلان", "en": "Target Advertising" },
+  "logoAlt": { "ar": "شعار تارگت للإعلان", "en": "Target Advertising logo" },
+  "skipLink": { "ar": "انتقل إلى المحتوى", "en": "Skip to content" },
+  "navLabel": { "ar": "القائمة الرئيسية", "en": "Main menu" },
+  "menuOpen": { "ar": "فتح القائمة", "en": "Open menu" },
+  "nav": [
+    {
+      "path": "/network",
+      "label": { "ar": "شبكة اللوحات", "en": "Network" }
+    },
+    {
+      "path": "/boards",
+      "label": { "ar": "ابحث عن لوحة", "en": "Find a board" }
+    },
+    {
+      "path": "/highway-bridges",
+      "label": { "ar": "جسور الطرق السريعة", "en": "Highway bridges" }
+    },
+    {
+      "path": "/production",
+      "label": { "ar": "الإنتاج والفعاليات", "en": "Production & events" }
+    },
+    {
+      "path": "/alrabiaa",
+      "label": { "ar": "قناة الرابعة", "en": "Alrabiaa TV" }
+    },
+    {
+      "path": "/contact",
+      "label": { "ar": "اتصل بنا", "en": "Contact" }
+    }
+  ],
+  "headerCta": {
+    "path": "/contact",
+    "label": { "ar": "اطلب عرضاً", "en": "Request a proposal" }
+  },
+  "langSwitch": { "ar": "English", "en": "عربي" },
+  "contact": {
+    "eyebrow": { "ar": "للحجز والاستفسار", "en": "Bookings and enquiries" },
+    "title": { "ar": "لنبنِ الحضور معاً.", "en": "Let's build presence." },
+    "address": { "ar": "بغداد – الجادرية", "en": "Baghdad – Al Jaderiyah" },
+    "phones": [
+      "+964 771 977 7199",
+      "+964 784 466 6000",
+      "+964 774 466 6000"
+    ],
+    "email": "info@target-mena.com",
+    "phonesLabel": { "ar": "الهاتف", "en": "Phone" },
+    "emailLabel": { "ar": "البريد الإلكتروني", "en": "Email" },
+    "addressLabel": { "ar": "العنوان", "en": "Address" },
+    "call": { "ar": "اتصل الآن", "en": "Call now" },
+    "writeEmail": { "ar": "راسلنا", "en": "Email us" },
+    "whatsapp": { "ar": "واتساب", "en": "WhatsApp" },
+    "whatsappToConfirm": "WhatsApp number"
+  },
+  "footer": {
+    "rights": { "ar": "© 2026 تارگت للإعلان. جميع الحقوق محفوظة.", "en": "© 2026 Target Advertising. All rights reserved." },
+    "privacy": {
+      "path": "/privacy",
+      "label": { "ar": "الخصوصية", "en": "Privacy" }
+    },
+    "footerNav": { "ar": "روابط التذييل", "en": "Footer links" }
+  },
+  "photoOnRequest": { "ar": "الصورة عند الطلب", "en": "Photo on request" }
+}

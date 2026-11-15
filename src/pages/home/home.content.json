@@ -1,0 +1,95 @@
+{
+  "seo": {
+    "title": { "ar": "تارگت للإعلان | لوحات إعلانية في بغداد والعراق", "en": "Target Advertising | Billboards and outdoor ads in Iraq" },
+    "description": { "ar": "نجعل علامتك حاضرة في كل مكان في العراق: لوحات على الأسطح والجسور والجدران، جسور الطرق السريعة، الإنتاج والفعاليات، وقناة الرابعة.", "en": "We make brands impossible to miss in Iraq: rooftops, bridges and walls, highway bridges, production and events, and Alrabiaa TV." },
+    "breadcrumb": { "ar": "الرئيسية", "en": "Home" }
+  },
+  "hero": {
+    "eyebrow": { "ar": "إعلانات خارجية · إنتاج · فعاليات · تلفزيون", "en": "Outdoor · Production · Events · TV" },
+    "title": { "ar": "نجعل علامتك حاضرة في كل مكان في العراق.", "en": "We make brands impossible to miss in Iraq." },
+    "lead": { "ar": "لوحات على الأسطح والجسور والجدران في بغداد والنجف والمحافظات، وجسور على الطرق السريعة، مع الإنتاج والبث على قناة الرابعة.", "en": "Rooftops, bridges and walls across Baghdad, Najaf and the provinces, highway bridges between cities, plus production and airtime on Alrabiaa TV." },
+    "primary": {
+      "path": "/boards",
+      "label": { "ar": "ابحث عن لوحة", "en": "Find a board" }
+    },
+    "secondary": {
+      "path": "#contact",
+      "label": { "ar": "تواصل معنا", "en": "Contact us" }
+    },
+    "photo": {
+      "code": "BGW02A",
+      "alt": { "ar": "لوحة جدارية في الكرادة باتجاه ساحة كهرمانة، بغداد", "en": "Wall billboard in Karrada facing Kahramana Square, Baghdad" },
+      "caption": { "ar": "الكرادة، باتجاه ساحة كهرمانة · صورة حقيقية للموقع", "en": "Karrada, facing Kahramana Square · real site photo" }
+    }
+  },
+  "factsTitle": { "ar": "تارگت بالأرقام", "en": "Target at a glance" },
+  "facts": [
+    {
+      "toConfirm": "network size (668 / 775 / 793 / 870 in different documents)",
+      "label": { "ar": "موقعاً ضمن شبكة تارگت", "en": "sites in Target's network" }
+    },
+    {
+      "value": { "ar": "جسور الطرق السريعة", "en": "Highway bridges" },
+      "label": { "ar": "حضور على الطرق بين المحافظات", "en": "on the roads between provinces" }
+    },
+    {
+      "value": { "ar": "+35", "en": "35+" },
+      "number": true,
+      "label": { "ar": "حملة وإعلاناً تلفزيونياً من إنتاجنا", "en": "campaigns and TVCs produced" }
+    },
+    {
+      "value": { "ar": "قناة الرابعة", "en": "Alrabiaa TV" },
+      "label": { "ar": "الموزع الحصري للإعلان والترويج", "en": "exclusive distributor for advertising and promotion" }
+    }
+  ],
+  "featured": {
+    "title": { "ar": "مواقع مختارة", "en": "Featured sites" },
+    "all": {
+      "path": "/boards",
+      "label": { "ar": "كل اللوحات", "en": "All boards" }
+    },
+    "request": { "ar": "اطلب هذه اللوحة", "en": "Request this board" },
+    "boards": [
+      {
+        "code": "BGW03A",
+        "type": { "ar": "جدارية", "en": "Wall" },
+        "place": { "ar": "الكرادة · شارع النضال", "en": "Karrada · Al-Nidhal Street" },
+        "city": { "ar": "بغداد", "en": "Baghdad" },
+        "height": 9.8,
+        "width": 20,
+        "sqm": 196,
+        "faces": 1
+      },
+      {
+        "code": "BGW02A",
+        "type": { "ar": "جدارية", "en": "Wall" },
+        "place": { "ar": "الكرادة · باتجاه ساحة كهرمانة", "en": "Karrada · facing Kahramana Square" },
+        "city": { "ar": "بغداد", "en": "Baghdad" },
+        "height": 10,
+        "width": 8,
+        "sqm": 80,
+        "faces": 1
+      },
+      {
+        "code": "BBH20A",
+        "type": { "ar": "جسر", "en": "Bridge" },
+        "place": { "ar": "الطريق السريع الجنوبي · حلة ← ديوانية", "en": "Southern highway · Hilla → Diwaniyah" },
+        "city": { "ar": "طريق سريع", "en": "Highway" },
+        "height": 1.8,
+        "width": 40,
+        "sqm": 72,
+        "faces": 1
+      }
+    ]
+  },
+  "bridges": {
+    "eyebrow": { "ar": "جسور الطرق السريعة", "en": "Highway bridges" },
+    "title": { "ar": "علامتك على الطريق بين المحافظات.", "en": "Your brand on the road between provinces." },
+    "lead": { "ar": "جسور على الطريق السريع الجنوبي والغربي، كل وجه باتجاه المحافظة التي يقود إليها. اختر الاتجاه، ونحن نتولى التصميم والطباعة والتركيب.", "en": "Bridges on the southern and western highways, each face pointing to the province it leads to. Pick the direction; we handle design, printing and installation." },
+    "cta": {
+      "path": "/highway-bridges",
+      "label": { "ar": "تصفح الجسور", "en": "Browse bridges" }
+    },
+    "photoAlt": { "ar": "جسر إعلاني على الطريق السريع الجنوبي بين الحلة والديوانية", "en": "Highway bridge billboard on the southern highway, Hilla to Diwaniyah" }
+  }
+}

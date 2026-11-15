@@ -1,0 +1,7 @@
+#!/bin/sh
+# Blocks commits that contain prices, supplier names or staff names.
+export PATH="$HOME/.local/node/bin:$PATH"
+npx --no-install tsx scripts/check-forbidden.ts --staged || {
+  echo "Commit blocked: remove the forbidden content above, then commit again."
+  exit 1
+}

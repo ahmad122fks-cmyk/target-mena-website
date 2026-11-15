@@ -1,0 +1,71 @@
+{
+  "name": "target-mena-website",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "target-mena.com - static, prerendered, Arabic-first website for Target Advertising",
+  "engines": {
+    "node": ">=22.12"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "npm run check:length && npm run check:forbidden && vite build && vite build --ssr src/entry-server.tsx --outDir dist-ssr && tsx scripts/prerender.ts && npm run check:dist",
+    "preview": "vite preview --port 4173 --strictPort",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "size": "size-limit",
+    "lhci": "lhci autorun",
+    "check:length": "tsx scripts/check-file-length.ts",
+    "check:forbidden": "tsx scripts/check-forbidden.ts",
+    "check:dist": "tsx scripts/check-forbidden.ts --dist && tsx scripts/check-prerender.ts",
+    "svg": "svgo --config svgo.config.js -f src/assets/calligraphy"
+  },
+  "size-limit": [
+    {
+      "name": "JavaScript per page (gzip)",
+      "path": "dist/assets/*.js",
+      "limit": "150 KB",
+      "gzip": true
+    }
+  ],
+  "dependencies": {
+    "@fontsource-variable/readex-pro": "^5.3.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "cn": "^0.5.2",
+    "lucide-react": "^1.73.0",
+    "radix-ui": "^1.8.1",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "react-router": "^7.18.5",
+    "tailwind-merge": "^3.7.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@lhci/cli": "^0.16.1",
+    "@playwright/test": "^1.65.1",
+    "@size-limit/file": "^14.3.0",
+    "@tailwindcss/vite": "^4.3.5",
+    "@types/node": "^22.20.5",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.3.0",
+    "eslint": "^10.15.0",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "jsdom": "^31.0.1",
+    "prettier": "^3.10.1",
+    "sharp": "^0.35.5",
+    "size-limit": "^14.3.0",
+    "svgo": "^4.1.0",
+    "tailwindcss": "^4.3.5",
+    "tsx": "^4.23.15",
+    "typescript": "~6.0.3",
+    "typescript-eslint": "^8.72.2",
+    "vite": "^8.3.8",
+    "vite-imagetools": "^12.0.2",
+    "vitest": "^5.1.0"
+  }
+}
