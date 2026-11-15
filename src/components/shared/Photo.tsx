@@ -14,7 +14,8 @@ type Props = {
 /** Real photo or catalog artwork as AVIF/WebP with JPEG fallback, never stretched. */
 export function Photo({ picture, alt, sizes, priority = false, className }: Props) {
   return (
-    <picture>
+    // `contents`: the img itself takes part in the parent's layout (flex/grid sizing).
+    <picture className="contents">
       {Object.entries(picture.sources).map(([format, srcSet]) => (
         <source
           key={format}
