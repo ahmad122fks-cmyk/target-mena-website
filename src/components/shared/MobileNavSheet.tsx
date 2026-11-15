@@ -1,6 +1,7 @@
 import { Sheet, SheetContent, SheetTitle } from '@/components/ui/sheet'
 import site from '@/content/site.json'
 import { useDir, useLang, useLink, useT } from '@/features/i18n/LangContext'
+import { ClientLogin } from './ClientLogin'
 import { PillButton } from './PillButton'
 import { NavLinks } from './NavLinks'
 
@@ -24,6 +25,7 @@ export default function MobileNavSheet({ open, onOpenChange }: Props) {
         <nav aria-label={t(site.navLabel)}>
           <NavLinks column />
         </nav>
+        <ClientLogin className="text-lg" />
         <PillButton href={link(site.headerCta.path)}>{t(site.headerCta.label)}</PillButton>
       </SheetContent>
     </Sheet>

@@ -117,5 +117,10 @@
     "network": { "ar": "شبكة اللوحات", "en": "Network" },
     "campaign": { "ar": "خطط حملتك", "en": "Plan your campaign" }
   },
-  "breadcrumbLabel": { "ar": "مسار الصفحة", "en": "Breadcrumb" }
+  "breadcrumbLabel": { "ar": "مسار الصفحة", "en": "Breadcrumb" },
+  "clientLogin": {
+    "href": "https://admin.target-mena.cloud",
+    "label": { "ar": "دخول العملاء", "en": "Client login" },
+    "newTab": { "ar": "(يفتح في نافذة جديدة)", "en": "(opens in a new tab)" }
+  }
 }

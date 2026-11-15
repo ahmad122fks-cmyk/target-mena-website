@@ -1,5 +1,6 @@
 import site from '@/content/site.json'
 import { useLink, useT } from '@/features/i18n/LangContext'
+import { ClientLogin } from './ClientLogin'
 import { LangSwitch } from './LangSwitch'
 import { Logo } from './Logo'
 import { MobileNav } from './MobileNav'
@@ -21,11 +22,12 @@ export function Header() {
       <div className="mx-auto flex h-16 max-w-[1240px] items-center justify-between gap-4 px-2 sm:px-4">
         <div className="flex items-center gap-6 xl:gap-9">
           <Logo />
-          <nav aria-label={t(site.navLabel)} className="hidden lg:block">
+          <nav aria-label={t(site.navLabel)} className="hidden xl:block">
             <NavLinks />
           </nav>
         </div>
         <div className="flex items-center gap-1 sm:gap-2">
+          <ClientLogin className="hidden sm:inline-flex" />
           <LangSwitch className="font-normal text-brand-black" />
           <PillButton
             tone="outline"

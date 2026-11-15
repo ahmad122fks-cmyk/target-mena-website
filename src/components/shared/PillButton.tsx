@@ -8,6 +8,7 @@ const TONES = {
   ghost: 'border border-input bg-white text-brand-black hover:bg-brand-ghost',
   white: 'bg-white text-brand-black hover:bg-brand-ghost',
   black: 'bg-brand-black text-white hover:bg-brand-black/85',
+  green: 'bg-brand-green text-brand-black hover:bg-brand-green-80',
 } as const
 
 const SIZES = {
@@ -23,8 +24,15 @@ type Common = {
   className?: string
   children: ReactNode
 }
-type LinkProps = Common & { href: string }
-type ButtonProps = Common & { href?: undefined } & Omit<ComponentProps<'button'>, 'className'>
+type LinkProps = Common & {
+  href: string
+  /** Opens in a new tab (outside sites). */
+  external?: boolean
+}
+type ButtonProps = Common & { href?: undefined; external?: undefined } & Omit<
+    ComponentProps<'button'>,
+    'className'
+  >
 
 /** Pill-shaped action (DESIGN.md 4): a link with `href`, otherwise a button. */
 export function PillButton(props: LinkProps | ButtonProps) {
@@ -34,15 +42,19 @@ export function PillButton(props: LinkProps | ButtonProps) {
     className,
     children,
     href,
+    external,
     ...rest
-  } = props as Common & {
-    href?: string
-  } & Omit<ComponentProps<'button'>, 'className'>
+  } = props as Common & { href?: string; external?: boolean } & Omit<
+      ComponentProps<'button'>,
+      'className'
+    >
   const classes = cn('rounded-full font-medium', SIZES[size], TONES[tone], className)
   if (href !== undefined)
     return (
       <Button asChild className={classes}>
-        <a href={href}>{children}</a>
+        <a href={href} {...(external && { target: '_blank', rel: 'noopener noreferrer' })}>
+          {children}
+        </a>
       </Button>
     )
   return (

@@ -1,6 +1,8 @@
 import { describe, expect, it } from 'vitest'
+import feed from '@/content/feed.json'
 import site from '@/content/site.json'
 import home from '@/pages/home/home.content.json'
+import homeMore from '@/pages/home/home.more.content.json'
 import homePlatform from '@/pages/home/home.platform.content.json'
 import homeServices from '@/pages/home/home.services.content.json'
 import notFound from '@/pages/not-found/not-found.content.json'
@@ -13,7 +15,7 @@ function pairs(value: unknown, path = ''): { path: string; ar: unknown; en: unkn
   return Object.entries(record).flatMap(([key, child]) => pairs(child, `${path}.${key}`))
 }
 
-const FILES = { site, home, homePlatform, homeServices, notFound }
+const FILES = { site, feed, home, homeMore, homePlatform, homeServices, notFound }
 
 describe('content: Arabic and English side by side', () => {
   for (const [name, file] of Object.entries(FILES)) {
@@ -40,6 +42,11 @@ describe('content: Arabic and English side by side', () => {
     ])
     expect(site.contact.email).toBe('info@target-mena.com')
     expect(site.contact.address.en).toBe('Baghdad – Al Jaderiyah')
+  })
+  it('campaign feed: approved clients only, no site counts or money figures', () => {
+    expect(feed.items.map((item) => item.id)).toEqual(['earthlink-alwatani', 'qi-superqi'])
+    const text = JSON.stringify(feed.items)
+    expect(text).not.toMatch(/\d+\s*(sites|boards|لوحة|موقع)|IQD|USD|\$|دينار|دولار/)
   })
   it('never uses the old guideline stationery number', () => {
     expect(JSON.stringify(FILES)).not.toContain('7783')

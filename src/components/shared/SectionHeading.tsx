@@ -5,6 +5,7 @@ const SIZES = {
   hero: 'text-4xl leading-[1.2] tracking-tight sm:text-5xl lg:text-[3.625rem]',
   page: 'text-[2rem] lg:text-[2.5rem]',
   section: 'text-3xl lg:text-[2.75rem]',
+  feature: 'text-3xl lg:text-[2.5rem]',
   band: 'text-2xl font-semibold lg:text-[1.875rem]',
 } as const
 

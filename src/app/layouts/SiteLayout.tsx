@@ -1,4 +1,5 @@
 import { useEffect, type ReactNode } from 'react'
+import { AnnouncementBar } from '@/components/shared/AnnouncementBar'
 import { ContactBlock } from '@/components/shared/ContactBlock'
 import { Footer } from '@/components/shared/Footer'
 import { Header } from '@/components/shared/Header'
@@ -18,6 +19,7 @@ export function SiteLayout({ lang, children }: { lang: Lang; children: ReactNode
   }, [lang])
   return (
     <LangProvider lang={lang}>
+      <AnnouncementBar />
       <Header />
       <main id="main" tabIndex={-1}>
         {children}

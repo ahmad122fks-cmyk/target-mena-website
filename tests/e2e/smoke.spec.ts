@@ -57,7 +57,7 @@ test('phone menu opens and shows every main link', async ({ page }) => {
   await page.getByRole('button', { name: 'فتح القائمة' }).click()
   const dialog = page.getByRole('dialog')
   await expect(dialog).toBeVisible()
-  await expect(dialog.getByRole('link')).toHaveCount(6)
+  await expect(dialog.getByRole('link')).toHaveCount(7)
 })
 
 test('finder and campaign: no horizontal scroll at phone width; list opens as a sheet', async ({
@@ -74,6 +74,22 @@ test('finder and campaign: no horizontal scroll at phone width; list opens as a 
   await page.goto('/en/boards/')
   await page.getByRole('button', { name: /My list/ }).click()
   await expect(page.getByRole('dialog')).toContainText('Your list is empty')
+})
+
+test('home: announcement bar, campaign feed and client login', async ({ page }) => {
+  await page.goto('/en/')
+  const bar = page.getByRole('link', { name: /Alwatani app.*campaign is now on our boards/ })
+  await expect(bar).toHaveAttribute('href', '#feed')
+  const feed = page.locator('#feed')
+  await expect(feed.locator('article')).toHaveCount(2)
+  await expect(feed).toContainText('Earthlink · Alwatani app')
+  await expect(feed).toContainText('Qi Card · SuperQi')
+  await expect(feed.getByRole('img', { name: 'Qi Card logo' })).toBeVisible()
+  const login = page.getByRole('link', { name: /Client login/ }).first()
+  await expect(login).toHaveAttribute('href', 'https://admin.target-mena.cloud')
+  await expect(login).toHaveAttribute('target', '_blank')
+  await page.goto('/en/boards/')
+  await expect(page.getByRole('link', { name: /campaign is now on our boards/ })).toHaveCount(0)
 })
 
 test('index.html addresses show the home page, not the 404 page', async ({ page }) => {

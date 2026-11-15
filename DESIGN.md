@@ -98,12 +98,20 @@ writing anything new; a second copy of the same markup is a bug.
 - **CampaignSteps**: four bars with numbered dots; done and current are blue.
 - **Fields**: 12 px radius, `input` border, 48 px tall. Segmented toggles
   (weeks/months, IQD/USD) inside one 12 px outline; selected = blue fill.
-- **Header**: white, sticky, hairline bottom; logo, plain menu (lg and up),
+- **Header**: white, sticky, hairline bottom; logo, plain menu (xl and up),
   language link, outlined pill "Plan your campaign". Phones: shadcn Sheet menu.
 - **ContactBlock**: centred, ghost band, "Let's work together", phone field +
   "Request a proposal", and the exact contact line. Same on every page.
 - **Footer**: black, white logo, contact details, three link columns, blue
   calligraphy (mark-b) cropped at the inline-end top corner.
+- **AnnouncementBar** (home only): blue strip above the header, yellow "New"
+  pill, the newest campaign's one line, links to `#feed`.
+- **Feed card** ("Our latest campaigns"): 300 px, 18 px radius, 4:3 real photo
+  (or the client's logo on a clean card when no photo is approved), "New" pill,
+  month + year · places, brand, one line, grey tag pills, up to 3 small extra
+  photos. Entries live in `src/content/feed.json`, client-approved only.
+- **ClientLogin**: plain text link next to the language link (and in the phone
+  menu) to the client portal, new tab.
 - **ToConfirm**: dashed box `[TO CONFIRM: …]` for unconfirmed facts. Must be gone
   before launch.
 
@@ -114,9 +122,11 @@ writing anything new; a second copy of the same markup is a bug.
   province chips). Gaps: 20–24 px between cards.
 - Bands alternate **white** and **ghost**, each ghost band with a 1 px `line`
   border top and bottom. Headings centred on the home page.
-- Home order: hero (ghost) → "a full team" (white) → two ways (ghost) → formats
-  (white) → provinces (ghost) → platform (white) → services (ghost) → numbers and
-  clients (white) → contact (ghost) → black footer.
+- Home order: blue announcement bar (newest approved campaign) → header → hero
+  (ghost) → latest campaigns (white) → "a full team" (white) → two ways (ghost) →
+  formats (white) → provinces (ghost) → platform (white) → client portal (ghost)
+  → Alrabiaa planner (the one **black** band, green accents) → services (ghost)
+  → numbers and clients (white) → contact (ghost) → black footer.
 - Finder: ghost title band → sticky filter bar → results with optional side panel.
 - Campaign: ghost page, step bar, form card + sticky summary card.
 
@@ -137,8 +147,9 @@ Do:
 - Write every text in `ar` and `en` side by side in the page's `.content.json`.
 
 Don't:
-- Don't show prices, totals other than m², suppliers, client booking names,
-  staff names or the parent company. Don't invent numbers, slogans or clients:
+- Don't show prices, totals other than m², availability or booking dates,
+  suppliers, client booking names (except approved feed entries), staff names
+  or the parent company. Don't invent numbers, slogans or clients:
   use `ToConfirm`.
 - Don't crop a board photo to a shape that cuts the board (no 3:4 portrait crops
   of landscape photos); frames keep the photo's true ratio.
@@ -192,8 +203,10 @@ Don't:
 
 - Real and unedited board photos only, from Target's photo folder.
 - Never stretched or cropped so the board is cut; meaning never changes.
-- A photo with an election poster or a person's face on the board goes to
-  PHOTO-REVIEW.md and is not used until Ahmad decides.
+- A photo with an election or party poster, a politician or any person's face
+  on a board, or passers-by's faces close to the camera goes to PHOTO-REVIEW.md
+  and is not used until Ahmad decides. When unsure, hold it.
+- Campaign feed photos: real installed photos only, no other brand in view.
 - Boards without a photo show "الصورة عند الطلب / Photo on request".
 - The hero map is a decorative illustration: no board codes, no real positions.
 - Alt text in the page language on every image.
