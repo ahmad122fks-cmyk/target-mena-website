@@ -13,6 +13,15 @@
 ## Key pages
 - Find a board: https://target-mena.com/en/boards/
 - Network by province: https://target-mena.com/en/network/
+- Highway bridges: https://target-mena.com/en/highway-bridges/
+- Plan a campaign: https://target-mena.com/en/campaign/
+- Alrabiaa TV: https://target-mena.com/en/alrabiaa/
+- Production: https://target-mena.com/en/production/
+- Creative and digital: https://target-mena.com/en/digital/
+- Events: https://target-mena.com/en/events/
+- Our work: https://target-mena.com/en/work/
+- About: https://target-mena.com/en/about/
+- Contact: https://target-mena.com/en/contact/
 - Home (Arabic): https://target-mena.com/ · Home (English): https://target-mena.com/en/
 
 ## Contact
