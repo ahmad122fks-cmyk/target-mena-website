@@ -6,7 +6,8 @@
   },
   "hero": {
     "eyebrow": { "ar": "إعلانات خارجية · إنتاج · فعاليات · تلفزيون", "en": "Outdoor · Production · Events · TV" },
-    "title": { "ar": "نجعل علامتك حاضرة في كل مكان في العراق.", "en": "We make brands impossible to miss in Iraq." },
+    "title": { "ar": "نجعل علامتك حاضرة", "en": "We make brands impossible to miss" },
+    "light": { "ar": "في كل مكان في العراق.", "en": "in Iraq." },
     "lead": { "ar": "لوحات على الأسطح والجسور والجدران في بغداد والنجف والمحافظات، وجسور على الطرق السريعة، مع الإنتاج والبث على قناة الرابعة.", "en": "Rooftops, bridges and walls across Baghdad, Najaf and the provinces, highway bridges between cities, plus production and airtime on Alrabiaa TV." },
     "primary": {
       "path": "/boards",

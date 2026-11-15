@@ -14,7 +14,12 @@ for (const page of PAGES) {
       await expect(p.locator('html')).toHaveAttribute('dir', page.dir)
       await expect(p.locator('h1')).toHaveCount(1)
       const contact = p.locator('#contact')
-      for (const text of ['+964 771 977 7199', '+964 784 466 6000', '+964 774 466 6000', 'info@target-mena.com']) {
+      for (const text of [
+        '+964 771 977 7199',
+        '+964 784 466 6000',
+        '+964 774 466 6000',
+        'info@target-mena.com',
+      ]) {
         await expect(contact).toContainText(text)
       }
     })
@@ -22,7 +27,9 @@ for (const page of PAGES) {
     test('no horizontal scroll at phone width', async ({ page: p }) => {
       await p.setViewportSize({ width: 375, height: 812 })
       await p.goto(page.url)
-      const overflow = await p.evaluate(() => document.documentElement.scrollWidth - window.innerWidth)
+      const overflow = await p.evaluate(
+        () => document.documentElement.scrollWidth - window.innerWidth,
+      )
       expect(overflow).toBeLessThanOrEqual(0)
     })
 
@@ -37,7 +44,9 @@ for (const page of PAGES) {
     test('language switch links to the other home', async ({ page: p }) => {
       await p.goto(page.url)
       const other = page.lang === 'ar' ? '/en/' : '/'
-      await expect(p.locator(`header a[hreflang="${page.lang === 'ar' ? 'en' : 'ar'}"]`)).toHaveAttribute('href', other)
+      await expect(
+        p.locator(`header a[hreflang="${page.lang === 'ar' ? 'en' : 'ar'}"]`),
+      ).toHaveAttribute('href', other)
     })
   })
 }

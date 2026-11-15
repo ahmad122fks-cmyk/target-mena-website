@@ -15,7 +15,10 @@ export function Footer() {
         <Logo />
         <p>{t(footer.rights)}</p>
         <nav aria-label={t(footer.footerNav)} className="flex items-center gap-1">
-          <a href={link(footer.privacy.path)} className="inline-flex min-h-11 items-center px-3 hover:underline">
+          <a
+            href={link(footer.privacy.path)}
+            className="inline-flex min-h-11 items-center px-3 hover:underline"
+          >
             {t(footer.privacy.label)}
           </a>
           <LangSwitch />

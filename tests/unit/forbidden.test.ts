@@ -3,12 +3,23 @@ import { findForbidden, htmlText } from '../../scripts/forbidden-rules'
 
 describe('forbidden content guard (prices, suppliers, staff)', () => {
   it('blocks every price key in board data', () => {
-    for (const key of ['price', 'monthlyPrice', 'pricePerMeter', 'ppm', 'mp', 'sp', 'supplierName', 'campaign', 'company']) {
+    for (const key of [
+      'price',
+      'monthlyPrice',
+      'pricePerMeter',
+      'ppm',
+      'mp',
+      'sp',
+      'supplierName',
+      'campaign',
+      'company',
+    ]) {
       expect(findForbidden(`{"code":"BG01A","${key}": 1}`, { keys: true }), key).not.toHaveLength(0)
     }
   })
   it('lets whitelisted board fields through', () => {
-    const board = '{"code":"BGW03A","type":"Wall","city":"Baghdad","height":9.8,"width":20,"faces":1,"sqm":196}'
+    const board =
+      '{"code":"BGW03A","type":"Wall","city":"Baghdad","height":9.8,"width":20,"faces":1,"sqm":196}'
     expect(findForbidden(board, { keys: true })).toHaveLength(0)
   })
   it('blocks price words and currency in published text', () => {

@@ -15,11 +15,21 @@ export function MobileNav() {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Button variant="ghost" size="icon" className="size-11 xl:hidden" aria-label={t(site.menuOpen)}>
+        <Button
+          variant="ghost"
+          size="icon"
+          className="size-11 xl:hidden"
+          aria-label={t(site.menuOpen)}
+        >
           <Menu className="size-6" strokeWidth={1.75} aria-hidden="true" />
         </Button>
       </SheetTrigger>
-      <SheetContent side={lang === 'ar' ? 'left' : 'right'} dir={dir} aria-describedby={undefined} className="w-[min(20rem,85vw)] gap-6 bg-white p-6 pt-14">
+      <SheetContent
+        side={lang === 'ar' ? 'left' : 'right'}
+        dir={dir}
+        aria-describedby={undefined}
+        className="w-[min(20rem,85vw)] gap-6 bg-white p-6 pt-14"
+      >
         <SheetTitle className="sr-only">{t(site.navLabel)}</SheetTitle>
         <nav aria-label={t(site.navLabel)}>
           <NavLinks column />

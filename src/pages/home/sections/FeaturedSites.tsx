@@ -9,10 +9,15 @@ export function FeaturedSites() {
   const link = useLink()
   const { featured } = content
   return (
-    <Section labelledBy="featured-title" className="[&>div]:pt-6 [&>div]:lg:pt-8">
-      <div className="mb-6 flex flex-wrap items-baseline justify-between gap-3">
-        <h2 id="featured-title" className="text-3xl sm:text-4xl">{t(featured.title)}</h2>
-        <a href={link(featured.all.path)} className="inline-flex min-h-11 items-center font-semibold text-brand-blue hover:underline">
+    <Section tone="ghost" labelledBy="featured-title">
+      <div className="mb-10 flex flex-wrap items-end justify-between gap-3">
+        <h2 id="featured-title" className="text-3xl sm:text-4xl">
+          {t(featured.title)}
+        </h2>
+        <a
+          href={link(featured.all.path)}
+          className="inline-flex min-h-11 items-center font-semibold text-brand-blue hover:underline"
+        >
           {t(featured.all.label)}
         </a>
       </div>

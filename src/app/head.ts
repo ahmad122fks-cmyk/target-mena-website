@@ -31,7 +31,14 @@ export function getHead(pathname: string): PageHead {
   const en = absoluteUrl(localePath('en', base))
   const breadcrumb = {
     '@type': 'BreadcrumbList',
-    itemListElement: [{ '@type': 'ListItem', position: 1, name: seo.breadcrumb[lang], item: lang === 'ar' ? ar : en }],
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: seo.breadcrumb[lang],
+        item: lang === 'ar' ? ar : en,
+      },
+    ],
   }
   return {
     lang,
@@ -40,7 +47,11 @@ export function getHead(pathname: string): PageHead {
     description: seo.description[lang],
     canonical: lang === 'ar' ? ar : en,
     alternates: route
-      ? [{ hrefLang: 'ar', href: ar }, { hrefLang: 'en', href: en }, { hrefLang: 'x-default', href: ar }]
+      ? [
+          { hrefLang: 'ar', href: ar },
+          { hrefLang: 'en', href: en },
+          { hrefLang: 'x-default', href: ar },
+        ]
       : [],
     siteName: site.name[lang],
     noindex: !route,

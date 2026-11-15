@@ -22,6 +22,7 @@ export function SectionHeading({ id, title, light, eyebrow, level = 2, className
       )}
       <Heading id={id} className={level === 1 ? 'text-4xl sm:text-5xl' : 'text-3xl sm:text-4xl'}>
         {title}
+        {light && ' '}
         {light && <span className="block font-light">{light}</span>}
       </Heading>
     </div>

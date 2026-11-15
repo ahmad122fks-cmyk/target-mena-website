@@ -77,5 +77,8 @@
       { "ar": "Earthlink", "en": "Earthlink" }
     ],
     "toConfirm": "other client logos allowed on the site"
+  },
+  "studio": {
+    "title": { "ar": "الإنتاج والإبداع", "en": "Production and creative" }
   }
 }

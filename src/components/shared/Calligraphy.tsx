@@ -15,6 +15,10 @@ const MARKS = {
 } as const
 
 const TONES = {
+  /** guideline page 40: calligraphy in a light blue tint on white */
+  tint: 'bg-brand-blue-10',
+  /** tone-on-tone on blue sections */
+  blue80: 'bg-brand-blue-80',
   white: 'bg-white',
   blue: 'bg-brand-blue',
   yellow: 'bg-brand-yellow',

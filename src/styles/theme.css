@@ -8,6 +8,8 @@
   --color-brand-blue-80: #3481b8;
   --color-brand-blue-60: #67a0ca;
   --color-brand-blue-40: #99c0db;
+  /* light tint the guideline uses for calligraphy on white (page 40) */
+  --color-brand-blue-10: #e8f1f7;
   --color-brand-yellow: #f7af1c;
   --color-brand-yellow-80: #f9bf49;
   --color-brand-yellow-60: #facf77;

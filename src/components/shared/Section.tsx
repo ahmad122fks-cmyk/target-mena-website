@@ -11,7 +11,8 @@ export const SECTION_TONES = {
   blue: 'bg-brand-blue text-white [--heading:var(--color-brand-white)] [--eyebrow:var(--color-brand-white)]',
   grey: 'bg-brand-grey text-brand-black [--eyebrow:var(--color-brand-black)]',
   yellow: 'bg-brand-yellow text-brand-black [--eyebrow:var(--color-brand-black)]',
-  black: 'bg-brand-black text-white [--heading:var(--color-brand-white)] [--eyebrow:var(--color-brand-yellow)]',
+  black:
+    'bg-brand-black text-white [--heading:var(--color-brand-white)] [--eyebrow:var(--color-brand-yellow)]',
 } as const
 
 export type SectionTone = keyof typeof SECTION_TONES
@@ -36,11 +37,15 @@ export function Section({ tone = 'white', id, labelledBy, art, bare, className, 
       className={cn('relative overflow-hidden', SECTION_TONES[tone], className)}
     >
       {art}
-      {bare ? children : <Container className="py-14 lg:py-20">{children}</Container>}
+      {bare ? children : <Container className="py-16 lg:py-24">{children}</Container>}
     </section>
   )
 }
 
 export function Container({ className, children }: { className?: string; children: ReactNode }) {
-  return <div className={cn('relative mx-auto w-full max-w-[1240px] px-4 sm:px-6', className)}>{children}</div>
+  return (
+    <div className={cn('relative mx-auto w-full max-w-[1240px] px-4 sm:px-6', className)}>
+      {children}
+    </div>
+  )
 }

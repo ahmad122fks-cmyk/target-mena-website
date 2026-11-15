@@ -11,7 +11,11 @@ import { findForbidden, htmlText, privateTerms, type Finding } from './forbidden
 
 const mode = process.argv[2] ?? '--source'
 const terms = privateTerms()
-const SELF = ['scripts/forbidden-rules.ts', 'scripts/check-forbidden.ts', 'tests/unit/forbidden.test.ts']
+const SELF = [
+  'scripts/forbidden-rules.ts',
+  'scripts/check-forbidden.ts',
+  'tests/unit/forbidden.test.ts',
+]
 
 function walk(dir: string, exts: string[]): string[] {
   if (!fs.existsSync(dir)) return []
@@ -24,7 +28,8 @@ function walk(dir: string, exts: string[]): string[] {
 
 function check(file: string, text: string): Finding[] {
   const isData = file.startsWith('src/data/') || file.startsWith(path.join('dist', 'data'))
-  const isPublished = file.endsWith('.content.json') || file.startsWith('src/content/') || file.startsWith('dist')
+  const isPublished =
+    file.endsWith('.content.json') || file.startsWith('src/content/') || file.startsWith('dist')
   const body = file.endsWith('.html') ? htmlText(text) : text
   return findForbidden(body, { keys: isData || file.endsWith('.json'), words: isPublished, terms })
 }
@@ -34,11 +39,21 @@ if (mode === '--dist') files = walk('dist', ['.html', '.json', '.xml', '.txt'])
 else if (mode === '--staged') {
   files = execSync('git diff --cached --name-only --diff-filter=ACM', { encoding: 'utf8' })
     .split('\n')
-    .filter((file) => file && !SELF.includes(file) && /\.(json|tsx?|md|html|txt|css|ya?ml|xml)$/.test(file))
-} else files = [...walk('src', ['.json', '.tsx', '.ts']), ...walk('public', ['.txt', '.json', '.xml', '.html'])]
+    .filter(
+      (file) =>
+        file && !SELF.includes(file) && /\.(json|tsx?|md|html|txt|css|ya?ml|xml)$/.test(file),
+    )
+} else
+  files = [
+    ...walk('src', ['.json', '.tsx', '.ts']),
+    ...walk('public', ['.txt', '.json', '.xml', '.html']),
+  ]
 
 const problems = files.flatMap((file) => {
-  const text = mode === '--staged' ? execSync(`git show ":${file}"`, { encoding: 'utf8' }) : fs.readFileSync(file, 'utf8')
+  const text =
+    mode === '--staged'
+      ? execSync(`git show ":${file}"`, { encoding: 'utf8' })
+      : fs.readFileSync(file, 'utf8')
   return check(file.split(path.sep).join('/'), text).map((f) => `${file}: ${f.rule} -> ${f.sample}`)
 })
 
@@ -46,4 +61,6 @@ if (problems.length) {
   console.error(`Forbidden content found (${mode}):\n- ${problems.join('\n- ')}`)
   process.exit(1)
 }
-console.log(`Forbidden-content check passed (${mode}, ${files.length} files, ${terms.length} private names).`)
+console.log(
+  `Forbidden-content check passed (${mode}, ${files.length} files, ${terms.length} private names).`,
+)

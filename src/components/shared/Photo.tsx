@@ -16,7 +16,12 @@ export function Photo({ picture, alt, sizes, priority = false, className }: Prop
   return (
     <picture>
       {Object.entries(picture.sources).map(([format, srcSet]) => (
-        <source key={format} type={`image/${format === 'jpg' ? 'jpeg' : format}`} srcSet={srcSet} sizes={sizes} />
+        <source
+          key={format}
+          type={`image/${format === 'jpg' ? 'jpeg' : format}`}
+          srcSet={srcSet}
+          sizes={sizes}
+        />
       ))}
       <img
         src={picture.img.src}

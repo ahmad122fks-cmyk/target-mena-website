@@ -14,7 +14,10 @@ export function LangSwitch({ className }: { className?: string }) {
       href={alternatePath(pathname)}
       hrefLang={target}
       lang={target}
-      className={cn('inline-flex min-h-11 items-center px-3 font-semibold hover:underline', className)}
+      className={cn(
+        'inline-flex min-h-11 items-center px-3 font-semibold hover:underline',
+        className,
+      )}
     >
       {site.langSwitch[lang]}
     </a>

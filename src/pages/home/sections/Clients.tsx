@@ -15,15 +15,29 @@ export function Clients() {
   const t = useT()
   const { clients } = content
   return (
-    <Section labelledBy="clients-title" className="border-t [&>div]:py-10 [&>div]:lg:py-12">
+    <Section labelledBy="clients-title" className="border-t [&>div]:py-12">
       <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6">
-        <h2 id="clients-title" className="text-xl text-brand-text">{t(clients.title)}</h2>
+        <h2 id="clients-title" className="text-base font-medium text-brand-text">
+          {t(clients.title)}
+        </h2>
         {clients.logos.map((logo) => {
           const file = LOGOS[logo.file]
-          return <img key={logo.file} src={file.src} width={file.w} height={file.h} alt={t(logo.alt)} loading="lazy" className="h-14 w-auto" />
+          return (
+            <img
+              key={logo.file}
+              src={file.src}
+              width={file.w}
+              height={file.h}
+              alt={t(logo.alt)}
+              loading="lazy"
+              className="h-12 w-auto"
+            />
+          )
         })}
         {clients.textOnly.map((name) => (
-          <span key={name.en} lang="en" className="text-2xl font-bold text-brand-text">{t(name)}</span>
+          <span key={name.en} lang="en" className="text-2xl font-bold text-brand-text">
+            {t(name)}
+          </span>
         ))}
         <ToConfirm what={clients.toConfirm} />
       </div>

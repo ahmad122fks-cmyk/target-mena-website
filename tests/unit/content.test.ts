@@ -32,7 +32,11 @@ describe('content: Arabic and English side by side', () => {
     }
   })
   it('contact block is exactly the confirmed one (CLAUDE.md)', () => {
-    expect(site.contact.phones).toEqual(['+964 771 977 7199', '+964 784 466 6000', '+964 774 466 6000'])
+    expect(site.contact.phones).toEqual([
+      '+964 771 977 7199',
+      '+964 784 466 6000',
+      '+964 774 466 6000',
+    ])
     expect(site.contact.email).toBe('info@target-mena.com')
     expect(site.contact.address.en).toBe('Baghdad – Al Jaderiyah')
   })
