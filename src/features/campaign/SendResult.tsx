@@ -15,7 +15,7 @@ export function SendResult({ result, message, name }: Props) {
     return (
       <p
         role="status"
-        className="rounded-xl bg-brand-blue-10 p-5 text-lg font-semibold text-brand-blue"
+        className="rounded-[14px] bg-brand-green-10 p-5 text-base font-medium text-brand-black"
       >
         {t(r.success)}
       </p>
@@ -23,9 +23,11 @@ export function SendResult({ result, message, name }: Props) {
   return (
     <div
       role={result === 'error' ? 'alert' : 'status'}
-      className="flex flex-col gap-4 rounded-xl border bg-white p-5"
+      className="flex flex-col gap-4 rounded-[14px] border border-line bg-brand-ghost p-5"
     >
-      <h2 className="text-xl">{result === 'error' ? t(r.error) : t(r.fallbackTitle)}</h2>
+      <h2 className="text-lg font-semibold">
+        {result === 'error' ? t(r.error) : t(r.fallbackTitle)}
+      </h2>
       {result === 'fallback' && <p>{t(r.fallbackText)}</p>}
       <div className="flex flex-wrap gap-3">
         <PillButton href={whatsappUrl(message)}>{t(r.whatsapp)}</PillButton>

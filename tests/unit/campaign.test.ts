@@ -12,7 +12,6 @@ const values: CampaignValues = {
   province: 'najaf',
   campaignName: 'Ramadan',
   startDate: '2027-02-01',
-  durationMode: 'length',
   durationValue: '2',
   durationUnit: 'months',
   budget: '5000000',
@@ -41,6 +40,7 @@ describe('campaign message builder', () => {
     )
     expect(text).toContain('المحافظة: النجف')
     expect(text).toContain('اللوحات (1): BGW03A')
+    expect(text).toContain('المدة: شهران')
     expect(text).not.toContain('الشركة')
   })
   it('builds WhatsApp and email links', () => {
@@ -63,10 +63,9 @@ describe('campaign checks (zod)', () => {
       'startDate',
     ])
   })
-  it('checks the end date and the honeypot', () => {
-    expect(
-      schema.safeParse({ ...values, durationMode: 'end', endDate: '2027-01-01' }).success,
-    ).toBe(false)
+  it('checks the duration and the honeypot', () => {
+    expect(schema.safeParse({ ...values, durationValue: '0' }).success).toBe(false)
+    expect(schema.safeParse({ ...values, durationValue: '' }).success).toBe(false)
     expect(schema.safeParse({ ...values, website: 'bot' }).success).toBe(false)
   })
 })

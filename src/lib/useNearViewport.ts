@@ -24,5 +24,6 @@ export function useNearViewport<T extends Element>(enabled: boolean, margin = '3
     observer.observe(element)
     return () => observer.disconnect()
   }, [enabled, margin])
-  return [ref, near] as const
+  // A card that becomes the first one (after filtering) shows its photo at once.
+  return [ref, near || !enabled] as const
 }

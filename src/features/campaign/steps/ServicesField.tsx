@@ -1,11 +1,12 @@
+import { Check, Plus } from 'lucide-react'
 import type { Control } from 'react-hook-form'
-import { Checkbox } from '@/components/ui/checkbox'
-import { FormField, FormItem, FormLabel } from '@/components/ui/form'
+import { FormField } from '@/components/ui/form'
 import { useT } from '@/features/i18n/LangContext'
+import { cn } from '@/lib/utils'
 import content from '@/pages/campaign/campaign.content.json'
 import { SERVICES, type CampaignValues } from '../schema'
 
-/** Extra services as shadcn checkboxes. */
+/** Extra services as toggle pills (aria-pressed): "+ Design" → "✓ Design". */
 export function ServicesField({ control }: { control: Control<CampaignValues> }) {
   const t = useT()
   const f = content.fields
@@ -14,30 +15,36 @@ export function ServicesField({ control }: { control: Control<CampaignValues> })
       control={control}
       name="services"
       render={({ field }) => (
-        <FormItem className="sm:col-span-2">
-          <FormLabel>{t(f.services)}</FormLabel>
-          <div className="grid gap-2 sm:grid-cols-2">
+        <fieldset className="flex flex-col gap-2.5">
+          <legend className="mb-2.5 text-sm font-medium text-brand-black">{t(f.services)}</legend>
+          <div className="flex flex-wrap gap-2.5">
             {SERVICES.map((service) => {
-              const checked = field.value.includes(service)
+              const on = field.value.includes(service)
+              const Icon = on ? Check : Plus
               return (
-                <label
+                <button
                   key={service}
-                  className="flex min-h-12 items-center gap-3 rounded-lg border bg-white px-3"
+                  type="button"
+                  aria-pressed={on}
+                  onClick={() =>
+                    field.onChange(
+                      on ? field.value.filter((s) => s !== service) : [...field.value, service],
+                    )
+                  }
+                  className={cn(
+                    'inline-flex min-h-11 items-center gap-2 rounded-full border px-4 text-sm',
+                    on
+                      ? 'border-brand-blue bg-brand-blue-10 text-brand-blue'
+                      : 'border-input bg-white text-brand-black hover:border-brand-blue',
+                  )}
                 >
-                  <Checkbox
-                    checked={checked}
-                    onCheckedChange={(on) =>
-                      field.onChange(
-                        on ? [...field.value, service] : field.value.filter((s) => s !== service),
-                      )
-                    }
-                  />
+                  <Icon className="size-4" strokeWidth={2} aria-hidden="true" />
                   {t(f[service])}
-                </label>
+                </button>
               )
             })}
           </div>
-        </FormItem>
+        </fieldset>
       )}
     />
   )

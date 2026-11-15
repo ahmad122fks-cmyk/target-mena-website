@@ -5,9 +5,9 @@ import { Input } from '@/components/ui/input'
 import type { CampaignValues } from './schema'
 
 type Name = keyof CampaignValues
-const control = 'h-12 bg-white text-base'
+const control = 'h-12 rounded-field border-input bg-white text-base text-brand-black shadow-none'
 export const selectClass =
-  'h-12 w-full rounded-md border border-input bg-white px-3 text-base outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50'
+  'h-12 w-full rounded-field border border-input bg-white px-3 text-base text-brand-black outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50'
 
 /** shadcn Form text input bound to one campaign field. */
 export function TextField({
@@ -28,11 +28,11 @@ export function TextField({
       name={name}
       render={({ field }) => (
         <FormItem>
-          <FormLabel>{label}</FormLabel>
+          <FormLabel className="text-brand-black">{label}</FormLabel>
           <FormControl>
             <Input className={control} {...input} {...field} value={field.value as string} />
           </FormControl>
-          {hint && <p className="text-sm">{hint}</p>}
+          {hint && <p className="text-[0.8125rem]">{hint}</p>}
           <FormMessage />
         </FormItem>
       )}
@@ -58,7 +58,7 @@ export function SelectField({
       name={name}
       render={({ field }) => (
         <FormItem>
-          <FormLabel>{label}</FormLabel>
+          <FormLabel className="text-brand-black">{label}</FormLabel>
           <FormControl>
             <select className={selectClass} {...field} value={field.value as string}>
               {options.map((o) => (

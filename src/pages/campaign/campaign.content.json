@@ -1,15 +1,21 @@
 {
   "seo": {
     "title": { "ar": "خطط حملتك | تارگت للإعلان", "en": "Plan your campaign | Target Advertising" },
-    "description": { "ar": "أرسل لفريق تارگت تفاصيل حملتك واللوحات التي اخترتها: البيانات، الحملة، اللوحات، ثم المراجعة والإرسال.", "en": "Send Target's team your campaign details and the boards you chose: your details, the campaign, the boards, then review and send." }
+    "description": {
+      "ar": "أرسل لفريق تارگت تفاصيل حملتك واللوحات التي اخترتها: البيانات، الحملة، اللوحات، ثم المراجعة والإرسال.",
+      "en": "Send Target's team your campaign details and the boards you chose: your details, the campaign, the boards, then review and send."
+    }
   },
   "title": { "ar": "خطط حملتك", "en": "Plan your campaign" },
-  "intro": { "ar": "أخبرنا عن حملتك واللوحات التي اخترتها، وسيتواصل معك فريقنا.", "en": "Tell us about your campaign and the boards you chose, and our team will contact you." },
+  "intro": {
+    "ar": "أربع خطوات قصيرة، ثم يتواصل معك فريق المبيعات بالعرض.",
+    "en": "Four short steps, then our sales team contacts you with a proposal."
+  },
   "steps": {
     "details": { "ar": "بياناتك", "en": "Your details" },
     "campaign": { "ar": "الحملة", "en": "Campaign" },
     "boards": { "ar": "اللوحات", "en": "Boards" },
-    "review": { "ar": "المراجعة والإرسال", "en": "Review and send" },
+    "review": { "ar": "المراجعة", "en": "Review" },
     "label": { "ar": "خطوات الطلب", "en": "Request steps" }
   },
   "fields": {
@@ -20,40 +26,50 @@
     "province": { "ar": "المحافظة", "en": "Province" },
     "campaignName": { "ar": "اسم الحملة", "en": "Campaign name" },
     "startDate": { "ar": "تاريخ البدء", "en": "Start date" },
-    "durationMode": { "ar": "المدة", "en": "Duration" },
-    "byLength": { "ar": "عدد أسابيع أو أشهر", "en": "Weeks or months" },
-    "byEnd": { "ar": "تاريخ انتهاء", "en": "End date" },
     "durationValue": { "ar": "العدد", "en": "Number" },
-    "durationUnit": { "ar": "الوحدة", "en": "Unit" },
-    "weeks": { "ar": "أسابيع", "en": "weeks" },
-    "months": { "ar": "أشهر", "en": "months" },
-    "endDate": { "ar": "تاريخ الانتهاء", "en": "End date" },
+    "durationUnit": { "ar": "وحدة المدة", "en": "Duration unit" },
+    "weeks": { "ar": "أسابيع", "en": "Weeks" },
+    "months": { "ar": "أشهر", "en": "Months" },
     "budget": { "ar": "الميزانية (اختياري)", "en": "Budget (optional)" },
-    "budgetNote": { "ar": "رقمك أنت، يصل إلى فريقنا فقط.", "en": "Your own figure, for our team only." },
+    "budgetNote": {
+      "ar": "يستخدمها فريقنا فقط لاقتراح الأنسب لك.",
+      "en": "Our team uses it only to suggest what suits you best."
+    },
     "currency": { "ar": "العملة", "en": "Currency" },
-    "iqd": { "ar": "دينار عراقي", "en": "Iraqi dinar" },
-    "usd": { "ar": "دولار أمريكي", "en": "US dollar" },
-    "objective": { "ar": "هدف الحملة (اختياري)", "en": "Campaign objective (optional)" },
+    "iqd": { "ar": "دينار", "en": "Dinar" },
+    "usd": { "ar": "دولار", "en": "Dollar" },
+    "objective": { "ar": "الهدف (اختياري)", "en": "Objective (optional)" },
     "services": { "ar": "خدمات إضافية", "en": "Extra services" },
     "printing": { "ar": "الطباعة والتركيب", "en": "Printing and installation" },
     "design": { "ar": "التصميم", "en": "Design" },
     "alrabiaa": { "ar": "قناة الرابعة", "en": "Alrabiaa TV" },
-    "digital": { "ar": "الإعلام الرقمي", "en": "Digital" },
+    "digital": { "ar": "الحملات الرقمية", "en": "Digital campaigns" },
     "optional": { "ar": "اختياري", "en": "optional" },
-    "none": { "ar": "لا يوجد", "en": "None" }
+    "none": { "ar": "لا يوجد", "en": "None" },
+    "duration": { "ar": "المدة", "en": "Duration" },
+    "budgetValue": { "ar": "المبلغ", "en": "Amount" },
+    "budgetPlaceholder": { "ar": "ميزانيتك التقريبية", "en": "Your approximate budget" },
+    "campaignPlaceholder": { "ar": "مثال: إطلاق منتج جديد", "en": "e.g. New product launch" },
+    "objectivePlaceholder": {
+      "ar": "ماذا تريد أن تحقق الحملة؟",
+      "en": "What should the campaign achieve?"
+    }
   },
   "errors": {
     "required": { "ar": "هذا الحقل مطلوب.", "en": "This field is required." },
     "phone": { "ar": "اكتب رقم هاتف صحيح.", "en": "Enter a valid phone number." },
     "email": { "ar": "اكتب بريداً إلكترونياً صحيحاً.", "en": "Enter a valid email address." },
     "date": { "ar": "اختر تاريخاً.", "en": "Choose a date." },
-    "endAfter": { "ar": "يجب أن يكون تاريخ الانتهاء بعد تاريخ البدء.", "en": "The end date must be after the start date." },
     "number": { "ar": "اكتب رقماً صحيحاً.", "en": "Enter a whole number." },
     "boards": { "ar": "أضف لوحة واحدة على الأقل.", "en": "Add at least one board." }
   },
   "boards": {
     "none": { "ar": "لم تختر لوحات بعد.", "en": "No boards chosen yet." },
-    "addMore": { "ar": "أضف لوحات أخرى", "en": "Add more boards" }
+    "addMore": { "ar": "أضف لوحات أخرى", "en": "Add more boards" },
+    "hint": {
+      "ar": "لست متأكداً؟ اترك القائمة كما هي واكتب في الهدف ما تريده، ويقترح فريقنا المواقع.",
+      "en": "Not sure? Leave the list as it is, write what you want in the objective, and our team suggests the sites."
+    }
   },
   "nav": {
     "next": { "ar": "التالي", "en": "Next" },
@@ -63,10 +79,22 @@
     "edit": { "ar": "تعديل", "en": "Edit" }
   },
   "result": {
-    "success": { "ar": "وصل طلبك. سيتواصل معك فريقنا.", "en": "Your request has arrived. Our team will contact you." },
-    "fallbackTitle": { "ar": "أرسل طلبك عبر واتساب أو البريد", "en": "Send your request by WhatsApp or email" },
-    "fallbackText": { "ar": "جهّزنا رسالة فيها كل التفاصيل ورموز اللوحات. اختر طريقة الإرسال:", "en": "We prepared a message with all the details and the board codes. Choose how to send it:" },
-    "error": { "ar": "تعذّر الإرسال. بياناتك محفوظة؛ جرّب مرة أخرى أو أرسلها عبر واتساب أو البريد.", "en": "We couldn't send it. Your details are kept; try again, or send it by WhatsApp or email." },
+    "success": {
+      "ar": "وصل طلبك. سيتواصل معك فريقنا.",
+      "en": "Your request has arrived. Our team will contact you."
+    },
+    "fallbackTitle": {
+      "ar": "أرسل طلبك عبر واتساب أو البريد",
+      "en": "Send your request by WhatsApp or email"
+    },
+    "fallbackText": {
+      "ar": "جهّزنا رسالة فيها كل التفاصيل ورموز اللوحات. اختر طريقة الإرسال:",
+      "en": "We prepared a message with all the details and the board codes. Choose how to send it:"
+    },
+    "error": {
+      "ar": "تعذّر الإرسال. بياناتك محفوظة؛ جرّب مرة أخرى أو أرسلها عبر واتساب أو البريد.",
+      "en": "We couldn't send it. Your details are kept; try again, or send it by WhatsApp or email."
+    },
     "whatsapp": { "ar": "أرسل عبر واتساب", "en": "Send on WhatsApp" },
     "email": { "ar": "أرسل بالبريد", "en": "Send by email" }
   },
@@ -74,5 +102,25 @@
     "subject": { "ar": "طلب حملة", "en": "Campaign request" },
     "boards": { "ar": "اللوحات", "en": "Boards" },
     "clientFigure": { "ar": "رقم العميل", "en": "client's figure" }
+  },
+  "eyebrow": { "ar": "خطط حملتك", "en": "Plan your campaign" },
+  "heading": {
+    "ar": "أخبرنا عن حملتك، ونحن نجهز العرض.",
+    "en": "Tell us about your campaign, and we prepare the proposal."
+  },
+  "review": {
+    "text": {
+      "ar": "راجع طلبك ثم أرسله. يصل الطلب إلى فريق المبيعات مع رموز اللوحات.",
+      "en": "Check your request, then send it. It reaches our sales team with the board codes."
+    }
+  },
+  "summary": {
+    "title": { "ar": "ملخص الحملة", "en": "Campaign summary" },
+    "boards": { "ar": "اللوحات", "en": "Boards" },
+    "area": { "ar": "المساحة الإجمالية", "en": "Total area" },
+    "duration": { "ar": "المدة", "en": "Duration" },
+    "budget": { "ar": "الميزانية", "en": "Budget" },
+    "services": { "ar": "الخدمات", "en": "Services" },
+    "direct": { "ar": "تفضّل التواصل مباشرة؟", "en": "Prefer to talk directly?" }
   }
 }

@@ -19,19 +19,21 @@ test('add 3 boards, open the selection, send to the builder, review shows the 3 
   // The selection survives a reload (saved in the browser).
   await page.reload()
   await open.click()
-  const panel = page.getByRole('complementary', { name: 'My list' })
+  // Desktop: side panel; phones: a sheet.
+  const panel = page.getByRole('complementary', { name: 'My list' }).or(page.getByRole('dialog'))
   for (const code of codes) await expect(panel).toContainText(code)
   await panel.getByRole('link', { name: /Request these boards/ }).click()
 
   await expect(page).toHaveURL(/\/en\/campaign\/$/)
+  const main = page.locator('main')
   await page.getByRole('button', { name: 'Next' }).click()
   await expect(page.getByText('This field is required.')).toBeVisible()
-  await page.getByLabel('Name').fill('Test Client')
-  await page.getByLabel('Phone number').fill('+964 770 000 0000')
+  await main.getByLabel('Name').fill('Test Client')
+  await main.getByLabel('Phone number').fill('+964 770 000 0000')
   await page.getByRole('button', { name: 'Next' }).click()
 
-  await page.getByLabel('Start date').fill('2027-03-01')
-  await page.getByLabel('Number').fill('2')
+  await main.getByLabel('Start date').fill('2027-03-01')
+  await main.getByLabel('Number').fill('2')
   await page.getByRole('button', { name: 'Next' }).click()
   for (const code of codes) await expect(page.locator('main')).toContainText(code)
   await page.getByRole('button', { name: 'Next' }).click()

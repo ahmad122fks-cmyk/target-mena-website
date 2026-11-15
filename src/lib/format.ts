@@ -28,3 +28,17 @@ export function formatCount(n: number, lang: Lang): string {
   if (n >= 3 && n <= 10) return `${n} لوحات`
   return `${n} لوحة`
 }
+
+const UNITS = {
+  weeks: { en: ['week', 'weeks'], ar: ['أسبوع واحد', 'أسبوعان', 'أسابيع', 'أسبوعاً'] },
+  months: { en: ['month', 'months'], ar: ['شهر واحد', 'شهران', 'أشهر', 'شهراً'] },
+} as const
+
+/** '2 months', 'شهران', '3 أشهر', '12 شهراً'. */
+export function formatDuration(n: number, unit: 'weeks' | 'months', lang: Lang): string {
+  const u = UNITS[unit]
+  if (lang === 'en') return `${n} ${u.en[n === 1 ? 0 : 1]}`
+  if (n === 1) return u.ar[0]
+  if (n === 2) return u.ar[1]
+  return `${n} ${n <= 10 ? u.ar[2] : u.ar[3]}`
+}

@@ -1,5 +1,6 @@
 import cities from '@/data/cities.json'
 import type { Lang, Localized } from '@/features/i18n/lang'
+import { formatDuration } from '@/lib/format'
 import { CONTACT, WHATSAPP } from '@/lib/site'
 import content from '@/pages/campaign/campaign.content.json'
 import type { CampaignValues } from './schema'
@@ -14,10 +15,9 @@ export function buildCampaignMessage(v: CampaignValues, codes: string[], lang: L
   const f = content.fields
   const m = content.message
   const city = (cities as Record<string, Localized>)[v.province]?.[lang] ?? v.province
-  const duration =
-    v.durationMode === 'length'
-      ? `${v.durationValue} ${t(f[v.durationUnit])}`
-      : `${t(f.endDate)}: ${v.endDate}`
+  const duration = v.durationValue
+    ? formatDuration(Number(v.durationValue), v.durationUnit, lang)
+    : ''
   const services = v.services.map((key) => t(f[key])).join(lang === 'ar' ? '، ' : ', ')
   const lines: [Localized, string][] = [
     [f.name, v.name],
@@ -27,7 +27,7 @@ export function buildCampaignMessage(v: CampaignValues, codes: string[], lang: L
     [f.province, city],
     [f.campaignName, v.campaignName],
     [f.startDate, v.startDate],
-    [f.durationMode, duration],
+    [f.duration, duration],
     [f.budget, v.budget ? `${v.budget} ${v.currency} (${t(m.clientFigure)})` : ''],
     [f.objective, v.objective],
     [f.services, services],
