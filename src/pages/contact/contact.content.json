@@ -1,0 +1,54 @@
+{
+  "seo": {
+    "title": { "ar": "اتصل بنا | تارگت للإعلان", "en": "Contact us | Target Advertising" },
+    "description": {
+      "ar": "تواصل مع تارگت للإعلان في بغداد – الجادرية: هاتف وواتساب +964 771 977 7199، أو info@target-mena.com، أو أرسل رسالتك من الموقع.",
+      "en": "Contact Target Advertising in Baghdad – Al Jaderiyah: phone and WhatsApp +964 771 977 7199, info@target-mena.com, or send us a message here."
+    }
+  },
+  "title": { "ar": "اتصل بنا", "en": "Contact us" },
+  "intro": {
+    "ar": "للاستفسارات أو التعاون أو لمعرفة كيف نرتقي بعلامتك، تواصل معنا.",
+    "en": "For inquiries, collaborations, or to learn how we can elevate your brand, please contact us."
+  },
+  "details": {
+    "phones": { "ar": "الهاتف", "en": "Phone" },
+    "email": { "ar": "البريد الإلكتروني", "en": "Email" },
+    "whatsapp": { "ar": "واتساب", "en": "WhatsApp" },
+    "whatsappCta": { "ar": "راسلنا على واتساب", "en": "Message us on WhatsApp" },
+    "address": { "ar": "العنوان", "en": "Address" },
+    "mapToConfirm": "office street address and map pin"
+  },
+  "form": {
+    "title": { "ar": "أرسل رسالة", "en": "Send a message" },
+    "name": { "ar": "الاسم", "en": "Name" },
+    "phone": { "ar": "رقم الهاتف", "en": "Phone number" },
+    "email": { "ar": "البريد الإلكتروني (اختياري)", "en": "Email (optional)" },
+    "company": { "ar": "الشركة (اختياري)", "en": "Company (optional)" },
+    "message": { "ar": "رسالتك", "en": "Your message" },
+    "send": { "ar": "أرسل", "en": "Send" },
+    "sending": { "ar": "جارٍ الإرسال…", "en": "Sending…" },
+    "required": { "ar": "هذا الحقل مطلوب.", "en": "This field is required." },
+    "badPhone": { "ar": "اكتب رقم هاتف صحيحاً.", "en": "Enter a valid phone number." },
+    "badEmail": { "ar": "اكتب بريداً إلكترونياً صحيحاً.", "en": "Enter a valid email address." },
+    "subject": { "ar": "رسالة من الموقع", "en": "Website message" },
+    "sent": {
+      "ar": "وصلت رسالتك. سيتواصل معك فريقنا.",
+      "en": "Your message has arrived. Our team will contact you."
+    },
+    "fallbackTitle": {
+      "ar": "أرسل رسالتك عبر واتساب أو البريد",
+      "en": "Send your message by WhatsApp or email"
+    },
+    "fallbackText": {
+      "ar": "جهّزنا الرسالة بكل ما كتبته. اختر طريقة الإرسال:",
+      "en": "We prepared the message with everything you wrote. Choose how to send it:"
+    },
+    "error": {
+      "ar": "تعذّر الإرسال. جرّب مرة أخرى أو أرسلها عبر واتساب أو البريد.",
+      "en": "We couldn’t send it. Try again, or send it by WhatsApp or email."
+    },
+    "viaWhatsapp": { "ar": "أرسل عبر واتساب", "en": "Send on WhatsApp" },
+    "viaEmail": { "ar": "أرسل بالبريد", "en": "Send by email" }
+  }
+}

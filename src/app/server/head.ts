@@ -3,6 +3,7 @@ import { dirOf, localePath, type Lang } from '@/features/i18n/lang'
 import { cityLabel, placeLine, type Board } from '@/lib/boards'
 import { trailFor } from '@/lib/breadcrumbs'
 import { absoluteUrl, SITE_URL } from '@/lib/site'
+import { ARTICLES } from '@/features/insights/articles'
 import { organizationJsonLd } from '../jsonLd'
 import type { PageData } from '../PageData'
 import type { RouteMatch } from '../routes'
@@ -66,7 +67,8 @@ export function getHead(match: RouteMatch | null, data: PageData): PageHead {
         ]
       : [],
     siteName: site.name[lang],
-    noindex: !found,
+    // Insights stays out of search engines until it has its first article.
+    noindex: !found || (data.kind === 'static' && data.page === 'insights' && !ARTICLES.length),
     status: found ? 200 : 404,
     jsonLd: {
       '@context': 'https://schema.org',

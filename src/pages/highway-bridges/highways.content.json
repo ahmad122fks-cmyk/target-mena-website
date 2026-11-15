@@ -1,0 +1,47 @@
+{
+  "seo": {
+    "title": {
+      "ar": "جسور الطرق السريعة في العراق | تارگت للإعلان",
+      "en": "Highway bridge billboards in Iraq | Target Advertising"
+    },
+    "description": {
+      "ar": "إعلانات على جسور الطريق السريع الجنوبي من بغداد إلى الزبير والطريق السريع الغربي. صور حقيقية ومقاسات لكل وجه.",
+      "en": "Advertising on bridges along the southern highway, Baghdad to Zubair, and the western highway. Real photos and sizes for every face."
+    }
+  },
+  "title": { "ar": "جسور الطرق السريعة", "en": "Highway bridges" },
+  "intro": {
+    "ar": "جسور على الطريق السريع الجنوبي والغربي، كل وجه باتجاه المحافظة التي يقود إليها. اختر الاتجاه، ونحن نتولى التصميم والطباعة والتركيب.",
+    "en": "Bridges on the southern and western highways, each face pointing to the province it leads to. Pick the direction; we handle design, printing and installation."
+  },
+  "roads": {
+    "highway-south": {
+      "text": {
+        "ar": "تضم شبكة إعلاناتنا الخارجية استثماراً حصرياً في الطريق السريع الجنوبي، من بغداد إلى الزبير، ما يضمن حضوراً لا مثيل له للعلامة على واحد من أهم ممرات النقل في العراق.",
+        "en": "Our outdoor advertising network includes an exclusive investment in the Southern Highway, from Baghdad to Zubair, ensuring unparalleled brand visibility along one of Iraq’s most vital transportation corridors."
+      },
+      "distance": { "ar": "500–600 كم", "en": "500–600 km" },
+      "distanceLabel": { "ar": "من بغداد إلى الزبير", "en": "from Baghdad to Zubair" }
+    },
+    "highway-west": {
+      "text": {
+        "ar": "تضم شبكة إعلاناتنا الخارجية استثماراً حصرياً في الطريق السريع الغربي، يغطي الممر الغربي لبغداد، لحضور قوي واستراتيجي على أحد أهم شرايين النقل.",
+        "en": "Our outdoor advertising network includes an exclusive investment in the West Highway, covering the western corridor of Baghdad, for strong and strategic brand visibility on one of its most vital arteries."
+      }
+    }
+  },
+  "bridges": { "ar": "وجهاً على الجسور", "en": "bridge faces" },
+  "unipoles": { "ar": "يونيبول", "en": "unipoles" },
+  "browse": { "ar": "تصفح لوحات هذا الطريق ←", "en": "Browse this highway →" },
+  "photosTitle": { "ar": "صور حقيقية من الطريق", "en": "Real photos from the road" },
+  "cta": {
+    "text": {
+      "ar": "أخبرنا بالمحافظات التي تريد الوصول إليها، ونقترح عليك الجسور المناسبة.",
+      "en": "Tell us which provinces you want to reach, and we suggest the right bridges."
+    },
+    "link": {
+      "path": "/campaign/",
+      "label": { "ar": "خطط حملتك على الطرق السريعة ←", "en": "Plan a highway campaign →" }
+    }
+  }
+}

@@ -1,12 +1,18 @@
 {
   "seo": {
-    "title": { "ar": "لوحات إعلانية في {city} | تارگت للإعلان", "en": "Billboards in {city} | Target Advertising" },
+    "title": {
+      "ar": "لوحات إعلانية في {city} | تارگت للإعلان",
+      "en": "Billboards in {city} | Target Advertising"
+    },
     "description": {
       "ar": "{count} في {city}: {formats}. لكل لوحة قياسها وموقعها، واطلبها مباشرة من تارگت.",
       "en": "{count} in {city}: {formats}. Each board with its size and location; request it directly from Target."
     }
   },
   "title": { "ar": "لوحات {city}", "en": "Billboards in {city}" },
-  "intro": { "ar": "{count} في {city}. اختر اللوحة لترى صورتها وقياسها واطلبها.", "en": "{count} in {city}. Choose a board to see its photo and size, and request it." },
+  "intro": {
+    "ar": "{count} في {city}. اختر اللوحة لترى صورتها وقياسها واطلبها.",
+    "en": "{count} in {city}. Choose a board to see its photo and size, and request it."
+  },
   "finder": { "ar": "ابحث وصفِّ لوحات {city}", "en": "Search and filter boards in {city}" }
 }

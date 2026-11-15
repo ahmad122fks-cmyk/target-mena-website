@@ -1,26 +1,118 @@
 {
   "seo": {
-    "title": { "ar": "الإنتاج الفني والإعلانات التلفزيونية | تارگت", "en": "Production services and TV commercials | Target" },
-    "description": { "ar": "إعلانات تلفزيونية، إنتاج صوتي، فيديوهات ثلاثية الأبعاد، ستوري بورد ورسوم متحركة، وإعلانات بالذكاء الاصطناعي. +35 إنتاجاً منجزاً.", "en": "TV commercials, audio production, 3D videos, storyboarding and animation, and AI commercials. 35+ productions delivered." }
+    "title": {
+      "ar": "الإنتاج الفني والإعلانات التلفزيونية | تارگت",
+      "en": "Production services and TV commercials | Target"
+    },
+    "description": {
+      "ar": "إعلانات تلفزيونية، إنتاج صوتي، فيديوهات ثلاثية الأبعاد، ستوري بورد ورسوم متحركة، وإعلانات بالذكاء الاصطناعي. +35 إنتاجاً منجزاً.",
+      "en": "TV commercials, audio production, 3D videos, storyboarding and animation, and AI commercials. 35+ productions delivered."
+    }
   },
   "title": { "ar": "الإنتاج الفني", "en": "Production services" },
-  "intro": { "ar": "يتميز فريق الإنتاج لدينا بتقديم محتوى عالي الجودة وجذاب يروي قصة علامتك. من صناعة الإعلانات التلفزيونية إلى إنتاج محتوى صوتي مؤثر ورسوم متحركة مبتكرة، نضمن إيصال رسالتك بطريقة تلامس جمهورك.", "en": "Our Production team excels in delivering high-quality, engaging content that brings your brand's story to life. From crafting TV commercials to producing impactful audio and innovative animations, we ensure that your message is communicated in a way that resonates with your audience." },
+  "intro": {
+    "ar": "يتميز فريق الإنتاج لدينا بتقديم محتوى عالي الجودة وجذاب يروي قصة علامتك. من صناعة الإعلانات التلفزيونية إلى إنتاج محتوى صوتي مؤثر ورسوم متحركة مبتكرة، نضمن إيصال رسالتك بطريقة تلامس جمهورك.",
+    "en": "Our Production team excels in delivering high-quality, engaging content that brings your brand's story to life. From crafting TV commercials to producing impactful audio and innovative animations, we ensure that your message is communicated in a way that resonates with your audience."
+  },
   "blocks": [
-    { "type": "art", "art": "production", "alt": { "ar": "كاميرا تصوير سينمائي بالأصفر مع خط تارگت العربي، من الملف التعريفي", "en": "Film camera in Target yellow with Target's Arabic calligraphy, from the catalog" } },
-    { "type": "grid", "columns": 3, "items": [
-      { "title": { "ar": "الإعلانات التلفزيونية", "en": "TV commercials" }, "text": { "ar": "إعلانات عالية الجودة تقوم على القصة.", "en": "High-quality, story-driven advertisements." } },
-      { "title": { "ar": "الإنتاج الصوتي", "en": "Audio production" }, "text": { "ar": "جنغلات إعلانية وتعليق صوتي وبودكاست تناسب نبرة علامتك.", "en": "Commercial jingles, voiceovers, and podcasts tailored to your brand's tone." } },
-      { "title": { "ar": "فيديوهات ثلاثية الأبعاد", "en": "3D videos" }, "text": { "ar": "نصنع مؤثرات بصرية متقدمة للإعلانات والمنتجات والبيئات الافتراضية.", "en": "We create advanced visuals for commercials, products, and virtual environments." } },
-      { "title": { "ar": "الستوري بورد والرسوم المتحركة", "en": "Storyboarding & animation" }, "text": { "ar": "سرد بصري يأسر الجمهور.", "en": "Visual storytelling that captivates audiences." } },
-      { "title": { "ar": "إعلانات بالذكاء الاصطناعي", "en": "AI commercials" }, "text": { "ar": "إعلانات تُنتج بالذكاء الاصطناعي، من الفكرة إلى النسخة النهائية.", "en": "Commercials produced with AI, from concept to final cut." } }
-    ] },
-    { "type": "grid", "tone": "ghost", "columns": 4, "title": { "ar": "من النص إلى الستوري بورد إلى الشاشة، بأيدينا.", "en": "From script to storyboard to screen, in-house." }, "items": [
-      { "title": { "ar": "من البداية للنهاية", "en": "End to end" }, "text": { "ar": "السيناريو، الستوري بورد، اختيار الممثلين، التصوير، المونتاج، تصحيح الألوان، الصوت وكل النسخ.", "en": "Script, storyboard, casting, shoot, edit, colour, sound and every adaptation." } },
-      { "title": { "ar": "الإنتاج بالذكاء الاصطناعي", "en": "AI production" }, "text": { "ar": "إعلانات تُنتج بالذكاء الاصطناعي، من الفكرة إلى النسخة النهائية.", "en": "Commercials produced with AI, from concept to final cut." } },
-      { "title": { "ar": "مخرجون وطواقم", "en": "Directors and crews" }, "text": { "ar": "نعمل مع عدد كبير من المخرجين، ولدينا وصول إلى طواقم عالية المستوى.", "en": "We work with many directors and have access to high-level crews." } },
-      { "title": { "ar": "برامج وفعاليات", "en": "Shows and events" }, "text": { "ar": "برامج في الاستوديو وفي المواقع الخارجية، إضافة إلى إدارة الفعاليات وتغطيتها.", "en": "Studio and on-location shows, plus event management and coverage." } }
-    ] },
-    { "type": "stat", "value": { "ar": "+35", "en": "35+" }, "label": { "ar": "إنتاجاً منجزاً", "en": "productions delivered" }, "note": { "ar": "حملات عالية الإنتاج وإعلانات تلفزيونية", "en": "High-production campaigns and TV commercials" } },
-    { "type": "work" }
+    {
+      "type": "art",
+      "art": "production",
+      "alt": {
+        "ar": "كاميرا تصوير سينمائي بالأصفر مع خط تارگت العربي، من الملف التعريفي",
+        "en": "Film camera in Target yellow with Target's Arabic calligraphy, from the catalog"
+      }
+    },
+    {
+      "type": "grid",
+      "columns": 3,
+      "items": [
+        {
+          "title": { "ar": "الإعلانات التلفزيونية", "en": "TV commercials" },
+          "text": {
+            "ar": "إعلانات عالية الجودة تقوم على القصة.",
+            "en": "High-quality, story-driven advertisements."
+          }
+        },
+        {
+          "title": { "ar": "الإنتاج الصوتي", "en": "Audio production" },
+          "text": {
+            "ar": "جنغلات إعلانية وتعليق صوتي وبودكاست تناسب نبرة علامتك.",
+            "en": "Commercial jingles, voiceovers, and podcasts tailored to your brand's tone."
+          }
+        },
+        {
+          "title": { "ar": "فيديوهات ثلاثية الأبعاد", "en": "3D videos" },
+          "text": {
+            "ar": "نصنع مؤثرات بصرية متقدمة للإعلانات والمنتجات والبيئات الافتراضية.",
+            "en": "We create advanced visuals for commercials, products, and virtual environments."
+          }
+        },
+        {
+          "title": { "ar": "الستوري بورد والرسوم المتحركة", "en": "Storyboarding & animation" },
+          "text": {
+            "ar": "سرد بصري يأسر الجمهور.",
+            "en": "Visual storytelling that captivates audiences."
+          }
+        },
+        {
+          "title": { "ar": "إعلانات بالذكاء الاصطناعي", "en": "AI commercials" },
+          "text": {
+            "ar": "إعلانات تُنتج بالذكاء الاصطناعي، من الفكرة إلى النسخة النهائية.",
+            "en": "Commercials produced with AI, from concept to final cut."
+          }
+        }
+      ]
+    },
+    {
+      "type": "grid",
+      "columns": 4,
+      "title": {
+        "ar": "من النص إلى الستوري بورد إلى الشاشة، بأيدينا.",
+        "en": "From script to storyboard to screen, in-house."
+      },
+      "items": [
+        {
+          "title": { "ar": "من البداية للنهاية", "en": "End to end" },
+          "text": {
+            "ar": "السيناريو، الستوري بورد، اختيار الممثلين، التصوير، المونتاج، تصحيح الألوان، الصوت وكل النسخ.",
+            "en": "Script, storyboard, casting, shoot, edit, colour, sound and every adaptation."
+          }
+        },
+        {
+          "title": { "ar": "الإنتاج بالذكاء الاصطناعي", "en": "AI production" },
+          "text": {
+            "ar": "إعلانات تُنتج بالذكاء الاصطناعي، من الفكرة إلى النسخة النهائية.",
+            "en": "Commercials produced with AI, from concept to final cut."
+          }
+        },
+        {
+          "title": { "ar": "مخرجون وطواقم", "en": "Directors and crews" },
+          "text": {
+            "ar": "نعمل مع عدد كبير من المخرجين، ولدينا وصول إلى طواقم عالية المستوى.",
+            "en": "We work with many directors and have access to high-level crews."
+          }
+        },
+        {
+          "title": { "ar": "برامج وفعاليات", "en": "Shows and events" },
+          "text": {
+            "ar": "برامج في الاستوديو وفي المواقع الخارجية، إضافة إلى إدارة الفعاليات وتغطيتها.",
+            "en": "Studio and on-location shows, plus event management and coverage."
+          }
+        }
+      ]
+    },
+    {
+      "type": "stat",
+      "value": { "ar": "+35", "en": "35+" },
+      "label": { "ar": "إنتاجاً منجزاً", "en": "productions delivered" },
+      "note": {
+        "ar": "حملات عالية الإنتاج وإعلانات تلفزيونية",
+        "en": "High-production campaigns and TV commercials"
+      }
+    },
+    {
+      "type": "work"
+    }
   ]
 }

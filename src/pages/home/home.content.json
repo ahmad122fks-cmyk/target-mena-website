@@ -85,7 +85,7 @@
           "label": { "ar": "ابحث عن لوحة ←", "en": "Find a board →" }
         },
         {
-          "path": "/formats/bridges/",
+          "path": "/highway-bridges/",
           "label": { "ar": "جسور الطرق السريعة ←", "en": "Highway bridges →" }
         }
       ]

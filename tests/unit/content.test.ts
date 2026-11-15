@@ -6,6 +6,16 @@ import homeMore from '@/pages/home/home.more.content.json'
 import homePlatform from '@/pages/home/home.platform.content.json'
 import homeServices from '@/pages/home/home.services.content.json'
 import notFound from '@/pages/not-found/not-found.content.json'
+import about from '@/pages/about/about.content.json'
+import alrabiaa from '@/pages/alrabiaa/alrabiaa.content.json'
+import contact from '@/pages/contact/contact.content.json'
+import digital from '@/pages/digital/digital.content.json'
+import events from '@/pages/events/events.content.json'
+import highways from '@/pages/highway-bridges/highways.content.json'
+import insights from '@/pages/insights/insights.content.json'
+import privacy from '@/pages/privacy/privacy.content.json'
+import production from '@/pages/production/production.content.json'
+import work from '@/pages/work/work.content.json'
 
 /** Every { ar, en } pair in a content file. */
 function pairs(value: unknown, path = ''): { path: string; ar: unknown; en: unknown }[] {
@@ -15,7 +25,19 @@ function pairs(value: unknown, path = ''): { path: string; ar: unknown; en: unkn
   return Object.entries(record).flatMap(([key, child]) => pairs(child, `${path}.${key}`))
 }
 
-const FILES = { site, feed, home, homeMore, homePlatform, homeServices, notFound }
+const PHASE3 = {
+  about,
+  alrabiaa,
+  contact,
+  digital,
+  events,
+  highways,
+  insights,
+  privacy,
+  production,
+  work,
+}
+const FILES = { site, feed, home, homeMore, homePlatform, homeServices, notFound, ...PHASE3 }
 
 describe('content: Arabic and English side by side', () => {
   for (const [name, file] of Object.entries(FILES)) {
@@ -27,7 +49,7 @@ describe('content: Arabic and English side by side', () => {
     })
   }
   it('SEO titles <= 60 and descriptions <= 155 characters', () => {
-    for (const seo of [home.seo, notFound.seo]) {
+    for (const seo of [home.seo, notFound.seo, ...Object.values(PHASE3).map((page) => page.seo)]) {
       for (const lang of ['ar', 'en'] as const) {
         expect(seo.title[lang].length).toBeLessThanOrEqual(60)
         expect(seo.description[lang].length).toBeLessThanOrEqual(155)
@@ -47,6 +69,13 @@ describe('content: Arabic and English side by side', () => {
     expect(feed.items.map((item) => item.id)).toEqual(['earthlink-alwatani', 'qi-superqi'])
     const text = JSON.stringify(feed.items)
     expect(text).not.toMatch(/\d+\s*(sites|boards|لوحة|موقع)|IQD|USD|\$|دينار|دولار/)
+  })
+  it('Alrabiaa page uses the exact BUILD-BRIEF wording and no per-second prices', () => {
+    expect(alrabiaa.intro.ar).toContain('الموزع الحصري للإعلان والترويج على قناة الرابعة')
+    expect(alrabiaa.intro.en).toContain(
+      'Exclusive distributor for advertising and promotion on Alrabiaa TV',
+    )
+    expect(JSON.stringify(alrabiaa)).not.toMatch(/ثانية|second/i)
   })
   it('never uses the old guideline stationery number', () => {
     expect(JSON.stringify(FILES)).not.toContain('7783')

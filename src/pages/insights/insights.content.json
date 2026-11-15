@@ -1,0 +1,21 @@
+{
+  "seo": {
+    "title": {
+      "ar": "مقالات عن الإعلان في العراق | تارگت للإعلان",
+      "en": "Insights on advertising in Iraq | Target Advertising"
+    },
+    "description": {
+      "ar": "مقالات وأدلة قصيرة من تارگت للإعلان عن الإعلان الخارجي والتلفزيوني والرقمي في العراق.",
+      "en": "Short articles and guides from Target Advertising on outdoor, TV and digital advertising in Iraq."
+    }
+  },
+  "title": { "ar": "مقالات", "en": "Insights" },
+  "intro": {
+    "ar": "أدلة ومقالات قصيرة عن التخطيط للإعلان في العراق.",
+    "en": "Short guides and articles on planning advertising in Iraq."
+  },
+  "empty": { "ar": "لا توجد مقالات بعد.", "en": "No articles yet." },
+  "emptyToConfirm": "first articles (topics from the Master Plan, section 6)",
+  "read": { "ar": "اقرأ المقال ←", "en": "Read the article →" },
+  "published": { "ar": "نُشر في", "en": "Published" }
+}

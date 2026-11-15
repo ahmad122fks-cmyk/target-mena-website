@@ -6,6 +6,9 @@ export const SECTION_TONES = {
   white: 'bg-white',
   ghost: 'border-y border-line bg-brand-ghost',
   black: 'bg-brand-black text-white [--heading:var(--color-brand-white)]',
+  /** Channel colours (DESIGN.md 2): black text, only on their own pages. */
+  yellow: 'bg-brand-yellow text-brand-black [--eyebrow:var(--color-brand-black)]',
+  green: 'bg-brand-green text-brand-black [--eyebrow:var(--color-brand-black)]',
 } as const
 
 export type SectionTone = keyof typeof SECTION_TONES
@@ -15,7 +18,8 @@ const PADDING = { lg: 'py-16 lg:py-24', md: 'py-14 lg:py-[4.5rem]' } as const
 type Props = {
   tone?: SectionTone
   id?: string
-  labelledBy: string
+  /** Id of the section's heading (omit only for sections without one). */
+  labelledBy?: string
   /** Vertical space: 96 px (default) or 72 px for short bands. */
   pad?: keyof typeof PADDING
   /** Skip the standard container (the section lays itself out). */

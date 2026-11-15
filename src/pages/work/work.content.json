@@ -1,0 +1,36 @@
+{
+  "seo": {
+    "title": {
+      "ar": "أعمالنا وعملاؤنا | تارگت للإعلان",
+      "en": "Our work and clients | Target Advertising"
+    },
+    "description": {
+      "ar": "حملات حقيقية نفذناها مع إيرثلنك وكي كارد، وعملاء الإنتاج: كي، Gree، ديجيتال زون، الرابعة وغيرهم.",
+      "en": "Real campaigns we ran with Earthlink and Qi Card, and our production clients: Qi, Gree, Digital Zone, Alrabiaa and more."
+    }
+  },
+  "title": { "ar": "أعمالنا", "en": "Our work" },
+  "intro": {
+    "ar": "حملات حقيقية بصور حقيقية من المواقع. تُنشر الحملة هنا فقط بعد موافقة العميل.",
+    "en": "Real campaigns with real photos from the sites. A campaign appears here only after the client approves."
+  },
+  "campaignsTitle": { "ar": "حملات على لوحاتنا", "en": "Campaigns on our boards" },
+  "blocks": [
+    {
+      "type": "work",
+      "title": { "ar": "الإنتاج الفني", "en": "Production" }
+    }
+  ],
+  "logosTitle": { "ar": "علامات تعمل مع تارگت", "en": "Brands that work with Target" },
+  "logos": [
+    {
+      "file": "qi",
+      "alt": { "ar": "كي كارد", "en": "Qi Card" }
+    },
+    {
+      "file": "alrabiaa",
+      "alt": { "ar": "قناة الرابعة", "en": "Alrabiaa TV" }
+    }
+  ],
+  "logosToConfirm": "other client logos allowed on the site"
+}

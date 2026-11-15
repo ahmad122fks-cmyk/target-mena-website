@@ -3,7 +3,7 @@ import { cn } from '@/lib/utils'
 import { Eyebrow } from './Eyebrow'
 
 type Props = {
-  eyebrow: string
+  eyebrow?: string
   title: string
   text?: string
   /** Inset grey mini preview of the feature. */
@@ -38,7 +38,7 @@ export function FeatureCard({
         className,
       )}
     >
-      <Eyebrow className={lg ? undefined : 'text-xs'}>{eyebrow}</Eyebrow>
+      {eyebrow && <Eyebrow className={lg ? undefined : 'text-xs'}>{eyebrow}</Eyebrow>}
       <h3
         className={cn(
           'font-semibold leading-[1.4]',

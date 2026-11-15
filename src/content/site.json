@@ -22,7 +22,7 @@
       "label": { "ar": "قناة الرابعة", "en": "Alrabiaa TV" }
     },
     {
-      "path": "#contact",
+      "path": "/contact/",
       "label": { "ar": "اتصل بنا", "en": "Contact" }
     }
   ],
@@ -61,10 +61,6 @@
             "label": { "ar": "ابحث عن لوحة", "en": "Find a board" }
           },
           {
-            "path": "/highway-bridges/",
-            "label": { "ar": "جسور الطرق السريعة", "en": "Highway bridges" }
-          },
-          {
             "path": "/network/",
             "label": { "ar": "المحافظات", "en": "Provinces" }
           },
@@ -78,16 +74,20 @@
         "title": { "ar": "الخدمات", "en": "Services" },
         "links": [
           {
-            "path": "/network/",
-            "label": { "ar": "الإعلانات الخارجية", "en": "Outdoor advertising" }
+            "path": "/highway-bridges/",
+            "label": { "ar": "جسور الطرق السريعة", "en": "Highway bridges" }
           },
           {
             "path": "/production/",
             "label": { "ar": "الإنتاج الفني", "en": "Production" }
           },
           {
-            "path": "/#services",
-            "label": { "ar": "الخدمات الإبداعية", "en": "Creative services" }
+            "path": "/events/",
+            "label": { "ar": "الفعاليات", "en": "Events" }
+          },
+          {
+            "path": "/digital/",
+            "label": { "ar": "الخدمات الإبداعية والرقمية", "en": "Creative & digital" }
           },
           {
             "path": "/alrabiaa/",
@@ -103,7 +103,11 @@
             "label": { "ar": "من نحن", "en": "About us" }
           },
           {
-            "path": "#contact",
+            "path": "/work/",
+            "label": { "ar": "أعمالنا", "en": "Our work" }
+          },
+          {
+            "path": "/contact/",
             "label": { "ar": "اتصل بنا", "en": "Contact" }
           }
         ]
@@ -115,7 +119,17 @@
     "home": { "ar": "الرئيسية", "en": "Home" },
     "boards": { "ar": "ابحث عن لوحة", "en": "Find a board" },
     "network": { "ar": "شبكة اللوحات", "en": "Network" },
-    "campaign": { "ar": "خطط حملتك", "en": "Plan your campaign" }
+    "campaign": { "ar": "خطط حملتك", "en": "Plan your campaign" },
+    "highways": { "ar": "جسور الطرق السريعة", "en": "Highway bridges" },
+    "production": { "ar": "الإنتاج الفني", "en": "Production" },
+    "events": { "ar": "الفعاليات", "en": "Events" },
+    "alrabiaa": { "ar": "قناة الرابعة", "en": "Alrabiaa TV" },
+    "digital": { "ar": "الإعلام الرقمي", "en": "Digital & social" },
+    "work": { "ar": "أعمالنا", "en": "Our work" },
+    "about": { "ar": "من نحن", "en": "About us" },
+    "contact": { "ar": "اتصل بنا", "en": "Contact" },
+    "insights": { "ar": "مقالات", "en": "Insights" },
+    "privacy": { "ar": "الخصوصية", "en": "Privacy" }
   },
   "breadcrumbLabel": { "ar": "مسار الصفحة", "en": "Breadcrumb" },
   "clientLogin": {

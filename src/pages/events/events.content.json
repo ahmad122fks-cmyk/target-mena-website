@@ -1,0 +1,58 @@
+{
+  "seo": {
+    "title": {
+      "ar": "إدارة الفعاليات وتغطيتها | تارگت للإعلان",
+      "en": "Event management and coverage | Target Advertising"
+    },
+    "description": {
+      "ar": "نصمم وننفذ فعاليات متقنة حسب أهداف علامتك، من التخطيط إلى التنفيذ، مع تغطية إعلامية شاملة لتأثير يدوم.",
+      "en": "We design and deliver flawless events tailored to your brand’s goals, from planning to execution, with full media coverage for lasting impact."
+    }
+  },
+  "title": { "ar": "إدارة الفعاليات", "en": "Events management" },
+  "intro": {
+    "ar": "نصمم وننفذ فعاليات متقنة مصممة حسب أهداف علامتك. من التخطيط إلى التنفيذ، نتابع كل التفاصيل بدقة، ونوسّع الوصول بتغطية إعلامية شاملة لتأثير يدوم.",
+    "en": "We design and deliver flawless events tailored to your brand’s goals. From planning to execution, every detail is handled with precision. Maximize reach with comprehensive media coverage for lasting impact."
+  },
+  "blocks": [
+    {
+      "type": "grid",
+      "columns": 3,
+      "items": [
+        {
+          "title": { "ar": "من الفكرة إلى التنفيذ", "en": "From concept to execution" },
+          "text": {
+            "ar": "نقدّم خدمات إدارة فعاليات متكاملة، من الفكرة إلى التنفيذ، لتجارب سلسة.",
+            "en": "We offer end-to-end event management services, from concept to execution, ensuring seamless experiences."
+          }
+        },
+        {
+          "title": { "ar": "تغطية إعلامية كاملة", "en": "Full media coverage" },
+          "text": {
+            "ar": "تغطيتنا الإعلامية الكاملة توسّع وصول علامتك وتترك انطباعاً دائماً عبر جميع المنصات.",
+            "en": "Our full media coverage amplifies your brand’s reach and creates lasting impressions across platforms."
+          }
+        },
+        {
+          "title": { "ar": "برامج وفعاليات", "en": "Shows and events" },
+          "text": {
+            "ar": "برامج في الاستوديو وفي المواقع الخارجية، إضافة إلى إدارة الفعاليات وتغطيتها.",
+            "en": "Studio and on-location shows, plus event management and coverage."
+          }
+        }
+      ]
+    },
+    {
+      "type": "cta",
+      "title": { "ar": "لنخطط فعاليتك", "en": "Let’s plan your event" },
+      "text": {
+        "ar": "أخبرنا بموعد فعاليتك وهدفها، ويتواصل معك فريقنا.",
+        "en": "Tell us your event’s date and goal, and our team will get back to you."
+      },
+      "link": {
+        "path": "/contact/",
+        "label": { "ar": "تواصل معنا ←", "en": "Contact us →" }
+      }
+    }
+  ]
+}

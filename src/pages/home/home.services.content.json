@@ -19,8 +19,8 @@
         "en": "TV commercials, audio production, 3D video and storyboards."
       },
       "link": {
-        "path": "#contact",
-        "label": { "ar": "تواصل معنا ←", "en": "Contact us →" }
+        "path": "/production/",
+        "label": { "ar": "الإنتاج الفني ←", "en": "Production →" }
       },
       "artAlt": {
         "ar": "كاميرا تصوير سينمائي بالأصفر مع خط تارگت العربي، من الملف التعريفي",
@@ -34,8 +34,8 @@
         "en": "Campaigns, social media content, branding and identity, and UI/UX design."
       },
       "link": {
-        "path": "#contact",
-        "label": { "ar": "تواصل معنا ←", "en": "Contact us →" }
+        "path": "/digital/",
+        "label": { "ar": "الخدمات الإبداعية ←", "en": "Creative services →" }
       },
       "artAlt": {
         "ar": "عمل فني بالخط العربي متعدد الألوان من الملف التعريفي لتارگت",
@@ -50,7 +50,7 @@
       },
       "logoAlt": { "ar": "شعار قناة الرابعة", "en": "Alrabiaa TV logo" },
       "link": {
-        "path": "#contact",
+        "path": "/alrabiaa/",
         "label": { "ar": "اطلب جدول البث ←", "en": "Ask for the broadcast schedule →" }
       }
     }

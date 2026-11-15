@@ -64,7 +64,17 @@ test('finder and campaign: no horizontal scroll at phone width; list opens as a 
   page,
 }) => {
   await page.setViewportSize({ width: 375, height: 812 })
-  for (const url of ['/boards/', '/en/campaign/', '/boards/BGW03A/']) {
+  for (const url of [
+    '/boards/',
+    '/en/campaign/',
+    '/boards/BGW03A/',
+    '/contact/',
+    '/en/highway-bridges/',
+    '/alrabiaa/',
+    '/digital/',
+    '/work/',
+    '/about/',
+  ]) {
     await page.goto(url)
     const overflow = await page.evaluate(
       () => document.documentElement.scrollWidth - window.innerWidth,
@@ -90,6 +100,57 @@ test('home: announcement bar, campaign feed and client login', async ({ page }) 
   await expect(login).toHaveAttribute('target', '_blank')
   await page.goto('/en/boards/')
   await expect(page.getByRole('link', { name: /campaign is now on our boards/ })).toHaveCount(0)
+})
+
+test('phase 3 pages: 200, one H1, right language, breadcrumb, contact block', async ({ page }) => {
+  const pages = [
+    'highway-bridges',
+    'production',
+    'events',
+    'alrabiaa',
+    'digital',
+    'work',
+    'about',
+    'contact',
+    'insights',
+    'privacy',
+  ]
+  for (const name of pages)
+    for (const [prefix, lang] of [
+      ['', 'ar'],
+      ['/en', 'en'],
+    ]) {
+      const response = await page.goto(`${prefix}/${name}/`)
+      expect(response?.status(), name).toBe(200)
+      await expect(page.locator('html')).toHaveAttribute('lang', lang)
+      await expect(page.locator('h1')).toHaveCount(1)
+      await expect(page.locator('nav[aria-label] ol')).toBeVisible()
+      await expect(page.locator('#contact')).toContainText('+964 771 977 7199')
+    }
+})
+
+test('insights stays out of search engines until it has articles', async ({ page }) => {
+  await page.goto('/insights/')
+  await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', 'noindex')
+  const sitemap = await (await page.request.get('/sitemap-pages.xml')).text()
+  expect(sitemap).not.toContain('/insights/')
+  expect(sitemap).toContain('/highway-bridges/')
+})
+
+test('contact form: browser checks, then WhatsApp or email with the message', async ({ page }) => {
+  await page.goto('/en/contact/')
+  const main = page.locator('main')
+  await main.getByRole('button', { name: 'Send' }).click()
+  await expect(main.getByRole('status')).toHaveCount(0)
+  await main.getByLabel('Name').fill('Test Client')
+  await main.getByLabel('Phone number').fill('+964 770 000 0000')
+  await main.getByLabel('Your message').fill('Rooftops in Najaf')
+  await main.getByRole('button', { name: 'Send' }).click()
+  const whatsapp = main.getByRole('link', { name: 'Send on WhatsApp' })
+  await expect(whatsapp).toHaveAttribute(
+    'href',
+    /^https:\/\/wa\.me\/9647719777199\?text=.*Rooftops/,
+  )
 })
 
 test('index.html addresses show the home page, not the 404 page', async ({ page }) => {

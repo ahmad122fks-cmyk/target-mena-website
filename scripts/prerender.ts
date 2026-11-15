@@ -14,7 +14,7 @@ const DIST = path.resolve('dist')
 type Rendered = {
   html: string
   headHtml: string
-  head: { lang: 'ar' | 'en'; dir: string }
+  head: { lang: 'ar' | 'en'; dir: string; noindex: boolean }
   data: unknown
   page: string | null
 }
@@ -33,8 +33,11 @@ const server = (await import(
 const manifest = JSON.parse(await fs.readFile(path.join(DIST, '.vite/manifest.json'), 'utf8'))
 const assets = await fs.readdir(path.join(DIST, 'assets'))
 
+const noindex = new Set<string>()
+
 function page(url: string): string {
   const { html, headHtml, head, data, page: key } = server.render(url)
+  if (head.noindex) noindex.add(url)
   const json = JSON.stringify(data).replace(/</g, '\\u003c')
   // The finder's first photo is its LCP: let it download before the (larger)
   // finder scripts, which the entry then loads itself (one round trip later).
@@ -65,7 +68,11 @@ await fs.writeFile(path.join(DIST, '404.html'), page('/404/'))
 
 // Sitemaps and robots.txt (BUILD-BRIEF 7).
 for (const [name, content] of Object.entries(
-  seoFiles(paths, new Date().toISOString().slice(0, 10)),
+  // Pages marked noindex (e.g. Insights before its first article) stay out of the sitemap.
+  seoFiles(
+    paths.filter((path) => !noindex.has(path)),
+    new Date().toISOString().slice(0, 10),
+  ),
 )) {
   await fs.writeFile(path.join(DIST, name), content)
 }

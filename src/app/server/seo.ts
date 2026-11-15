@@ -1,4 +1,14 @@
+import about from '@/pages/about/about.content.json'
+import alrabiaa from '@/pages/alrabiaa/alrabiaa.content.json'
 import boardsContent from '@/pages/boards/boards.content.json'
+import contact from '@/pages/contact/contact.content.json'
+import digital from '@/pages/digital/digital.content.json'
+import events from '@/pages/events/events.content.json'
+import highways from '@/pages/highway-bridges/highways.content.json'
+import insights from '@/pages/insights/insights.content.json'
+import privacy from '@/pages/privacy/privacy.content.json'
+import production from '@/pages/production/production.content.json'
+import work from '@/pages/work/work.content.json'
 import campaign from '@/pages/campaign/campaign.content.json'
 import board from '@/pages/board/board.content.json'
 import format from '@/pages/format/format.content.json'
@@ -11,6 +21,23 @@ import { areaLabel, cityLabel, FORMATS, formatOf, type Board } from '@/lib/board
 import { formatCount, formatFaces, formatSize, formatSqm } from '@/lib/format'
 import { fill } from '@/lib/template'
 import type { PageData } from '../PageData'
+import type { StaticPage } from '../routes'
+
+/** SEO text of each content page (its .content.json). */
+const STATIC_SEO: Record<StaticPage, { seo: Seo }> = {
+  campaign,
+  production,
+  events,
+  alrabiaa,
+  digital,
+  work,
+  about,
+  contact,
+  insights,
+  privacy,
+}
+
+type Seo = { title: Record<Lang, string>; description: Record<Lang, string> }
 
 /** Shorten to `max` characters at a word boundary. */
 export function clip(text: string, max: number): string {
@@ -57,7 +84,14 @@ export function seoFor(data: PageData, lang: Lang): { title: string; description
     case 'network':
       return pick(network.seo)
     case 'static':
-      return pick(campaign.seo)
+      return pick(STATIC_SEO[data.page].seo)
+    case 'highways':
+      return pick(highways.seo)
+    case 'article':
+      return {
+        title: clip(`${data.article.title[lang]} | ${lang === 'ar' ? 'تارگت' : 'Target'}`, 60),
+        description: clip(data.article.description[lang], 155),
+      }
     case 'board':
       return boardSeo(data.board, lang)
     case 'province': {

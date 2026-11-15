@@ -1,5 +1,7 @@
 import { createContext, useContext } from 'react'
+import type { Article } from '@/features/insights/articles'
 import type { Board } from '@/lib/boards'
+import type { StaticPage } from './routes'
 
 /**
  * Data each page needs, computed at build time and embedded in the page as
@@ -30,7 +32,15 @@ export type PageData =
     }
   | { kind: 'province'; city: string; boards: Board[] }
   | { kind: 'format'; format: string; boards: Board[] }
-  | { kind: 'static'; page: 'campaign' }
+  | {
+      kind: 'highways'
+      /** Per highway, from boards.json: bridge faces, unipoles, all faces. */
+      roads: { key: string; bridges: number; unipoles: number; faces: number }[]
+      /** Highway boards with a real photo, for the photo row. */
+      featured: Board[]
+    }
+  | { kind: 'article'; article: Article }
+  | { kind: 'static'; page: StaticPage }
   | { kind: 'notFound' }
 
 const PageDataContext = createContext<PageData>({ kind: 'notFound' })

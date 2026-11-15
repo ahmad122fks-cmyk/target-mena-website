@@ -13,6 +13,8 @@ module.exports = {
         'http://localhost/boards/BGW03A/index.html',
         'http://localhost/boards/index.html',
         'http://localhost/campaign/index.html',
+        'http://localhost/contact/index.html',
+        'http://localhost/highway-bridges/index.html',
       ],
       numberOfRuns: 3,
       settings: { chromeFlags: '--no-sandbox --headless=new' },

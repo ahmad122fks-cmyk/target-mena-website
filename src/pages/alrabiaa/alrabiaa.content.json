@@ -1,0 +1,63 @@
+{
+  "seo": {
+    "title": {
+      "ar": "الإعلان والترويج على قناة الرابعة | تارگت",
+      "en": "Advertising on Alrabiaa TV | Target Advertising"
+    },
+    "description": {
+      "ar": "الموزع الحصري للإعلان والترويج على قناة الرابعة: البرامج اليومية، والدوري الإيطالي، ومجلة السيدة الأولى، والباقات الجاهزة.",
+      "en": "Exclusive distributor for advertising and promotion on Alrabiaa TV: daily programmes, the Italian league, Al Sayeda Al Oula magazine and packages."
+    }
+  },
+  "title": { "ar": "قناة الرابعة", "en": "Alrabiaa TV" },
+  "intro": {
+    "ar": "الموزع الحصري للإعلان والترويج على قناة الرابعة. نربط علامتك بجمهور واسع عبر قنوات تلفزيونية مميزة ومنصات رقمية.",
+    "en": "Exclusive distributor for advertising and promotion on Alrabiaa TV. We connect your brand with a vast audience through premium TV channels and digital platforms."
+  },
+  "logoAlt": { "ar": "شعار قناة الرابعة", "en": "Alrabiaa TV logo" },
+  "blocks": [
+    {
+      "type": "text",
+      "title": { "ar": "عن قناة الرابعة", "en": "About Alrabiaa TV" },
+      "paragraphs": [
+        {
+          "ar": "قناة الرابعة شبكة إعلامية رائدة في العراق، تقدّم محتوى متنوعاً يناسب جميع الفئات.",
+          "en": "Alrabiaa TV is a leading media network in Iraq, offering diverse content tailored to all demographics."
+        },
+        {
+          "ar": "كما تمتلك الرابعة حضوراً رقمياً متنوعاً يشمل موقعاً إلكترونياً متجدداً وتطبيقات للهاتف ومنصات تواصل اجتماعي نشطة.",
+          "en": "In addition, Alrabiaa has a diverse digital presence, including a dynamic website, mobile apps, and active social media platforms."
+        }
+      ]
+    },
+    {
+      "type": "chips",
+      "tone": "green",
+      "title": { "ar": "عائلة قنوات الرابعة", "en": "The Alrabiaa family of channels" },
+      "items": [
+        { "ar": "الرابعة الرياضية", "en": "Alrabiaa Sports" },
+        { "ar": "الرابعة العامة", "en": "Alrabiaa General" },
+        { "ar": "الرابعة الإخبارية", "en": "Alrabiaa News" },
+        { "ar": "الرابعة للموسيقى", "en": "Alrabiaa Music" },
+        { "ar": "الرابعة للأفلام", "en": "Alrabiaa Movies" },
+        { "ar": "الرابعة للمسلسلات", "en": "Alrabiaa Series" },
+        { "ar": "الرابعة سينما", "en": "Alrabiaa Cinema" },
+        { "ar": "الرابعة جغرافيك", "en": "Alrabiaa Geographic" }
+      ]
+    },
+    {
+      "type": "text",
+      "title": { "ar": "وصول حصري", "en": "Exclusive access" },
+      "paragraphs": [
+        {
+          "ar": "بفضل وصولنا الحصري إلى جميع المساحات الإعلانية على الرابعة، نضمن دمج حملاتك بسلاسة في واحدة من أكثر الشبكات الإعلامية تأثيراً في العراق، بحضور وتفاعل لا مثيل لهما.",
+          "en": "With our exclusive access to all Alrabiaa advertising slots, we ensure your campaigns are seamlessly integrated into one of Iraq’s most influential media networks, delivering unmatched visibility and engagement."
+        },
+        {
+          "ar": "كما تتعاون قناة الرابعة مع Ipsos، الشركة العالمية الرائدة في قياس الجمهور، لضمان بيانات ورؤى دقيقة تعزز فعالية الإعلان.",
+          "en": "In addition, Alrabiaa TV collaborates with Ipsos, a global leader in audience measurement, ensuring accurate data and insights to optimize advertising effectiveness."
+        }
+      ]
+    }
+  ]
+}

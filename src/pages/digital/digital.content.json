@@ -1,0 +1,141 @@
+{
+  "seo": {
+    "title": {
+      "ar": "الخدمات الإبداعية والإعلام الرقمي | تارگت",
+      "en": "Creative services and digital media | Target"
+    },
+    "description": {
+      "ar": "محتوى السوشيال ميديا، العلامة والهوية، تصميم UI/UX، التصميم ثلاثي الأبعاد، وإعلانات رقمية موجهة على السوشيال ميديا ومحركات البحث.",
+      "en": "Social media content, branding and identity, UI/UX design, 3D design, and targeted digital ads on social media and search engines."
+    }
+  },
+  "title": { "ar": "الخدمات الإبداعية والإعلام الرقمي", "en": "Creative and digital" },
+  "intro": {
+    "ar": "فريقنا الإبداعي هو قلب تارگت للإعلان. من العلامة والتصميم إلى حملات السوشيال ميديا والمحتوى الرقمي، نصنع مؤثرات بصرية وتجارب مميزة تشد جمهورك وتلهمه.",
+    "en": "Our creative team is the heart of Target Advertising. From branding and design to social media campaigns and digital content, we craft distinctive visuals and experiences that engage and inspire your audience."
+  },
+  "blocks": [
+    {
+      "type": "grid",
+      "columns": 3,
+      "title": { "ar": "الخدمات الإبداعية", "en": "Creative services" },
+      "items": [
+        {
+          "title": { "ar": "الحملات", "en": "Campaigns" },
+          "text": {
+            "ar": "حملات كاملة، من الفكرة إلى الإطلاق.",
+            "en": "Full campaigns, from the idea to launch."
+          }
+        },
+        {
+          "title": { "ar": "محتوى السوشيال ميديا", "en": "Social media content" },
+          "text": {
+            "ar": "مؤثرات بصرية وحملات توقف التمرير.",
+            "en": "Scroll-stopping visuals and campaigns."
+          }
+        },
+        {
+          "title": { "ar": "العلامة والهوية", "en": "Branding & identity" },
+          "text": {
+            "ar": "من تصميم الشعار إلى تصميم التغليف، نبني العلامات من الأساس.",
+            "en": "From logo creation to packaging design, we build brands from the ground up."
+          }
+        },
+        {
+          "title": { "ar": "تصميم UI/UX", "en": "UI/UX design" },
+          "text": {
+            "ar": "تصاميم حديثة للمواقع وتطبيقات الهاتف تحسّن تجربة المستخدم.",
+            "en": "Modern web and mobile app designs that enhance user experiences."
+          }
+        },
+        {
+          "title": { "ar": "التصميم ثلاثي الأبعاد", "en": "3D design" },
+          "text": {
+            "ar": "نصمم رسومات ثلاثية الأبعاد جذابة للعلامات والإعلانات والترفيه، ونحوّل الأفكار إلى تجارب بصرية آسرة.",
+            "en": "We create captivating 3D graphics for branding, advertising, and entertainment, turning concepts into visually engaging experiences."
+          }
+        },
+        {
+          "title": { "ar": "فيديوهات وتصاميم بالذكاء الاصطناعي", "en": "AI videos & design" },
+          "text": {
+            "ar": "فيديوهات وتصاميم تُنتج بالذكاء الاصطناعي.",
+            "en": "Videos and visuals made with AI."
+          }
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "tone": "yellow",
+      "title": {
+        "ar": "نحن لا نكتفي بالإبداع؛ بل نصنع التجارب.",
+        "en": "We don’t just create; we craft experiences."
+      },
+      "paragraphs": [
+        {
+          "ar": "مخرجاتنا الإبداعية مصممة لتلامس جمهورك وتنسجم تماماً مع هوية علامتك وأهدافها.",
+          "en": "Our creative outputs are tailored to resonate with your audience while aligning perfectly with your brand identity and objectives."
+        }
+      ]
+    },
+    {
+      "type": "art",
+      "art": "creative",
+      "alt": {
+        "ar": "عمل فني بالخط العربي متعدد الألوان من الملف التعريفي لتارگت",
+        "en": "Multicolour Arabic calligraphy artwork from Target’s catalog"
+      }
+    },
+    {
+      "type": "grid",
+      "columns": 3,
+      "title": { "ar": "الإعلام الرقمي والتسويق", "en": "Digital media and marketing" },
+      "items": [
+        {
+          "title": { "ar": "الإعلام الرقمي", "en": "Digital media" },
+          "text": {
+            "ar": "نصل إلى الجمهور عبر إعلانات موجهة على السوشيال ميديا ومحركات البحث والتطبيقات، باستراتيجيات مبنية على البيانات لتحقيق أعلى تأثير وعائد.",
+            "en": "Engaging audiences through targeted ads on social media, search engines, and apps, leveraging data-driven strategies for maximum impact and ROI."
+          }
+        },
+        {
+          "title": { "ar": "التسويق الرقمي", "en": "Digital marketing" },
+          "text": {
+            "ar": "تعزيز الحضور الرقمي عبر SEO وSEM ونمو السوشيال ميديا.",
+            "en": "Enhancing online presence through SEO, SEM, and social media growth."
+          }
+        },
+        {
+          "title": { "ar": "استراتيجية الحملات وتنفيذها", "en": "Campaign strategy & execution" },
+          "text": { "ar": "من الفكرة إلى التنفيذ.", "en": "From ideation to implementation." }
+        },
+        {
+          "title": { "ar": "أبحاث السوق", "en": "Market research" },
+          "text": {
+            "ar": "رؤى عن المستهلك تقود إلى قرارات ذكية.",
+            "en": "Consumer insights that drive smart decision-making."
+          }
+        },
+        {
+          "title": { "ar": "تموضع العلامة", "en": "Brand positioning" },
+          "text": {
+            "ar": "تعزيز هوية العلامة وثقة المستهلك.",
+            "en": "Strengthening brand identity and consumer trust."
+          }
+        }
+      ]
+    },
+    {
+      "type": "cta",
+      "title": { "ar": "لنبدأ", "en": "Let’s start" },
+      "text": {
+        "ar": "أخبرنا بالهدف، وفريقنا يتولى الباقي.",
+        "en": "Tell us the goal, and our team handles the rest."
+      },
+      "link": {
+        "path": "/campaign/",
+        "label": { "ar": "خطط حملتك ←", "en": "Plan your campaign →" }
+      }
+    }
+  ]
+}

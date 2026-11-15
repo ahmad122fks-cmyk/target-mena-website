@@ -1,6 +1,9 @@
 {
   "seo": {
-    "title": { "ar": "لوحة {type} في {place}، {city} | {code} | تارگت", "en": "{type} billboard in {place}, {city} | {code} | Target" },
+    "title": {
+      "ar": "لوحة {type} في {place}، {city} | {code} | تارگت",
+      "en": "{type} billboard in {place}, {city} | {code} | Target"
+    },
     "description": {
       "ar": "لوحة {type} {code} في {place}، {city}. القياس {size}، المساحة {sqm}، {faces}. صورة حقيقية للموقع، اطلب اللوحة مباشرة من تارگت.",
       "en": "{type} billboard {code} in {place}, {city}. Size {size}, area {sqm}, {faces}. Real site photo. Request this board directly from Target."

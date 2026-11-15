@@ -1,0 +1,35 @@
+import work from '@/content/work.json'
+import { useT } from '@/features/i18n/LangContext'
+
+/** Production clients and recent work (BUILD-BRIEF 6; names only, logos only from Ahmad's files). */
+export function WorkBlock() {
+  const t = useT()
+  return (
+    <div className="grid gap-5 lg:grid-cols-2">
+      <div className="flex flex-col gap-4 rounded-card border border-line bg-white p-6 lg:p-7">
+        <h3 className="text-xl font-semibold">{t(work.clientsTitle)}</h3>
+        <ul className="flex flex-wrap gap-2">
+          {work.clients.map((client) => (
+            <li
+              key={client.en}
+              className="rounded-full bg-brand-grey-10 px-3 py-1 text-sm text-brand-black"
+            >
+              {t(client)}
+            </li>
+          ))}
+        </ul>
+        <p className="text-sm">{t(work.retained)}</p>
+      </div>
+      <div className="flex flex-col gap-4 rounded-card border border-line bg-white p-6 lg:p-7">
+        <h3 className="text-xl font-semibold">{t(work.recentTitle)}</h3>
+        <ul className="flex flex-col divide-y divide-line">
+          {work.recent.map((item) => (
+            <li key={item.en} className="py-2.5 text-brand-black">
+              {t(item)}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  )
+}
