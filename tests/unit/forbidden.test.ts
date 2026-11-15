@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { findForbidden, htmlText } from '../../scripts/forbidden-rules'
+import { findForbidden, htmlText, pageData } from '../../scripts/forbidden-rules'
 
 describe('forbidden content guard (prices, suppliers, staff)', () => {
   it('blocks every price key in board data', () => {
@@ -13,6 +13,11 @@ describe('forbidden content guard (prices, suppliers, staff)', () => {
       'supplierName',
       'campaign',
       'company',
+      'available',
+      'availability',
+      'booked',
+      'bookedUntil',
+      'bookedBy',
     ]) {
       expect(findForbidden(`{"code":"BG01A","${key}": 1}`, { keys: true }), key).not.toHaveLength(0)
     }
@@ -31,6 +36,11 @@ describe('forbidden content guard (prices, suppliers, staff)', () => {
   it('blocks private names without printing them', () => {
     const found = findForbidden('Operated by Example Partner Co', { terms: ['example partner'] })
     expect(found).toEqual([{ rule: 'private name', sample: '(hidden)' }])
+  })
+  it('checks the data each built page carries', () => {
+    const page =
+      '<div>ok</div><script id="page-data" type="application/json">{"available":true}</script>'
+    expect(findForbidden(pageData(page), { keys: true })).not.toHaveLength(0)
   })
   it('reads only visible HTML text (scripts ignored)', () => {
     expect(htmlText('<p>Hello</p><script>var $=1</script>')).not.toContain('$')

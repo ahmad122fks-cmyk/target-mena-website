@@ -38,8 +38,7 @@ function page(url: string): string {
   const json = JSON.stringify(data).replace(/</g, '\\u003c')
   // The finder's first photo is its LCP: let it download before the (larger)
   // finder scripts, which the entry then loads itself (one round trip later).
-  const preloads =
-    key && key !== 'boards' ? modulePreloads(manifest, server.PAGE_SOURCES[key]) : ''
+  const preloads = key && key !== 'boards' ? modulePreloads(manifest, server.PAGE_SOURCES[key]) : ''
   return template
     .replace('<html lang="ar" dir="rtl">', `<html lang="${head.lang}" dir="${head.dir}">`)
     .replace(

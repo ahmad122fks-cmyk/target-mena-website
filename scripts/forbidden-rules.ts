@@ -6,9 +6,14 @@
  */
 import fs from 'node:fs'
 
-/** Keys that may never appear in board data (prices, suppliers, bookings). */
+/** Keys that may never appear in board data (prices, suppliers, bookings, availability). */
 export const FORBIDDEN_KEYS =
-  /"(price\w*|monthlyPrice|pricePerMeter|ppm|mp|sp|supplier\w*|campaign\w*|company\w*)"\s*:/i
+  /"(price\w*|monthlyPrice|pricePerMeter|ppm|mp|sp|supplier\w*|campaign\w*|company\w*|available|availability|booked\w*)"\s*:/i
+
+/** The data a built page carries for the browser (<script id="page-data">). */
+export function pageData(html: string): string {
+  return html.match(/<script id="page-data"[^>]*>([\s\S]*?)<\/script>/)?.[1] ?? ''
+}
 
 /** Words that may never appear in published text. */
 export const FORBIDDEN_WORDS: RegExp[] = [

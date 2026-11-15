@@ -7,7 +7,7 @@
 import { execSync } from 'node:child_process'
 import fs from 'node:fs'
 import path from 'node:path'
-import { findForbidden, htmlText, privateTerms, type Finding } from './forbidden-rules'
+import { findForbidden, htmlText, pageData, privateTerms, type Finding } from './forbidden-rules'
 
 const mode = process.argv[2] ?? '--source'
 const terms = privateTerms()
@@ -27,11 +27,17 @@ function walk(dir: string, exts: string[]): string[] {
 }
 
 function check(file: string, text: string): Finding[] {
-  const isData = file.startsWith('src/data/') || file.startsWith(path.join('dist', 'data'))
-  const isPublished =
-    file.endsWith('.content.json') || file.startsWith('src/content/') || file.startsWith('dist')
-  const body = file.endsWith('.html') ? htmlText(text) : text
-  return findForbidden(body, { keys: isData, words: isPublished, terms })
+  const built = file.startsWith('dist/')
+  // Board data: the feed, every JSON file in the build, and each page's embedded data.
+  const isData = file.startsWith('src/data/') || (built && file.endsWith('.json'))
+  const isPublished = file.endsWith('.content.json') || file.startsWith('src/content/') || built
+  const html = file.endsWith('.html')
+  const found = findForbidden(html ? htmlText(text) : text, {
+    keys: isData,
+    words: isPublished,
+    terms,
+  })
+  return html && built ? [...found, ...findForbidden(pageData(text), { keys: true })] : found
 }
 
 let files: string[]

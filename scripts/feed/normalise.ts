@@ -17,7 +17,6 @@ export const WHITELIST = [
   'lat',
   'lng',
   'photo',
-  'available',
 ] as const
 
 export type FeedBoard = {
