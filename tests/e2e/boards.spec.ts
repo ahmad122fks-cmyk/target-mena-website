@@ -24,6 +24,21 @@ test.describe('board page', () => {
     await expect(page.getByRole('button', { name: /My list/ })).toContainText('1')
   })
 
+  test('"Ask on WhatsApp" opens WhatsApp with the board code', async ({ page }) => {
+    for (const [url, name] of [
+      ['/boards/BGW03A/', 'اسأل عن هذه اللوحة على واتساب'],
+      ['/en/boards/BGW03A/', 'Ask about this board on WhatsApp'],
+    ]) {
+      await page.goto(url)
+      const link = page.locator('main').getByRole('link', { name })
+      const href = new URL((await link.getAttribute('href'))!)
+      expect(href.origin + href.pathname).toBe('https://wa.me/9647719777199')
+      expect(href.searchParams.get('text')).toContain('BGW03A')
+      expect(href.searchParams.get('text')).toContain(`https://target-mena.com${url}`)
+      await expect(link).toHaveAttribute('target', '_blank')
+    }
+  })
+
   test('unknown board code returns 404', async ({ page }) => {
     expect((await page.goto('/boards/NOT-A-BOARD/'))?.status()).toBe(404)
   })

@@ -1,7 +1,7 @@
 import cities from '@/data/cities.json'
 import type { Lang, Localized } from '@/features/i18n/lang'
 import { formatDuration } from '@/lib/format'
-import { CONTACT, WHATSAPP } from '@/lib/site'
+import { CONTACT, whatsappHref } from '@/lib/site'
 import content from '@/pages/campaign/campaign.content.json'
 import type { CampaignValues } from './schema'
 
@@ -41,9 +41,7 @@ export function buildCampaignMessage(v: CampaignValues, codes: string[], lang: L
   ].join('\n')
 }
 
-export function whatsappUrl(text: string): string {
-  return `https://wa.me/${WHATSAPP.replace(/\D/g, '')}?text=${encodeURIComponent(text)}`
-}
+export const whatsappUrl = (text: string) => whatsappHref(text)
 
 export function mailtoUrl(text: string, lang: Lang, name: string): string {
   const subject = `${content.message.subject[lang]} - ${name}`

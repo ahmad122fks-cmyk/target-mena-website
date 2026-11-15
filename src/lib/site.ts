@@ -18,6 +18,12 @@ export const WHATSAPP = '+964 771 977 7199'
  */
 export const LEADS_ENDPOINT = ''
 
+/** wa.me link to Target's WhatsApp, optionally with a prefilled message. */
+export function whatsappHref(text?: string): string {
+  const base = `https://wa.me/${WHATSAPP.replace(/\D/g, '')}`
+  return text ? `${base}?text=${encodeURIComponent(text)}` : base
+}
+
 /** '+964 771 977 7199' -> 'tel:+9647719777199' */
 export function telHref(phone: string): string {
   return `tel:${phone.replace(/\s+/g, '')}`

@@ -28,5 +28,13 @@
   "realPhoto": { "ar": "صورة حقيقية للموقع، دون تعديل.", "en": "Real site photo, unedited." },
   "nearby": { "ar": "مواقع قريبة", "en": "Nearby sites" },
   "request": { "ar": "اطلب هذه اللوحة", "en": "Request this board" },
+  "askWhatsapp": {
+    "ar": "اسأل عن هذه اللوحة على واتساب",
+    "en": "Ask about this board on WhatsApp"
+  },
+  "askText": {
+    "ar": "مرحباً، أريد الاستفسار عن اللوحة {code}",
+    "en": "Hello, I would like to ask about board {code}"
+  },
   "allIn": { "ar": "كل لوحات {city}", "en": "All boards in {city}" }
 }

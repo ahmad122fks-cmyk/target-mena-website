@@ -5,7 +5,7 @@ import { ToConfirm } from '@/components/shared/ToConfirm'
 import site from '@/content/site.json'
 import { ContactForm } from '@/features/contact/ContactForm'
 import { useT } from '@/features/i18n/LangContext'
-import { telHref, WHATSAPP } from '@/lib/site'
+import { telHref, whatsappHref } from '@/lib/site'
 import content from './contact.content.json'
 
 const row = 'flex flex-col gap-1 border-b border-line py-4 last:border-b-0'
@@ -46,7 +46,7 @@ export default function ContactPage() {
               <PillButton
                 size="sm"
                 tone="green"
-                href={`https://wa.me/${WHATSAPP.replace(/\D/g, '')}`}
+                href={whatsappHref()}
                 className="mt-1 self-start"
               >
                 {t(d.whatsappCta)}
