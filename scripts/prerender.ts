@@ -23,6 +23,7 @@ type ServerEntry = {
   allPaths: () => string[]
   outputFile: (path: string) => string
   PAGE_SOURCES: Record<string, string>
+  FINDER_FEED: { path: string; json: string }
 }
 
 const template = await fs.readFile(path.join(DIST, 'index.html'), 'utf8')
@@ -35,7 +36,10 @@ const assets = await fs.readdir(path.join(DIST, 'assets'))
 function page(url: string): string {
   const { html, headHtml, head, data, page: key } = server.render(url)
   const json = JSON.stringify(data).replace(/</g, '\\u003c')
-  const preloads = key ? modulePreloads(manifest, server.PAGE_SOURCES[key]) : ''
+  // The finder's first photo is its LCP: let it download before the (larger)
+  // finder scripts, which the entry then loads itself (one round trip later).
+  const preloads =
+    key && key !== 'boards' ? modulePreloads(manifest, server.PAGE_SOURCES[key]) : ''
   return template
     .replace('<html lang="ar" dir="rtl">', `<html lang="${head.lang}" dir="${head.dir}">`)
     .replace(
@@ -54,6 +58,9 @@ for (const url of paths) {
   await fs.mkdir(path.dirname(file), { recursive: true })
   await fs.writeFile(file, page(url))
 }
+// The finder's full board list (whitelisted fields only, same as the pages).
+await fs.writeFile(path.join(DIST, server.FINDER_FEED.path), server.FINDER_FEED.json)
+
 // One 404 page for every unknown URL (the server sends it with status 404).
 await fs.writeFile(path.join(DIST, '404.html'), page('/404/'))
 

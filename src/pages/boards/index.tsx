@@ -5,6 +5,7 @@ import { Container } from '@/components/shared/Section'
 import selectionContent from '@/content/selection.json'
 import { filterBoards } from '@/features/boards/filter'
 import { shownOf, sortBoards } from '@/features/boards/finderState'
+import { useFinderBoards } from '@/features/boards/useFinderBoards'
 import { useFinderState } from '@/features/boards/useFinderState'
 import { useLang, useT } from '@/features/i18n/LangContext'
 import { trailFor } from '@/lib/breadcrumbs'
@@ -29,20 +30,20 @@ export default function BoardsPage() {
   const [state, update] = useFinderState()
   const [panel, setPanel] = useState(false)
   const [sheet, setSheet] = useState<boolean | null>(null)
-  const provinces = useMemo(() => {
-    const counts = new Map<string, number>()
-    for (const board of data.boards) counts.set(board.city, (counts.get(board.city) ?? 0) + 1)
-    return [...counts].map(([key, count]) => ({ key, count })).sort((a, b) => b.count - a.count)
-  }, [data.boards])
+  const all = useFinderBoards(data.feed)
   const shared = useMemo(
-    () => data.boards.filter((board) => state.codes.includes(board.code)),
-    [data.boards, state.codes],
+    () => (all ?? []).filter((board) => state.codes.includes(board.code)),
+    [all, state.codes],
   )
+  // Until the full list arrives, show exactly what was prerendered.
   const results = useMemo(
     () =>
-      sortBoards(filterBoards(state.codes.length ? shared : data.boards, state, lang), state.sort),
-    [data.boards, shared, state, lang],
+      all
+        ? sortBoards(filterBoards(state.codes.length ? shared : all, state, lang), state.sort)
+        : data.boards,
+    [all, data.boards, shared, state, lang],
   )
+  const total = all ? results.length : data.total
   const openList = () => (isDesktop() ? setPanel((open) => !open) : setSheet(true))
   return (
     <>
@@ -55,20 +56,20 @@ export default function BoardsPage() {
       <FilterBar
         filters={state}
         onChange={update}
-        provinces={provinces}
-        all={data.boards.length}
-        total={results.length}
+        provinces={data.provinces}
+        all={data.total}
+        total={total}
         listOpen={panel || sheet === true}
         onList={openList}
       />
       <Container wide className="flex items-start gap-7 pt-7 pb-20">
         <section aria-labelledby="results-title" className="flex min-w-0 flex-1 flex-col gap-5">
           {state.pick && <PickerBanner />}
-          {state.codes.length > 0 && (
+          {all && state.codes.length > 0 && (
             <SharedBanner boards={shared} onShowAll={() => update({ codes: [] })} />
           )}
           <ResultsBar
-            total={results.length}
+            total={total}
             city={state.city}
             sort={state.sort}
             view={state.view}
@@ -77,7 +78,7 @@ export default function BoardsPage() {
           />
           <Results
             boards={shownOf(results, state.page)}
-            total={results.length}
+            total={total}
             view={state.view}
             narrow={panel}
             onMore={() => update({ page: state.page + 1 })}

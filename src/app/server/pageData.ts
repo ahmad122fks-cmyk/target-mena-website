@@ -1,9 +1,11 @@
 import cities from '@/data/cities.json'
+import { shownOf, sortBoards } from '@/features/boards/finderState'
 import home from '@/pages/home/home.content.json'
 import type { PageData } from '../PageData'
 import type { RouteMatch } from '../routes'
 import {
   BOARDS,
+  FINDER_FEED,
   boardsInCity,
   boardsInFormat,
   findBoard,
@@ -23,7 +25,14 @@ export function getPageData(match: RouteMatch | null): PageData {
     const provinces = provinceCounts().sort((a, b) => b.count - a.count)
     return { kind: 'home', featured, provinces, total: BOARDS.length }
   }
-  if (page === 'boards') return { kind: 'boards', boards: BOARDS }
+  if (page === 'boards')
+    return {
+      kind: 'boards',
+      boards: shownOf(sortBoards(BOARDS, 'recommended'), 1),
+      total: BOARDS.length,
+      provinces: provinceCounts().sort((a, b) => b.count - a.count),
+      feed: FINDER_FEED.path,
+    }
   if (page === 'campaign') return { kind: 'static', page: 'campaign' }
   if (page === 'board') {
     const board = findBoard(params.code)

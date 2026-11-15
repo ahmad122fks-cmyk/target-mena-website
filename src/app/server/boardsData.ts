@@ -44,3 +44,23 @@ export function nearby(board: Board, n = 3): Board[] {
     (other.photo ? 0.5 : 0)
   return [...others].sort((a, b) => score(b) - score(a)).slice(0, n)
 }
+
+/** FNV-1a hash, so the finder feed gets a new file name whenever the boards change. */
+function hash(text: string): string {
+  let h = 0x811c9dc5
+  for (let i = 0; i < text.length; i++) h = Math.imul(h ^ text.charCodeAt(i), 0x01000193)
+  return (h >>> 0).toString(16).padStart(8, '0')
+}
+
+/**
+ * The whole finder list as its own file (written by scripts/prerender.ts into
+ * /assets/, cached for a year). The finder page embeds only its first 24
+ * boards and loads this after it appears, so the page stays light.
+ */
+export const FINDER_FEED = (() => {
+  // Map positions are only needed on board pages.
+  const json = JSON.stringify(BOARDS, (key, value) =>
+    key === 'lat' || key === 'lng' ? undefined : value,
+  )
+  return { path: `/assets/boards-${hash(json)}.json`, json }
+})()

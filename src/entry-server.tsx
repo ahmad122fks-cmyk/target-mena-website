@@ -11,6 +11,7 @@ import { SeoHead } from './components/shared/SeoHead'
 export { outputFile } from './app/routes'
 export { PAGE_SOURCES } from './app/pageSources'
 export { allPaths } from './app/server/paths'
+export { FINDER_FEED } from './app/server/boardsData'
 
 /** Render one URL to static HTML + head + the page's data (scripts/prerender.ts). */
 export function render(url: string) {

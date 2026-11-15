@@ -14,7 +14,14 @@ export type PageData =
       provinces: { key: string; count: number }[]
       total: number
     }
-  | { kind: 'boards'; boards: Board[] }
+  | {
+      kind: 'boards'
+      /** The first 24 (default order); the full list loads from `feed`. */
+      boards: Board[]
+      total: number
+      provinces: { key: string; count: number }[]
+      feed: string
+    }
   | { kind: 'board'; board: Board; nearby: Board[] }
   | {
       kind: 'network'

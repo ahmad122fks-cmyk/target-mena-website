@@ -19,6 +19,7 @@ export function Logo({ tone = 'blue', className }: Props) {
         alt={t(site.logoAlt)}
         width={1111}
         height={202}
+        loading={tone === 'white' ? 'lazy' : undefined}
         className="h-7 w-auto sm:h-[1.875rem]"
       />
     </a>

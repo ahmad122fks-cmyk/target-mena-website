@@ -47,10 +47,11 @@ test.describe('finder', () => {
   test('faces filter and province search', async ({ page }) => {
     await page.goto('/en/boards/?faces=2')
     await expect(page.locator('#f-faces')).toContainText('Faces: 2 faces')
-    expect(await count(page)).toBe(3)
+    await expect.poll(() => count(page)).toBe(3)
     await page.goto('/boards/?q=النجف')
     await expect(page.locator('#f-q')).toHaveValue('النجف')
-    expect(await count(page)).toBeGreaterThanOrEqual(216)
+    await expect.poll(() => count(page)).toBeGreaterThanOrEqual(216)
+    await expect.poll(() => count(page)).toBeLessThan(660)
   })
 
   test('shows 24 at a time; "Show more" adds 24 and keeps it in the address', async ({ page }) => {
@@ -81,7 +82,7 @@ test.describe('finder', () => {
   test('a shared link shows exactly those boards', async ({ page }) => {
     await page.goto('/en/boards/?codes=BGW03A,BBH20A')
     await expect(page.locator('main article')).toHaveCount(2)
-    expect(await count(page)).toBe(2)
+    await expect.poll(() => count(page)).toBe(2)
     await page.getByRole('button', { name: 'Add all to my list' }).click()
     await expect(page.getByRole('button', { name: /My list/ })).toContainText('2')
   })
