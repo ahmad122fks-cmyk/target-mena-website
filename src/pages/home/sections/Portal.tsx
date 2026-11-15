@@ -1,11 +1,11 @@
 import { Check } from 'lucide-react'
-import { DeviceMockup } from '@/components/shared/DeviceMockup'
+import { Photo } from '@/components/shared/Photo'
 import { PillButton } from '@/components/shared/PillButton'
 import { Section } from '@/components/shared/Section'
 import { SectionHeading } from '@/components/shared/SectionHeading'
 import site from '@/content/site.json'
 import { useT } from '@/features/i18n/LangContext'
-import { SCREENS } from '@/lib/images'
+import { MOCKUPS } from '@/lib/images'
 import content from '../home.more.content.json'
 
 /** "After booking": the client portal (private login sent with the booking). */
@@ -40,7 +40,11 @@ export function Portal() {
           </PillButton>
         </div>
         <figure className="min-w-0 flex-[1_1_35rem]">
-          <DeviceMockup {...SCREENS.portal} phoneSide="right" alt={t(portal.alt)} />
+          <Photo
+            picture={MOCKUPS.portal}
+            alt={t(portal.alt)}
+            sizes="(min-width: 1280px) 660px, (min-width: 1024px) 55vw, calc(100vw - 32px)"
+          />
           <figcaption className="mt-1.5 text-xs">{t(portal.caption)}</figcaption>
         </figure>
       </div>

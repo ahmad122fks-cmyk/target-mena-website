@@ -4,10 +4,8 @@
  * DESIGN.md "Photos". Board photos are keyed by board code.
  */
 import creative from '@/assets/art/creative-multicolour.jpg?w=480;720;890&format=avif;webp;jpg&as=picture'
-import rabiaaLaptop from '@/assets/art/rabiaa-laptop.jpg?w=640;960;1280&format=avif;webp;jpg&as=picture'
-import rabiaaPhone from '@/assets/art/rabiaa-phone.jpg?w=240;480&format=avif;webp;jpg&as=picture'
-import portalLaptop from '@/assets/art/portal-laptop.jpg?w=640;960;1280&format=avif;webp;jpg&as=picture'
-import portalPhone from '@/assets/art/portal-phone.jpg?w=240;480&format=avif;webp;jpg&as=picture'
+import portalMockup from '@/assets/art/mockup-portal-light.png?w=800;1200;1600;2000&format=avif;webp&quality=72&as=picture'
+import alrabiaaMockup from '@/assets/art/mockup-rabiaa-light.png?w=800;1200;1600;2000&format=avif;webp&quality=72&as=picture'
 import production from '@/assets/art/production-duotone.jpg?w=480;720;1080&format=avif;webp;jpg&as=picture'
 import earthlinkAf10 from '@/assets/feed/earthlink-af10.jpg?w=320;640;880&format=avif;webp;jpg&as=picture'
 import earthlinkB22a from '@/assets/feed/earthlink-b22a.jpg?w=320;640;880&format=avif;webp;jpg&as=picture'
@@ -23,11 +21,12 @@ export const BOARD_PHOTOS: Record<string, Picture> = { BBH20A, BBH38A, BGW02A, B
 
 export const ART = { creative, production }
 
-/** Screen captures (demo data; planner figures blurred) for DeviceMockup. */
-export const SCREENS = {
-  portal: { laptop: portalLaptop, phone: portalPhone },
-  alrabiaa: { laptop: rabiaaLaptop, phone: rabiaaPhone },
-}
+/**
+ * Device mockups (Ahmad's line-frame renders, 4000 x 2460, transparent; demo
+ * data, no prices). Light versions: both sections sit on light bands. Never
+ * cropped or stretched.
+ */
+export const MOCKUPS = { portal: portalMockup, alrabiaa: alrabiaaMockup }
 
 /** Campaign feed photos (client-approved, src/content/feed.json). */
 export const FEED_PHOTOS: Record<string, Picture> = {

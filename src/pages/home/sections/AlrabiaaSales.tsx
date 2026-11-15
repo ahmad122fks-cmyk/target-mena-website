@@ -1,9 +1,9 @@
-import { DeviceMockup } from '@/components/shared/DeviceMockup'
+import { Photo } from '@/components/shared/Photo'
 import { PillButton } from '@/components/shared/PillButton'
 import { Section } from '@/components/shared/Section'
 import { SectionHeading } from '@/components/shared/SectionHeading'
 import { useLink, useT } from '@/features/i18n/LangContext'
-import { SCREENS } from '@/lib/images'
+import { MOCKUPS } from '@/lib/images'
 import content from '../home.more.content.json'
 
 /** Alrabiaa TV planner: white band, green call to action, price-free screens (figures blurred). */
@@ -15,7 +15,11 @@ export function AlrabiaaSales() {
     <Section labelledBy="planner-title" deferred>
       <div className="flex flex-wrap items-center gap-12">
         <figure className="min-w-0 flex-[1_1_35rem]">
-          <DeviceMockup {...SCREENS.alrabiaa} phoneSide="left" alt={t(planner.alt)} />
+          <Photo
+            picture={MOCKUPS.alrabiaa}
+            alt={t(planner.alt)}
+            sizes="(min-width: 1280px) 660px, (min-width: 1024px) 55vw, calc(100vw - 32px)"
+          />
         </figure>
         <div className="flex min-w-0 flex-[1_1_23.75rem] flex-col gap-4">
           <SectionHeading
