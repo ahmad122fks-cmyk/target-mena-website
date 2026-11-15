@@ -1,0 +1,52 @@
+# ------------------------------------------------------------------
+# NEVER COMMIT (the repo is public). BUILD-BRIEF.md section 8.
+# ------------------------------------------------------------------
+# Private brief and working notes (prices, internal facts)
+CLAUDE.md
+BUILD-BRIEF.md
+SOURCES.md
+TODO-CONFIRM.md
+PHOTO-REVIEW.md
+CLAUDE CODE*.md
+INTERNAL*
+.claude/
+
+# Inventory exports and planners (they contain prices)
+*inventory*
+*Inventory*
+*planner*
+*Planner*
+*.csv
+*.xlsx
+*.xls
+
+# Secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+secrets/
+
+# Photos held for Ahmad's review and raw extracted artwork
+photos-held/
+assets-source/
+
+# ------------------------------------------------------------------
+# Local tools, builds and caches
+# ------------------------------------------------------------------
+node_modules
+node_modules.nosync/
+.tools.nosync/
+dist/
+dist-ssr/
+.vite/
+.lighthouseci/
+playwright-report/
+test-results/
+coverage/
+reports/screens/
+*.tsbuildinfo
+*.log
+.DS_Store
