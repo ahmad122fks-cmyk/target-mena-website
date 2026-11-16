@@ -1,9 +1,14 @@
 {
-  "_rule": "Approved entries only (client OK in writing). No number of sites, money figures, traffic or booking dates.",
+  "_rule": "Approved entries only (client OK in writing): set \"approved\": true only then; anything else stays off the site (feed, announcement bar and the TargetNews phone). Newest first. \"title\" is the headline in the TargetNews phone (the brand when missing). No number of sites, money figures, traffic or booking dates.",
   "items": [
     {
       "id": "earthlink-alwatani",
+      "approved": true,
       "isNew": true,
+      "title": {
+        "ar": "حملة تطبيق الوطني على شبكة تارگت",
+        "en": "The Alwatani app campaign on the Target network"
+      },
       "when": { "ar": "منذ آب 2026", "en": "Since August 2026" },
       "where": {
         "ar": "بغداد والمحافظات والطرق السريعة",
@@ -47,18 +52,40 @@
     },
     {
       "id": "qi-superqi",
+      "approved": true,
       "isNew": false,
+      "cards": 2,
+      "title": { "ar": "سوبر كي على جداريات بغداد", "en": "SuperQi on Baghdad walls" },
       "when": { "ar": "2026", "en": "2026" },
-      "where": { "ar": "بغداد والمحافظات", "en": "Baghdad and the provinces" },
+      "where": { "ar": "بغداد", "en": "Baghdad" },
       "brand": { "ar": "كي كارد · سوبر كي", "en": "Qi Card · SuperQi" },
       "line": {
-        "ar": "حملة «حمّل سوبر كي» على لوحاتنا في بغداد والمحافظات.",
-        "en": "The “Download SuperQi” campaign on our boards in Baghdad and the provinces."
+        "ar": "حملة «حمّل سوبر كي» على جداريات تارگت في بغداد: شارع النضال في الكرادة وشارع الربيعي في زيونة.",
+        "en": "The “Download SuperQi” campaign on Target walls in Baghdad: Al Nidhal Street in Karrada and Al Rubaie Street in Zayouna."
       },
-      "tags": [{ "ar": "إعلانات خارجية", "en": "Outdoor" }],
+      "tags": [{ "ar": "جداريات", "en": "Walls" }],
+      "photos": [
+        {
+          "file": "qi-bgw03a",
+          "code": "BGW03A",
+          "alt": {
+            "ar": "جدارية «سوبر كي» على شارع النضال في الكرادة",
+            "en": "The SuperQi wall on Al Nidhal Street, Karrada"
+          }
+        },
+        {
+          "file": "qi-bgw04a",
+          "code": "BGW04A",
+          "alt": {
+            "ar": "جدارية «سوبر كي» على شارع الربيعي في زيونة",
+            "en": "The SuperQi wall on Al Rubaie Street, Zayouna"
+          }
+        }
+      ],
       "logo": "qi",
       "logoAlt": { "ar": "شعار كي كارد", "en": "Qi Card logo" }
     }
   ],
-  "newLabel": { "ar": "جديد", "en": "New" }
+  "newLabel": { "ar": "جديد", "en": "New" },
+  "_qi": "Qi «سوبر كي» walls BGW03A / BGW04A approved for the site (TODO-CONFIRM, 16 Nov 2026). The logo stays as the brand avatar."
 }

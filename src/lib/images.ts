@@ -65,9 +65,12 @@ export const ART = { creative, production }
  */
 export const MOCKUPS = { portal: portalMockup, alrabiaa: alrabiaaMockup }
 
-/** Campaign feed photos (client-approved, src/content/feed.json). */
+/** Campaign feed photos (client-approved, src/content/campaigns.json). */
 export const FEED_PHOTOS: Record<string, Picture> = {
   'earthlink-af10': earthlinkAf10,
   'earthlink-b22a': earthlinkB22a,
   'earthlink-bbh20a': earthlinkBbh20a,
+  // Qi «سوبر كي» walls, approved 16 Nov 2026 (same files as the board photos).
+  'qi-bgw03a': BGW03A,
+  'qi-bgw04a': BGW04A,
 }

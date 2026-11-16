@@ -1,9 +1,8 @@
 import { describe, expect, it } from 'vitest'
-import feed from '@/content/feed.json'
+import feed from '@/content/campaigns.json'
 import site from '@/content/site.json'
 import home from '@/pages/home/home.content.json'
 import homeMore from '@/pages/home/home.more.content.json'
-import homePlatform from '@/pages/home/home.platform.content.json'
 import homeServices from '@/pages/home/home.services.content.json'
 import notFound from '@/pages/not-found/not-found.content.json'
 import about from '@/pages/about/about.content.json'
@@ -37,7 +36,7 @@ const PHASE3 = {
   production,
   work,
 }
-const FILES = { site, feed, home, homeMore, homePlatform, homeServices, notFound, ...PHASE3 }
+const FILES = { site, feed, home, homeMore, homeServices, notFound, ...PHASE3 }
 
 describe('content: Arabic and English side by side', () => {
   for (const [name, file] of Object.entries(FILES)) {

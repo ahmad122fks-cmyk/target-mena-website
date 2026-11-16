@@ -1,0 +1,59 @@
+{
+  "_note": "Texts of the TargetNews phone (src/components/experiences/news). Posts come from src/features/news: approved campaigns (campaigns.json, file order), then published articles with a photo (articles.json, newest first), then the house items below; the first 4 are shown. House titles take {boards}, {provinces} and {highways} from src/data/network-map.json totals. photo = a key of FEED_PHOTOS or BOARD_PHOTOS (src/lib/images.ts).",
+  "label": { "ar": "آخر أخبار تارگت", "en": "Target’s latest news" },
+  "header": { "ar": "آخر الأخبار", "en": "Latest news" },
+  "stories": { "ar": "الأخبار", "en": "Stories" },
+  "story": { "ar": "{brand}، الخبر {n} من {total}", "en": "{brand}, story {n} of {total}" },
+  "read": { "ar": "اقرأ الخبر", "en": "Read the story" },
+  "target": { "ar": "تارگت", "en": "Target" },
+  "tags": {
+    "new": { "ar": "حملة جديدة", "en": "New campaign" },
+    "campaign": { "ar": "حملة", "en": "Campaign" },
+    "article": { "ar": "مقال", "en": "Article" }
+  },
+  "house": [
+    {
+      "id": "network",
+      "brand": { "ar": "تارگت", "en": "Target" },
+      "story": { "ar": "الشبكة", "en": "Network" },
+      "avatar": "target",
+      "when": { "ar": "شبكة تارگت", "en": "Target network" },
+      "tag": { "ar": "الشبكة", "en": "Network" },
+      "tone": "blue",
+      "title": {
+        "ar": "{boards} لوحة في {provinces} محافظة وعلى طريقين سريعين",
+        "en": "{boards} boards in {provinces} provinces and on {highways} highways"
+      },
+      "line": {
+        "ar": "لوحات مضاءة، جسور، أسطح، جداريات، شاشات LED ويونيبول.",
+        "en": "Backlits, bridges, rooftops, walls, LED screens and unipoles."
+      },
+      "photo": "BBL-01A",
+      "alt": {
+        "ar": "لوحة جسر على مدخل بغداد",
+        "en": "A bridge board at the entrance to Baghdad"
+      },
+      "href": "/network/"
+    },
+    {
+      "id": "alrabiaa",
+      "brand": { "ar": "قناة الرابعة", "en": "Alrabiaa TV" },
+      "story": { "ar": "الرابعة", "en": "Alrabiaa" },
+      "avatar": "alrabiaa",
+      "when": { "ar": "تلفزيون", "en": "TV" },
+      "tag": { "ar": "الرابعة", "en": "Alrabiaa" },
+      "tone": "green",
+      "title": {
+        "ar": "تارگت الوكيل الحصري لبيع إعلانات قناة الرابعة",
+        "en": "Target is Alrabiaa TV’s exclusive advertising sales agent"
+      },
+      "line": {
+        "ar": "البرامج اليومية، الدوري الإيطالي، ومجلة السيدة الأولى في عرض واحد.",
+        "en": "Daily programmes, the Italian league and Al Sayeda Al Oula magazine in one proposal."
+      },
+      "photo": "LED-AB01",
+      "alt": { "ar": "شاشة LED على أبو نواس", "en": "An LED screen on Abu Nuwas" },
+      "href": "/alrabiaa/"
+    }
+  ]
+}
