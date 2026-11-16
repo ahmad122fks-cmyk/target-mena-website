@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test'
+import { expect, test } from './fixtures'
 
 /*
  * Prompt 5: the TargetNews phone in the home hero (passes once <TargetNews />

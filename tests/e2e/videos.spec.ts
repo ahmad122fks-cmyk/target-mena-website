@@ -1,5 +1,5 @@
 import fs from 'node:fs'
-import { expect, test } from '@playwright/test'
+import { expect, test } from './fixtures'
 
 type Video = { file: string; ready: boolean }
 const videos = JSON.parse(fs.readFileSync('src/content/videos.json', 'utf8')) as Record<

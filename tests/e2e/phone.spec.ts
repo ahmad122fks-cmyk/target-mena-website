@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test'
+import { expect, test } from './fixtures'
 
 /* BUILD-BRIEF 9: phone width and right-to-left on every page type. */
 test('every page type fits a phone and reads right-to-left in Arabic', async ({ page }, info) => {

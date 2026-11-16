@@ -1,4 +1,4 @@
-import { Suspense, type ComponentType } from 'react'
+import { Suspense, useEffect, type ComponentType } from 'react'
 import { useLocation } from 'react-router'
 import NotFoundPage from '@/pages/not-found'
 import { SiteLayout } from './layouts/SiteLayout'
@@ -21,8 +21,21 @@ export function App({ pages, data }: { pages: PageRegistry; data: PageData }) {
       <PageDataProvider value={data}>
         <Suspense fallback={null}>
           <Page />
+          <HydratedMark />
         </Suspense>
       </PageDataProvider>
     </SiteLayout>
   )
+}
+
+/**
+ * Marks <html data-hydrated> once the page's own content is live. It sits
+ * in the page's Suspense boundary, so it commits with the page (not just the
+ * header). The browser tests wait for it before they click.
+ */
+function HydratedMark() {
+  useEffect(() => {
+    document.documentElement.dataset.hydrated = ''
+  }, [])
+  return null
 }

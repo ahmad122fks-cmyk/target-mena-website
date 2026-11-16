@@ -1,4 +1,4 @@
-import { expect, test, type Page } from '@playwright/test'
+import { expect, test, type Page } from './fixtures'
 
 test.describe('board page', () => {
   test('Arabic and English board pages show the facts and one H1', async ({ page }) => {

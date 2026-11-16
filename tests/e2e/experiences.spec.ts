@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test'
+import { expect, test } from './fixtures'
 
 /* Prompt 4, section 6: map intro and fly-to, Digital tabs. The home news phone (prompt 5) is in news.spec.ts. */
 

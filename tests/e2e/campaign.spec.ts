@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test'
+import { expect, test } from './fixtures'
 
 test('add 3 boards, open the selection, send to the builder, review shows the 3 codes', async ({
   page,

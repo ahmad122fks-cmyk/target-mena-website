@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test'
+import { expect, test } from './fixtures'
 
 /* Prompt 4/5: light by default (v3), no flash on load, the moon toggle remembered. */
 

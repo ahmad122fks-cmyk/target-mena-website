@@ -50,16 +50,20 @@ export function photoFirstEntry(html: string): string {
   const entry = html.match(/<script type="module" crossorigin src="([^"]+)"><\/script>/)
   if (!entry) throw new Error('Entry script not found in dist/index.html')
   const loader =
-    // g loads the app once; s waits until the photo is decoded and painted
-    // (decode, the next frame, then a task), so the app's script never delays
-    // the photo's paint (decoding="async" can paint it a frame after the
-    // text). A hidden tab paints nothing, so it loads at once.
-    `<script type="module">let d=0;const i=document.querySelector('img[fetchpriority="high"]'),` +
+    // g loads the app once, after two signals: the photo decoded (w) and the
+    // browser's first-contentful-paint entry (p), which arrives only once
+    // that frame is on screen. A frame of rAF alone fired before the first
+    // paint, so the app's ~90 KB counted toward the photo's LCP. A hidden tab
+    // paints nothing, so it loads at once; browsers without paint timing skip
+    // p. The 2.5 s timer calls g itself, a hard cap.
+    `<script type="module">let d=0,w=0,p=0;const i=document.querySelector('img[fetchpriority="high"]'),` +
     `g=()=>{if(d)return;d=1;import('${entry[1]}')},` +
-    `f=()=>requestAnimationFrame(()=>setTimeout(g,0)),` +
-    `s=()=>{if(document.hidden)return g();i&&i.decode?i.decode().then(f,f):f()};` +
+    `t=()=>{w&&p&&requestAnimationFrame(()=>setTimeout(g,0))},` +
+    `s=()=>{if(document.hidden)return g();const r=()=>{w=1;t()};i&&i.decode?i.decode().then(r,r):r()};` +
+    `try{new PerformanceObserver(l=>{if(l.getEntries().some(e=>e.name==='first-contentful-paint')){p=1;t()}})` +
+    `.observe({type:'paint',buffered:true})}catch(e){p=1}` +
     `if(i&&!i.complete){i.addEventListener('load',s,{once:true});` +
-    `i.addEventListener('error',s,{once:true});setTimeout(s,2500)}else s()</script>`
+    `i.addEventListener('error',s,{once:true})}else s();setTimeout(g,2500)</script>`
   return html
     .replace(entry[0], loader)
     .replace(/<link rel="modulepreload" crossorigin href="[^"]+">/g, '')
