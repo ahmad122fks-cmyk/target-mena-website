@@ -11,46 +11,42 @@ import { ProductionArt } from './tiles/ProductionArt'
 import { Tile } from './tiles/Tile'
 import './tiles/tiles.css'
 
-/** Five services, each with its own small motion: outdoor pulse, REC, phone feed, on-air bars, stage lights. */
+/**
+ * Services v3: one large Outdoor card (motif + framed real photo) and four
+ * cards whose small animations sit on soft tinted panels; Alrabiaa keeps
+ * its dark green.
+ */
 export function ServiceTiles() {
   const t = useT()
   const { tiles } = content
   return (
-    <Section id="services" labelledBy="services-title" deferred>
-      <SectionHeading
-        id="services-title"
-        eyebrow={t(tiles.eyebrow)}
-        title={t(tiles.title)}
-        center
-      />
-      <ul className="mt-9 grid grid-cols-1 gap-3.5 sm:grid-cols-2 lg:grid-cols-5">
-        <li className="flex flex-col">
-          <Tile tone="dark" accent="text-brand-yellow" art={<OutdoorArt />} {...tiles.outdoor} />
+    <Section id="services" tone="ghost" labelledBy="services-title" deferred>
+      <SectionHeading id="services-title" eyebrow={t(tiles.eyebrow)} title={t(tiles.title)} />
+      <ul className="mt-9 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
+        <li className="md:col-span-2 lg:col-span-1 lg:row-span-2">
+          <Tile large panel="bg-panel-blue" art={<OutdoorArt />} {...tiles.outdoor} />
         </li>
-        <li className="flex flex-col">
+        <li>
+          <Tile panel="bg-panel-yellow" art={<ProductionArt />} {...tiles.production} />
+        </li>
+        <li>
+          <Tile panel="bg-panel-green" art={<DigitalArt />} {...tiles.digital} />
+        </li>
+        <li>
           <Tile
-            tone="dark"
-            accent="text-brand-yellow"
-            art={<ProductionArt />}
-            {...tiles.production}
+            panel="bg-alrabiaa"
+            accent="text-[#127a66] dark:text-brand-green"
+            art={<AlrabiaaArt />}
+            {...tiles.alrabiaa}
           />
         </li>
-        <li className="flex flex-col">
-          <Tile tone="light" accent="text-link" art={<DigitalArt />} {...tiles.digital} />
-        </li>
-        <li className="flex flex-col">
-          <Tile tone="dark" accent="text-brand-green" art={<AlrabiaaArt />} {...tiles.alrabiaa} />
-        </li>
-        <li className="flex flex-col">
+        <li>
           <Tile
-            tone="dark"
-            accent="text-brand-yellow"
+            panel="bg-panel-grey"
             art={<EventsArt />}
             title={tiles.events.title}
             link={tiles.events.link}
-            note={
-              <ToConfirm what={tiles.events.toConfirm} className="text-xs text-brand-grey-40" />
-            }
+            note={<ToConfirm what={tiles.events.toConfirm} className="self-start text-xs" />}
           />
         </li>
       </ul>

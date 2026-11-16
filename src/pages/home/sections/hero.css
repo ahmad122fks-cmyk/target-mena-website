@@ -1,0 +1,14 @@
+/* v3 home hero: Target blue gradient and the brand dot grid (DESIGN.md 13). */
+.hero-brand {
+  background: linear-gradient(
+    135deg,
+    var(--color-hero-1) 0%,
+    var(--color-hero-2) 55%,
+    var(--color-hero-3) 100%
+  );
+}
+.hero-dots {
+  background-image: radial-gradient(rgb(255 255 255 / 0.35) 1.2px, transparent 1.4px);
+  background-size: 22px 22px;
+  mask-image: linear-gradient(90deg, transparent, #000 60%);
+}

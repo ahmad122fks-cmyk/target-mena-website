@@ -1,31 +1,32 @@
-import { usePageData } from '@/app/PageData'
-import { PhoneShowcase } from '@/components/experiences/PhoneShowcase'
-import { NetworkMap } from '@/components/map/NetworkMap'
+import { TargetNews } from '@/components/experiences/news/TargetNews'
 import { Container } from '@/components/shared/Section'
+import { useT } from '@/features/i18n/LangContext'
+import content from '../home.content.json'
+import { BrandPattern } from './BrandPattern'
 import { HeroIntro } from './HeroIntro'
-import { Kpis } from './Kpis'
+import './hero.css'
 
 /**
- * Dark hero (prompt 4): text, search and service chips at the start, the
- * services phone at the end (left in Arabic, right in English); below them
- * the network map with its intro flight and the network counters.
+ * Home hero v3 (prompt 5): the Target brand pattern on the blue gradient,
+ * with the header sitting on it. Text, search and the four numbers at the
+ * start; the news phone at the end (left in Arabic, right in English).
  */
 export function Hero() {
-  const { swipe } = usePageData('home')
+  const t = useT()
   return (
     <section
       aria-labelledby="hero-title"
-      className="bg-deep text-brand-grey-40 [--heading:var(--color-brand-white)]"
+      className="hero-brand relative overflow-hidden text-white [--heading:#fff]"
     >
-      <Container className="flex flex-col gap-7 pt-10 pb-16 lg:pt-14">
-        <div className="flex flex-wrap items-center gap-x-12 gap-y-10">
-          <HeroIntro />
-          <div className="flex min-w-0 flex-[1_1_100%] justify-center lg:flex-[0_0_380px]">
-            <PhoneShowcase boards={swipe} />
-          </div>
+      <BrandPattern />
+      <Container className="flex flex-wrap items-center gap-x-14 gap-y-12 pt-24 pb-16 lg:pt-[7.5rem] lg:pb-[5.5rem]">
+        <HeroIntro />
+        <div className="flex min-w-0 flex-[1_1_100%] flex-col items-center gap-3.5 lg:flex-[0_0_360px]">
+          <TargetNews />
+          <p className="text-center text-[0.8125rem] text-on-blue">
+            {t(content.hero.phoneCaption)}
+          </p>
         </div>
-        <NetworkMap panel />
-        <Kpis />
       </Container>
     </section>
   )

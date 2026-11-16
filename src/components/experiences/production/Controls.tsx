@@ -1,8 +1,7 @@
-import { Clapperboard } from 'lucide-react'
-import { PillButton } from '@/components/shared/PillButton'
 import { useT } from '@/features/i18n/LangContext'
 import { cn } from '@/lib/utils'
-import { isLastStage, stageState } from './viewfinder'
+import { ActionButton } from './ActionButton'
+import { stageState } from './viewfinder'
 import content from './viewfinder.content.json'
 
 const FRAME = {
@@ -11,22 +10,21 @@ const FRAME = {
   next: 'border-white/10 bg-white/5 text-white',
 }
 
-type Props = { stage: number; onPick: (stage: number) => void; onAction: () => void }
+type Props = {
+  stage: number
+  onPick: (stage: number) => void
+  onAction: () => void
+  /** False when «أكشن» sits outside the device (Production hero, v3). */
+  action?: boolean
+}
 
-/** «أكشن» (then «من البداية» on the last stage) and the five stage frames. */
-export function Controls({ stage, onPick, onAction }: Props) {
+/** The five stage frames, with «أكشن» in front of them unless it sits outside. */
+export function Controls({ stage, onPick, onAction, action = true }: Props) {
   const t = useT()
   const { stages } = content
   return (
     <div className="flex flex-col gap-3 px-3.5 pb-4 sm:px-[1.375rem] lg:flex-row lg:items-center lg:gap-4 lg:py-3.5">
-      <PillButton
-        tone="yellow"
-        onClick={onAction}
-        className="shrink-0 gap-2.5 self-start text-lg font-bold lg:h-14 lg:px-7"
-      >
-        <Clapperboard aria-hidden="true" className="size-[1.375rem]" />
-        {t(isLastStage(stage, stages.length) ? content.again : content.action)}
-      </PillButton>
+      {action && <ActionButton stage={stage} onAction={onAction} className="self-start" />}
       <div
         role="group"
         aria-label={t(content.stagesLabel)}

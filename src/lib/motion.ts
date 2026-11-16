@@ -95,3 +95,17 @@ export function useHydrated(): boolean {
     () => false,
   )
 }
+
+function subscribeScroll(listener: () => void) {
+  window.addEventListener('scroll', listener, { passive: true })
+  return () => window.removeEventListener('scroll', listener)
+}
+
+/** True once the page has scrolled past `offset` px (false on the server). */
+export function useScrolled(offset = 8): boolean {
+  return useSyncExternalStore(
+    subscribeScroll,
+    () => window.scrollY > offset,
+    () => false,
+  )
+}

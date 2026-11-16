@@ -1,7 +1,7 @@
 import { useT } from '@/features/i18n/LangContext'
 import content from '../production.content.json'
 
-/** Four facts from the catalog on deep cards (2 then 4 columns; 1 on phones). */
+/** Four catalog facts on light cards with blue numbers (v3): 4, then 2, then 1 column. */
 export function Facts() {
   const t = useT()
   return (
@@ -9,12 +9,12 @@ export function Facts() {
       {content.make.facts.map((fact) => (
         <li
           key={fact.value.en}
-          className="flex flex-col gap-1.5 rounded-[18px] bg-deep p-5 text-white lg:p-6"
+          className="flex flex-col gap-1.5 rounded-card border border-line bg-brand-ghost p-5 lg:p-6"
         >
-          <b className="text-[2.125rem] leading-tight font-bold text-brand-yellow">
+          <b className="text-[2.125rem] leading-tight font-bold text-link">
             <span className="ltr-run">{t(fact.value)}</span>
           </b>
-          <span className="text-sm leading-[1.6] text-white/85">{t(fact.label)}</span>
+          <span className="text-[0.9375rem] leading-[1.6]">{t(fact.label)}</span>
         </li>
       ))}
     </ul>

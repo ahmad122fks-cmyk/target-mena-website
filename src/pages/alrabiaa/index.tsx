@@ -3,6 +3,7 @@ import { ContentPage } from '@/components/shared/ContentPage'
 import { useT } from '@/features/i18n/LangContext'
 import { AlrabiaaSales } from '@/pages/home/sections/AlrabiaaSales'
 import content from './alrabiaa.content.json'
+import { AlrabiaaMockup } from './AlrabiaaMockup'
 
 /** Alrabiaa TV (channel colour green): exclusive distributor wording, channels, planner. No prices. */
 export default function AlrabiaaPage() {
@@ -21,7 +22,8 @@ export default function AlrabiaaPage() {
         />
       }
     >
-      <AlrabiaaSales tone="ghost" />
+      <AlrabiaaSales />
+      <AlrabiaaMockup />
     </ContentPage>
   )
 }

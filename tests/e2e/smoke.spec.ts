@@ -7,13 +7,16 @@ const PAGES = [
 
 for (const page of PAGES) {
   test.describe(`home ${page.lang}`, () => {
-    test('loads with the right language, one H1 and the contact block', async ({ page: p }) => {
+    test('loads with the right language, one H1 and the exact contact details', async ({
+      page: p,
+    }) => {
       const response = await p.goto(page.url)
       expect(response?.status()).toBe(200)
       await expect(p.locator('html')).toHaveAttribute('lang', page.lang)
       await expect(p.locator('html')).toHaveAttribute('dir', page.dir)
       await expect(p.locator('h1')).toHaveCount(1)
-      const contact = p.locator('#contact')
+      // v3: the exact contact block is in the light footer on every page.
+      const contact = p.getByRole('contentinfo')
       for (const text of [
         '+964 771 977 7199',
         '+964 784 466 6000',
@@ -86,23 +89,26 @@ test('finder and campaign: no horizontal scroll at phone width; list opens as a 
   await expect(page.getByRole('dialog')).toContainText('Your list is empty')
 })
 
-test('home: announcement bar, campaign feed and client login', async ({ page }) => {
+test('home: new-campaign chip, campaign cards and client login', async ({ page }) => {
   await page.goto('/en/')
-  const bar = page.getByRole('link', { name: /Alwatani app.*campaign is now on our boards/ })
-  await expect(bar).toHaveAttribute('href', '#feed')
+  const chip = page.getByRole('link', { name: /New: Earthlink · Alwatani app/ })
+  await expect(chip).toHaveAttribute('href', '#feed')
   const feed = page.locator('#feed')
-  await expect(feed.locator('article')).toHaveCount(2)
+  // v3: Earthlink (AF10) and the two approved Qi walls (BGW03A, BGW04A).
+  await expect(feed.locator('article')).toHaveCount(3)
   await expect(feed).toContainText('Earthlink · Alwatani app')
   await expect(feed).toContainText('Qi Card · SuperQi')
-  await expect(feed.getByRole('img', { name: 'Qi Card logo' })).toBeVisible()
+  await expect(feed.getByRole('img', { name: /SuperQi wall on Al Rubaie Street/ })).toBeVisible()
   const login = page.getByRole('link', { name: /Client login/ }).first()
   await expect(login).toHaveAttribute('href', 'https://admin.target-mena.cloud')
   await expect(login).toHaveAttribute('target', '_blank')
   await page.goto('/en/boards/')
-  await expect(page.getByRole('link', { name: /campaign is now on our boards/ })).toHaveCount(0)
+  await expect(page.getByRole('link', { name: /New: Earthlink/ })).toHaveCount(0)
 })
 
-test('phase 3 pages: 200, one H1, right language, breadcrumb, contact block', async ({ page }) => {
+test('phase 3 pages: 200, one H1, right language, breadcrumb, contact details', async ({
+  page,
+}) => {
   const pages = [
     'highway-bridges',
     'production',
@@ -125,7 +131,7 @@ test('phase 3 pages: 200, one H1, right language, breadcrumb, contact block', as
       await expect(page.locator('html')).toHaveAttribute('lang', lang)
       await expect(page.locator('h1')).toHaveCount(1)
       await expect(page.locator('nav[aria-label] ol')).toBeVisible()
-      await expect(page.locator('#contact')).toContainText('+964 771 977 7199')
+      await expect(page.getByRole('contentinfo')).toContainText('+964 771 977 7199')
     }
 })
 
@@ -143,7 +149,7 @@ test('contact form: browser checks, then WhatsApp or email with the message', as
   await main.getByRole('button', { name: 'Send' }).click()
   await expect(main.getByRole('status')).toHaveCount(0)
   await main.getByLabel('Name').fill('Test Client')
-  await main.getByLabel('Phone number').fill('+964 770 000 0000')
+  await main.getByLabel('Phone number', { exact: true }).fill('+964 770 000 0000')
   await main.getByLabel('Your message').fill('Rooftops in Najaf')
   await main.getByRole('button', { name: 'Send' }).click()
   const whatsapp = main.getByRole('link', { name: 'Send on WhatsApp' })

@@ -1,20 +1,19 @@
-import { Blocks } from '@/components/shared/blocks/Blocks'
-import type { Block } from '@/components/shared/blocks/types'
-import content from './digital.content.json'
 import { Cta } from './sections/Cta'
 import { Hero } from './sections/Hero'
 import { Process } from './sections/Process'
+import { Services } from './sections/Services'
 
 /**
- * Creative & Digital (prompt 4, Digital.dc.html): hero with six service tabs
- * that change the phone, the digital media services from the catalog, the
- * four-step process and a closing call to action. Light and dark theme.
+ * Creative & Digital (v3, prompt 5 and Digital3.dc.html): ghost hero with
+ * six service tabs (active = blue) that change the navy phone, the digital
+ * media services (white), the four-step process (ghost) and the page's one
+ * blue CTA band. The light footer comes from SiteLayout.
  */
 export default function DigitalPage() {
   return (
     <>
       <Hero />
-      <Blocks id="digital" blocks={content.blocks as Block[]} />
+      <Services />
       <Process />
       <Cta />
     </>

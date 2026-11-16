@@ -2,10 +2,11 @@ import { cn } from '@/lib/utils'
 import { Eyebrow } from './Eyebrow'
 
 const SIZES = {
-  hero: 'text-4xl leading-[1.2] tracking-tight sm:text-5xl lg:text-[3.625rem]',
-  page: 'text-[2rem] lg:text-[2.5rem]',
-  section: 'text-3xl lg:text-[2.75rem]',
-  feature: 'text-3xl lg:text-[2.5rem]',
+  /* v3 type (prompt 5): H1 56/66, H2 40/50 */
+  hero: 'text-4xl leading-[1.2] ltr:tracking-tight sm:text-5xl lg:text-[3.5rem] lg:leading-[4.125rem]',
+  page: 'text-[2rem] leading-[1.3] lg:text-[2.5rem] lg:leading-[3.125rem]',
+  section: 'text-3xl leading-[1.3] lg:text-[2.5rem] lg:leading-[3.125rem]',
+  feature: 'text-3xl leading-[1.3] lg:text-[2.5rem] lg:leading-[3.125rem]',
   band: 'text-2xl font-semibold lg:text-[1.875rem]',
 } as const
 
@@ -41,7 +42,7 @@ export function SectionHeading({
       {lead && (
         <p
           className={cn(
-            'max-w-2xl text-lg leading-[1.8]',
+            'max-w-2xl text-[1.0625rem] leading-[1.875rem]',
             size === 'hero' && 'lg:text-[1.1875rem]',
           )}
         >

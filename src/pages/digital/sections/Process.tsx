@@ -1,18 +1,13 @@
 import { Section } from '@/components/shared/Section'
 import { SectionHeading } from '@/components/shared/SectionHeading'
 import { useT } from '@/features/i18n/LangContext'
-import { cn } from '@/lib/utils'
 import content from '../digital.process.content.json'
 
-/* One guideline colour per step; black text on yellow and green. */
-const TONES = [
-  'bg-brand-blue text-white',
-  'bg-brand-yellow text-brand-black',
-  'bg-brand-green text-brand-black',
-  'border border-line bg-deep text-white',
-]
-
-/** «من الفكرة إلى النشر»: four steps, phone 1 column, tablet 2, desktop 4. */
+/**
+ * «من الفكرة إلى النشر»: four steps as white v3 cards with blue numbers on
+ * the ghost band (yellow stays for the main action, green for Alrabiaa).
+ * Phone 1 column, tablet 2, desktop 4.
+ */
 export function Process() {
   const t = useT()
   const { process } = content
@@ -29,13 +24,13 @@ export function Process() {
           {process.steps.map((step, i) => (
             <li
               key={step.title.en}
-              className={cn('flex min-h-[170px] flex-col gap-2.5 rounded-card p-6', TONES[i])}
+              className="card-lift flex min-h-[170px] flex-col gap-2.5 rounded-card border border-line bg-surface p-6"
             >
-              <span className="ltr-run self-start text-[2.5rem] leading-none font-bold">
+              <span className="ltr-run self-start text-[2.5rem] leading-none font-bold text-link">
                 {String(i + 1).padStart(2, '0')}
               </span>
-              <h3 className="text-[1.1875rem] text-inherit">{t(step.title)}</h3>
-              <p className="text-sm leading-[1.7]">{t(step.text)}</p>
+              <h3 className="text-xl font-semibold">{t(step.title)}</h3>
+              <p className="text-[0.9375rem] leading-[1.75]">{t(step.text)}</p>
             </li>
           ))}
         </ol>

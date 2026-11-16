@@ -20,7 +20,7 @@ function Strip({ items, hidden }: { items: MarqueeItem[]; hidden?: boolean }) {
           sizes="340px"
           className="h-full w-full"
         />
-        <figcaption className="ltr-run absolute start-2.5 bottom-2.5 rounded-full bg-black/65 px-2.5 py-0.5 text-xs text-white">
+        <figcaption className="ltr-run absolute start-2.5 bottom-2.5 rounded-md bg-white px-2.5 py-0.5 text-xs font-semibold text-brand-black">
           {item.code}
         </figcaption>
       </figure>

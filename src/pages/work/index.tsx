@@ -4,6 +4,7 @@ import { Section } from '@/components/shared/Section'
 import { SectionHeading } from '@/components/shared/SectionHeading'
 import { FEED } from '@/features/feed/feed'
 import { useT } from '@/features/i18n/LangContext'
+import { feedCards } from '@/pages/home/sections/Feed'
 import { FeedCard } from '@/pages/home/sections/FeedCard'
 import content from './work.content.json'
 
@@ -19,9 +20,12 @@ export default function WorkPage() {
         <Section labelledBy="work-campaigns">
           <SectionHeading id="work-campaigns" size="band" title={t(content.campaignsTitle)} />
           <ul className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {FEED.map((item) => (
-              <li key={item.id} className="flex">
-                <FeedCard item={item} />
+            {feedCards(
+              FEED.map((item) => ({ ...item, cards: 1 })),
+              FEED.length,
+            ).map((card) => (
+              <li key={card.item.id} className="flex">
+                <FeedCard {...card} />
               </li>
             ))}
           </ul>

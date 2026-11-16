@@ -11,7 +11,7 @@ type Props = {
 }
 
 /**
- * Phone mockup for the experiences (290 x 600 at full size, real phone
+ * Navy phone mockup (v3: #0B2340 frame, prompt 5) for the experiences (290 x 600 at full size, real phone
  * proportions; scales down with its width, never stretched). Screens fill
  * the inside with `absolute inset-0` and keep ~50 px clear at the top for
  * the island.
@@ -21,7 +21,7 @@ export function PhoneFrame({ children, label, float, className }: Props) {
     <figure
       aria-label={label}
       className={cn(
-        'relative m-0 aspect-[290/600] w-[290px] max-w-full shrink-0 rounded-[52px] border-4 border-[#1f4a78] bg-black p-[9px] shadow-[0_40px_90px_rgb(1_97_166/0.35)]',
+        'relative m-0 aspect-[290/600] w-[290px] max-w-full shrink-0 rounded-[52px] border-4 border-navy bg-navy dark:border-line p-[9px] shadow-[0_40px_90px_rgb(11_35_64/0.35)]',
         float && 'motion-safe:animate-[phone-float_6s_ease-in-out_infinite]',
         className,
       )}

@@ -8,155 +8,91 @@
       "ar": "تارگت للإعلان: 674 لوحة في 12 محافظة وعلى طريقين سريعين في العراق، أسطح وجسور وجداريات وشاشات، مع الإنتاج والحملات الرقمية وقناة الرابعة.",
       "en": "674 billboards in 12 provinces and on 2 highways across Iraq: rooftops, bridges, walls and screens, plus production, digital and Alrabiaa TV."
     },
-    "breadcrumb": {
-      "ar": "الرئيسية",
-      "en": "Home"
-    }
+    "breadcrumb": { "ar": "الرئيسية", "en": "Home" }
   },
   "hero": {
-    "eyebrow": {
-      "ar": "على الأرض، في كل العراق",
-      "en": "On the ground, across Iraq"
-    },
+    "_title": "H1 from the v3 canvas, waiting on the owner's OK (prompt 5, TODO-CONFIRM). {boards} = network size from src/data/network-map.json; the part in [ ] is yellow.",
     "title": {
-      "ar": "شبكة لوحات تارگت على خريطة العراق.",
-      "en": "Target's billboard network on the map of Iraq."
+      "ar": "إعلانك على [{boards} لوحة] في كل العراق.",
+      "en": "Your ad on [{boards} boards] across Iraq."
     },
+    "titleToConfirm": "hero headline",
     "lead": {
-      "ar": "مرّر على أي محافظة لترى عدد لوحاتنا فيها. ابحث، اختر، واطلب عرضك.",
-      "en": "Hover any province to see how many boards we have there. Search, choose and ask for your proposal."
+      "ar": "لوحات خارجية، إنتاج، حملات رقمية، وقناة الرابعة. ابحث عن لوحتك واطلب عرضك.",
+      "en": "Outdoor boards, production, digital campaigns and Alrabiaa TV. Find your board and ask for your proposal."
     },
-    "searchLabel": {
-      "ar": "بحث سريع عن لوحة",
-      "en": "Quick board search"
-    },
-    "searchPlaceholder": {
-      "ar": "المحافظة أو المنطقة أو رمز اللوحة",
-      "en": "Province, area or board code"
-    },
-    "searchButton": {
-      "ar": "ابحث",
-      "en": "Search"
-    },
-    "chipsLabel": {
-      "ar": "خدماتنا",
-      "en": "Our services"
-    },
-    "chips": [
+    "newLabel": { "ar": "جديد", "en": "New" },
+    "searchLabel": { "ar": "بحث سريع عن لوحة", "en": "Quick board search" },
+    "searchPlaceholder": { "ar": "محافظة، منطقة أو رمز", "en": "Province, area or code" },
+    "searchButton": { "ar": "ابحث", "en": "Search" },
+    "phoneCaption": {
+      "ar": "آخر أخبار تارگت، كما تظهر على الهاتف",
+      "en": "Target's latest news, as it looks on a phone"
+    }
+  },
+  "kpis": {
+    "label": { "ar": "الشبكة بالأرقام", "en": "The network in numbers" },
+    "items": [
       {
-        "path": "/network/",
-        "dot": "bg-brand-grey",
-        "label": {
-          "ar": "لوحات خارجية",
-          "en": "Outdoor boards"
-        }
+        "key": "boards",
+        "label": { "ar": "لوحة", "en": "boards" }
       },
       {
-        "path": "/production/",
-        "dot": "bg-brand-yellow",
-        "label": {
-          "ar": "إنتاج فني",
-          "en": "Production"
-        }
+        "key": "faces",
+        "label": { "ar": "وجه إعلاني", "en": "advertising faces" }
       },
       {
-        "path": "/digital/",
-        "dot": "bg-brand-blue-60",
-        "label": {
-          "ar": "حملات رقمية وسوشيال",
-          "en": "Digital and social"
-        }
+        "key": "m2",
+        "label": { "ar": "متر مربع", "en": "square metres" }
       },
       {
-        "path": "/alrabiaa/",
-        "dot": "bg-brand-green",
-        "label": {
-          "ar": "قناة الرابعة",
-          "en": "Alrabiaa TV"
-        }
+        "key": "provinces",
+        "label": { "ar": "محافظة + طريقان", "en": "provinces + 2 highways" }
       }
     ]
+  },
+  "network": {
+    "eyebrow": { "ar": "الشبكة", "en": "The network" },
+    "title": {
+      "ar": "على الأرض، في {provinces} محافظة وعلى طريقين سريعين.",
+      "en": "On the ground, in {provinces} provinces and on {highways} highways."
+    },
+    "lead": {
+      "ar": "مرّر على أي محافظة لترى عدد لوحاتنا فيها.",
+      "en": "Hover any province to see how many boards we have there."
+    },
+    "tour": {
+      "path": "/network/",
+      "label": { "ar": "جولة على الشبكة ←", "en": "Tour the network →" }
+    },
+    "typesLabel": { "ar": "اللوحات حسب النوع", "en": "Boards by type" },
+    "types": ["backlit", "bridge", "rooftop", "wall"]
   },
   "featured": {
     "_note": "Extra photos for the street strip (with the swipe boards).",
     "codes": ["BGW03A", "BGW02A", "BBH20A", "BBH38A"]
   },
-  "kpis": {
-    "label": {
-      "ar": "الشبكة بالأرقام",
-      "en": "The network in numbers"
-    },
-    "items": [
-      {
-        "key": "boards",
-        "label": {
-          "ar": "لوحة في الشبكة",
-          "en": "boards in the network"
-        },
-        "tone": "text-white"
-      },
-      {
-        "key": "faces",
-        "label": {
-          "ar": "وجه إعلاني",
-          "en": "advertising faces"
-        },
-        "tone": "text-white"
-      },
-      {
-        "key": "m2",
-        "label": {
-          "ar": "متر مربع من المساحات",
-          "en": "square metres of space"
-        },
-        "tone": "text-brand-yellow"
-      },
-      {
-        "key": "provinces",
-        "label": {
-          "ar": "محافظة + طريقان سريعان",
-          "en": "provinces + 2 highways"
-        },
-        "tone": "text-brand-green"
-      }
-    ]
-  },
   "strip": {
-    "eyebrow": {
-      "ar": "من الشارع",
-      "en": "From the street"
-    },
+    "eyebrow": { "ar": "من الشارع", "en": "From the street" },
     "title": {
       "ar": "صور حقيقية من لوحاتنا، بدون تعديل",
       "en": "Real photos of our boards, unedited"
     },
-    "label": {
-      "ar": "صور لوحات تارگت",
-      "en": "Photos of Target boards"
-    }
+    "label": { "ar": "صور لوحات تارگت", "en": "Photos of Target boards" }
   },
   "cta": {
-    "title": {
-      "ar": "جاهز تبدأ حملتك؟",
-      "en": "Ready to start your campaign?"
-    },
+    "title": { "ar": "جاهز تبدأ حملتك؟", "en": "Ready to start your campaign?" },
     "text": {
       "ar": "اختر لوحاتك، حدد المدة والميزانية، ونرسل لك العرض.",
       "en": "Choose your boards, set the timing and budget, and we send you the proposal."
     },
     "primary": {
       "path": "/campaign/",
-      "label": {
-        "ar": "خطط حملتك",
-        "en": "Plan your campaign"
-      }
+      "label": { "ar": "خطط حملتك", "en": "Plan your campaign" }
     },
     "secondary": {
       "path": "/contact/",
-      "label": {
-        "ar": "تواصل معنا",
-        "en": "Contact us"
-      }
+      "label": { "ar": "تواصل معنا", "en": "Contact us" }
     }
   }
 }

@@ -15,7 +15,10 @@ const VALUES: Record<string, number> = {
   provinces: totals.provinces,
 }
 
-/** Network in numbers (master planner, 16 Nov 2026): counters, then by type and by place. */
+/**
+ * Network in numbers (master planner, 16 Nov 2026), a white band (v3):
+ * ghost counter tiles, then light charts by type and by place.
+ */
 export function NumbersBand() {
   const t = useT()
   const lang = useLang()
@@ -39,14 +42,14 @@ export function NumbersBand() {
   return (
     <Section labelledBy="numbers-title" deferred>
       <SectionHeading id="numbers-title" eyebrow={t(numbers.eyebrow)} title={t(numbers.title)} />
-      <dl className="mt-8 grid grid-cols-2 gap-3 lg:grid-cols-4">
+      <dl className="mt-10 grid grid-cols-2 gap-3 lg:grid-cols-4">
         {numbers.kpis.map((kpi) => (
           <div
             key={kpi.key}
-            className="flex flex-col-reverse gap-1 rounded-[18px] border border-line bg-brand-ghost p-5"
+            className="flex flex-col-reverse justify-end gap-1 rounded-[18px] border border-line bg-brand-ghost p-5"
           >
-            <dt className="text-sm">{t(kpi.label)}</dt>
-            <dd className="text-3xl font-bold text-link lg:text-[2.5rem]">
+            <dt className="text-[0.9375rem] leading-6">{t(kpi.label)}</dt>
+            <dd className="text-3xl leading-tight font-bold text-link lg:text-[2.5rem]">
               {/* One left-to-right run, so Arabic shows «12 + 2», not «+ 212». */}
               <span className="ltr-run">
                 <CountUp value={VALUES[kpi.key]} />
@@ -60,7 +63,7 @@ export function NumbersBand() {
         <BarChart caption={t(numbers.byType)} rows={byType} />
         <BarChart caption={t(numbers.byPlace)} rows={byPlace} />
       </div>
-      <p className="mt-4 text-sm">{t(numbers.unassigned)}</p>
+      <p className="mt-4 text-[0.9375rem]">{t(numbers.unassigned)}</p>
     </Section>
   )
 }

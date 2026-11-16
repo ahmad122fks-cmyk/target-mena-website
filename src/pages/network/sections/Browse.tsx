@@ -1,11 +1,15 @@
 import { usePageData } from '@/app/PageData'
 import { Section } from '@/components/shared/Section'
+import { SectionHeading } from '@/components/shared/SectionHeading'
 import { useLang, useT } from '@/features/i18n/LangContext'
 import { cityLabel, FORMATS, isHighway } from '@/lib/boards'
 import content from '../network.content.json'
 import { LinkGrid } from './LinkGrid'
 
-/** Links to every province, highway and board-type page (the boards published on the site). */
+/**
+ * Links to every province, highway and board-type page (the boards published
+ * on the site): a ghost band (v3) between the numbers and the street photos.
+ */
 export function Browse() {
   const data = usePageData('network')
   const t = useT()
@@ -22,9 +26,7 @@ export function Browse() {
   }))
   return (
     <Section tone="ghost" labelledBy="browse-title" deferred>
-      <h2 id="browse-title" className="text-3xl lg:text-4xl">
-        {t(content.browse)}
-      </h2>
+      <SectionHeading id="browse-title" title={t(content.browse)} />
       <div className="mt-10 flex flex-col gap-12">
         <LinkGrid
           id="provinces-title"

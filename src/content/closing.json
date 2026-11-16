@@ -1,0 +1,16 @@
+{
+  "_note": "The standard blue CTA band on pages that have no own band (v3, prompt 5). Same approved text as the home band.",
+  "title": { "ar": "جاهز تبدأ حملتك؟", "en": "Ready to start your campaign?" },
+  "text": {
+    "ar": "اختر لوحاتك، حدد المدة والميزانية، ونرسل لك العرض.",
+    "en": "Choose your boards, set the timing and budget, and we send you the proposal."
+  },
+  "primary": {
+    "path": "/campaign/",
+    "label": { "ar": "خطط حملتك", "en": "Plan your campaign" }
+  },
+  "secondary": {
+    "path": "/contact/",
+    "label": { "ar": "تواصل معنا", "en": "Contact us" }
+  }
+}

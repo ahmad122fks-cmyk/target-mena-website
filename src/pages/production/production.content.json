@@ -5,8 +5,8 @@
       "en": "Production services and TV commercials | Target"
     },
     "description": {
-      "ar": "إعلانات تلفزيونية، إنتاج صوتي، فيديوهات ثلاثية الأبعاد، ستوري بورد ورسوم متحركة، وإعلانات بالذكاء الاصطناعي. +35 إنتاجاً منجزاً.",
-      "en": "TV commercials, audio production, 3D videos, storyboarding and animation, and AI commercials. 35+ productions delivered."
+      "ar": "إعلانات تلفزيونية، إنتاج صوتي، فيديوهات ثلاثية الأبعاد، ستوري بورد ورسوم متحركة، وإعلانات بالذكاء الاصطناعي، من النص إلى الشاشة.",
+      "en": "TV commercials, audio production, 3D videos, storyboarding and animation, and AI commercials, from script to screen."
     }
   },
   "title": { "ar": "الإنتاج الفني", "en": "Production services" },
@@ -129,7 +129,8 @@
       }
     ],
     "stat": {
-      "value": { "ar": "+35", "en": "35+" },
+      "_toConfirm": "The number of productions is held back until the owner confirms it (prompt 5, 16 Nov 2026): a visible placeholder shows instead.",
+      "toConfirm": "number of productions delivered",
       "label": { "ar": "إنتاجاً منجزاً", "en": "productions delivered" },
       "note": {
         "ar": "حملات عالية الإنتاج وإعلانات تلفزيونية",
@@ -139,7 +140,7 @@
   },
   "showreel": {
     "title": { "ar": "الشوريل", "en": "Showreel" },
-    "toConfirm": "video"
+    "toConfirm": "showreel video (MP4 or WebM)"
   },
   "cta": {
     "title": { "ar": "عندك فكرة؟ نصوّرها.", "en": "Got an idea? We'll film it." },

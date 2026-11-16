@@ -1,11 +1,16 @@
 import type { ReactNode } from 'react'
 import { cn } from '@/lib/utils'
 
-/** Bands alternate white and ghost (hairline top and bottom); black only for the footer look. */
+/**
+ * v3 (prompt 5): bands alternate white and ghost #F5FAFA with 1 px hairlines.
+ * In the light theme nothing is darker than ghost: dark things are framed
+ * objects (map, viewfinder, phones, Alrabiaa card), never full-width bands.
+ * `black` stays for the dark theme only and renders as ghost in light.
+ */
 export const SECTION_TONES = {
   white: 'bg-page',
   ghost: 'border-y border-line bg-brand-ghost',
-  black: 'bg-deep text-white [--heading:var(--color-brand-white)]',
+  black: 'border-y border-line bg-brand-ghost dark:border-0 dark:bg-deep',
   /** Channel colours (DESIGN.md 2): black text, only on their own pages. */
   yellow:
     'bg-brand-yellow text-brand-black [--eyebrow:var(--color-brand-black)] [--heading:var(--color-brand-black)]',
@@ -15,14 +20,15 @@ export const SECTION_TONES = {
 
 export type SectionTone = keyof typeof SECTION_TONES
 
-const PADDING = { lg: 'py-16 lg:py-24', md: 'py-14 lg:py-[4.5rem]' } as const
+/** 88 px between sections on desktop (v3), 72 px for short bands. */
+const PADDING = { lg: 'py-16 lg:py-[5.5rem]', md: 'py-14 lg:py-[4.5rem]' } as const
 
 type Props = {
   tone?: SectionTone
   id?: string
   /** Id of the section's heading (omit only for sections without one). */
   labelledBy?: string
-  /** Vertical space: 96 px (default) or 72 px for short bands. */
+  /** Vertical space: 88 px (default) or 72 px for short bands. */
   pad?: keyof typeof PADDING
   /** Skip the standard container (the section lays itself out). */
   bare?: boolean

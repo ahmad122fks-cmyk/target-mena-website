@@ -1,23 +1,18 @@
-import { PillButton } from '@/components/shared/PillButton'
-import { Section } from '@/components/shared/Section'
-import { useLink, useT } from '@/features/i18n/LangContext'
+import { CtaBand } from '@/components/shared/CtaBand'
 import content from '../production.content.json'
 
-/** Yellow closing band (production colour): one line and a black pill to the contact page. */
+/**
+ * The page's one blue closing band (v3) with the yellow main action. Its
+ * line is the approved in-house line from the hero (no new copy).
+ */
 export function Cta() {
-  const t = useT()
-  const link = useLink()
-  const { cta } = content
+  const { cta, hero } = content
   return (
-    <Section tone="yellow" pad="md" labelledBy="production-cta" deferred>
-      <div className="mx-auto flex max-w-[960px] flex-col items-center gap-5 text-center">
-        <h2 id="production-cta" className="text-3xl lg:text-[2.375rem]">
-          {t(cta.title)}
-        </h2>
-        <PillButton tone="black" href={link(cta.link.path)}>
-          {t(cta.link.label)}
-        </PillButton>
-      </div>
-    </Section>
+    <CtaBand
+      id="production-cta"
+      title={cta.title}
+      text={hero.title}
+      primary={{ path: cta.link.path, label: cta.link.label }}
+    />
   )
 }

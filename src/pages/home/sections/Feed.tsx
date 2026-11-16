@@ -1,33 +1,53 @@
 import { Section } from '@/components/shared/Section'
-import { FEED } from '@/features/feed/feed'
-import { useT } from '@/features/i18n/LangContext'
+import { SectionHeading } from '@/components/shared/SectionHeading'
+import { FEED, type FeedItem } from '@/features/feed/feed'
+import { useLink, useT } from '@/features/i18n/LangContext'
 import content from '../home.more.content.json'
 import { FeedCard } from './FeedCard'
 
-/** "Our latest campaigns": client-approved campaigns only, newest first, scrolled sideways. */
+export type FeedPhoto = NonNullable<FeedItem['photos']>[number]
+export type FeedCardData = { item: FeedItem; photo?: FeedPhoto; first: boolean }
+
+/**
+ * The home cards: each approved campaign gives its first `cards` photos
+ * (default 1), newest campaign first; a campaign without a photo gives one
+ * logo card. Three cards at most.
+ */
+export function feedCards(items: FeedItem[], max = 3): FeedCardData[] {
+  return items
+    .flatMap((item) => {
+      const photos = (item.photos ?? []).slice(0, item.cards ?? 1)
+      if (!photos.length) return [{ item, first: true }]
+      return photos.map((photo, i) => ({ item, photo, first: i === 0 }))
+    })
+    .slice(0, max)
+}
+
+/** "Our latest campaigns" (v3): three white cards with real photos at their true ratio. */
 export function Feed() {
   const t = useT()
+  const link = useLink()
   const { feed } = content
-  if (!FEED.length) return null
+  const cards = feedCards(FEED)
+  if (!cards.length) return null
   return (
-    <Section id="feed" labelledBy="feed-title" pad="md" className="border-b border-line">
-      <div className="flex flex-col gap-2">
-        <p className="flex items-center gap-2 text-[0.8125rem] font-semibold text-link ltr:tracking-[0.06em]">
-          <span aria-hidden="true" className="size-2 rounded-full bg-brand-green" />
-          {t(feed.eyebrow)}
-        </p>
-        <h2 id="feed-title" className="text-3xl lg:text-4xl">
-          {t(feed.title)}
-        </h2>
+    <Section id="feed" labelledBy="feed-title" deferred>
+      <div className="flex flex-wrap items-end justify-between gap-5">
+        <SectionHeading id="feed-title" eyebrow={t(feed.eyebrow)} title={t(feed.title)} />
+        <a
+          href={link(feed.all.path)}
+          className="text-[0.9375rem] font-semibold text-link hover:underline"
+        >
+          {t(feed.all.label)}
+        </a>
       </div>
-      <ul className="-mx-4 mt-6 flex snap-x snap-mandatory gap-[1.125rem] overflow-x-auto px-4 pb-2 sm:-mx-6 sm:px-6">
-        {FEED.map((item) => (
-          <li key={item.id} className="flex w-[18.75rem] shrink-0 snap-start">
-            <FeedCard item={item} />
+      <ul className="mt-8 grid grid-cols-1 items-start gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {cards.map((card) => (
+          <li key={card.photo?.file ?? card.item.id} className="flex">
+            <FeedCard {...card} />
           </li>
         ))}
       </ul>
-      <p className="mt-4 text-[0.8125rem]">{t(feed.note)}</p>
     </Section>
   )
 }

@@ -15,7 +15,7 @@ type Props = {
 }
 
 /**
- * Dark band of real, unedited street photos (home, network). Only boards
+ * Light band (v3) of real, unedited street photos (home, network). Only boards
  * with an approved photo in src/lib/images.ts; the covered LED-AB01 photo
  * waits for Ahmad's OK, so it stays out of the strip.
  */
@@ -30,17 +30,10 @@ export function StreetPhotos({ id, boards, title, label, eyebrow }: Props) {
       alt: `${typeLabel(board.type, lang)} ${board.code}`,
     }))
   return (
-    <section
-      aria-labelledby={id}
-      className="overflow-hidden bg-deep pb-16 text-white lg:pb-[4.5rem]"
-    >
-      <Container className="flex flex-col gap-2 pt-16 pb-7 lg:pt-[4.5rem]">
-        {eyebrow && (
-          <div className="[--eyebrow:var(--color-brand-yellow)]">
-            <Eyebrow>{t(eyebrow)}</Eyebrow>
-          </div>
-        )}
-        <h2 id={id} className="text-3xl text-white lg:text-4xl">
+    <section aria-labelledby={id} className="overflow-hidden bg-page pb-16 lg:pb-[5.5rem]">
+      <Container className="flex flex-col gap-2.5 pt-16 pb-7 lg:pt-[5.5rem]">
+        {eyebrow && <Eyebrow>{t(eyebrow)}</Eyebrow>}
+        <h2 id={id} className="text-3xl lg:text-[2.5rem] lg:leading-[3.125rem]">
           {t(title)}
         </h2>
       </Container>

@@ -18,7 +18,7 @@ export function MobileNav() {
       <Button
         variant="ghost"
         size="icon"
-        className="size-11 xl:hidden"
+        className="size-11 text-ink hover:bg-brand-ghost hover:text-ink xl:hidden"
         aria-label={t(site.menuOpen)}
         aria-haspopup="dialog"
         aria-expanded={open}

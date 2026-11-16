@@ -60,3 +60,6 @@ export function useClapper(count: number) {
   }
   return { stage, clapping, flash, go, action: () => go(nextStage(stage, count)) }
 }
+
+/** The clapperboard state, shared when «أكشن» sits outside the viewfinder. */
+export type Clapper = ReturnType<typeof useClapper>

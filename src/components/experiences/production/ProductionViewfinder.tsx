@@ -2,6 +2,7 @@ import './camera.css'
 import './film-look.css'
 import { FullViewfinder } from './FullViewfinder'
 import { PhoneViewfinder } from './PhoneViewfinder'
+import type { Clapper } from './useFilm'
 
 type Props = {
   /** 'full': the Production page experience. 'phone': fills a PhoneFrame screen. */
@@ -10,6 +11,10 @@ type Props = {
   active?: boolean
   /** Phone only: space kept clear at the top for the island (px). */
   topPad?: number
+  /** Full only: clapper owned by the page, which then shows «أكشن» itself. */
+  clap?: Clapper
+  /** Full only: id of the device (for the outside button's aria-controls). */
+  id?: string
 }
 
 /**
@@ -22,7 +27,13 @@ type Props = {
  * frame. The server render is 00:00:00:00 on the wide shot, stage 1.
  * Video-ready: set "video" in viewfinder.content.json (see Footage.tsx).
  */
-export function ProductionViewfinder({ variant = 'full', active = true, topPad = 50 }: Props) {
+export function ProductionViewfinder({
+  variant = 'full',
+  active = true,
+  topPad = 50,
+  clap,
+  id,
+}: Props) {
   if (variant === 'phone') return <PhoneViewfinder active={active} topPad={topPad} />
-  return <FullViewfinder active={active} />
+  return <FullViewfinder active={active} clap={clap} id={id} />
 }

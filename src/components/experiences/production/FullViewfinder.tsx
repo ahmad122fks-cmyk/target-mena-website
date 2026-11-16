@@ -7,28 +7,38 @@ import { FrameGuides } from './FrameGuides'
 import { Rec, Timecode } from './Osd'
 import { SceneCard } from './SceneCard'
 import { Shots } from './Shots'
-import { useClapper, useFilmRunning } from './useFilm'
+import { useClapper, useFilmRunning, type Clapper } from './useFilm'
 import { SHOT_MS } from './viewfinder'
 import content from './viewfinder.content.json'
 
+type Props = {
+  active: boolean
+  /** Clapper owned outside (the page shows «أكشن» itself); else built in. */
+  clap?: Clapper
+  id?: string
+}
+
 /**
- * The page-size viewfinder: REC bar, the picture in 16:9 (2.4:1 from 1024
- * px) with the film look, the slate and scene card, then «أكشن» and the
- * five stage frames. The chrome is the deep band colour (navy in the dark
- * theme); the picture and letterbox stay black like real footage. Cuts
- * to the next framing every 2.6 s while it rolls.
+ * The page-size viewfinder, a framed dark device on the light page (v3):
+ * REC bar, the picture in 16:9 (2.4:1 from 1024 px) with the film look, the
+ * slate and scene card, then the five stage frames (and «أكشن» unless the
+ * page shows it). The chrome is black (deep navy in the dark theme); the
+ * picture and letterbox stay black like real footage. Cuts to the next
+ * framing every 2.6 s while it rolls.
  */
-export function FullViewfinder({ active }: { active: boolean }) {
+export function FullViewfinder({ active, clap: outside, id }: Props) {
   const t = useT()
   const { ref, running } = useFilmRunning<HTMLElement>(active)
   const [cut, setCut] = useState(0)
   useInterval(() => setCut((n) => n + 1), running ? SHOT_MS : null)
-  const clap = useClapper(content.stages.length)
+  const own = useClapper(content.stages.length)
+  const clap = outside ?? own
   return (
     <figure
       ref={ref}
+      id={id}
       aria-label={t(content.label)}
-      className="relative m-0 overflow-hidden rounded-[22px] border border-white/10 bg-deep text-white"
+      className="relative m-0 overflow-hidden rounded-[22px] border border-line-strong bg-deep text-white shadow-frame"
     >
       <div
         aria-hidden="true"
@@ -46,7 +56,7 @@ export function FullViewfinder({ active }: { active: boolean }) {
         </div>
         <SceneCard stage={clap.stage} clapping={clap.clapping} flash={clap.flash} />
       </div>
-      <Controls stage={clap.stage} onPick={clap.go} onAction={clap.action} />
+      <Controls stage={clap.stage} onPick={clap.go} onAction={clap.action} action={!outside} />
     </figure>
   )
 }

@@ -8,13 +8,13 @@ import { useT } from '@/features/i18n/LangContext'
 import { MOCKUPS } from '@/lib/images'
 import content from '../home.more.content.json'
 
-/** "After booking": the client portal (private login sent with the booking). */
+/** "After booking" (v3, ghost band): the client portal (private login sent with the booking). */
 export function Portal() {
   const t = useT()
   const { portal } = content
   return (
     <Section tone="ghost" labelledBy="portal-title" deferred>
-      <div className="flex flex-wrap items-center gap-12">
+      <div className="flex flex-wrap items-center gap-14">
         <div className="flex min-w-0 flex-[1_1_23.75rem] flex-col gap-4">
           <SectionHeading
             id="portal-title"
@@ -22,12 +22,12 @@ export function Portal() {
             eyebrow={t(portal.eyebrow)}
             title={t(portal.title)}
           />
-          <p className="text-[1.0625rem] leading-[1.9]">{t(portal.text)}</p>
+          <p>{t(portal.text)}</p>
           <ul className="flex flex-col gap-3 text-ink">
             {portal.list.map((item) => (
-              <li key={item.en} className="flex items-center gap-2.5">
-                <span className="flex size-6 shrink-0 items-center justify-center rounded-full bg-brand-blue-10 text-link">
-                  <Check className="size-3.5" strokeWidth={2.5} aria-hidden="true" />
+              <li key={item.en} className="flex items-center gap-3.5">
+                <span className="flex size-8 shrink-0 items-center justify-center rounded-[10px] border border-line-strong bg-surface text-link">
+                  <Check className="size-4" strokeWidth={2.4} aria-hidden="true" />
                 </span>
                 {t(item)}
               </li>

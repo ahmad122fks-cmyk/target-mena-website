@@ -44,12 +44,33 @@
   --color-link: #0161a6;
   --color-deep: #000000;
 
-  /* Shapes: pills for buttons and chips, 20 px cards, 12 px fields */
+  /* v3 (Ahmad, prompt 5, 16 Nov 2026). line-strong = secondary buttons and
+     framed objects (map, photos); panels = the soft tinted art panels of the
+     service cards; alrabiaa = the Alrabiaa card; navy = phone and device
+     frames; hero = the Target brand-pattern gradient on the home hero. */
+  --color-line-strong: #dce7ef;
+  --color-panel-blue: #eaf3fa;
+  --color-panel-yellow: #fff4dc;
+  --color-panel-green: #e8f7f3;
+  --color-panel-grey: #eef2f5;
+  --color-alrabiaa: #0b1a16;
+  --color-navy: #0b2340;
+  --color-hero-1: #0161a6;
+  --color-hero-2: #01508c;
+  --color-hero-3: #0b3b66;
+  /* Light text on the blue hero and the blue CTA band (contrast 5.2:1 on #0161A6) */
+  --color-on-blue: #d6e7f3;
+
+  /* Shapes: 10 px buttons, pills only for filters and tags, 20 px cards, 12 px fields */
+  --radius-btn: 0.625rem;
   --radius-card: 1.25rem;
   --radius-field: 0.75rem;
   /* Soft blue-tinted shadows, only on floating things (DESIGN.md 6) */
   --shadow-soft: 0 10px 30px rgb(1 97 166 / 0.06);
   --shadow-float: 0 24px 60px rgb(1 97 166 / 0.1);
+  /* Card hover lift and framed objects (map, portal, photos) */
+  --shadow-card: 0 18px 40px rgb(1 97 166 / 0.12);
+  --shadow-frame: 0 24px 56px rgb(1 97 166 / 0.12);
 
   --font-sans: 'Readex Pro Variable', 'Readex Pro', system-ui, 'Segoe UI', Tahoma, sans-serif;
 }
@@ -100,6 +121,16 @@
   --color-brand-grey-10: #20405f;
   --shadow-soft: 0 10px 30px rgb(0 0 0 / 0.25);
   --shadow-float: 0 24px 60px rgb(0 0 0 / 0.35);
+  --shadow-card: 0 18px 40px rgb(0 0 0 / 0.35);
+  --shadow-frame: 0 24px 56px rgb(0 0 0 / 0.35);
+  --color-line-strong: #1f4a78;
+  --color-panel-blue: #14365a;
+  --color-panel-yellow: #344045;
+  --color-panel-green: #144559;
+  --color-panel-grey: #20405f;
+  --color-hero-1: #0b3b66;
+  --color-hero-2: #0b2340;
+  --color-hero-3: #071a2e;
 
   --background: #071a2e;
   --foreground: #a9c1d4;

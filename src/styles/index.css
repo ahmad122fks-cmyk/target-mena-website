@@ -16,8 +16,9 @@
   }
   body {
     @apply bg-background font-sans text-foreground antialiased;
+    /* v3 body: 17/30 */
     font-size: 1.0625rem;
-    line-height: 1.75;
+    line-height: 1.875rem;
   }
   h1,
   h2,
@@ -32,5 +33,54 @@
     direction: ltr;
     unicode-bidi: isolate;
     font-variant-numeric: tabular-nums;
+  }
+}
+
+/*
+ * Header on the home hero (v3): transparent over the blue brand pattern,
+ * white text and controls; solid hero blue once the page scrolls. The hero
+ * slides under it (negative margin = header height).
+ */
+.header-on-hero {
+  --color-ink: #ffffff;
+  --color-link: #ffffff;
+  --color-brand-ghost: rgb(255 255 255 / 0.12);
+  margin-bottom: -4rem;
+  border-color: transparent;
+  background: transparent;
+  transition:
+    background-color 0.25s,
+    border-color 0.25s;
+}
+.header-on-hero[data-scrolled] {
+  border-color: rgb(255 255 255 / 0.15);
+  background: var(--color-hero-2);
+}
+
+/*
+ * Items separated by "·" (the contact line, CLAUDE.md): one line from
+ * 1024 px, a stacked list without dots below, so a separator never ends or
+ * starts a line.
+ */
+.dot-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.dot-list > li {
+  padding-block: 0.25rem;
+  white-space: nowrap;
+}
+@media (min-width: 64rem) {
+  .dot-list {
+    flex-direction: row;
+    justify-content: center;
+  }
+  .dot-list > li + li::before {
+    content: '·';
+    margin-inline: 0.5rem;
   }
 }

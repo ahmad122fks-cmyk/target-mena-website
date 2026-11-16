@@ -1,3 +1,4 @@
+import { ContactBlock } from '@/components/shared/ContactBlock'
 import { ContentPage } from '@/components/shared/ContentPage'
 import { PillButton } from '@/components/shared/PillButton'
 import { Section } from '@/components/shared/Section'
@@ -7,16 +8,18 @@ import { ContactForm } from '@/features/contact/ContactForm'
 import { useT } from '@/features/i18n/LangContext'
 import { telHref, whatsappHref } from '@/lib/site'
 import content from './contact.content.json'
+import { DriveToHq } from './DriveToHq'
 
 const row = 'flex flex-col gap-1 border-b border-line py-4 last:border-b-0'
 
-/** Contact: the confirmed details, WhatsApp, and a short message form. */
+/** Contact: the confirmed details, WhatsApp, a short message form, then the phone field band. */
 export default function ContactPage() {
   const t = useT()
   const d = content.details
   const c = site.contact
   return (
     <ContentPage id="contact" content={content}>
+      <DriveToHq />
       <Section>
         <div className="grid items-start gap-6 lg:grid-cols-[1fr_1.4fr]">
           <address className="flex flex-col rounded-card border border-line bg-surface px-6 py-2 not-italic">
@@ -43,7 +46,12 @@ export default function ContactPage() {
             </div>
             <div className={row}>
               <span className="text-sm">{t(d.whatsapp)}</span>
-              <PillButton size="sm" tone="green" href={whatsappHref()} className="mt-1 self-start">
+              <PillButton
+                size="sm"
+                tone="outline"
+                href={whatsappHref()}
+                className="mt-1 self-start"
+              >
                 {t(d.whatsappCta)}
               </PillButton>
             </div>
@@ -56,6 +64,7 @@ export default function ContactPage() {
           <ContactForm />
         </div>
       </Section>
+      <ContactBlock />
     </ContentPage>
   )
 }

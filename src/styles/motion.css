@@ -49,6 +49,34 @@
     transform: scaleX(0);
   }
 }
+/* v3 brand hero: the big ring turns, the calligraphy marks float, the stripes slide in. */
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes mark-float {
+  50% {
+    transform: translateY(-16px) rotate(4deg);
+  }
+}
+@keyframes stripes-in {
+  from {
+    opacity: 0;
+    transform: translate(40%, 40%);
+  }
+}
+
+/* v3 cards (prompt 5): white, 1 px hairline, 20 px; lift with a soft blue shadow on hover. */
+@utility card-lift {
+  transition:
+    transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.35s;
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-card);
+  }
+}
 
 /* Reduced motion: every loop stops on its first frame, transitions are instant. */
 @media (prefers-reduced-motion: reduce) {

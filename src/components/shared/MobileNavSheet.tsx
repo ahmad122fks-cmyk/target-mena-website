@@ -31,9 +31,7 @@ export default function MobileNavSheet({ open, onOpenChange }: Props) {
           <ClientLogin className="text-lg" />
           <ThemeToggle className="border border-line" />
         </div>
-        <PillButton tone="yellow" href={link(site.headerCta.path)}>
-          {t(site.headerCta.label)}
-        </PillButton>
+        <PillButton href={link(site.headerCta.path)}>{t(site.headerCta.label)}</PillButton>
       </SheetContent>
     </Sheet>
   )

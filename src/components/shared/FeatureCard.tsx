@@ -40,10 +40,7 @@ export function FeatureCard({
     >
       {eyebrow && <Eyebrow className={lg ? undefined : 'text-xs'}>{eyebrow}</Eyebrow>}
       <h3
-        className={cn(
-          'font-semibold leading-[1.4]',
-          lg ? 'text-2xl lg:text-[1.75rem]' : 'text-[1.375rem]',
-        )}
+        className={cn('font-semibold leading-[1.4]', lg ? 'text-2xl lg:text-[1.75rem]' : 'text-xl')}
       >
         {title}
       </h3>

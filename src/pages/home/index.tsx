@@ -3,29 +3,31 @@ import content from './home.content.json'
 import { AlrabiaaSales } from './sections/AlrabiaaSales'
 import { Feed } from './sections/Feed'
 import { Hero } from './sections/Hero'
-import { Platform } from './sections/Platform'
+import { NetworkBand } from './sections/NetworkBand'
 import { Portal } from './sections/Portal'
 import { ServiceTiles } from './sections/ServiceTiles'
 import { Street } from './sections/Street'
+import { VisitUs } from './sections/VisitUs'
 
 /**
- * Home v2 (Arabic at /, English at /en/), prompt 4: dark hero with the
- * services phone, the network map and counters; then the campaign feed,
- * the service tiles, the finder/list/planner platform, street photos, the
- * client portal, the Alrabiaa planner and a closing call to action. The
- * contact block and the footer come from SiteLayout.
+ * Home v3 (Arabic at /, English at /en/), prompt 5: the brand-pattern hero
+ * with the news phone, the network map and type counts, the services, the
+ * latest campaigns, the client portal, the Alrabiaa card, street photos and
+ * the one blue call to action (with the phone field). The light footer
+ * comes from SiteLayout.
  */
 export default function HomePage() {
   return (
     <>
       <Hero />
-      <Feed />
+      <NetworkBand />
       <ServiceTiles />
-      <Platform />
-      <Street />
+      <Feed />
       <Portal />
       <AlrabiaaSales />
-      <CtaBand id="home-cta" {...content.cta} />
+      <Street />
+      <CtaBand id="home-cta" phone {...content.cta} />
+      <VisitUs />
     </>
   )
 }

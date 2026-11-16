@@ -15,9 +15,10 @@ import { ServiceTabs } from './ServiceTabs'
 import { TabPanels } from './TabPanels'
 
 /**
- * Ghost hero: page name (H1), the catalog line, intro, six service tabs and
- * their text at the start side; the phone that plays the picked service at
- * the end side. Floating calligraphy behind, paused when off screen.
+ * Ghost hero (v3): page name (H1), the catalog line, intro, six service tabs
+ * (active = blue) and their text at the start side; the navy phone that
+ * plays the picked service at the end side. Floating calligraphy behind,
+ * paused when off screen.
  */
 export function Hero() {
   const t = useT()
@@ -42,10 +43,10 @@ export function Hero() {
           <h1 id="page-title" className="text-[0.9375rem] leading-normal font-semibold text-link">
             {t(content.title)}
           </h1>
-          <p className="-mt-2 text-4xl leading-[1.2] font-bold text-ink sm:text-5xl lg:text-[3.25rem]">
+          <p className="-mt-2 text-4xl leading-[1.2] font-bold text-ink sm:text-5xl lg:text-[3.5rem] lg:leading-[4.125rem]">
             {t(hero.slogan)}
           </p>
-          <p className="max-w-2xl text-lg leading-[1.8]">{t(content.intro)}</p>
+          <p className="max-w-2xl text-[1.0625rem] leading-[1.875rem]">{t(content.intro)}</p>
           <p className="text-[0.9375rem] font-medium text-ink">{t(hero.hint)}</p>
           <ServiceTabs value={tab} onChange={setTab} />
           <TabPanels value={tab} />

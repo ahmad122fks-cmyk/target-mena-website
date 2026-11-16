@@ -14,45 +14,41 @@
     "ar": "فريقنا الإبداعي هو قلب تارگت للإعلان. من العلامة والتصميم إلى حملات السوشيال ميديا والمحتوى الرقمي، نصنع مؤثرات بصرية وتجارب مميزة تشد جمهورك وتلهمه.",
     "en": "Our creative team is the heart of Target Advertising. From branding and design to social media campaigns and digital content, we craft distinctive visuals and experiences that engage and inspire your audience."
   },
-  "blocks": [
-    {
-      "type": "grid",
-      "columns": 3,
-      "title": { "ar": "الإعلام الرقمي والتسويق", "en": "Digital media and marketing" },
-      "items": [
-        {
-          "title": { "ar": "الإعلام الرقمي", "en": "Digital media" },
-          "text": {
-            "ar": "نصل إلى الجمهور عبر إعلانات موجهة على السوشيال ميديا ومحركات البحث والتطبيقات، باستراتيجيات مبنية على البيانات لتحقيق أعلى تأثير وعائد.",
-            "en": "Engaging audiences through targeted ads on social media, search engines, and apps, leveraging data-driven strategies for maximum impact and ROI."
-          }
-        },
-        {
-          "title": { "ar": "التسويق الرقمي", "en": "Digital marketing" },
-          "text": {
-            "ar": "تعزيز الحضور الرقمي عبر SEO وSEM ونمو السوشيال ميديا.",
-            "en": "Enhancing online presence through SEO, SEM, and social media growth."
-          }
-        },
-        {
-          "title": { "ar": "استراتيجية الحملات وتنفيذها", "en": "Campaign strategy & execution" },
-          "text": { "ar": "من الفكرة إلى التنفيذ.", "en": "From ideation to implementation." }
-        },
-        {
-          "title": { "ar": "أبحاث السوق", "en": "Market research" },
-          "text": {
-            "ar": "رؤى عن المستهلك تقود إلى قرارات ذكية.",
-            "en": "Consumer insights that drive smart decision-making."
-          }
-        },
-        {
-          "title": { "ar": "تموضع العلامة", "en": "Brand positioning" },
-          "text": {
-            "ar": "تعزيز هوية العلامة وثقة المستهلك.",
-            "en": "Strengthening brand identity and consumer trust."
-          }
+  "services": {
+    "title": { "ar": "الإعلام الرقمي والتسويق", "en": "Digital media and marketing" },
+    "items": [
+      {
+        "title": { "ar": "الإعلام الرقمي", "en": "Digital media" },
+        "text": {
+          "ar": "نصل إلى الجمهور عبر إعلانات موجهة على السوشيال ميديا ومحركات البحث والتطبيقات، باستراتيجيات مبنية على البيانات لتحقيق أعلى تأثير وعائد.",
+          "en": "Engaging audiences through targeted ads on social media, search engines, and apps, leveraging data-driven strategies for maximum impact and ROI."
         }
-      ]
-    }
-  ]
+      },
+      {
+        "title": { "ar": "التسويق الرقمي", "en": "Digital marketing" },
+        "text": {
+          "ar": "تعزيز الحضور الرقمي عبر SEO وSEM ونمو السوشيال ميديا.",
+          "en": "Enhancing online presence through SEO, SEM, and social media growth."
+        }
+      },
+      {
+        "title": { "ar": "استراتيجية الحملات وتنفيذها", "en": "Campaign strategy & execution" },
+        "text": { "ar": "من الفكرة إلى التنفيذ.", "en": "From ideation to implementation." }
+      },
+      {
+        "title": { "ar": "أبحاث السوق", "en": "Market research" },
+        "text": {
+          "ar": "رؤى عن المستهلك تقود إلى قرارات ذكية.",
+          "en": "Consumer insights that drive smart decision-making."
+        }
+      },
+      {
+        "title": { "ar": "تموضع العلامة", "en": "Brand positioning" },
+        "text": {
+          "ar": "تعزيز هوية العلامة وثقة المستهلك.",
+          "en": "Strengthening brand identity and consumer trust."
+        }
+      }
+    ]
+  }
 }

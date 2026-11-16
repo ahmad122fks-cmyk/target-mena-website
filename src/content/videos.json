@@ -1,0 +1,69 @@
+{
+  "_rule": "Prompt 4b: muted loops, no audio track, WebM (VP9) + MP4 (H.264, faststart) in public/video/, ≤ 1280 px wide, ≈ 3 MB each, true ratio, poster from a strong frame. Set ready to true only when the files and the poster are in place (tests check). Until then the section shows a placeholder in development and is left out of the production build.",
+  "driveToHq": {
+    "file": "target-drive-to-hq",
+    "ready": false,
+    "ratio": "16 / 9",
+    "source": "Target Drive to HQ (Motion export, no music)",
+    "label": {
+      "ar": "فيديو: الطريق إلى مقر تارگت في الجادرية",
+      "en": "Video: the drive to Target's HQ in Al Jaderiyah"
+    }
+  },
+  "unipoleStreet": {
+    "file": "target-unipole-street",
+    "ready": false,
+    "ratio": "16 / 9",
+    "source": "Target Unipole Street Scene (Motion export)",
+    "label": {
+      "ar": "فيديو: يونيبول تارگت في الشارع",
+      "en": "Video: a Target unipole on the street"
+    }
+  },
+  "play": {
+    "ar": "شغّل الفيديو",
+    "en": "Play the video"
+  },
+  "pause": {
+    "ar": "أوقف الفيديو",
+    "en": "Pause the video"
+  },
+  "missing": "video file",
+  "visit": {
+    "line": {
+      "ar": "زورونا في بغداد – الجادرية",
+      "en": "Visit us in Baghdad – Al Jaderiyah"
+    },
+    "link": {
+      "path": "/contact/",
+      "label": {
+        "ar": "اتصل بنا ←",
+        "en": "Contact us →"
+      }
+    }
+  },
+  "drive": {
+    "title": {
+      "ar": "الطريق إلى مقرّنا",
+      "en": "The drive to our HQ"
+    },
+    "maps": {
+      "ar": "افتح الخريطة",
+      "en": "Open in Maps"
+    },
+    "mapsToConfirm": "map link for the office"
+  },
+  "unipole": {
+    "caption": {
+      "ar": "يونيبول تارگت في الشارع",
+      "en": "A Target unipole on the street"
+    },
+    "link": {
+      "path": "/boards/",
+      "label": {
+        "ar": "ابحث عن لوحة ←",
+        "en": "Find a board →"
+      }
+    }
+  }
+}

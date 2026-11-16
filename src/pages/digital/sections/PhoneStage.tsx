@@ -27,7 +27,8 @@ export function PhoneStage({ tab, label }: Props) {
         !inView && '[&_*]:[animation-play-state:paused]',
       )}
     >
-      <PhoneFrame label={label}>
+      {/* Dark theme: the navy frame would melt into the navy band, so it goes deeper. */}
+      <PhoneFrame label={label} className="dark:border-deep dark:bg-deep">
         <div data-screen={tab} className="absolute inset-0">
           <Suspense fallback={<div className="absolute inset-0 bg-[#071A2E]" />}>
             <Screen key={tab} topPad={TOP_PAD} active={inView} />

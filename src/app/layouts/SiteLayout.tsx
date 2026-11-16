@@ -1,15 +1,14 @@
 import { useEffect, type ReactNode } from 'react'
-import { AnnouncementBar } from '@/components/shared/AnnouncementBar'
-import { ContactBlock } from '@/components/shared/ContactBlock'
 import { Footer } from '@/components/shared/Footer'
 import { Header } from '@/components/shared/Header'
 import { SelectionButton } from '@/components/shared/SelectionButton'
 import { dirOf, type Lang } from '@/features/i18n/lang'
 import { LangProvider } from '@/features/i18n/LangContext'
+import { ClosingBand } from './ClosingBand'
 
 /**
  * The one layout for both languages (Arabic RTL at /, English LTR at /en/):
- * header, page, the shared contact block, footer.
+ * header, page, the blue CTA band where the page has none, the light footer.
  */
 export function SiteLayout({ lang, children }: { lang: Lang; children: ReactNode }) {
   useEffect(() => {
@@ -19,12 +18,11 @@ export function SiteLayout({ lang, children }: { lang: Lang; children: ReactNode
   }, [lang])
   return (
     <LangProvider lang={lang}>
-      <AnnouncementBar />
       <Header />
       <main id="main" tabIndex={-1}>
         {children}
       </main>
-      <ContactBlock />
+      <ClosingBand />
       <Footer />
       <SelectionButton />
     </LangProvider>

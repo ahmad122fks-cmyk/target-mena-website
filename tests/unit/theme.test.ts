@@ -55,6 +55,18 @@ const PAIRS: [string, string][] = [
   ['brand-black', 'brand-yellow'],
   ['brand-black', 'brand-green'],
   ['brand-black', 'brand-grey'],
+  // v3 (prompt 5): light text on the blue hero gradient and the blue CTA band,
+  // white on the Alrabiaa card and the navy device frames.
+  ['on-blue', 'brand-blue'],
+  ['on-blue', 'hero-1'],
+  ['on-blue', 'hero-2'],
+  ['on-blue', 'hero-3'],
+  ['brand-white', 'hero-1'],
+  ['brand-white', 'hero-3'],
+  ['brand-white', 'alrabiaa'],
+  ['brand-white', 'navy'],
+  ['ink', 'panel-blue'],
+  ['brand-text', 'surface'],
 ]
 
 describe('theme contrast', () => {
@@ -67,6 +79,17 @@ describe('theme contrast', () => {
       expect(theme[background], `${background} missing`).toBeDefined()
       expect(contrast(theme[text], theme[background])).toBeGreaterThanOrEqual(4.5)
     })
+
+  it.each([
+    ['light', light],
+    ['dark', dark],
+  ] as const)(
+    '%s: the yellow headline highlight is large-text readable (3:1) on the hero',
+    (_, theme) => {
+      for (const stop of ['hero-1', 'hero-2', 'hero-3'])
+        expect(contrast(theme['brand-yellow'], theme[stop])).toBeGreaterThanOrEqual(3)
+    },
+  )
 
   it('uses the dark-blue values Ahmad set (never pure black)', () => {
     expect(dark.page).toBe('#071a2e')

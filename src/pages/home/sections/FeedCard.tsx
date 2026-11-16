@@ -1,70 +1,50 @@
 import qiMark from '@/assets/feed/qi-mark.svg'
 import { Photo } from '@/components/shared/Photo'
-import feed from '@/content/feed.json'
-import type { FeedItem } from '@/features/feed/feed'
+import feed from '@/content/campaigns.json'
 import { useT } from '@/features/i18n/LangContext'
 import { FEED_PHOTOS } from '@/lib/images'
-import content from '../home.more.content.json'
+import type { FeedCardData } from './Feed'
 
-/** One approved campaign: real photo (or the client's logo), when · where, brand, one line, tags. */
-export function FeedCard({ item }: { item: FeedItem }) {
+/**
+ * One approved campaign photo (v3): real photo at its true ratio (or the
+ * client's logo), when · where, brand and one line. A campaign's further
+ * cards use the photo's own description as their line.
+ */
+export function FeedCard({ item, photo, first }: FeedCardData) {
   const t = useT()
-  const [main, ...more] = item.photos ?? []
   return (
-    <article className="flex w-full flex-col overflow-hidden rounded-[1.125rem] border border-line bg-surface">
-      <div className="relative flex aspect-[4/3] items-center justify-center bg-brand-ghost">
-        {main ? (
+    <article className="card-lift flex w-full flex-col overflow-hidden rounded-card border border-line bg-surface">
+      <div className="relative bg-brand-ghost">
+        {photo ? (
           <Photo
-            picture={FEED_PHOTOS[main.file]}
-            alt={t(main.alt)}
-            sizes="300px"
-            className="h-full object-cover"
+            picture={FEED_PHOTOS[photo.file]}
+            alt={t(photo.alt)}
+            sizes="(min-width: 1240px) 388px, (min-width: 640px) 45vw, calc(100vw - 32px)"
           />
         ) : (
-          item.logoAlt && (
+          <div className="flex aspect-[4/3] items-center justify-center">
             <img
               src={qiMark}
               width={62}
               height={61}
-              alt={t(item.logoAlt)}
+              alt={item.logoAlt ? t(item.logoAlt) : ''}
               loading="lazy"
               className="h-20 w-auto"
             />
-          )
+          </div>
         )}
-        {item.isNew && (
-          <span className="absolute start-3 top-3 rounded-full bg-brand-yellow px-2.5 py-0.5 text-xs font-semibold text-brand-black">
+        {item.isNew && first && (
+          <span className="absolute start-3 top-3 rounded-md bg-white px-2.5 py-1 text-xs font-semibold text-brand-black shadow-[0_4px_12px_rgb(0_0_0/0.12)]">
             {t(feed.newLabel)}
           </span>
         )}
       </div>
-      <div className="flex flex-1 flex-col gap-1.5 p-4">
-        <p className="text-xs">
+      <div className="flex flex-col gap-1.5 p-5">
+        <p className="text-[0.8125rem]">
           <span className="ltr-run">{t(item.when)}</span> · {t(item.where)}
         </p>
-        <h3 className="text-[1.0625rem] font-semibold">{t(item.brand)}</h3>
-        <p className="text-sm leading-[1.7]">{t(item.line)}</p>
-        <ul className="mt-1 flex flex-wrap gap-1.5">
-          {item.tags.map((tag) => (
-            <li key={tag.en} className="rounded-full bg-brand-grey-10 px-2.5 py-0.5 text-xs">
-              {t(tag)}
-            </li>
-          ))}
-        </ul>
-        {more.length > 0 && (
-          <ul aria-label={t(content.feed.more)} className="mt-auto flex gap-2 pt-3">
-            {more.map((photo) => (
-              <li key={photo.file}>
-                <Photo
-                  picture={FEED_PHOTOS[photo.file]}
-                  alt={t(photo.alt)}
-                  sizes="64px"
-                  className="h-12 w-16 rounded-lg object-cover"
-                />
-              </li>
-            ))}
-          </ul>
-        )}
+        <h3 className="text-[1.1875rem] font-bold">{t(item.brand)}</h3>
+        <p className="text-sm leading-[1.7]">{t(first || !photo ? item.line : photo.alt)}</p>
       </div>
     </article>
   )

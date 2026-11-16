@@ -71,14 +71,16 @@ describe('production viewfinder: shots and stages', () => {
 })
 
 describe('production page content', () => {
-  it('keeps the catalog facts exactly and the +35 claim', () => {
+  it('keeps the catalog facts exactly; the +35 claim waits on the owner', () => {
     expect(production.make.facts.map((fact) => fact.value.en)).toEqual([
       'ALEXA 35',
       '18 / 3',
       '50',
       '1 → many',
     ])
-    expect(production.howWeWork.stat.value).toEqual({ ar: '+35', en: '35+' })
+    expect(production.howWeWork.stat).not.toHaveProperty('value')
+    expect(production.howWeWork.stat.toConfirm).toBe('number of productions delivered')
+    expect(JSON.stringify(production)).not.toMatch(/\+35|35\+/)
     expect(production.make.services).toHaveLength(6)
   })
   it('shows no prices or availability', () => {

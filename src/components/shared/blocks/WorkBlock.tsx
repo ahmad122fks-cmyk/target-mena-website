@@ -1,7 +1,11 @@
 import work from '@/content/work.json'
 import { useT } from '@/features/i18n/LangContext'
+import { ToConfirm } from '../ToConfirm'
 
-/** Production clients and recent work (BUILD-BRIEF 6; names only, logos only from Ahmad's files). */
+/**
+ * Production clients and recent work (BUILD-BRIEF 6; names only, logos only
+ * from Ahmad's files). Only approved names ship; the rest wait on Ahmad.
+ */
 export function WorkBlock() {
   const t = useT()
   return (
@@ -18,6 +22,7 @@ export function WorkBlock() {
             </li>
           ))}
         </ul>
+        <ToConfirm what={work.clientsToConfirm} className="self-start text-xs" />
         <p className="text-sm">{t(work.retained)}</p>
       </div>
       <div className="flex flex-col gap-4 rounded-card border border-line bg-surface p-6 lg:p-7">

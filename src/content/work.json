@@ -2,25 +2,17 @@
   "recentTitle": { "ar": "أحدث أعمالنا", "en": "Recent work" },
   "recent": [
     { "ar": "إعلان الدفع من كي كارد · كي كارد", "en": "Qi Card Payment TVC · Qi Card" },
-    { "ar": "إعلان الائتمان من كي كارد · كي كارد", "en": "Qi Credit TVC · Qi Card" },
-    {
-      "ar": "حملة رمضان لديجيتال زون · ديجيتال زون",
-      "en": "Digital Zone Ramadan campaign · Digital Zone"
-    }
+    { "ar": "إعلان الائتمان من كي كارد · كي كارد", "en": "Qi Credit TVC · Qi Card" }
   ],
   "clientsTitle": { "ar": "عملاء الإنتاج", "en": "Production clients" },
   "clients": [
     { "ar": "كي كارد (أكثر من 15 حملة)", "en": "Qi (15+ campaigns)" },
-    { "ar": "Gree", "en": "Gree" },
-    { "ar": "ديجيتال زون", "en": "Digital Zone" },
-    { "ar": "Millionaire", "en": "Millionaire" },
-    { "ar": "Zae", "en": "Zae" },
-    { "ar": "الرابعة (إعلانات نجوم الرابعة)", "en": "Alrabiaa (Nujoom Al-Rabiaa TVCs)" },
-    { "ar": "Kalleh", "en": "Kalleh" },
-    { "ar": "Eatix", "en": "Eatix" }
+    { "ar": "الرابعة (إعلانات نجوم الرابعة)", "en": "Alrabiaa (Nujoom Al-Rabiaa TVCs)" }
   ],
   "retained": {
     "ar": "الوكالة المعتمدة لمجموعة كي والرابعة.",
     "en": "Retained agency for Qi Group and Alrabiaa."
-  }
+  },
+  "clientsToConfirm": "other production client names",
+  "_rule": "Prompt 5 (16 Nov 2026): only Qi and Alrabiaa are named until the owner approves the other production clients (TODO-CONFIRM)."
 }

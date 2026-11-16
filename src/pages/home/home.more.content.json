@@ -1,12 +1,11 @@
 {
   "feed": {
-    "eyebrow": { "ar": "يُحدَّث باستمرار", "en": "Always up to date" },
-    "title": { "ar": "آخر حملاتنا", "en": "Our latest campaigns" },
-    "note": {
-      "ar": "تُنشر الحملة هنا فقط بعد موافقة العميل، مع صور حقيقية من المواقع.",
-      "en": "A campaign appears here only after the client approves, with real photos from the sites."
-    },
-    "more": { "ar": "صور أخرى من الحملة", "en": "More photos from the campaign" }
+    "eyebrow": { "ar": "آخر حملاتنا", "en": "Our latest campaigns" },
+    "title": { "ar": "ما يُعرض الآن على لوحاتنا", "en": "On our boards now" },
+    "all": {
+      "path": "/work/",
+      "label": { "ar": "كل الأعمال ←", "en": "All our work →" }
+    }
   },
   "portal": {
     "eyebrow": { "ar": "بعد الحجز", "en": "After booking" },

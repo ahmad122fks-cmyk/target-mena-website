@@ -5,7 +5,10 @@ import { STOPS, stopCounts } from './stops'
 
 type Props = { index: number; onPick: (index: number) => void }
 
-/** The five stops; a vertical list on desktop, one scrolling row above the map on phones. */
+/**
+ * The five stops as white cards, the current one blue (v3); a vertical list
+ * on desktop, one scrolling row above the map on phones.
+ */
 export function StopList({ index, onPick }: Props) {
   const t = useT()
   return (
@@ -20,16 +23,16 @@ export function StopList({ index, onPick }: Props) {
               data-stop={stop.key}
               onClick={() => onPick(j)}
               className={cn(
-                'flex min-h-14 w-full items-center gap-3.5 rounded-2xl border px-4 py-3 text-start',
+                'flex min-h-14 w-full items-center gap-3.5 rounded-2xl border px-4 py-3 text-start transition-colors',
                 on
-                  ? 'border-white bg-white text-brand-black'
-                  : 'border-white/15 text-white hover:border-white/40',
+                  ? 'border-brand-blue bg-brand-blue text-white'
+                  : 'border-line bg-surface text-ink hover:border-link',
               )}
             >
               <span
                 className={cn(
                   'ltr-run flex size-[34px] shrink-0 items-center justify-center rounded-full text-sm font-bold',
-                  on ? 'bg-brand-yellow text-brand-black' : 'bg-white/10',
+                  on ? 'bg-white text-brand-blue' : 'bg-brand-grey-10 text-ink',
                 )}
               >
                 {j + 1}
@@ -40,7 +43,7 @@ export function StopList({ index, onPick }: Props) {
               <span
                 className={cn(
                   'ltr-run text-[0.9375rem] font-semibold',
-                  on ? 'text-brand-blue' : 'text-brand-grey-40',
+                  on ? 'text-white' : 'text-brand-text',
                 )}
               >
                 {stopCounts(stop).total.toLocaleString('en-US')}

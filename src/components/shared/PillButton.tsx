@@ -3,16 +3,19 @@ import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 
 const TONES = {
-  blue: 'bg-brand-blue text-white hover:bg-brand-blue-80',
-  outline: 'border-[1.5px] border-link bg-surface text-link hover:bg-brand-blue-10',
-  ghost: 'border border-input bg-field text-ink hover:bg-brand-ghost',
+  /** Primary: blue, white text (v3). */
+  blue: 'bg-brand-blue text-white hover:bg-[#014a80] dark:hover:bg-brand-blue-80',
+  /** Secondary: white with a 1 px #DCE7EF border (v3). */
+  outline: 'border border-line-strong bg-surface text-ink hover:border-link hover:text-link',
+  ghost: 'border border-line-strong bg-surface text-ink hover:border-link hover:text-link',
   white: 'bg-white text-brand-black hover:bg-white/90',
   black: 'bg-brand-black text-white hover:bg-brand-black/85',
+  /** Alrabiaa only. */
   green: 'bg-brand-green text-brand-black hover:bg-brand-green-80',
-  /** Main action on the header and dark bands (DESIGN.md 12). */
+  /** The one main call to action (header button, CTA band). */
   yellow: 'bg-brand-yellow text-brand-black hover:bg-brand-yellow-80',
-  /** Secondary action on blue or dark bands. */
-  outlineWhite: 'border-[1.5px] border-white bg-transparent text-white hover:bg-white/10',
+  /** Secondary action on the blue hero or the blue CTA band. */
+  outlineWhite: 'border-[1.5px] border-white/70 bg-transparent text-white hover:bg-white/10',
 } as const
 
 const SIZES = {
@@ -38,7 +41,10 @@ type ButtonProps = Common & { href?: undefined; external?: undefined } & Omit<
     'className'
   >
 
-/** Pill-shaped action (DESIGN.md 4): a link with `href`, otherwise a button. */
+/**
+ * The site's action button (DESIGN.md 4): a link with `href`, otherwise a
+ * button. v3: 10 px corners; pills are only for filters and small tags.
+ */
 export function PillButton(props: LinkProps | ButtonProps) {
   const {
     tone = 'blue',
@@ -52,7 +58,7 @@ export function PillButton(props: LinkProps | ButtonProps) {
       ComponentProps<'button'>,
       'className'
     >
-  const classes = cn('rounded-full font-medium', SIZES[size], TONES[tone], className)
+  const classes = cn('rounded-btn font-semibold', SIZES[size], TONES[tone], className)
   if (href !== undefined)
     return (
       <Button asChild className={classes}>
