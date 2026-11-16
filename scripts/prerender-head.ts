@@ -38,3 +38,23 @@ export function modulePreloads(manifest: Manifest, source: string): string {
   visit(source)
   return [...files].map((file) => `<link rel="modulepreload" href="/${file}">`).join('')
 }
+
+/**
+ * Photo-led pages (finder, board pages, network map, production camera):
+ * the app script starts downloading only once the hero photo has arrived
+ * (or after 2.5 s), so on a slow phone connection the photo, the page's
+ * LCP, does not share the line with ~100 KB of JavaScript. The app waits
+ * for that photo before hydrating anyway (entry-client.tsx).
+ */
+export function photoFirstEntry(html: string): string {
+  const entry = html.match(/<script type="module" crossorigin src="([^"]+)"><\/script>/)
+  if (!entry) throw new Error('Entry script not found in dist/index.html')
+  const loader =
+    `<script type="module">let d=0;const s=()=>{if(d)return;d=1;import('${entry[1]}')},` +
+    `i=document.querySelector('img[fetchpriority="high"]');` +
+    `if(i&&!i.complete){i.addEventListener('load',s,{once:true});` +
+    `i.addEventListener('error',s,{once:true});setTimeout(s,2500)}else s()</script>`
+  return html
+    .replace(entry[0], loader)
+    .replace(/<link rel="modulepreload" crossorigin href="[^"]+">/g, '')
+}

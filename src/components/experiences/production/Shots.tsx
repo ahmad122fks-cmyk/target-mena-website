@@ -28,7 +28,7 @@ export function Shots({ cut, running }: { cut: number; running: boolean }) {
         <Photo
           picture={ART.production}
           alt=""
-          sizes="(min-width: 1240px) 1192px, 100vw"
+          sizes="(min-width: 1240px) 1192px, calc(100vw - 32px)"
           priority={i === 0}
           className={cn(
             'absolute inset-0 h-full object-cover',

@@ -25,7 +25,9 @@ export function Markers({ cam, type, sel, hover, layer }: Props) {
     if (!n) return null
     const on = p.k === sel || p.k === hover
     const halo = Math.round((10 + Math.sqrt(n) * 2.1) * 10) / 10
-    const hit = Math.max(44, Math.round(halo * 1.4))
+    // 32 px: big enough to tap, small enough that close provinces (Babel,
+    // Karbala, Najaf) do not cover each other; the halo is decoration only.
+    const hit = 32
     return (
       <StagePoint key={p.k} cam={cam} at={p}>
         <button
@@ -38,7 +40,7 @@ export function Markers({ cam, type, sel, hover, layer }: Props) {
         >
           <span
             aria-hidden="true"
-            className={CENTRE}
+            className={cn(CENTRE, 'pointer-events-none')}
             style={{ width: halo * 2, height: halo * 2, background: on ? HALO_YELLOW : HALO_BLUE }}
           />
           <span

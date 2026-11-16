@@ -26,6 +26,13 @@ export const FORBIDDEN_WORDS: RegExp[] = [
   /الريادة|ريادة/,
 ]
 
+/**
+ * The site owner's name appears in internal notes and code comments (stripped
+ * from the build), but never in anything that ships: content JSON (bundled
+ * whole, notes included) and the built pages, scripts and data.
+ */
+export const OWNER_NAME = /\bAhmad\b/i
+
 export function privateTerms(): string[] {
   const file = new URL('./forbidden.private.txt', import.meta.url)
   const fromFile = fs.existsSync(file) ? fs.readFileSync(file, 'utf8').split('\n') : []

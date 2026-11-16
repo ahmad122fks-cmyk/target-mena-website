@@ -8,3 +8,9 @@ declare module '*&as=picture' {
   const picture: ImagetoolsPicture
   export default picture
 }
+
+/** vite-imagetools single file (e.g. a tiny backdrop copy): its URL. */
+declare module '*&quality=50' {
+  const url: string
+  export default url
+}

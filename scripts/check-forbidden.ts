@@ -7,7 +7,14 @@
 import { execSync } from 'node:child_process'
 import fs from 'node:fs'
 import path from 'node:path'
-import { findForbidden, htmlText, pageData, privateTerms, type Finding } from './forbidden-rules'
+import {
+  findForbidden,
+  htmlText,
+  OWNER_NAME,
+  pageData,
+  privateTerms,
+  type Finding,
+} from './forbidden-rules'
 
 const mode = process.argv[2] ?? '--source'
 const terms = privateTerms()
@@ -32,6 +39,10 @@ function check(file: string, text: string): Finding[] {
   const isData = file.startsWith('src/data/') || (built && file.endsWith('.json'))
   const isPublished = file.endsWith('.content.json') || file.startsWith('src/content/') || built
   const html = file.endsWith('.html')
+  const shipsWhole = built || (file.endsWith('.json') && (isPublished || isData))
+  const owner =
+    shipsWhole && OWNER_NAME.test(text) ? [{ rule: 'owner name', sample: '(hidden)' }] : []
+  if (owner.length) return owner
   // Built scripts and styles: every word except "$" (ordinary code there).
   if (built && /\.(js|css)$/.test(file))
     return findForbidden(text, { words: true, terms }).filter(

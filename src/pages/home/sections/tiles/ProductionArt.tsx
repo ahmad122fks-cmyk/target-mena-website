@@ -18,10 +18,10 @@ export function ProductionArt() {
         <span className="size-[9px] animate-[blink_1s_steps(2)_infinite] rounded-full bg-brand-black" />
         REC
       </span>
-      <Timecode
-        running={inView}
-        className="absolute end-3 top-2 text-[0.8125rem] font-semibold text-brand-black"
-      />
+      {/* The run itself is left-to-right; the wrapper keeps it at the end side. */}
+      <span className="absolute end-3 top-2 text-[0.8125rem] font-semibold text-brand-black">
+        <Timecode running={inView} />
+      </span>
     </div>
   )
 }

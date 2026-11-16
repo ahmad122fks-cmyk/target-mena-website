@@ -11,7 +11,9 @@ const IMG = 'h-7 w-auto sm:h-[1.875rem]'
 /**
  * Brand Library logo file, height only (never stretched, recoloured,
  * boxed or placed over a busy background). The p-2 keeps clear space.
- * Both files are in the page so the right one shows before any script runs.
+ * Both files are in the page so the right one shows before any script runs;
+ * both are lazy, so neither is preloaded ahead of the page's main photo (the
+ * visible one still loads at once: it is on screen).
  */
 export function Logo({ tone = 'blue', className }: Props) {
   const t = useT()
@@ -25,6 +27,7 @@ export function Logo({ tone = 'blue', className }: Props) {
           alt={alt}
           width={1111}
           height={202}
+          loading="lazy"
           className={cn(IMG, 'dark:hidden')}
         />
       )}
@@ -33,7 +36,7 @@ export function Logo({ tone = 'blue', className }: Props) {
         alt={alt}
         width={1111}
         height={202}
-        loading={tone === 'white' ? 'lazy' : undefined}
+        loading="lazy"
         className={cn(IMG, tone === 'blue' && 'hidden dark:block')}
       />
     </a>

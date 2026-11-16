@@ -3,6 +3,7 @@ import { Photo } from '@/components/shared/Photo'
 import { ToConfirm } from '@/components/shared/ToConfirm'
 import type { Picture } from '@/lib/images'
 import { cn } from '@/lib/utils'
+import { backdropOf } from './thumbs'
 
 /** Inner width of the phone screen: one source size for the photo and its blurred copy. */
 export const SCREEN_SIZES = '264px'
@@ -12,17 +13,18 @@ export const SCREEN_SIZES = '264px'
  * (decorative only; the real photo is shown whole on top).
  */
 export function BlurredBackdrop({ picture, className }: { picture: Picture; className?: string }) {
+  const look = cn(
+    'absolute -inset-[30px] h-[calc(100%_+_60px)] w-[calc(100%_+_60px)] max-w-none object-cover blur-[26px] brightness-[.38] saturate-[1.2]',
+    className,
+  )
+  const tiny = backdropOf(picture)
   return (
     <div aria-hidden="true" className="absolute inset-0 overflow-hidden">
-      <Photo
-        picture={picture}
-        alt=""
-        sizes={SCREEN_SIZES}
-        className={cn(
-          'absolute -inset-[30px] h-[calc(100%_+_60px)] w-[calc(100%_+_60px)] max-w-none object-cover blur-[26px] brightness-[.38] saturate-[1.2]',
-          className,
-        )}
-      />
+      {tiny ? (
+        <img src={tiny} alt="" width={32} height={20} decoding="async" className={look} />
+      ) : (
+        <Photo picture={picture} alt="" sizes={SCREEN_SIZES} className={look} />
+      )}
     </div>
   )
 }

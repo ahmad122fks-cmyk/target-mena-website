@@ -121,6 +121,12 @@ describe('map labels', () => {
       'highway-west',
     ])
   })
+  it('keeps only the 100+ places on a phone-width map until zoom 2.2', () => {
+    const phone = { ...base, box: { w: 358, h: 420 } }
+    expect(keys(phone)).toEqual(['najaf', 'baghdad', 'highway-south'])
+    expect(keys({ ...phone, sel: 'babel' })).toContain('babel')
+    expect(keys({ ...phone, cam: { ...phone.cam, z: 2.2 } }).length).toBeGreaterThan(3)
+  })
   it('shows every province from zoom 2.2', () => {
     expect(mapLabels({ ...base, cam: { ...base.cam, z: 2.2 } })).toHaveLength(14)
   })
