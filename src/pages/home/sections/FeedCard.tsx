@@ -11,7 +11,7 @@ export function FeedCard({ item }: { item: FeedItem }) {
   const t = useT()
   const [main, ...more] = item.photos ?? []
   return (
-    <article className="flex w-full flex-col overflow-hidden rounded-[1.125rem] border border-line bg-white">
+    <article className="flex w-full flex-col overflow-hidden rounded-[1.125rem] border border-line bg-surface">
       <div className="relative flex aspect-[4/3] items-center justify-center bg-brand-ghost">
         {main ? (
           <Photo

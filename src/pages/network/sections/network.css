@@ -1,0 +1,12 @@
+/* The tracking demo's lights: on, briefly off, on again (opacity only). */
+@keyframes led {
+  0%,
+  70%,
+  100% {
+    opacity: 1;
+  }
+  80%,
+  90% {
+    opacity: 0.15;
+  }
+}

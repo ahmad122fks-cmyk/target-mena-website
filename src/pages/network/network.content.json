@@ -5,16 +5,111 @@
       "en": "Target's billboard network in Iraq | Target Advertising"
     },
     "description": {
-      "ar": "لوحات تارگت في بغداد والنجف وكربلاء وبابل والمحافظات، وجسور الطرق السريعة. اختر المحافظة أو نوع اللوحة.",
-      "en": "Target's boards in Baghdad, Najaf, Karbala, Babel and other provinces, plus highway bridges. Choose a province or board type."
+      "ar": "شبكة تارگت في العراق: 674 لوحة و683 وجهاً إعلانياً و43,107 م² في 12 محافظة وعلى طريقين سريعين. جولة على الخريطة، وتوزيع اللوحات حسب النوع والمحافظة.",
+      "en": "Target's network in Iraq: 674 boards, 683 faces and 43,107 m² in 12 provinces and on 2 highways. Tour the map and see the boards by type and province."
     }
   },
-  "title": { "ar": "شبكة لوحات تارگت", "en": "Target's billboard network" },
+  "title": {
+    "ar": "شبكة لوحات تارگت",
+    "en": "Target's billboard network"
+  },
   "intro": {
     "ar": "لوحاتنا في بغداد والمحافظات وعلى الطرق السريعة بين المدن. اختر المحافظة أو نوع اللوحة.",
     "en": "Our boards in Baghdad, the provinces and on the highways between cities. Choose a province or a board type."
   },
-  "provinces": { "ar": "المحافظات", "en": "Provinces" },
-  "highways": { "ar": "الطرق السريعة", "en": "Highways" },
-  "formats": { "ar": "أنواع اللوحات", "en": "Board types" }
+  "provinces": {
+    "ar": "المحافظات",
+    "en": "Provinces"
+  },
+  "highways": {
+    "ar": "الطرق السريعة",
+    "en": "Highways"
+  },
+  "formats": {
+    "ar": "أنواع اللوحات",
+    "en": "Board types"
+  },
+  "numbers": {
+    "eyebrow": {
+      "ar": "الشبكة بالأرقام",
+      "en": "The network in numbers"
+    },
+    "title": {
+      "ar": "ماذا نملك، وأين",
+      "en": "What we have, and where"
+    },
+    "kpis": [
+      {
+        "key": "boards",
+        "label": {
+          "ar": "لوحة",
+          "en": "boards"
+        }
+      },
+      {
+        "key": "faces",
+        "label": {
+          "ar": "وجه إعلاني",
+          "en": "advertising faces"
+        }
+      },
+      {
+        "key": "m2",
+        "label": {
+          "ar": "متر مربع",
+          "en": "square metres"
+        }
+      },
+      {
+        "key": "provinces",
+        "label": {
+          "ar": "محافظة + طريقان سريعان",
+          "en": "provinces + 2 highways"
+        }
+      }
+    ],
+    "byType": {
+      "ar": "حسب نوع اللوحة",
+      "en": "By board type"
+    },
+    "byPlace": {
+      "ar": "حسب المحافظة والطريق",
+      "en": "By province and highway"
+    },
+    "unassigned": {
+      "ar": "لوحتا موبي خارج المحافظات محسوبتان في المجموع فقط.",
+      "en": "Two mupis outside the provinces count in the total only."
+    }
+  },
+  "strip": {
+    "title": {
+      "ar": "والصور من الشارع، بدون تعديل",
+      "en": "And the photos, straight from the street"
+    },
+    "label": {
+      "ar": "صور لوحات تارگت",
+      "en": "Photos of Target boards"
+    }
+  },
+  "browse": {
+    "ar": "تصفّح لوحات الموقع",
+    "en": "Browse the boards on the site"
+  },
+  "cta": {
+    "title": {
+      "ar": "وجدت المحافظة التي تريدها؟",
+      "en": "Found the province you want?"
+    },
+    "text": {
+      "ar": "اختر لوحاتك وأضفها إلى قائمتك، ونرسل لك العرض.",
+      "en": "Choose your boards, add them to your list, and we send you the proposal."
+    },
+    "primary": {
+      "path": "/boards/",
+      "label": {
+        "ar": "ابحث عن لوحة",
+        "en": "Find a board"
+      }
+    }
+  }
 }

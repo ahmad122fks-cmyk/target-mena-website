@@ -12,6 +12,8 @@ export type PageData =
   | {
       kind: 'home'
       featured: Board[]
+      /** Boards with approved street photos for the phone swipe cards (src/content/swipe.json). */
+      swipe: Board[]
       /** Published boards per province or highway, most first (from boards.json). */
       provinces: { key: string; count: number }[]
       total: number
@@ -27,6 +29,7 @@ export type PageData =
   | { kind: 'board'; board: Board; nearby: Board[] }
   | {
       kind: 'network'
+      swipe: Board[]
       provinces: { key: string; count: number }[]
       formats: { key: string; count: number }[]
     }

@@ -12,7 +12,7 @@ export function Feed() {
   return (
     <Section id="feed" labelledBy="feed-title" pad="md" className="border-b border-line">
       <div className="flex flex-col gap-2">
-        <p className="flex items-center gap-2 text-[0.8125rem] font-semibold text-brand-blue ltr:tracking-[0.06em]">
+        <p className="flex items-center gap-2 text-[0.8125rem] font-semibold text-link ltr:tracking-[0.06em]">
           <span aria-hidden="true" className="size-2 rounded-full bg-brand-green" />
           {t(feed.eyebrow)}
         </p>

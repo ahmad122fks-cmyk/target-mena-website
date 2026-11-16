@@ -1,0 +1,11 @@
+/*
+ * Gentle float for the hero calligraphy and the icons beside the phone:
+ * up and down only (never rotated, DESIGN.md 10). Used as
+ * animate-[dg-float_…]; paused off screen with Tailwind's pause variant,
+ * still under reduced motion (src/styles/motion.css).
+ */
+@keyframes dg-float {
+  50% {
+    transform: translateY(-18px);
+  }
+}

@@ -1,0 +1,23 @@
+/* Service tile loops (home). Transform/opacity only; stopped by motion.css under reduced motion. */
+@keyframes feed-scroll {
+  0%,
+  25% {
+    transform: translateY(0);
+  }
+  33%,
+  58% {
+    transform: translateY(-33.33%);
+  }
+  66%,
+  91% {
+    transform: translateY(-66.66%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes beam-swing {
+  50% {
+    transform: rotate(16deg);
+  }
+}

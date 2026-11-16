@@ -15,7 +15,7 @@ export function SearchPreview() {
       {search.chips.map((chip) => (
         <li
           key={chip.en}
-          className="flex items-center gap-1 rounded-full border border-input bg-white px-3 py-1 text-[0.8125rem] text-brand-black"
+          className="flex items-center gap-1 rounded-full border border-input bg-field px-3 py-1 text-[0.8125rem] text-ink"
         >
           {t(chip)} <X className="size-3" strokeWidth={2} />
         </li>
@@ -33,9 +33,9 @@ export function ListPreview() {
       {boards.map((board) => (
         <li
           key={board.code}
-          className="flex justify-between gap-3 rounded-[10px] bg-white px-3 py-2 text-[0.8125rem]"
+          className="flex justify-between gap-3 rounded-[10px] bg-surface px-3 py-2 text-[0.8125rem]"
         >
-          <b className="ltr-run font-semibold text-brand-blue">{board.code}</b>
+          <b className="ltr-run font-semibold text-link">{board.code}</b>
           <span className="truncate">
             {areaLabel(board, lang) ?? board.description} ·{' '}
             <span className="ltr-run">{formatSqm(board.sqm, lang)}</span>

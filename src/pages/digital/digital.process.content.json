@@ -1,0 +1,48 @@
+{
+  "process": {
+    "eyebrow": { "ar": "كيف نعمل", "en": "How we work" },
+    "title": { "ar": "من الفكرة إلى النشر", "en": "From the idea to going live" },
+    "lead": {
+      "ar": "مخرجاتنا الإبداعية مصممة لتلامس جمهورك وتنسجم تماماً مع هوية علامتك وأهدافها.",
+      "en": "Our creative outputs are tailored to resonate with your audience while aligning perfectly with your brand identity and objectives."
+    },
+    "steps": [
+      {
+        "title": { "ar": "نفهم علامتك", "en": "We get to know your brand" },
+        "text": {
+          "ar": "الجمهور، الهدف، والنبرة.",
+          "en": "Your audience, your goal and your tone."
+        }
+      },
+      {
+        "title": { "ar": "نبتكر الفكرة", "en": "We shape the idea" },
+        "text": {
+          "ar": "مفهوم واحد يصلح لكل المنصات.",
+          "en": "One concept that works on every platform."
+        }
+      },
+      {
+        "title": { "ar": "نصمم وننتج", "en": "We design and produce" },
+        "text": { "ar": "تصميم، تصوير، وموشن.", "en": "Design, filming and motion." }
+      },
+      {
+        "title": { "ar": "ننشر ونقيس", "en": "We publish and measure" },
+        "text": { "ar": "نشر، متابعة، وتقرير.", "en": "Publishing, follow-up and a report." }
+      }
+    ]
+  },
+  "cta": {
+    "title": {
+      "ar": "لنصنع تجربة علامتك القادمة.",
+      "en": "Let’s make your brand’s next experience."
+    },
+    "text": {
+      "ar": "أخبرنا بالهدف، وفريقنا يتولى الباقي.",
+      "en": "Tell us the goal, and our team handles the rest."
+    },
+    "link": {
+      "path": "/campaign/",
+      "label": { "ar": "ابدأ مشروعك ←", "en": "Start your project →" }
+    }
+  }
+}

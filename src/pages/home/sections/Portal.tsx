@@ -23,10 +23,10 @@ export function Portal() {
             title={t(portal.title)}
           />
           <p className="text-[1.0625rem] leading-[1.9]">{t(portal.text)}</p>
-          <ul className="flex flex-col gap-3 text-brand-black">
+          <ul className="flex flex-col gap-3 text-ink">
             {portal.list.map((item) => (
               <li key={item.en} className="flex items-center gap-2.5">
-                <span className="flex size-6 shrink-0 items-center justify-center rounded-full bg-brand-blue-10 text-brand-blue">
+                <span className="flex size-6 shrink-0 items-center justify-center rounded-full bg-brand-blue-10 text-link">
                   <Check className="size-3.5" strokeWidth={2.5} aria-hidden="true" />
                 </span>
                 {t(item)}

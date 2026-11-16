@@ -18,77 +18,6 @@
     {
       "type": "grid",
       "columns": 3,
-      "title": { "ar": "الخدمات الإبداعية", "en": "Creative services" },
-      "items": [
-        {
-          "title": { "ar": "الحملات", "en": "Campaigns" },
-          "text": {
-            "ar": "حملات كاملة، من الفكرة إلى الإطلاق.",
-            "en": "Full campaigns, from the idea to launch."
-          }
-        },
-        {
-          "title": { "ar": "محتوى السوشيال ميديا", "en": "Social media content" },
-          "text": {
-            "ar": "مؤثرات بصرية وحملات توقف التمرير.",
-            "en": "Scroll-stopping visuals and campaigns."
-          }
-        },
-        {
-          "title": { "ar": "العلامة والهوية", "en": "Branding & identity" },
-          "text": {
-            "ar": "من تصميم الشعار إلى تصميم التغليف، نبني العلامات من الأساس.",
-            "en": "From logo creation to packaging design, we build brands from the ground up."
-          }
-        },
-        {
-          "title": { "ar": "تصميم UI/UX", "en": "UI/UX design" },
-          "text": {
-            "ar": "تصاميم حديثة للمواقع وتطبيقات الهاتف تحسّن تجربة المستخدم.",
-            "en": "Modern web and mobile app designs that enhance user experiences."
-          }
-        },
-        {
-          "title": { "ar": "التصميم ثلاثي الأبعاد", "en": "3D design" },
-          "text": {
-            "ar": "نصمم رسومات ثلاثية الأبعاد جذابة للعلامات والإعلانات والترفيه، ونحوّل الأفكار إلى تجارب بصرية آسرة.",
-            "en": "We create captivating 3D graphics for branding, advertising, and entertainment, turning concepts into visually engaging experiences."
-          }
-        },
-        {
-          "title": { "ar": "فيديوهات وتصاميم بالذكاء الاصطناعي", "en": "AI videos & design" },
-          "text": {
-            "ar": "فيديوهات وتصاميم تُنتج بالذكاء الاصطناعي.",
-            "en": "Videos and visuals made with AI."
-          }
-        }
-      ]
-    },
-    {
-      "type": "text",
-      "tone": "yellow",
-      "title": {
-        "ar": "نحن لا نكتفي بالإبداع؛ بل نصنع التجارب.",
-        "en": "We don’t just create; we craft experiences."
-      },
-      "paragraphs": [
-        {
-          "ar": "مخرجاتنا الإبداعية مصممة لتلامس جمهورك وتنسجم تماماً مع هوية علامتك وأهدافها.",
-          "en": "Our creative outputs are tailored to resonate with your audience while aligning perfectly with your brand identity and objectives."
-        }
-      ]
-    },
-    {
-      "type": "art",
-      "art": "creative",
-      "alt": {
-        "ar": "عمل فني بالخط العربي متعدد الألوان من الملف التعريفي لتارگت",
-        "en": "Multicolour Arabic calligraphy artwork from Target’s catalog"
-      }
-    },
-    {
-      "type": "grid",
-      "columns": 3,
       "title": { "ar": "الإعلام الرقمي والتسويق", "en": "Digital media and marketing" },
       "items": [
         {
@@ -124,18 +53,6 @@
           }
         }
       ]
-    },
-    {
-      "type": "cta",
-      "title": { "ar": "لنبدأ", "en": "Let’s start" },
-      "text": {
-        "ar": "أخبرنا بالهدف، وفريقنا يتولى الباقي.",
-        "en": "Tell us the goal, and our team handles the rest."
-      },
-      "link": {
-        "path": "/campaign/",
-        "label": { "ar": "خطط حملتك ←", "en": "Plan your campaign →" }
-      }
     }
   ]
 }

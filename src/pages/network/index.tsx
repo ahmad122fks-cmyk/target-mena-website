@@ -1,52 +1,27 @@
 import { usePageData } from '@/app/PageData'
-import { PageHero } from '@/components/shared/PageHero'
-import { Section } from '@/components/shared/Section'
-import { useLang, useT } from '@/features/i18n/LangContext'
-import { cityLabel, FORMATS, isHighway } from '@/lib/boards'
-import { trailFor } from '@/lib/breadcrumbs'
+import { CtaBand } from '@/components/shared/CtaBand'
+import { StreetPhotos } from '@/components/shared/StreetPhotos'
 import content from './network.content.json'
-import { LinkGrid } from './sections/LinkGrid'
+import { Browse } from './sections/Browse'
+import { NumbersBand } from './sections/NumbersBand'
+import { OnTheGround } from './sections/OnTheGround'
+import { TourBand } from './sections/TourBand'
 
-/** Network overview: provinces, highways and board types, each with its count. */
+/**
+ * Network v2 (prompt 4): the five-stop tour driving the map, the swipe cards
+ * and the tracking demo, the network in numbers and charts, street photos,
+ * links to every province / highway / type page, and a call to action.
+ */
 export default function NetworkPage() {
-  const data = usePageData('network')
-  const t = useT()
-  const lang = useLang()
-  const toItem = (key: string, count: number, label: string, path: string) => ({
-    key,
-    count,
-    label,
-    path,
-  })
-  const cities = data.provinces.map((p) =>
-    toItem(p.key, p.count, cityLabel(p.key, lang), `/network/${p.key}/`),
-  )
-  const formats = data.formats.map((f) =>
-    toItem(
-      f.key,
-      f.count,
-      FORMATS.find((format) => format.key === f.key)?.label[lang] ?? f.key,
-      `/formats/${f.key}/`,
-    ),
-  )
+  const { swipe } = usePageData('network')
   return (
     <>
-      <PageHero crumbs={trailFor(data, lang)} title={t(content.title)} intro={t(content.intro)} />
-      <Section labelledBy="provinces-title">
-        <div className="flex flex-col gap-14">
-          <LinkGrid
-            id="provinces-title"
-            title={t(content.provinces)}
-            items={cities.filter((c) => !isHighway(c.key))}
-          />
-          <LinkGrid
-            id="highways-title"
-            title={t(content.highways)}
-            items={cities.filter((c) => isHighway(c.key))}
-          />
-          <LinkGrid id="formats-title" title={t(content.formats)} items={formats} />
-        </div>
-      </Section>
+      <TourBand />
+      <OnTheGround />
+      <NumbersBand />
+      <StreetPhotos id="strip-title" boards={swipe} {...content.strip} />
+      <Browse />
+      <CtaBand id="network-cta" {...content.cta} />
     </>
   )
 }

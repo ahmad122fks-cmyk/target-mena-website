@@ -1,0 +1,69 @@
+{
+  "slogan": {
+    "ar": "نحن لا نكتفي بالإبداع؛ بل نصنع التجارب.",
+    "en": "We don’t just create; we craft experiences."
+  },
+  "hint": {
+    "ar": "ادخل إلى الشاشة: اختر خدمة وشاهدها تتحرك داخل الهاتف.",
+    "en": "Step inside the screen: pick a service and watch it come alive on the phone."
+  },
+  "tabsLabel": { "ar": "الخدمات الإبداعية", "en": "Creative services" },
+  "phoneLabel": { "ar": "شاشة توضيحية", "en": "Illustrative screen" },
+  "toConfirm": "real client work on these screens, with the clients' approval",
+  "tabs": [
+    {
+      "id": "campaign",
+      "label": { "ar": "الحملات الرقمية", "en": "Digital campaigns" },
+      "title": { "ar": "الحملات الرقمية", "en": "Digital campaigns" },
+      "text": {
+        "ar": "حملات كاملة، من الفكرة إلى الإطلاق: نصمم المنشور والستوري والريلز، ننشر، ونتابع الوصول والتفاعل.",
+        "en": "Full campaigns, from the idea to launch: we design the post, the story and the reel, publish them, and follow reach and engagement."
+      }
+    },
+    {
+      "id": "social",
+      "label": { "ar": "محتوى السوشيال", "en": "Social content" },
+      "title": { "ar": "محتوى السوشيال ميديا", "en": "Social media content" },
+      "text": {
+        "ar": "مؤثرات بصرية وحملات توقف التمرير. اضغط مرتين على الريل داخل الهاتف للإعجاب.",
+        "en": "Scroll-stopping visuals and campaigns. Double-tap a reel inside the phone to like it."
+      }
+    },
+    {
+      "id": "identity",
+      "label": { "ar": "الهوية البصرية", "en": "Brand identity" },
+      "title": { "ar": "العلامة والهوية", "en": "Branding & identity" },
+      "text": {
+        "ar": "من تصميم الشعار إلى تصميم التغليف، نبني العلامات من الأساس.",
+        "en": "From logo creation to packaging design, we build brands from the ground up."
+      }
+    },
+    {
+      "id": "uiux",
+      "label": { "ar": "تصميم الواجهات UI/UX", "en": "UI/UX design" },
+      "title": { "ar": "تصميم UI/UX", "en": "UI/UX design" },
+      "text": {
+        "ar": "تصاميم حديثة للمواقع وتطبيقات الهاتف تحسّن تجربة المستخدم.",
+        "en": "Modern web and mobile app designs that enhance user experiences."
+      }
+    },
+    {
+      "id": "3d",
+      "label": { "ar": "التصميم ثلاثي الأبعاد", "en": "3D design" },
+      "title": { "ar": "التصميم ثلاثي الأبعاد", "en": "3D design" },
+      "text": {
+        "ar": "نصمم رسومات ثلاثية الأبعاد جذابة للعلامات والإعلانات والترفيه، ونحوّل الأفكار إلى تجارب بصرية آسرة.",
+        "en": "We create captivating 3D graphics for branding, advertising, and entertainment, turning concepts into visually engaging experiences."
+      }
+    },
+    {
+      "id": "ai",
+      "label": { "ar": "الذكاء الاصطناعي", "en": "AI" },
+      "title": { "ar": "فيديوهات وتصاميم بالذكاء الاصطناعي", "en": "AI videos & design" },
+      "text": {
+        "ar": "فيديوهات وتصاميم تُنتج بالذكاء الاصطناعي.",
+        "en": "Videos and visuals made with AI."
+      }
+    }
+  ]
+}

@@ -14,7 +14,7 @@ export function HeroSearch() {
       action={link('/boards/')}
       method="get"
       aria-label={t(hero.searchLabel)}
-      className="flex max-w-[520px] items-center gap-2 rounded-full border border-input bg-white p-1.5 shadow-soft focus-within:border-brand-blue"
+      className="flex max-w-[520px] items-center gap-2 rounded-full border border-input bg-field p-1.5 shadow-soft focus-within:border-link"
     >
       <Search className="ms-3 size-5 shrink-0 text-brand-text" strokeWidth={2} aria-hidden="true" />
       <label htmlFor="hero-q" className="sr-only">
@@ -25,7 +25,7 @@ export function HeroSearch() {
         name="q"
         type="search"
         placeholder={t(hero.searchPlaceholder)}
-        className="h-11 min-w-0 flex-1 bg-transparent text-base text-brand-black outline-none placeholder:text-brand-text"
+        className="h-11 min-w-0 flex-1 bg-transparent text-base text-ink outline-none placeholder:text-brand-text"
       />
       <PillButton type="submit" size="sm" className="px-6">
         {t(hero.searchButton)}

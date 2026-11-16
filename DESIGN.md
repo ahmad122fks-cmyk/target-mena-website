@@ -98,8 +98,10 @@ writing anything new; a second copy of the same markup is a bug.
 - **CampaignSteps**: four bars with numbered dots; done and current are blue.
 - **Fields**: 12 px radius, `input` border, 48 px tall. Segmented toggles
   (weeks/months, IQD/USD) inside one 12 px outline; selected = blue fill.
-- **Header**: white, sticky, hairline bottom; logo, plain menu (xl and up),
-  language link, outlined pill "Plan your campaign". Phones: shadcn Sheet menu.
+- **Header**: page colour (white / dark blue), sticky, hairline bottom; logo
+  (blue on light, white on dark), plain menu (xl and up), client login,
+  language link, sun/moon theme toggle, yellow pill "Plan your campaign"
+  (prompt 4). Phones: shadcn Sheet menu (with the theme toggle).
 - **ContactBlock**: centred, ghost band, "Let's work together", phone field +
   "Request a proposal", and the exact contact line. Same on every page.
 - **Footer**: black, white logo, contact details, three link columns, blue
@@ -122,11 +124,15 @@ writing anything new; a second copy of the same markup is a bug.
   province chips). Gaps: 20–24 px between cards.
 - Bands alternate **white** and **ghost**, each ghost band with a 1 px `line`
   border top and bottom. Headings centred on the home page.
-- Home order: blue announcement bar (newest approved campaign) → header → hero
-  (ghost) → latest campaigns (white) → "a full team" (white) → two ways (ghost) →
-  formats (white) → provinces (ghost) → platform (white) → client portal (ghost)
-  → Alrabiaa planner (the one **black** band, green accents) → services (ghost)
-  → numbers and clients (white) → contact (ghost) → black footer.
+- Home order (v2, prompt 4): blue announcement bar → header → **dark hero**
+  (text, search and service chips at the start; the services phone at the end;
+  the network map; the four network counters) → latest campaigns → animated
+  service tiles → platform (finder, list, planner) → street photos (dark) →
+  client portal → Alrabiaa planner (dark, green accents) → blue call to action
+  → contact → footer.
+- Network order: dark tour band (5 stops + map) → dark "on the ground" (swipe
+  phone + tracking demo) → numbers and charts → street photos → links to every
+  province, highway and type page → blue call to action.
 - Finder: ghost title band → sticky filter bar → results with optional side panel.
 - Campaign: ghost page, step bar, form card + sticky summary card.
 
@@ -134,7 +140,9 @@ writing anything new; a second copy of the same markup is a bug.
 
 - Mostly flat: borders, not shadows. `shadow-soft` (blue 6%) on the first
   feature card, sticky bar and chips; `shadow-float` (blue 10%) on the hero
-  product card and the selection panel. No gradients, glass or glow.
+  product card and the selection panel. No gradients, glass or glow on
+  content; the experiences (section 13) may use them inside their own frame
+  (map halos and vignette, stage-light beams, lens flare, LED glow).
 - Radius: pills (buttons, chips), 20 px cards (`rounded-card`), 12 px fields
   and inner tiles (`rounded-field`), 18 px photos.
 
@@ -186,15 +194,18 @@ Don't:
   or skew** them.
 - Inlined (`Calligraphy`), colour from the palette, only in guideline pairs:
   blue on black (footer, mark-b), white on grey (outdoor card, mark-a, 22%).
-- Exactly two places: the footer (every page) and the outdoor services card
-  (home). Nowhere else, never behind text where contrast drops below 4.5:1.
+- Exactly two places: the footer (every page) and the Creative & Digital page,
+  where the marks float slowly (translate/opacity only, never rotated; prompt 4,
+  Ahmad 16 Nov 2026). Nowhere else, never behind text where contrast drops
+  below 4.5:1.
 - Catalog artwork appears **as images inside the services cards only**: spread
   16 yellow duotone (production) and spread 22 multicolour (creative). Never
   stretched or recoloured; its red and orange stay inside the image.
 
 ## 11. Logo rules (guideline pages 4–9)
 
-- `public/brand/target-logo-blue.svg` on white, `target-logo-white.svg` on black.
+- `public/brand/target-logo-blue.svg` on white, `target-logo-white.svg` on black
+  and on the dark-blue theme (both files are in the header; CSS shows the right one).
   Height only (28–32 px). Clear space at least one third of the logo height.
 - Never: the wordmark alone, other colours, stretched, rotated, effects, inside
   a shape or box, or over a busy photo.
@@ -217,3 +228,66 @@ Don't:
 - Logical utilities only (`ms-`, `me-`, `ps-`, `pe-`, `start-`, `end-`).
   Arrows: "←" in Arabic, "→" in English (they live in the content files).
 - Codes, phones, sizes and Latin words keep LTR inside Arabic (`.ltr-run`).
+
+---
+
+## 12. Dark theme (prompt 4, Ahmad 16 Nov 2026)
+
+Dark blue derived from Target blue, never pure black. The visitor chooses with
+the sun/moon toggle (header, phone menu); the choice is kept in localStorage;
+without one the device setting decides. A tiny inline script in `index.html`
+sets the `dark` class on `<html>` before the first paint (same logic as
+`src/features/theme/theme.ts`, checked by `tests/unit/theme.test.ts`), so a
+prerendered page never flashes the wrong theme.
+
+| Role token | Light | Dark | Use |
+| --- | --- | --- | --- |
+| `page` | `#FFFFFF` | `#071A2E` | Band and header background |
+| `brand-ghost` | `#F5FAFA` | `#0B2340` | Alternate band |
+| `deep` | `#000000` | `#04111F` | Today's black sections: hero, map, production, footer, Alrabiaa, street photos |
+| `surface` | `#FFFFFF` | `#0F2B4D` | Cards, sheets, panels |
+| `field` | `#FFFFFF` | `#0B2340` | Inputs, chips |
+| `line` | `#E6EEF4` | `#1F4A78` | Hairlines |
+| `ink` | `#000000` | `#EAF2F8` | Headings, strong text |
+| `brand-text` | `#4D4D4F` | `#A9C1D4` | Body text |
+| `link` | `#0161A6` | `#4DA8E8` | Links, outlines, eyebrows |
+| `*-10` tints | as section 2 | colour mixed into the dark surface | Fills behind text |
+
+- Unchanged in both: yellow `#F7AF1C` (main buttons), green `#2AB99D`
+  (Alrabiaa), grey, blue `#0161A6` for filled buttons, board photos as they are.
+- Text on yellow, green or grey stays black (`text-brand-black`), in both themes.
+- Every text pair is at least 4.5:1 in both themes (tested).
+- Seasonal themes later: one data file (dates + accent + optional overlay)
+  that sets the same role tokens. Not built yet.
+
+## 13. Experiences and motion (prompt 4)
+
+Each service has its own motif; the guideline colours stay fixed. The visitor
+knows where they are before reading.
+
+| Section | Motif | Colour | Motion | Where |
+| --- | --- | --- | --- | --- |
+| Outdoor | The map is the hero: a pulse on every province, roads that move | Target blue over a dark satellite image, yellow for highways | Pulse every 2.4 s, smooth fly between Iraq and provinces | Home, Network, province pages, finder |
+| Production | Everything inside a film frame: running timecode, REC, progress | Target yellow, duotone photos, black bars | Progress bar runs, the five stages light up in turn | Production page, home phone |
+| Creative & digital | A phone whose posts change, catalog calligraphy floating around it | Catalog multicolour calligraphy over clean white | Posts scroll by themselves, shapes float slowly | Creative & Digital page, home phone |
+| Alrabiaa TV | An on-air screen: sound bars and a schedule | Black with Alrabiaa green | Bars move to a beat, on-air dot | Alrabiaa page, home phone and tile |
+| Events | Stage and lights: two beams over the stage | Black with a yellow and a blue beam | Lights swing slowly behind the title | Events, home tile |
+
+Site-wide motion rules:
+- Durations: small 200 ms, medium 400 ms, large 800 ms. Curve
+  `cubic-bezier(.2,.8,.2,1)`.
+- Reveal on scroll: rise 16 px and fade in, once only.
+- Only `transform` and `opacity` (CSS) or `requestAnimationFrame`; loops pause
+  off screen (`useInView`) and when their tab or phone is hidden.
+- `prefers-reduced-motion`: every loop stops on a still frame
+  (`src/styles/motion.css`), counters show their final value, the map jumps
+  instead of flying, autoplay stops.
+- The prerendered HTML is a meaningful still: the map's outline, markers and
+  counts; the counters' final numbers; the phones' first frame.
+- Components: `src/components/map` (NetworkMap), `src/components/experiences`
+  (PhoneFrame, PhoneShowcase, BoardSwipe, TargetReels, SocialCampaign,
+  production/ProductionViewfinder, digital/*). Heavy screens load with a
+  dynamic `import()`, so each page stays inside its 150 KB JS budget.
+- Demo content is always labelled («بيانات تجريبية» / «صورة توضيحية ببيانات
+  تجريبية»). The map shows counts only: never a board's details, price or
+  availability.

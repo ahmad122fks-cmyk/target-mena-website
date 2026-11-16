@@ -1,41 +1,66 @@
 {
-  "services": {
-    "title": { "ar": "أكثر من لوحات", "en": "More than boards" },
+  "tiles": {
+    "eyebrow": {
+      "ar": "خدماتنا",
+      "en": "Our services"
+    },
+    "title": {
+      "ar": "كل ما تحتاجه حملتك، تحت سقف واحد",
+      "en": "Everything your campaign needs, under one roof"
+    },
     "outdoor": {
-      "eyebrow": { "ar": "الإعلانات الخارجية", "en": "Outdoor advertising" },
       "title": {
-        "ar": "أسطح وجسور وجداريات ولوحات مضاءة وشاشات.",
-        "en": "Rooftops, bridges, walls, backlits and screens."
+        "ar": "الإعلانات الخارجية",
+        "en": "Outdoor advertising"
+      },
+      "text": {
+        "ar": "لوحات على الطرق والجسور والأسطح في 12 محافظة.",
+        "en": "Boards on roads, bridges and rooftops in 12 provinces."
       },
       "link": {
-        "path": "/boards/",
-        "label": { "ar": "ابحث عن لوحة ←", "en": "Find a board →" }
+        "path": "/network/",
+        "label": {
+          "ar": "الشبكة ←",
+          "en": "Network →"
+        }
       }
     },
     "production": {
-      "eyebrow": { "ar": "الإنتاج الفني", "en": "Production" },
       "title": {
-        "ar": "إعلانات تلفزيونية، إنتاج صوتي، فيديو ثلاثي الأبعاد وستوري بورد.",
-        "en": "TV commercials, audio production, 3D video and storyboards."
+        "ar": "الإنتاج الفني",
+        "en": "Production"
+      },
+      "text": {
+        "ar": "من النص إلى الستوري بورد إلى الشاشة، بأيدينا.",
+        "en": "From script to storyboard to screen, in-house."
       },
       "link": {
         "path": "/production/",
-        "label": { "ar": "الإنتاج الفني ←", "en": "Production →" }
+        "label": {
+          "ar": "الإنتاج ←",
+          "en": "Production →"
+        }
       },
       "artAlt": {
         "ar": "كاميرا تصوير سينمائي بالأصفر مع خط تارگت العربي، من الملف التعريفي",
         "en": "Film camera in Target yellow with Target's Arabic calligraphy, from the catalog"
       }
     },
-    "creative": {
-      "eyebrow": { "ar": "الخدمات الإبداعية", "en": "Creative services" },
+    "digital": {
       "title": {
-        "ar": "الحملات، محتوى السوشيال ميديا، العلامة والهوية، وتصميم UI/UX.",
-        "en": "Campaigns, social media content, branding and identity, and UI/UX design."
+        "ar": "الإبداع والرقمي",
+        "en": "Creative & Digital"
+      },
+      "text": {
+        "ar": "نحن لا نكتفي بالإبداع؛ بل نصنع التجارب.",
+        "en": "We don’t just create; we craft experiences."
       },
       "link": {
         "path": "/digital/",
-        "label": { "ar": "الخدمات الإبداعية ←", "en": "Creative services →" }
+        "label": {
+          "ar": "الإبداع والرقمي ←",
+          "en": "Creative & Digital →"
+        }
       },
       "artAlt": {
         "ar": "عمل فني بالخط العربي متعدد الألوان من الملف التعريفي لتارگت",
@@ -43,45 +68,39 @@
       }
     },
     "alrabiaa": {
-      "eyebrow": { "ar": "قناة الرابعة", "en": "Alrabiaa TV" },
       "title": {
+        "ar": "قناة الرابعة",
+        "en": "Alrabiaa TV"
+      },
+      "text": {
         "ar": "تارگت الوكيل الحصري لبيع المساحات الإعلانية على قناة الرابعة.",
         "en": "Target is the exclusive agent for advertising airtime on Alrabiaa TV."
       },
-      "logoAlt": { "ar": "شعار قناة الرابعة", "en": "Alrabiaa TV logo" },
+      "logoAlt": {
+        "ar": "شعار قناة الرابعة",
+        "en": "Alrabiaa TV logo"
+      },
       "link": {
         "path": "/alrabiaa/",
-        "label": { "ar": "اطلب جدول البث ←", "en": "Ask for the broadcast schedule →" }
+        "label": {
+          "ar": "قناة الرابعة ←",
+          "en": "Alrabiaa TV →"
+        }
+      }
+    },
+    "events": {
+      "title": {
+        "ar": "الفعاليات",
+        "en": "Events"
+      },
+      "toConfirm": "Events one-line description",
+      "link": {
+        "path": "/events/",
+        "label": {
+          "ar": "الفعاليات ←",
+          "en": "Events →"
+        }
       }
     }
-  },
-  "numbers": {
-    "title": { "ar": "علامات تعمل مع تارگت", "en": "Brands that work with Target" },
-    "boards": {
-      "ar": "لوحة منشورة على الموقع، بمقاساتها ومواقعها.",
-      "en": "boards published on the site, with sizes and locations."
-    },
-    "networkToConfirm": "network size: 660 published here vs 668 owned / 775",
-    "produced": { "ar": "+35", "en": "35+" },
-    "producedLabel": {
-      "ar": "حملة وإعلاناً تلفزيونياً من إنتاج تارگت.",
-      "en": "campaigns and TV commercials produced by Target."
-    },
-    "exclusive": { "ar": "حصري", "en": "Exclusive" },
-    "exclusiveLabel": {
-      "ar": "وكيل مبيعات الإعلانات على قناة الرابعة.",
-      "en": "advertising sales agent for Alrabiaa TV."
-    },
-    "logos": [
-      {
-        "file": "qi",
-        "alt": { "ar": "كي كارد", "en": "Qi Card" }
-      },
-      {
-        "file": "alrabiaa",
-        "alt": { "ar": "قناة الرابعة", "en": "Alrabiaa TV" }
-      }
-    ],
-    "logosToConfirm": "other client logos allowed on the site"
   }
 }

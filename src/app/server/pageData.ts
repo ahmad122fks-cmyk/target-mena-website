@@ -1,3 +1,4 @@
+import swipeList from '@/content/swipe.json'
 import cities from '@/data/cities.json'
 import { shownOf, sortBoards } from '@/features/boards/finderState'
 import { ARTICLES } from '@/features/insights/articles'
@@ -16,6 +17,9 @@ import {
 } from './boardsData'
 
 const NOT_FOUND: PageData = { kind: 'notFound' }
+
+/** The swipe cards' boards, in the order of src/content/swipe.json. */
+const swipeBoards = () => swipeList.codes.map(findBoard).filter((board) => board !== undefined)
 
 const isStaticPage = (page: string): page is StaticPage =>
   (STATIC_PAGES as readonly string[]).includes(page)
@@ -47,7 +51,7 @@ export function getPageData(match: RouteMatch | null): PageData {
   if (page === 'home') {
     const featured = home.featured.codes.map(findBoard).filter((board) => board !== undefined)
     const provinces = provinceCounts().sort((a, b) => b.count - a.count)
-    return { kind: 'home', featured, provinces, total: BOARDS.length }
+    return { kind: 'home', featured, swipe: swipeBoards(), provinces, total: BOARDS.length }
   }
   if (page === 'boards')
     return {
@@ -68,7 +72,12 @@ export function getPageData(match: RouteMatch | null): PageData {
     return board ? { kind: 'board', board, nearby: nearby(board) } : NOT_FOUND
   }
   if (page === 'network')
-    return { kind: 'network', provinces: provinceCounts(), formats: formatCounts() }
+    return {
+      kind: 'network',
+      swipe: swipeBoards(),
+      provinces: provinceCounts(),
+      formats: formatCounts(),
+    }
   if (page === 'province') {
     const boards = params.province in cities ? boardsInCity(params.province) : []
     return boards.length ? { kind: 'province', city: params.province, boards } : NOT_FOUND

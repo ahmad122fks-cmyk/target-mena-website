@@ -1,0 +1,144 @@
+{
+  "tour": {
+    "eyebrow": {
+      "ar": "جولة على الشبكة",
+      "en": "A journey across the network"
+    },
+    "title": {
+      "ar": "سافر معنا عبر العراق، محطة بمحطة.",
+      "en": "Travel across Iraq with us, stop by stop."
+    },
+    "lead": {
+      "ar": "خمس محطات. الخريطة تتحرك معك وتعرض العدد فقط.",
+      "en": "Five stops. The map moves with you and shows counts only."
+    },
+    "stops": {
+      "iraq": {
+        "title": {
+          "ar": "العراق كله",
+          "en": "All of Iraq"
+        },
+        "unit": {
+          "ar": "لوحة في 12 محافظة وعلى طريقين سريعين",
+          "en": "boards in 12 provinces and on 2 highways"
+        }
+      },
+      "baghdad": {
+        "title": {
+          "ar": "بغداد",
+          "en": "Baghdad"
+        },
+        "unit": {
+          "ar": "لوحة في العاصمة",
+          "en": "boards in the capital"
+        }
+      },
+      "najaf": {
+        "title": {
+          "ar": "النجف، أكبر حضور لنا",
+          "en": "Najaf, our biggest presence"
+        },
+        "unit": {
+          "ar": "لوحة في النجف",
+          "en": "boards in Najaf"
+        }
+      },
+      "south-road": {
+        "title": {
+          "ar": "الطريق السريع الجنوبي",
+          "en": "The southern highway"
+        },
+        "unit": {
+          "ar": "لوحة على الطريق",
+          "en": "boards along the road"
+        }
+      },
+      "south": {
+        "title": {
+          "ar": "الجنوب",
+          "en": "The south"
+        },
+        "unit": {
+          "ar": "لوحة في البصرة والسماوة والناصرية والعمارة",
+          "en": "boards in Basra, Samawa, Nasiriyah and Amara"
+        }
+      }
+    },
+    "stopOf": {
+      "ar": "المحطة {n} من {total}",
+      "en": "Stop {n} of {total}"
+    },
+    "prev": {
+      "ar": "→ السابق",
+      "en": "← Previous"
+    },
+    "next": {
+      "ar": "المحطة التالية ←",
+      "en": "Next stop →"
+    },
+    "restart": {
+      "ar": "من البداية",
+      "en": "From the start"
+    },
+    "play": {
+      "ar": "شغّل الجولة تلقائياً",
+      "en": "Play the tour"
+    },
+    "pause": {
+      "ar": "إيقاف الجولة التلقائية",
+      "en": "Pause the tour"
+    }
+  },
+  "ground": {
+    "eyebrow": {
+      "ar": "على الأرض الآن",
+      "en": "On the ground now"
+    },
+    "title": {
+      "ar": "اسحب بين لوحاتنا، وتابع حملتك مباشرة.",
+      "en": "Swipe through our boards, and follow your campaign live."
+    },
+    "text": {
+      "ar": "أسطح، شاشات LED، جسور، جداريات، ميغابول ولوحات طرقية. وبعد الحجز تتابع كل لوحة من بوابة العملاء.",
+      "en": "Rooftops, LED screens, bridges, walls, megapoles and roadside boards. Once you book, you follow every board from the client portal."
+    },
+    "phoneLabel": {
+      "ar": "بطاقات لوحات تارگت",
+      "en": "Target board cards"
+    },
+    "panelTitle": {
+      "ar": "لوحة متابعة الحملة",
+      "en": "Campaign tracking"
+    },
+    "panelLive": {
+      "ar": "مباشر",
+      "en": "Live"
+    },
+    "steps": [
+      {
+        "ar": "التركيب",
+        "en": "Installation"
+      },
+      {
+        "ar": "صور الإثبات",
+        "en": "Proof photos"
+      },
+      {
+        "ar": "التقارير",
+        "en": "Reports"
+      },
+      {
+        "ar": "الفواتير",
+        "en": "Invoices"
+      }
+    ],
+    "note": {
+      "ar": "صورة توضيحية ببيانات تجريبية · الحالة الفعلية في بوابة العملاء",
+      "en": "Illustration with demo data · the real status is in the client portal"
+    }
+  },
+  "live": {
+    "ar": "مباشر",
+    "en": "Live"
+  }
+}

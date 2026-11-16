@@ -1,39 +1,32 @@
-import { Section } from '@/components/shared/Section'
-import { SectionHeading } from '@/components/shared/SectionHeading'
-import { useLink, useT } from '@/features/i18n/LangContext'
-import content from '../home.content.json'
-import { HeroCard } from './HeroCard'
-import { HeroSearch } from './HeroSearch'
+import { usePageData } from '@/app/PageData'
+import { PhoneShowcase } from '@/components/experiences/PhoneShowcase'
+import { NetworkMap } from '@/components/map/NetworkMap'
+import { Container } from '@/components/shared/Section'
+import { HeroIntro } from './HeroIntro'
+import { Kpis } from './Kpis'
 
-/** Ghost hero: headline, pill search, "plan with us" link; the "my list" product card beside it. */
+/**
+ * Dark hero (prompt 4): text, search and service chips at the start, the
+ * services phone at the end (left in Arabic, right in English); below them
+ * the network map with its intro flight and the network counters.
+ */
 export function Hero() {
-  const t = useT()
-  const link = useLink()
-  const { hero } = content
+  const { swipe } = usePageData('home')
   return (
-    <Section tone="ghost" labelledBy="hero-title" className="border-t-0">
-      <div className="flex flex-wrap items-center gap-x-14 gap-y-10 lg:pt-0">
-        <div className="flex min-w-0 flex-[1_1_28rem] flex-col gap-6">
-          <SectionHeading
-            id="hero-title"
-            level={1}
-            size="hero"
-            title={t(hero.title)}
-            lead={t(hero.lead)}
-          />
-          <HeroSearch />
-          <p className="text-sm">
-            {t(hero.planHint)}{' '}
-            <a
-              href={link(hero.planLink.path)}
-              className="font-medium text-brand-blue hover:underline"
-            >
-              {t(hero.planLink.label)}
-            </a>
-          </p>
+    <section
+      aria-labelledby="hero-title"
+      className="bg-deep text-brand-grey-40 [--heading:var(--color-brand-white)]"
+    >
+      <Container className="flex flex-col gap-7 pt-10 pb-16 lg:pt-14">
+        <div className="flex flex-wrap items-center gap-x-12 gap-y-10">
+          <HeroIntro />
+          <div className="flex min-w-0 flex-[1_1_100%] justify-center lg:flex-[0_0_380px]">
+            <PhoneShowcase boards={swipe} />
+          </div>
         </div>
-        <HeroCard />
-      </div>
-    </Section>
+        <NetworkMap panel />
+        <Kpis />
+      </Container>
+    </section>
   )
 }

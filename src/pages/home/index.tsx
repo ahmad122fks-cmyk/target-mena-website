@@ -1,34 +1,31 @@
+import { CtaBand } from '@/components/shared/CtaBand'
+import content from './home.content.json'
 import { AlrabiaaSales } from './sections/AlrabiaaSales'
 import { Feed } from './sections/Feed'
-import { Formats } from './sections/Formats'
 import { Hero } from './sections/Hero'
-import { Numbers } from './sections/Numbers'
 import { Platform } from './sections/Platform'
 import { Portal } from './sections/Portal'
-import { Provinces } from './sections/Provinces'
-import { Services } from './sections/Services'
-import { Team } from './sections/Team'
-import { TwoWays } from './sections/TwoWays'
+import { ServiceTiles } from './sections/ServiceTiles'
+import { Street } from './sections/Street'
 
 /**
- * Home (Arabic at /, English at /en/), rebuilt from the approved design
- * reference: bands alternate ghost and white. The contact block and the
- * black footer come from SiteLayout.
+ * Home v2 (Arabic at /, English at /en/), prompt 4: dark hero with the
+ * services phone, the network map and counters; then the campaign feed,
+ * the service tiles, the finder/list/planner platform, street photos, the
+ * client portal, the Alrabiaa planner and a closing call to action. The
+ * contact block and the footer come from SiteLayout.
  */
 export default function HomePage() {
   return (
     <>
       <Hero />
       <Feed />
-      <Team />
-      <TwoWays />
-      <Formats />
-      <Provinces />
+      <ServiceTiles />
       <Platform />
+      <Street />
       <Portal />
       <AlrabiaaSales />
-      <Services />
-      <Numbers />
+      <CtaBand id="home-cta" {...content.cta} />
     </>
   )
 }
