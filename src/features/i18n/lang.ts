@@ -17,10 +17,15 @@ export function langFromPath(pathname: string): Lang {
   return pathname === '/en' || pathname.startsWith('/en/') ? 'en' : 'ar'
 }
 
-/** Strip the /en prefix: '/en/boards' -> '/boards', '/en/' -> '/'. */
+/**
+ * Strip the /en prefix and a trailing index.html (the server answers both
+ * '/network/' and '/network/index.html', like matchRoute):
+ * '/en/boards' -> '/boards', '/en/' -> '/', '/network/index.html' -> '/network/'.
+ */
 export function basePath(pathname: string): string {
-  if (langFromPath(pathname) === 'ar') return pathname || '/'
-  const rest = pathname.slice(3)
+  const path = pathname.replace(/index\.html$/, '')
+  if (langFromPath(path) === 'ar') return path || '/'
+  const rest = path.slice(3)
   return rest === '' ? '/' : rest
 }
 

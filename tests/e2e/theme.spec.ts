@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test'
 
-/* Prompt 4, section 4: device default, no flash on load, toggle remembered. */
+/* Prompt 4/5: light by default (v3), no flash on load, the moon toggle remembered. */
 
 /** Records whether <html> already had the dark class when <body> was first parsed. */
 const RECORD_FIRST_PAINT = () => {
@@ -12,17 +12,20 @@ const RECORD_FIRST_PAINT = () => {
   }).observe(document, { childList: true, subtree: true })
 }
 
-test('follows the device setting before the first paint', async ({ page }) => {
+test('light by default, even on a dark device; a saved dark choice applies before the first paint', async ({
+  page,
+}) => {
+  // v3 (prompt 5): light is the default look; dark only from the moon button.
   await page.emulateMedia({ colorScheme: 'dark' })
-  await page.addInitScript(RECORD_FIRST_PAINT)
   await page.goto('/')
+  await expect(page.locator('html')).not.toHaveClass(/dark/)
+  await page.evaluate(() => localStorage.setItem('theme', 'dark'))
+  await page.addInitScript(RECORD_FIRST_PAINT)
+  await page.goto('/en/')
   expect(await page.evaluate(() => (window as unknown as { darkAtBody: boolean }).darkAtBody)).toBe(
     true,
   )
   await expect(page.locator('html')).toHaveClass(/dark/)
-  await page.emulateMedia({ colorScheme: 'light' })
-  await page.goto('/en/')
-  await expect(page.locator('html')).not.toHaveClass(/dark/)
 })
 
 test('the toggle switches the theme and remembers it', async ({ page }, info) => {
@@ -47,7 +50,7 @@ test('the toggle switches the theme and remembers it', async ({ page }, info) =>
 
 test('dark pages fit a phone too', async ({ page }, info) => {
   test.skip(info.project.name !== 'phone', 'phone width only')
-  await page.emulateMedia({ colorScheme: 'dark' })
+  await page.addInitScript(() => localStorage.setItem('theme', 'dark'))
   for (const url of ['/', '/network/', '/production/', '/digital/', '/en/', '/en/network/']) {
     await page.goto(url)
     const overflow = await page.evaluate(

@@ -50,8 +50,14 @@ export function photoFirstEntry(html: string): string {
   const entry = html.match(/<script type="module" crossorigin src="([^"]+)"><\/script>/)
   if (!entry) throw new Error('Entry script not found in dist/index.html')
   const loader =
-    `<script type="module">let d=0;const s=()=>{if(d)return;d=1;import('${entry[1]}')},` +
-    `i=document.querySelector('img[fetchpriority="high"]');` +
+    // g loads the app once; s waits until the photo is decoded and painted
+    // (decode, the next frame, then a task), so the app's script never delays
+    // the photo's paint (decoding="async" can paint it a frame after the
+    // text). A hidden tab paints nothing, so it loads at once.
+    `<script type="module">let d=0;const i=document.querySelector('img[fetchpriority="high"]'),` +
+    `g=()=>{if(d)return;d=1;import('${entry[1]}')},` +
+    `f=()=>requestAnimationFrame(()=>setTimeout(g,0)),` +
+    `s=()=>{if(document.hidden)return g();i&&i.decode?i.decode().then(f,f):f()};` +
     `if(i&&!i.complete){i.addEventListener('load',s,{once:true});` +
     `i.addEventListener('error',s,{once:true});setTimeout(s,2500)}else s()</script>`
   return html

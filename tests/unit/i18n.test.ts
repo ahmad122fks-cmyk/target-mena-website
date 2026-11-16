@@ -22,4 +22,11 @@ describe('language paths: Arabic at /, English under /en/', () => {
     expect(alternatePath('/en/')).toBe('/')
     expect(alternatePath('/boards/BGW03A')).toBe('/en/boards/BGW03A')
   })
+  it('treats /…/index.html as the same page (hydrates like the prerendered page)', () => {
+    expect(basePath('/index.html')).toBe('/')
+    expect(basePath('/en/index.html')).toBe('/')
+    expect(basePath('/network/index.html')).toBe('/network/')
+    expect(basePath('/en/contact/index.html')).toBe('/contact/')
+    expect(alternatePath('/en/index.html')).toBe('/')
+  })
 })

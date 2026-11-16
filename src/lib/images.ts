@@ -10,8 +10,8 @@ import production from '@/assets/art/production-duotone.jpg?w=480;720;1080&forma
 import earthlinkAf10 from '@/assets/feed/earthlink-af10.jpg?w=320;640;880&format=avif;webp;jpg&as=picture'
 import earthlinkB22a from '@/assets/feed/earthlink-b22a.jpg?w=320;640;880&format=avif;webp;jpg&as=picture'
 import earthlinkBbh20a from '@/assets/feed/earthlink-bbh20a.jpg?w=320;640;880&format=avif;webp;jpg&as=picture'
-import iraqSatAvif from '@/assets/map/iraq-sat-1400.jpg?w=700;1000;1400&format=avif&quality=35&as=picture'
-import iraqSatOther from '@/assets/map/iraq-sat-1400.jpg?w=700;1000;1400&format=webp;jpg&quality=55&as=picture'
+import iraqSatAvif from '@/assets/map/iraq-sat-1400.jpg?w=700;800;1000;1400&format=avif&quality=35&as=picture'
+import iraqSatOther from '@/assets/map/iraq-sat-1400.jpg?w=700;800;1000;1400&format=webp;jpg&quality=55&as=picture'
 import BBH20A from '@/assets/photos/BBH20A.jpg?w=480;720;1080&format=avif;webp;jpg&as=picture'
 import BBL01A from '@/assets/photos/BBL-01A.jpg?w=480;720;1000&format=avif;webp;jpg&as=picture'
 import BG46A from '@/assets/photos/BG46A.jpg?w=480;720;1000&format=avif;webp;jpg&as=picture'
@@ -51,7 +51,8 @@ export const BOARD_PHOTOS: Record<string, Picture> = {
  */
 export const MAP_IMAGE: Picture = {
   // AVIF needs a lower quality number for the same look (the map is shown
-  // darkened): 1000 px = about 31 KB as AVIF, 75 KB as WebP.
+  // darkened): 1000 px = about 31 KB as AVIF, 75 KB as WebP. 800 px fits the
+  // phone frame in cover mode (about 415 x 1.75 px), so phones skip the 1000.
   sources: { ...iraqSatAvif.sources, ...iraqSatOther.sources },
   img: iraqSatOther.img,
 }

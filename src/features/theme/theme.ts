@@ -1,8 +1,9 @@
 /*
- * Light / dark theme (Ahmad, 16 Nov 2026). The visitor's choice is kept in
- * localStorage; without one the device setting decides. The class is set
- * before the first paint by the inline script in index.html (same key and
- * logic as here), so a prerendered page never flashes the wrong theme.
+ * Light / dark theme. v3 (prompt 5, Ahmad 16 Nov 2026): light is the
+ * default look for everyone; dark only when the visitor picks the moon
+ * (kept in localStorage). The class is set before the first paint by the
+ * inline script in index.html (same key and logic as here), so a
+ * prerendered page never flashes the wrong theme.
  */
 export type Theme = 'light' | 'dark'
 
@@ -40,4 +41,4 @@ export function subscribeTheme(listener: () => void) {
  * (or light) in the address shows that theme without saving it: a shareable
  * link, and how Lighthouse measures the dark pages.
  */
-export const THEME_BOOT = `try{var q=new URLSearchParams(location.search).get('theme'),t=q==='light'||q==='dark'?q:localStorage.getItem('${THEME_KEY}');if(t!=='light'&&t!=='dark')t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';var r=document.documentElement;r.classList.toggle('dark',t==='dark');r.style.colorScheme=t}catch(e){}`
+export const THEME_BOOT = `try{var q=new URLSearchParams(location.search).get('theme'),t=q==='light'||q==='dark'?q:localStorage.getItem('${THEME_KEY}');if(t!=='dark')t='light';var r=document.documentElement;r.classList.toggle('dark',t==='dark');r.style.colorScheme=t}catch(e){}`

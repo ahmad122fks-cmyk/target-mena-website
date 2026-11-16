@@ -21,7 +21,14 @@ export function Avatar({ kind }: { kind: NewsAvatar }) {
       aria-hidden="true"
       className={cn('flex size-7 shrink-0 items-center justify-center rounded-full', avatar.look)}
     >
-      <img src={avatar.src} alt="" width={avatar.w} height={avatar.h} className="h-[18px] w-auto" />
+      <img
+        src={avatar.src}
+        alt=""
+        width={avatar.w}
+        height={avatar.h}
+        loading="lazy"
+        className="h-[18px] w-auto"
+      />
     </span>
   )
 }
