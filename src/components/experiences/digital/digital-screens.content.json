@@ -1,0 +1,40 @@
+{
+  "identity": {
+    "title": { "ar": "لوحة الهوية", "en": "Identity board" },
+    "building": { "ar": "قيد البناء…", "en": "Building…" },
+    "ready": { "ar": "جاهزة", "en": "Ready" },
+    "typeSample": { "ar": "أ ب Aa", "en": "Aa أ ب" },
+    "fontName": "READEX PRO",
+    "parts": [
+      { "ar": "الشعار", "en": "Logo" },
+      { "ar": "الألوان", "en": "Colours" },
+      { "ar": "الخطوط", "en": "Type" },
+      { "ar": "الدليل", "en": "Guide" }
+    ]
+  },
+  "uiux": {
+    "title": { "ar": "واجهة تطبيق", "en": "App screen" },
+    "wire": { "ar": "مخطط", "en": "Wireframe" },
+    "final": { "ar": "التصميم النهائي", "en": "Final design" },
+    "button": { "ar": "ابدأ", "en": "Start" }
+  },
+  "threeD": {
+    "head": { "ar": "3D · WIREFRAME", "en": "3D · WIREFRAME" },
+    "rev": { "ar": "REV.01", "en": "REV.01" },
+    "model": { "ar": "يونيبول · مجسم", "en": "Unipole · 3D model" },
+    "board": { "ar": "اللوحة", "en": "Board" },
+    "size": "10 × 4",
+    "unit": { "ar": "م", "en": "m" },
+    "faces": { "ar": "وجهان", "en": "Two faces" },
+    "brand": { "ar": "TARGET · 3D", "en": "TARGET · 3D" }
+  },
+  "ai": {
+    "title": { "ar": "مساعد التصميم", "en": "Design assistant" },
+    "badge": { "ar": "AI", "en": "AI" },
+    "label": { "ar": "اكتب فكرتك", "en": "Describe your idea" },
+    "prompt": { "ar": "صمّم إعلاناً بألوان تارگت", "en": "Design an ad in Target’s colours" },
+    "button": { "ar": "توليد", "en": "Generate" },
+    "generating": { "ar": "جارٍ التوليد…", "en": "Generating…" },
+    "results": { "ar": "النتائج", "en": "Results" }
+  }
+}

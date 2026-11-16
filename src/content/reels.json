@@ -1,0 +1,78 @@
+{
+  "_note": "Target Reels (phone screen, src/components/experiences/TargetReels.tsx). The designed posts from the v2 artboard, approved on 16 Nov 2026 (real posts not needed). To swap a post: design = board | rec | art | tv | map; image = a board code with a photo in src/lib/images.ts (BOARD_PHOTOS), or production | creative | map; optional tag = a board code. Sizes are height × width, as on the board pages. Never follower, like or view counts.",
+  "label": { "ar": "ريلز تارگت", "en": "Target reels" },
+  "title": { "ar": "ريلز", "en": "Reels" },
+  "account": { "ar": "تارگت", "en": "Target" },
+  "follow": { "ar": "متابعة", "en": "Follow" },
+  "following": { "ar": "تتابعه", "en": "Following" },
+  "like": { "ar": "أعجبني", "en": "Like" },
+  "comment": { "ar": "تعليق", "en": "Comment" },
+  "share": { "ar": "مشاركة", "en": "Share" },
+  "sound": { "ar": "صوت أصلي · تارگت", "en": "Original audio · Target" },
+  "slide": { "ar": "منشور {n} من {total}", "en": "Post {n} of {total}" },
+  "posts": [
+    {
+      "id": "bridge-baghdad-entrance",
+      "design": "board",
+      "image": "BBL-01A",
+      "tag": "BBL-01A",
+      "title": {
+        "ar": "لوحة جسر على مدخل بغداد",
+        "en": "A bridge board at the entrance to Baghdad"
+      },
+      "caption": {
+        "ar": "اللقاء، أبو غريب · 2 × 50 م · شبكة تارگت",
+        "en": "Al-Liqaa, Abu Ghraib · 2 × 50 m · Target network"
+      }
+    },
+    {
+      "id": "production",
+      "design": "rec",
+      "image": "production",
+      "title": {
+        "ar": "من النص إلى الستوري بورد إلى الشاشة، بأيدينا.",
+        "en": "From script to storyboard to screen, in-house."
+      },
+      "caption": { "ar": "الإنتاج الفني في تارگت", "en": "Production at Target" }
+    },
+    {
+      "id": "creative",
+      "design": "art",
+      "image": "creative",
+      "title": {
+        "ar": "نحن لا نكتفي بالإبداع؛ بل نصنع التجارب.",
+        "en": "We don’t just create; we craft experiences."
+      },
+      "caption": { "ar": "الخدمات الإبداعية والرقمية", "en": "Creative and digital services" }
+    },
+    {
+      "id": "alrabiaa",
+      "design": "tv",
+      "caption": {
+        "ar": "تارگت الوكيل الحصري لبيع إعلانات قناة الرابعة",
+        "en": "Target is the exclusive agent for advertising airtime on Alrabiaa TV"
+      }
+    },
+    {
+      "id": "led-abu-nuwas",
+      "design": "board",
+      "image": "LED-AB01",
+      "tag": "LED-AB01",
+      "title": { "ar": "شاشة LED على أبو نواس", "en": "An LED screen on Abu Nuwas" },
+      "caption": {
+        "ar": "بغداد · 4 × 6 م · شبكة تارگت",
+        "en": "Baghdad · 4 × 6 m · Target network"
+      }
+    },
+    {
+      "id": "network-map",
+      "design": "map",
+      "image": "map",
+      "title": { "ar": "12 محافظة وطريقان سريعان", "en": "12 provinces and 2 highways" },
+      "caption": {
+        "ar": "شبكة تارگت على خريطة العراق",
+        "en": "The Target network on the map of Iraq"
+      }
+    }
+  ]
+}

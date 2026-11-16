@@ -1,0 +1,94 @@
+/*
+ * Production viewfinder, the camera (Production.dc.html): moves on the still,
+ * whip-pan cuts and the scene card settling in. Only transform, opacity and
+ * filter move. The classes are added only while the viewfinder rolls, so a
+ * paused or reduced-motion viewfinder is a sharp still frame.
+ */
+
+/* Camera moves, one per framing (2.6 s = one shot). */
+.pv-cam-wide {
+  animation: pv-wide 2.6s cubic-bezier(0.2, 0.6, 0.3, 1) both;
+}
+@keyframes pv-wide {
+  0% {
+    transform: scale(1.02);
+    filter: blur(5px) brightness(0.8);
+  }
+  25% {
+    filter: blur(0) brightness(1);
+  }
+  100% {
+    transform: scale(1.14);
+  }
+}
+.pv-cam-lens {
+  animation: pv-lens 2.6s cubic-bezier(0.2, 0.6, 0.3, 1) both;
+}
+@keyframes pv-lens {
+  0% {
+    transform: scale(2.1);
+    filter: blur(7px);
+  }
+  30% {
+    filter: blur(0);
+  }
+  55% {
+    filter: blur(2.5px);
+  }
+  70% {
+    filter: blur(0);
+  }
+  100% {
+    transform: scale(2.45);
+    filter: blur(0);
+  }
+}
+.pv-cam-rig {
+  animation: pv-rig 2.6s cubic-bezier(0.2, 0.6, 0.3, 1) both;
+}
+@keyframes pv-rig {
+  0% {
+    transform: scale(2.3) translateX(-4%);
+    filter: blur(4px);
+  }
+  25% {
+    filter: blur(0);
+  }
+  100% {
+    transform: scale(2.1) translateX(4%);
+  }
+}
+
+/* Whip pan into each new shot. */
+.pv-whip {
+  animation: pv-whip 0.38s cubic-bezier(0.6, 0, 0.2, 1) both;
+}
+@keyframes pv-whip {
+  0% {
+    transform: translateX(35%);
+    filter: blur(14px);
+    opacity: 0.4;
+  }
+}
+
+/* Phone screen: slow push-in on the still. */
+.pv-push {
+  animation: pv-push 8s ease-in-out infinite alternate;
+}
+@keyframes pv-push {
+  to {
+    transform: scale(1.1);
+  }
+}
+
+/* The scene card settles in after each clap. */
+.pv-scene {
+  animation: pv-scene 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+@keyframes pv-scene {
+  from {
+    opacity: 0;
+    transform: scale(1.06);
+    filter: blur(6px);
+  }
+}

@@ -7,3 +7,4 @@ src/components/ui
 reports
 *.svg
 package-lock.json
+src/data/network-map.json

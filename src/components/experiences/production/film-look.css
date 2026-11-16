@@ -1,0 +1,94 @@
+/*
+ * Production viewfinder, the film look: light leak, anamorphic flare, film
+ * grain and the flashes on cuts and claps. Only transform and opacity move;
+ * the `*-move` classes are added only while the viewfinder rolls.
+ */
+
+/* Warm light leak (Target yellow and white light, screened over the image). */
+.pv-leak {
+  background:
+    radial-gradient(circle at 30% 40%, rgb(247 175 28 / 0.45), rgb(247 175 28 / 0) 40%),
+    radial-gradient(circle at 80% 70%, rgb(255 255 255 / 0.25), rgb(255 255 255 / 0) 35%);
+  opacity: 0.55;
+}
+.pv-leak-move {
+  animation: pv-leak 6s ease-in-out infinite alternate;
+}
+@keyframes pv-leak {
+  from {
+    transform: translate(-6%, -4%) rotate(0deg);
+    opacity: 0.55;
+  }
+  to {
+    transform: translate(6%, 4%) rotate(8deg);
+    opacity: 0.9;
+  }
+}
+
+/* Anamorphic lens flare: a thin blue-white streak in the second half of a shot. */
+.pv-flare {
+  opacity: 0;
+  background: linear-gradient(
+    90deg,
+    rgb(77 168 232 / 0),
+    rgb(234 242 248 / 0.95),
+    rgb(255 255 255 / 1),
+    rgb(234 242 248 / 0.95),
+    rgb(77 168 232 / 0)
+  );
+  box-shadow: 0 0 24px 6px rgb(77 168 232 / 0.45);
+  filter: blur(1px);
+  animation: pv-flare 2.6s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+@keyframes pv-flare {
+  0%,
+  55% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+  62% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateX(180%);
+    opacity: 0;
+  }
+}
+
+/* Film grain: SVG noise drawn once as a tile, then jittered. */
+.pv-grain {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+}
+.pv-grain-move {
+  animation: pv-grain 0.5s steps(3) infinite;
+}
+@keyframes pv-grain {
+  33% {
+    transform: translate(-2%, 1%);
+  }
+  66% {
+    transform: translate(1%, -2%);
+  }
+}
+
+/* Soft white flash on each cut, a brighter one on the clap. */
+.pv-cut {
+  animation: pv-fade 0.35s ease-out both;
+  --pv-from: 0.35;
+}
+.pv-flash {
+  animation: pv-fade 0.35s ease-out both;
+  --pv-from: 0.85;
+}
+@keyframes pv-fade {
+  from {
+    opacity: var(--pv-from);
+  }
+  to {
+    opacity: 0;
+  }
+}

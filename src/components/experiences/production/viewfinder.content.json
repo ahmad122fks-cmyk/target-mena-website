@@ -1,0 +1,72 @@
+{
+  "_video": "Real footage (a clip of 3 MB or less, to come). Put the files in public/media/ and replace null with { \"mp4\": \"/media/x.mp4\", \"webm\": \"/media/x.webm\", \"poster\": \"/media/x.jpg\" } (webm optional). The video then replaces the stills on the page and in the phone; every overlay stays.",
+  "video": null,
+  "_osd": "Camera on-screen display: stays in English in both languages, like a real monitor.",
+  "osd": {
+    "rec": "REC",
+    "format": "4K · 25 FPS",
+    "take": "TAKE",
+    "scene": "SC",
+    "shots": ["SHOT 01 · WIDE · ARRI ALEXA 35", "SHOT 02 · LENS · RACK FOCUS", "SHOT 03 · ON SET"]
+  },
+  "label": {
+    "ar": "عدسة الكاميرا: مراحل الإنتاج من النص إلى التسليم",
+    "en": "Camera viewfinder: the production stages, from script to delivery"
+  },
+  "line": {
+    "ar": "من النص إلى الستوري بورد إلى الشاشة، بأيدينا.",
+    "en": "From script to storyboard to screen, in-house."
+  },
+  "action": { "ar": "أكشن", "en": "Action" },
+  "again": { "ar": "من البداية", "en": "From the top" },
+  "stagesLabel": { "ar": "مراحل الإنتاج", "en": "Production stages" },
+  "deliver": { "ar": "التسليم في هذه المرحلة:", "en": "Delivered at this stage:" },
+  "slate": {
+    "scene": { "ar": "مشهد", "en": "Scene" },
+    "take": { "ar": "لقطة", "en": "Take" },
+    "prod": { "ar": "إنتاج", "en": "Prod." },
+    "brand": { "ar": "تارگت", "en": "Target" }
+  },
+  "stages": [
+    {
+      "title": { "ar": "السيناريو", "en": "Script" },
+      "text": {
+        "ar": "نبدأ من الفكرة: الرسالة، الجمهور، والنص الذي يُقال على الشاشة.",
+        "en": "We start from the idea: the message, the audience and the words said on screen."
+      },
+      "out": { "ar": "النص المعتمد", "en": "The approved script" }
+    },
+    {
+      "title": { "ar": "الستوري بورد", "en": "Storyboard" },
+      "text": {
+        "ar": "نرسم كل لقطة قبل التصوير، لترى الإعلان قبل أن يُصوّر.",
+        "en": "We draw every shot before the shoot, so you see the commercial before it is filmed."
+      },
+      "out": { "ar": "لوحات الستوري بورد", "en": "Storyboard frames" }
+    },
+    {
+      "title": { "ar": "التصوير", "en": "Shoot" },
+      "text": {
+        "ar": "فريق التصوير والإضاءة والمعدات في الموقع أو الاستوديو.",
+        "en": "Camera, lighting and gear crews, on location or in the studio."
+      },
+      "out": { "ar": "المادة المصوّرة", "en": "The footage" }
+    },
+    {
+      "title": { "ar": "المونتاج والصوت", "en": "Edit & sound" },
+      "text": {
+        "ar": "تركيب اللقطات، الألوان، الموسيقى والتعليق الصوتي.",
+        "en": "Cutting the shots together, colour, music and voiceover."
+      },
+      "out": { "ar": "النسخة النهائية", "en": "The final cut" }
+    },
+    {
+      "title": { "ar": "التسليم", "en": "Delivery" },
+      "text": {
+        "ar": "نسخ جاهزة لكل شاشة: التلفزيون، اللوحات الرقمية، والسوشيال.",
+        "en": "Ready versions for every screen: TV, digital boards and social media."
+      },
+      "out": { "ar": "ملفات العرض", "en": "Files ready to air" }
+    }
+  ]
+}

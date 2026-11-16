@@ -1,0 +1,44 @@
+/*
+ * SocialCampaign keyframes (transform and opacity only). The caption typing
+ * and the reach line are revealed by a clip that slides in (wipe) while its
+ * content slides the other way (unwipe), so the content itself stays still.
+ * --wipe-from is -100% in English and 100% in Arabic (reveal from the start).
+ */
+@keyframes campaign-wipe {
+  from {
+    transform: translateX(var(--wipe-from, -100%));
+  }
+  60%,
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes campaign-unwipe {
+  from {
+    transform: translateX(calc(var(--wipe-from, -100%) * -1));
+  }
+  60%,
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes campaign-float-up {
+  0% {
+    transform: translateY(0) scale(0.6);
+    opacity: 0;
+  }
+  12% {
+    transform: translateY(-40px) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-420px) scale(0.9);
+    opacity: 0;
+  }
+}
+@keyframes campaign-pop {
+  from {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+}

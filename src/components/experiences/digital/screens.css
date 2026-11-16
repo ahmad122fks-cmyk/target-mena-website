@@ -1,0 +1,21 @@
+/*
+ * Keyframes of the Creative & Digital phone screens (transform only),
+ * used as animate-[dg-spin_…] so Tailwind's pause variant can stop them.
+ * Under reduced motion the screens drop them for a static frame.
+ */
+@keyframes dg-spin {
+  from {
+    transform: rotateX(-12deg) rotateY(0deg);
+  }
+  to {
+    transform: rotateX(-12deg) rotateY(360deg);
+  }
+}
+@keyframes dg-scan {
+  from {
+    transform: translateY(-60px);
+  }
+  to {
+    transform: translateY(600px);
+  }
+}

@@ -1,0 +1,45 @@
+/* TargetReels keyframes (transform and opacity only; stopped under reduced motion). */
+@keyframes reel-fill {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+@keyframes reel-burst {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  30% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  70% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+@keyframes reel-zoom {
+  from {
+    transform: scale(1.15);
+  }
+}
+@keyframes reel-disc {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes reel-sound {
+  from {
+    transform: translateX(-40%);
+  }
+  to {
+    transform: translateX(40%);
+  }
+}

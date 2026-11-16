@@ -1,0 +1,40 @@
+{
+  "_note": "Text of the network map (src/components/map). Type names come from typeLabels in src/data/network-map.json, English place names from src/data/cities.json.",
+  "aria": {
+    "ar": "خريطة توزيع لوحات تارگت على المحافظات العراقية",
+    "en": "Map of Target's boards across Iraq's provinces"
+  },
+  "views": {
+    "net": { "ar": "شبكتنا", "en": "Our network" },
+    "iraq": { "ar": "العراق", "en": "Iraq" },
+    "center": { "ar": "الفرات الأوسط", "en": "Middle Euphrates" },
+    "south": { "ar": "الجنوب", "en": "The South" },
+    "baghdad": { "ar": "بغداد", "en": "Baghdad" }
+  },
+  "viewsGroup": { "ar": "المناطق", "en": "Areas" },
+  "typesGroup": { "ar": "نوع اللوحة", "en": "Board type" },
+  "allTypes": { "ar": "الكل", "en": "All" },
+  "zoomIn": { "ar": "تكبير", "en": "Zoom in" },
+  "zoomOut": { "ar": "تصغير", "en": "Zoom out" },
+  "reset": { "ar": "العراق كله", "en": "Whole of Iraq" },
+  "layersGroup": { "ar": "طبقة العرض", "en": "Map layer" },
+  "layers": {
+    "bubbles": { "ar": "المحافظات", "en": "Provinces" },
+    "density": { "ar": "الكثافة", "en": "Density" }
+  },
+  "hintWheel": {
+    "ar": "استخدم Ctrl أو ⌘ مع التمرير للتكبير",
+    "en": "Use Ctrl or ⌘ while scrolling to zoom"
+  },
+  "hintTouch": {
+    "ar": "استخدم إصبعين للتكبير",
+    "en": "Use two fingers to zoom"
+  },
+  "panelLabel": { "ar": "ملخص الشبكة", "en": "Network summary" },
+  "panelAll": { "ar": "كل الشبكة", "en": "Whole network" },
+  "clickToZoom": { "ar": "اضغط للتكبير", "en": "Click to zoom in" },
+  "footnote": {
+    "ar": "العدد فقط، بدون تفاصيل اللوحات.",
+    "en": "Counts only, no board details."
+  }
+}

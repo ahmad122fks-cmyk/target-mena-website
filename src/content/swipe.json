@@ -1,0 +1,14 @@
+{
+  "_note": "Boards shown as swipe cards in the phones (home, network). Approved street photos only (src/lib/images.ts BOARD_PHOTOS), mixed types. Facts come from boards.json at build time.",
+  "codes": [
+    "BG46A",
+    "LED-AB01",
+    "BBL-01A",
+    "BGW03A",
+    "BGM01A",
+    "DB01A",
+    "DBDG01A",
+    "BGW04A",
+    "DB07A"
+  ]
+}

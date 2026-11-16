@@ -1,0 +1,50 @@
+{
+  "_note": "Texts of the phone screens in src/components/experiences: BoardSwipe (swipe) and SocialCampaign (social). TargetReels texts live in reels.json. Board facts only (never availability); the demo campaign shows no numbers.",
+  "swipe": {
+    "label": { "ar": "لوحات تارگت، اسحب لتتصفحها", "en": "Target boards, swipe to browse" },
+    "title": { "ar": "لوحات تارگت", "en": "Target boards" },
+    "live": { "ar": "تتبع مباشر", "en": "Live tracking" },
+    "hint": { "ar": "اسحب للأعلى", "en": "Swipe up" },
+    "hintTouch": { "ar": "اسحب للجانب", "en": "Swipe sideways" },
+    "slide": { "ar": "لوحة {n} من {total}", "en": "Board {n} of {total}" },
+    "location": {
+      "ar": "موقع اللوحة {code} وتفاصيلها",
+      "en": "Location and details of board {code}"
+    },
+    "share": { "ar": "شارك اللوحة {code}", "en": "Share board {code}" },
+    "copied": { "ar": "نُسخ الرابط", "en": "Link copied" },
+    "photoToConfirm": { "LED-AB01": "covered LED-AB01 photo" }
+  },
+  "social": {
+    "label": {
+      "ar": "حملة رقمية تجريبية تُنشر على المنصات",
+      "en": "A demo digital campaign going live across platforms"
+    },
+    "title": { "ar": "حملة جديدة", "en": "New campaign" },
+    "status": {
+      "draft": { "ar": "مسودة", "en": "Draft" },
+      "scheduled": { "ar": "مجدولة", "en": "Scheduled" },
+      "live": { "ar": "منشورة الآن", "en": "Live now" }
+    },
+    "brand": { "ar": "علامتك التجارية", "en": "Your brand" },
+    "sponsored": { "ar": "إعلان ممول", "en": "Sponsored" },
+    "formats": [
+      { "ar": "منشور", "en": "Post" },
+      { "ar": "ستوري", "en": "Story" },
+      { "ar": "ريلز", "en": "Reel" }
+    ],
+    "caption": {
+      "ar": "اكتشف العرض الجديد · رابط في البايو",
+      "en": "Discover the new offer · link in bio"
+    },
+    "platformsTitle": { "ar": "النشر على المنصات", "en": "Publishing to platforms" },
+    "platforms": ["Instagram", "TikTok", "Facebook", "Snapchat", "YouTube", "X"],
+    "state": {
+      "queued": { "ar": "بالانتظار", "en": "Queued" },
+      "publishing": { "ar": "جارٍ…", "en": "Posting…" },
+      "published": { "ar": "نُشر", "en": "Live" }
+    },
+    "reach": { "ar": "الوصول والتفاعل", "en": "Reach and engagement" },
+    "demo": { "ar": "بيانات تجريبية", "en": "Demo data" }
+  }
+}

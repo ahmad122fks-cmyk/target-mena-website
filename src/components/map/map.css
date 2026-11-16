@@ -1,0 +1,73 @@
+/*
+ * Network map (src/components/map). The stage is the zoom-1 frame of the
+ * 1400 x 1416 satellite image, fitted and centred in the map with container
+ * units, so the server render is right at any width. Only transform and
+ * opacity move, plus the dash offset of the highway lights.
+ */
+.map-root {
+  container-type: size;
+}
+
+.map-stage {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 100%; /* browsers without container units */
+  width: min(100cqw, calc(100cqh * 1400 / 1416));
+  aspect-ratio: 1400 / 1416;
+  translate: -50% -50%;
+}
+
+.map-sat {
+  filter: saturate(0.7) brightness(0.58) contrast(1.08);
+}
+
+/* The image ends east of Basra and west of Anbar: fade its edges into the
+   dark frame instead of a hard line where the camera sees past it. */
+.map-sat img {
+  mask-image:
+    linear-gradient(to right, transparent, #000 6%, #000 94%, transparent),
+    linear-gradient(to bottom, transparent, #000 6%, #000 94%, transparent);
+  mask-composite: intersect;
+}
+
+.map-vignette {
+  box-shadow: inset 0 0 120px 40px color-mix(in srgb, var(--color-deep) 85%, transparent);
+}
+
+.map-flow {
+  animation: map-flow 3s linear infinite;
+}
+
+/* Loops stop while the map is off screen. */
+.map-paused,
+.map-paused * {
+  animation-play-state: paused !important;
+}
+
+@keyframes map-flow {
+  to {
+    stroke-dashoffset: -80;
+  }
+}
+
+/* Hover card: rises into place above the point. */
+@keyframes map-tip {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -92%) scale(0.96);
+  }
+}
+
+@keyframes map-hint {
+  0% {
+    opacity: 0;
+  }
+  12%,
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
