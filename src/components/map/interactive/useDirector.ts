@@ -1,4 +1,5 @@
 import { useEffect, useRef, type RefObject } from 'react'
+import { clampCam } from '../camera'
 import type { ViewKey } from '../data'
 import type { SetMapState } from '../state'
 import { viewTarget } from '../targets'
@@ -6,20 +7,29 @@ import type { MapContext } from './events'
 
 type Root = RefObject<HTMLDivElement | null>
 
-/** Keeps state.box = the map's size in px. */
-export function useBox(rootRef: Root, setState: SetMapState) {
+/**
+ * Keeps state.box = the map's size in px and its fit (cover or contain).
+ * In cover the camera is clamped again whenever the box changes (first
+ * measure, resize, theme switch), so the photo keeps filling the frame.
+ */
+export function useBox(rootRef: Root, setState: SetMapState, cover: boolean) {
   useEffect(() => {
     const root = rootRef.current
     if (!root) return
     const measure = () => {
       const [w, h] = [root.clientWidth, root.clientHeight]
-      if (w && h) setState((s) => (s.box?.w === w && s.box.h === h ? s : { ...s, box: { w, h } }))
+      if (!w || !h) return
+      setState((s) => {
+        if (s.box?.w === w && s.box.h === h && Boolean(s.box.cover) === cover) return s
+        const box = { w, h, cover }
+        return { ...s, box, cam: cover ? clampCam(s.cam, box) : s.cam }
+      })
     }
     measure()
     const observer = new ResizeObserver(measure)
     observer.observe(root)
     return () => observer.disconnect()
-  }, [rootRef, setState])
+  }, [rootRef, setState, cover])
 }
 
 /**
@@ -38,9 +48,10 @@ export function useIntro(rootRef: Root, enabled: boolean, ctx: MapContext) {
         if (!entries.some((entry) => entry.isIntersecting)) return
         observer.disconnect()
         timer = window.setTimeout(() => {
-          if (touched.current) return
+          // The box (size and fit) is measured by now; without it the map has no size.
+          const box = latest.current.box
+          if (touched.current || !box) return
           touched.current = true
-          const box = latest.current.box ?? { w: root.clientWidth, h: root.clientHeight }
           setState((s) => ({ ...s, view: 'net', sel: 'all' }))
           fly.to(viewTarget('net', 'all', box), 2400)
         }, 450)

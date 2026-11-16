@@ -10,12 +10,17 @@ export type Fly = {
   stop: () => void
 }
 
-/** Camera moves on requestAnimationFrame, one at a time; targets are kept over the map. */
+/**
+ * Camera moves on requestAnimationFrame, one at a time; targets are kept over
+ * the map. In cover every frame is also clamped to the box of that moment, so
+ * the photo keeps filling the frame if the box changes mid-flight.
+ */
 export function useFly(latest: RefObject<MapState>, setState: SetMapState, reduced: boolean): Fly {
   const frame = useRef(0)
   useEffect(() => () => cancelAnimationFrame(frame.current), [])
   return useMemo(() => {
-    const set = (cam: Cam) => setState((s) => ({ ...s, cam }))
+    const set = (cam: Cam) =>
+      setState((s) => ({ ...s, cam: s.box?.cover ? clampCam(cam, s.box) : cam }))
     const stop = () => cancelAnimationFrame(frame.current)
     const to = (target: Cam, ms = 1100) => {
       stop()

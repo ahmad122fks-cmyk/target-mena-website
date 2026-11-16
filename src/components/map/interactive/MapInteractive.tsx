@@ -1,4 +1,5 @@
-import { useLayoutEffect, useMemo, useRef, type RefObject } from 'react'
+import { useLayoutEffect, useMemo, useRef, useSyncExternalStore, type RefObject } from 'react'
+import { currentTheme, subscribeTheme } from '@/features/theme/theme'
 import { usePrefersReducedMotion } from '@/lib/motion'
 import type { MapState, NetworkMapProps, SetMapState } from '../state'
 import { Controls } from './Controls'
@@ -25,7 +26,11 @@ type Props = NetworkMapProps & {
  * intro or the page-driven camera, chips, controls, panel, hover card and
  * hint. The map itself stays drawn by MapScene from the shared state.
  */
-export function MapInteractive({ state, setState, rootRef, panel = true, view, selected }: Props) {
+export function MapInteractive(props: Props) {
+  const { state, setState, rootRef, panel = true, view, selected } = props
+  // Same rule as map.css: cover in the light theme unless the page says otherwise.
+  const theme = useSyncExternalStore(subscribeTheme, currentTheme, () => 'light' as const)
+  const cover = props.cover ?? theme === 'light'
   const latest = useRef(state)
   useLayoutEffect(() => {
     latest.current = state
@@ -40,7 +45,7 @@ export function MapInteractive({ state, setState, rootRef, panel = true, view, s
     [setState, fly, actions, showHint],
   )
   const controlled = view !== undefined || selected !== undefined
-  useBox(rootRef, setState)
+  useBox(rootRef, setState, cover)
   usePointerGestures(rootRef, ctx)
   useWheelZoom(rootRef, ctx)
   useIntro(rootRef, !controlled, ctx)

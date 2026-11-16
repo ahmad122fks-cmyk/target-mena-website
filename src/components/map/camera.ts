@@ -1,8 +1,10 @@
 /*
- * Camera maths of the network map (pure, unit-tested in map-camera.test.ts).
- * The camera is the map point in the middle of the box plus a zoom; zoom 1
- * fits the whole 1400 x 1416 satellite image into the box. Map points are
- * pixels of that image, screen points are px from the box's top-left.
+ * Camera maths of the network map (pure, unit-tested in map-camera.test.ts
+ * and map-cover.test.ts). The camera is the map point in the middle of the
+ * box plus a zoom. Zoom 1 fits the whole 1400 x 1416 satellite image into
+ * the box (contain, dark theme) or fills the box with it (cover, light
+ * theme). Map points are pixels of that image, screen points are px from
+ * the box's top-left.
  */
 export const MAP_W = 1400
 export const MAP_H = 1416
@@ -10,29 +12,35 @@ export const MIN_ZOOM = 1
 export const MAX_ZOOM = 7
 
 export type Cam = { cx: number; cy: number; z: number }
-export type Box = { w: number; h: number }
+/** The map in px; `cover`: the photo fills it edge to edge (else it fits inside). */
+export type Box = { w: number; h: number; cover?: boolean }
 export type Point = { x: number; y: number }
 
 const clamp = (v: number, lo: number, hi: number) => Math.min(hi, Math.max(lo, v))
 
-/** Screen px per map px at zoom 1. */
+/** Screen px per map px at zoom 1: the smaller ratio fits the photo, the larger fills the box. */
 export function baseScale(box: Box): number {
-  return Math.min(box.w / MAP_W, box.h / MAP_H) || 1
+  const [rw, rh] = [box.w / MAP_W, box.h / MAP_H]
+  return (box.cover ? Math.max(rw, rh) : Math.min(rw, rh)) || 1
 }
 
 export function scaleOf(cam: Cam, box: Box): number {
   return baseScale(box) * cam.z
 }
 
-/** Zoom kept in 1-7 and the view kept over the map (with a small margin round it). */
+/**
+ * Zoom kept in 1-7 and the view kept over the map: with a small margin round
+ * it (contain), or inside the photo, so it always fills the box (cover).
+ */
 export function clampCam(cam: Cam, box: Box): Cam {
   const z = clamp(cam.z, MIN_ZOOM, MAX_ZOOM)
   const s = baseScale(box) * z
+  const [mx, my] = box.cover ? [0, 0] : [120, 60]
   const fit = (lo: number, hi: number, span: number, v: number) =>
     span >= hi - lo ? (lo + hi) / 2 : clamp(v, lo + span / 2, hi - span / 2)
   return {
-    cx: fit(-120, MAP_W + 120, box.w / s, cam.cx),
-    cy: fit(-60, MAP_H + 60, box.h / s, cam.cy),
+    cx: fit(-mx, MAP_W + mx, box.w / s, cam.cx),
+    cy: fit(-my, MAP_H + my, box.h / s, cam.cy),
     z,
   }
 }

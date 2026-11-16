@@ -17,7 +17,7 @@ export type MapState = {
   type: string
   layer: Layer
   drag: boolean
-  /** Size of the map in px, once measured in the browser. */
+  /** Size of the map in px and how the photo fits it, once measured in the browser. */
   box: Box | null
 }
 
@@ -34,6 +34,13 @@ export type NetworkMapProps = {
   selected?: string
   /** Above the fold: load the satellite image first. */
   priority?: boolean
+  /**
+   * The photo fills the map edge to edge, pan kept inside it. Default: follow
+   * the theme (light: on, dark: off, the photo fits inside a dark frame).
+   */
+  cover?: boolean
+  /** Dark inner edge. Default: follow the theme (light: off, dark: on). */
+  vignette?: boolean
   className?: string
 }
 

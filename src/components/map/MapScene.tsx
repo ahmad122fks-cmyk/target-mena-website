@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react'
 import { useT } from '@/features/i18n/LangContext'
+import { cn } from '@/lib/utils'
 import { scaleOf, viewBoxOf } from './camera'
 import { OUTLINE } from './data'
 import { Highways } from './Highways'
@@ -13,6 +14,8 @@ type Props = {
   state: MapState
   interactive: boolean
   priority?: boolean
+  /** Dark inner edge: on, off, or (undefined) dark theme only. */
+  vignette?: boolean
   /** Extra SVG layers between the outline and the highways (lights, density). */
   under?: ReactNode
 }
@@ -20,9 +23,10 @@ type Props = {
 /**
  * The map itself, drawn from the camera alone: satellite picture, SVG
  * (outline, highways) and HTML markers and labels. Rendered on the server
- * and kept mounted when the interactive layer takes over.
+ * and kept mounted when the interactive layer takes over. Contain or cover
+ * is CSS only (map.css sizes the stage and the SVG).
  */
-export function MapScene({ state, interactive, priority, under }: Props) {
+export function MapScene({ state, interactive, priority, vignette, under }: Props) {
   const t = useT()
   const { cam, box } = state
   return (
@@ -35,7 +39,7 @@ export function MapScene({ state, interactive, priority, under }: Props) {
         preserveAspectRatio="xMidYMid meet"
         role="img"
         aria-label={t(content.aria)}
-        className="absolute inset-0 block size-full touch-none"
+        className="map-svg touch-none"
       >
         <path
           d={OUTLINE}
@@ -55,7 +59,9 @@ export function MapScene({ state, interactive, priority, under }: Props) {
           u={box ? 1 / scaleOf(cam, box) : null}
         />
       </svg>
-      <div aria-hidden="true" className="map-vignette pointer-events-none absolute inset-0" />
+      {vignette !== false && (
+        <div aria-hidden="true" className={cn('map-vignette', vignette ?? 'hidden dark:block')} />
+      )}
       <div className="map-stage pointer-events-none touch-none">
         <Markers
           cam={cam}
