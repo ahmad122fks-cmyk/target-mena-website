@@ -32,7 +32,7 @@ export function FeatureCard({
   return (
     <article
       className={cn(
-        'flex flex-col gap-3 rounded-card border border-line bg-white',
+        'flex flex-col gap-3 rounded-card border border-line bg-surface',
         lg ? 'gap-4 p-7 lg:p-9' : 'p-6 lg:p-7',
         raised && 'shadow-soft',
         className,
@@ -53,7 +53,7 @@ export function FeatureCard({
         (link && (
           <a
             href={link.href}
-            className="mt-auto inline-flex min-h-11 items-end self-start pt-2.5 text-[0.9375rem] font-medium text-brand-blue hover:underline"
+            className="mt-auto inline-flex min-h-11 items-end self-start pt-2.5 text-[0.9375rem] font-medium text-link hover:underline"
           >
             {link.label}
           </a>

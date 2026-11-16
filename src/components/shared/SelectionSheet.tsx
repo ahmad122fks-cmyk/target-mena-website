@@ -17,12 +17,12 @@ export default function SelectionSheet({ open, onOpenChange }: Props) {
         dir={dir}
         aria-describedby={undefined}
         closeLabel={t(content.close)}
-        className="w-[min(26rem,92vw)] gap-0 bg-white p-0"
+        className="w-[min(26rem,92vw)] gap-0 bg-surface p-0"
       >
         <SelectionPanel
           className="h-full"
           title={(children) => (
-            <SheetTitle className="text-lg font-semibold text-brand-black">{children}</SheetTitle>
+            <SheetTitle className="text-lg font-semibold text-ink">{children}</SheetTitle>
           )}
         />
       </SheetContent>

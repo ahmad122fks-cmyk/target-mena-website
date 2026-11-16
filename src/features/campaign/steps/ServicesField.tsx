@@ -16,7 +16,7 @@ export function ServicesField({ control }: { control: Control<CampaignValues> })
       name="services"
       render={({ field }) => (
         <fieldset className="flex flex-col gap-2.5">
-          <legend className="mb-2.5 text-sm font-medium text-brand-black">{t(f.services)}</legend>
+          <legend className="mb-2.5 text-sm font-medium text-ink">{t(f.services)}</legend>
           <div className="flex flex-wrap gap-2.5">
             {SERVICES.map((service) => {
               const on = field.value.includes(service)
@@ -34,8 +34,8 @@ export function ServicesField({ control }: { control: Control<CampaignValues> })
                   className={cn(
                     'inline-flex min-h-11 items-center gap-2 rounded-full border px-4 text-sm',
                     on
-                      ? 'border-brand-blue bg-brand-blue-10 text-brand-blue'
-                      : 'border-input bg-white text-brand-black hover:border-brand-blue',
+                      ? 'border-link bg-brand-blue-10 text-link'
+                      : 'border-input bg-field text-ink hover:border-link',
                   )}
                 >
                   <Icon className="size-4" strokeWidth={2} aria-hidden="true" />

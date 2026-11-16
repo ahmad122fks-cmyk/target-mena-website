@@ -23,7 +23,7 @@ export function SelectionItem({ item }: { item: SelectedBoard }) {
       <div className="flex min-w-0 flex-1 flex-col gap-0.5">
         <a
           href={link(boardPath(item))}
-          className="ltr-run self-start font-semibold text-brand-blue hover:underline"
+          className="ltr-run self-start font-semibold text-link hover:underline"
         >
           {item.code}
         </a>
@@ -34,7 +34,7 @@ export function SelectionItem({ item }: { item: SelectedBoard }) {
       <button
         type="button"
         onClick={() => selection.remove(item.code)}
-        className="min-h-11 rounded-lg px-2 text-[0.8125rem] hover:bg-brand-ghost hover:text-brand-black"
+        className="min-h-11 rounded-lg px-2 text-[0.8125rem] hover:bg-brand-ghost hover:text-ink"
       >
         {t(content.remove)}
         <span className="sr-only ltr-run"> {item.code}</span>

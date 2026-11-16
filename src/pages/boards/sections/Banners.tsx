@@ -11,7 +11,7 @@ export function SharedBanner({ boards, onShowAll }: { boards: Board[]; onShowAll
   const t = useT()
   return (
     <div role="status" className={`${box} border-brand-blue-40 bg-brand-blue-10`}>
-      <p className="flex-1 font-semibold text-brand-black">
+      <p className="flex-1 font-semibold text-ink">
         {t(content.shared)} <span className="ltr-run">({boards.length})</span>
       </p>
       <PillButton size="sm" onClick={() => selection.add(boards)}>
@@ -30,7 +30,7 @@ export function PickerBanner() {
   const link = useLink()
   return (
     <div role="status" className={`${box} border-brand-yellow bg-brand-yellow-10`}>
-      <p className="flex-1 font-semibold text-brand-black">{t(content.picker)}</p>
+      <p className="flex-1 font-semibold text-ink">{t(content.picker)}</p>
       <PillButton size="sm" href={link('/campaign/?step=boards')}>
         {t(content.backToCampaign)}
       </PillButton>

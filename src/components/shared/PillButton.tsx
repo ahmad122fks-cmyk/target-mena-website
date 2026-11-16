@@ -4,11 +4,15 @@ import { cn } from '@/lib/utils'
 
 const TONES = {
   blue: 'bg-brand-blue text-white hover:bg-brand-blue-80',
-  outline: 'border-[1.5px] border-brand-blue bg-white text-brand-blue hover:bg-brand-blue-10',
-  ghost: 'border border-input bg-white text-brand-black hover:bg-brand-ghost',
-  white: 'bg-white text-brand-black hover:bg-brand-ghost',
+  outline: 'border-[1.5px] border-link bg-surface text-link hover:bg-brand-blue-10',
+  ghost: 'border border-input bg-field text-ink hover:bg-brand-ghost',
+  white: 'bg-white text-brand-black hover:bg-white/90',
   black: 'bg-brand-black text-white hover:bg-brand-black/85',
   green: 'bg-brand-green text-brand-black hover:bg-brand-green-80',
+  /** Main action on the header and dark bands (DESIGN.md 12). */
+  yellow: 'bg-brand-yellow text-brand-black hover:bg-brand-yellow-80',
+  /** Secondary action on blue or dark bands. */
+  outlineWhite: 'border-[1.5px] border-white bg-transparent text-white hover:bg-white/10',
 } as const
 
 const SIZES = {

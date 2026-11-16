@@ -19,14 +19,14 @@ export default function ContactPage() {
     <ContentPage id="contact" content={content}>
       <Section>
         <div className="grid items-start gap-6 lg:grid-cols-[1fr_1.4fr]">
-          <address className="flex flex-col rounded-card border border-line bg-white px-6 py-2 not-italic">
+          <address className="flex flex-col rounded-card border border-line bg-surface px-6 py-2 not-italic">
             <div className={row}>
               <span className="text-sm">{t(d.phones)}</span>
               {c.phones.map((phone) => (
                 <a
                   key={phone}
                   href={telHref(phone)}
-                  className="ltr-run self-start py-1 text-lg font-medium text-brand-black hover:text-brand-blue"
+                  className="ltr-run self-start py-1 text-lg font-medium text-ink hover:text-link"
                 >
                   {phone}
                 </a>
@@ -36,25 +36,20 @@ export default function ContactPage() {
               <span className="text-sm">{t(d.email)}</span>
               <a
                 href={`mailto:${c.email}`}
-                className="ltr-run self-start py-1 text-lg font-medium text-brand-black hover:text-brand-blue"
+                className="ltr-run self-start py-1 text-lg font-medium text-ink hover:text-link"
               >
                 {c.email}
               </a>
             </div>
             <div className={row}>
               <span className="text-sm">{t(d.whatsapp)}</span>
-              <PillButton
-                size="sm"
-                tone="green"
-                href={whatsappHref()}
-                className="mt-1 self-start"
-              >
+              <PillButton size="sm" tone="green" href={whatsappHref()} className="mt-1 self-start">
                 {t(d.whatsappCta)}
               </PillButton>
             </div>
             <div className={row}>
               <span className="text-sm">{t(d.address)}</span>
-              <span className="text-lg font-medium text-brand-black">{t(c.address)}</span>
+              <span className="text-lg font-medium text-ink">{t(c.address)}</span>
               <ToConfirm what={d.mapToConfirm} className="mt-1 self-start text-xs" />
             </div>
           </address>

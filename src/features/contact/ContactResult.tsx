@@ -13,10 +13,7 @@ export function ContactResult({ result, text, name }: Props) {
   const f = content.form
   if (result === 'sent')
     return (
-      <p
-        role="status"
-        className="rounded-[14px] bg-brand-green-10 p-4 font-medium text-brand-black"
-      >
+      <p role="status" className="rounded-[14px] bg-brand-green-10 p-4 font-medium text-ink">
         {t(f.sent)}
       </p>
     )
@@ -25,9 +22,7 @@ export function ContactResult({ result, text, name }: Props) {
       role={result === 'error' ? 'alert' : 'status'}
       className="flex flex-col gap-3 rounded-[14px] border border-line bg-brand-ghost p-4"
     >
-      <p className="font-semibold text-brand-black">
-        {t(result === 'error' ? f.error : f.fallbackTitle)}
-      </p>
+      <p className="font-semibold text-ink">{t(result === 'error' ? f.error : f.fallbackTitle)}</p>
       {result === 'fallback' && <p className="text-sm">{t(f.fallbackText)}</p>}
       <div className="flex flex-wrap gap-2.5">
         <PillButton size="sm" href={whatsappLink(text)}>

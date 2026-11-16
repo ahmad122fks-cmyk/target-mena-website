@@ -5,6 +5,7 @@
   "navLabel": { "ar": "القائمة الرئيسية", "en": "Main menu" },
   "menuOpen": { "ar": "فتح القائمة", "en": "Open menu" },
   "close": { "ar": "إغلاق", "en": "Close" },
+  "theme": { "dark": { "ar": "الوضع الداكن", "en": "Dark mode" } },
   "nav": [
     {
       "path": "/boards/",

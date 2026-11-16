@@ -1,8 +1,8 @@
-import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group'
 import { SORTS, type Sort, type View } from '@/features/boards/finderState'
 import { useLang, useT } from '@/features/i18n/LangContext'
 import { cityLabel } from '@/lib/boards'
 import { formatCount } from '@/lib/format'
+import { cn } from '@/lib/utils'
 import content from '../boards.content.json'
 
 type Props = {
@@ -28,7 +28,7 @@ export function ResultsBar({ total, city, sort, view, onSort, onView }: Props) {
         {city && <span className="font-normal text-brand-text"> · {cityLabel(city, lang)}</span>}
       </h2>
       <div className="flex flex-wrap items-center gap-2.5">
-        <label className="flex h-11 items-center gap-1.5 rounded-full border border-input bg-white ps-4 pe-2 text-sm text-brand-black focus-within:border-brand-blue">
+        <label className="flex h-11 items-center gap-1.5 rounded-full border border-input bg-field ps-4 pe-2 text-sm text-ink focus-within:border-link">
           {t(r.sort)}:
           <select
             id="f-sort"
@@ -43,23 +43,28 @@ export function ResultsBar({ total, city, sort, view, onSort, onView }: Props) {
             ))}
           </select>
         </label>
-        <ToggleGroup
-          type="single"
-          value={view}
-          onValueChange={(value) => value && onView(value as View)}
+        {/* Two plain pressed buttons: the same switch without the toggle-group library
+            (keeps the finder inside its 150 KB budget). */}
+        <div
+          role="group"
           aria-label={t(r.view)}
-          className="h-11 gap-0 overflow-hidden rounded-full border border-input bg-white"
+          className="flex h-11 overflow-hidden rounded-full border border-input bg-field"
         >
           {VIEWS.map((value) => (
-            <ToggleGroupItem
+            <button
               key={value}
-              value={value}
-              className="h-full rounded-none px-4 text-sm text-brand-black data-[state=on]:bg-brand-blue-10 data-[state=on]:font-medium data-[state=on]:text-brand-blue"
+              type="button"
+              aria-pressed={view === value}
+              onClick={() => onView(value)}
+              className={cn(
+                'h-full px-4 text-sm text-ink hover:bg-brand-ghost',
+                view === value && 'bg-brand-blue-10 font-medium text-link hover:bg-brand-blue-10',
+              )}
             >
               {t(r[value])}
-            </ToggleGroupItem>
+            </button>
           ))}
-        </ToggleGroup>
+        </div>
       </div>
     </div>
   )

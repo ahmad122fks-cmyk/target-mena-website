@@ -47,9 +47,9 @@ export function FilterCombobox(props: Props) {
             aria-expanded={open}
             aria-labelledby={pill ? undefined : `${id}-label ${id}`}
             className={cn(
-              'h-11 justify-between gap-2 border-input bg-white text-base font-normal text-brand-black shadow-none',
+              'h-11 justify-between gap-2 border-input bg-field text-base font-normal text-ink shadow-none',
               pill ? 'rounded-full px-4 text-[0.9375rem]' : 'w-full rounded-field px-3',
-              value && 'border-brand-blue text-brand-blue',
+              value && 'border-link text-link',
             )}
           >
             <span className="truncate">{pill ? `${label}: ${current}` : current}</span>

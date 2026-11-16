@@ -41,7 +41,7 @@ export function SelectionActions({ items, onDone }: Props) {
     <div className="flex flex-col gap-3 bg-brand-ghost px-5 py-4">
       <p className="flex justify-between text-sm">
         <span>{t(content.total)}</span>
-        <b className="ltr-run font-semibold text-brand-black">{formatSqm(total, lang)}</b>
+        <b className="ltr-run font-semibold text-ink">{formatSqm(total, lang)}</b>
       </p>
       <PillButton href={link('/campaign/')} className="w-full">
         {t(content.request)}
@@ -66,7 +66,7 @@ export function SelectionActions({ items, onDone }: Props) {
           readOnly
           value={shared}
           aria-label={t(content.share)}
-          className="ltr-run h-11 rounded-field border border-input bg-white px-3 text-sm"
+          className="ltr-run h-11 rounded-field border border-input bg-field px-3 text-sm"
           onFocus={(e) => e.target.select()}
         />
       )}

@@ -23,7 +23,7 @@ export default function NotFoundPage() {
                 {content.title.ar}
               </h1>
             ) : (
-              <p className="text-4xl font-bold text-brand-black">{content.title.en}</p>
+              <p className="text-4xl font-bold text-ink">{content.title.en}</p>
             )}
             <p>{content.text[lang]}</p>
             <div className="flex flex-wrap gap-3">
@@ -32,7 +32,7 @@ export default function NotFoundPage() {
                   key={item.path}
                   href={localePath(lang, item.path)}
                   tone={item.path === '/' ? 'blue' : 'white'}
-                  className="border border-brand-blue"
+                  className="border border-link"
                 >
                   {item.label[lang]}
                 </PillButton>

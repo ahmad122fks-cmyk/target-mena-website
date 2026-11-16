@@ -11,7 +11,7 @@ export function Footer() {
   const link = useLink()
   const { footer, contact } = site
   return (
-    <footer className="relative overflow-hidden bg-brand-black text-brand-grey-40">
+    <footer className="relative overflow-hidden bg-deep text-brand-grey-40">
       <Calligraphy
         mark="b"
         tone="blue"

@@ -15,7 +15,7 @@ export function SendResult({ result, message, name }: Props) {
     return (
       <p
         role="status"
-        className="rounded-[14px] bg-brand-green-10 p-5 text-base font-medium text-brand-black"
+        className="rounded-[14px] bg-brand-green-10 p-5 text-base font-medium text-ink"
       >
         {t(r.success)}
       </p>

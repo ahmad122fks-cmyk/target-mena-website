@@ -32,7 +32,7 @@ export function BoardsStep({ error }: { error: boolean }) {
               <div className="flex min-w-0 flex-1 flex-col gap-0.5">
                 <a
                   href={link(boardPath(item))}
-                  className="ltr-run self-start font-semibold text-brand-blue hover:underline"
+                  className="ltr-run self-start font-semibold text-link hover:underline"
                 >
                   {item.code}
                 </a>
@@ -44,7 +44,7 @@ export function BoardsStep({ error }: { error: boolean }) {
               <button
                 type="button"
                 onClick={() => selection.remove(item.code)}
-                className="min-h-11 rounded-lg px-2 text-sm hover:bg-brand-ghost hover:text-brand-black"
+                className="min-h-11 rounded-lg px-2 text-sm hover:bg-brand-ghost hover:text-ink"
               >
                 {t(selectionContent.remove)}
                 <span className="sr-only ltr-run"> {item.code}</span>
@@ -60,14 +60,14 @@ export function BoardsStep({ error }: { error: boolean }) {
       {error && (
         <p
           role="alert"
-          className="rounded-[14px] border border-brand-yellow bg-brand-yellow-10 p-3 font-medium text-brand-black"
+          className="rounded-[14px] border border-brand-yellow bg-brand-yellow-10 p-3 font-medium text-ink"
         >
           {t(content.errors.boards)}
         </p>
       )}
       <a
         href={link('/boards/?pick=1')}
-        className="inline-flex min-h-11 items-center gap-2 self-start rounded-field border border-dashed border-brand-blue px-4 font-medium text-brand-blue hover:bg-brand-blue-10"
+        className="inline-flex min-h-11 items-center gap-2 self-start rounded-field border border-dashed border-link px-4 font-medium text-link hover:bg-brand-blue-10"
       >
         <Plus className="size-4" strokeWidth={2} aria-hidden="true" />
         {t(content.boards.addMore)}

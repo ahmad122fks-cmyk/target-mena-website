@@ -46,8 +46,8 @@ export function ProvinceChips({
       className={cn(
         chip,
         selected === key
-          ? 'border-brand-blue bg-brand-blue text-white'
-          : 'border-input bg-white text-brand-black hover:border-brand-blue',
+          ? 'border-link bg-brand-blue text-white'
+          : 'border-input bg-field text-ink hover:border-link',
       )}
     >
       {label(text, count)}
@@ -65,7 +65,7 @@ export function ProvinceChips({
           <a
             key={key}
             href={hrefFor(key)}
-            className={cn(chip, 'border-input bg-white text-brand-blue hover:border-brand-blue')}
+            className={cn(chip, 'border-input bg-field text-link hover:border-link')}
           >
             {label(cityLabel(key, lang), count)}
           </a>

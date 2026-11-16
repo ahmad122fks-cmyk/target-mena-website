@@ -35,7 +35,7 @@ export function FilterBar({ filters, onChange, provinces, all, total, listOpen, 
   return (
     <section
       aria-label={t(f.label)}
-      className="sticky top-16 z-30 border-b border-line bg-white/95 shadow-soft backdrop-blur"
+      className="sticky top-16 z-30 border-b border-line bg-surface/95 shadow-soft backdrop-blur"
     >
       <Container wide className="flex flex-col gap-2.5 py-3">
         <div className="flex items-center gap-2 lg:gap-2.5">
@@ -62,7 +62,7 @@ export function FilterBar({ filters, onChange, provinces, all, total, listOpen, 
               setUsed(true)
               setSheet(true)
             }}
-            className="h-11 shrink-0 gap-1.5 rounded-full border-input px-3.5 font-normal text-brand-black lg:hidden"
+            className="h-11 shrink-0 gap-1.5 rounded-full border-input px-3.5 font-normal text-ink lg:hidden"
           >
             <SlidersHorizontal className="size-4" aria-hidden="true" />
             {t(f.button)}

@@ -23,7 +23,7 @@ export function BoardGroups({ groups }: { groups: Group[] }) {
                 {formatCount(group.boards.length, lang)}
               </span>
             </h2>
-            <ul className="flex flex-col divide-y rounded-xl border bg-white">
+            <ul className="flex flex-col divide-y rounded-xl border bg-surface">
               {group.boards.map((board) => (
                 <BoardRow key={board.code} board={board} />
               ))}

@@ -1,0 +1,63 @@
+/*
+ * Shared keyframes for the experiences (DESIGN.md 12). Components use them
+ * with Tailwind's arbitrary animate-[name_duration_easing_infinite].
+ * Only transform and opacity move, so the browser keeps them on the GPU.
+ */
+@keyframes phone-float {
+  50% {
+    transform: translateY(-10px);
+  }
+}
+@keyframes pulse-ring {
+  0% {
+    transform: scale(1);
+    opacity: 0.75;
+  }
+  100% {
+    transform: scale(3.2);
+    opacity: 0;
+  }
+}
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+@keyframes twinkle {
+  50% {
+    opacity: 0.25;
+  }
+}
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.98);
+  }
+}
+@keyframes eq-bar {
+  50% {
+    transform: scaleY(0.25);
+  }
+}
+@keyframes marquee {
+  to {
+    transform: translateX(var(--marquee-shift, -50%));
+  }
+}
+@keyframes grow-x {
+  from {
+    transform: scaleX(0);
+  }
+}
+
+/* Reduced motion: every loop stops on its first frame, transitions are instant. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

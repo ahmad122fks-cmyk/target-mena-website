@@ -21,7 +21,7 @@ type Props = {
 export function AmountField({ control, id, label, value, unit, hint }: Props) {
   return (
     <div role="group" aria-labelledby={`${id}-label`} className="flex flex-col gap-2">
-      <span id={`${id}-label`} className="text-sm font-medium text-brand-black">
+      <span id={`${id}-label`} className="text-sm font-medium text-ink">
         {label}
       </span>
       <div className="flex items-start gap-2">
@@ -36,7 +36,7 @@ export function AmountField({ control, id, label, value, unit, hint }: Props) {
                   inputMode="numeric"
                   dir="ltr"
                   placeholder={value.placeholder}
-                  className="h-12 rounded-field border-input bg-white text-base text-brand-black shadow-none rtl:text-right"
+                  className="h-12 rounded-field border-input bg-field text-base text-ink shadow-none rtl:text-right"
                   {...field}
                 />
               </FormControl>

@@ -9,13 +9,13 @@ type Props = {
 } & Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange' | 'value' | 'id'>
 
 const box =
-  'w-full rounded-field border border-input bg-white px-3.5 text-base text-brand-black outline-none focus-visible:border-brand-blue focus-visible:ring-[3px] focus-visible:ring-brand-blue/30 user-invalid:border-brand-black'
+  'w-full rounded-field border border-input bg-field px-3.5 text-base text-ink outline-none focus-visible:border-link focus-visible:ring-[3px] focus-visible:ring-brand-blue/30 user-invalid:border-brand-black'
 
 /** One labelled field; the browser checks required, type and pattern. */
 export function ContactField({ id, label, value, onChange, multiline, ...input }: Props) {
   return (
     <div className="flex flex-col gap-1.5">
-      <label htmlFor={id} className="text-sm font-medium text-brand-black">
+      <label htmlFor={id} className="text-sm font-medium text-ink">
         {label}
       </label>
       {multiline ? (

@@ -22,11 +22,11 @@ export function SelectionPanel({ onClose, title = defaultTitle, className }: Pro
   const t = useT()
   const items = useSelection()
   return (
-    <div className={cn('flex min-h-0 flex-col bg-white', className)}>
+    <div className={cn('flex min-h-0 flex-col bg-surface', className)}>
       <div className="flex items-center justify-between gap-3 border-b border-line px-5 py-3.5">
         {title(
           <>
-            {t(content.title)} <span className="ltr-run text-brand-blue">({items.length})</span>
+            {t(content.title)} <span className="ltr-run text-link">({items.length})</span>
           </>,
         )}
         {onClose && (
@@ -34,7 +34,7 @@ export function SelectionPanel({ onClose, title = defaultTitle, className }: Pro
             type="button"
             onClick={onClose}
             aria-label={t(content.close)}
-            className="flex size-11 items-center justify-center rounded-field bg-brand-ghost text-brand-black hover:bg-brand-blue-10"
+            className="flex size-11 items-center justify-center rounded-field bg-brand-ghost text-ink hover:bg-brand-blue-10"
           >
             <X className="size-4" strokeWidth={2} aria-hidden="true" />
           </button>

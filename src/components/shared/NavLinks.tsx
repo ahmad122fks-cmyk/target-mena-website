@@ -19,8 +19,8 @@ export function NavLinks({ column = false }: { column?: boolean }) {
               href={href}
               aria-current={current ? 'page' : undefined}
               className={cn(
-                'inline-flex min-h-11 items-center whitespace-nowrap rounded-lg px-2.5 text-[0.9375rem] text-brand-black hover:text-brand-blue',
-                current && 'font-medium text-brand-blue',
+                'inline-flex min-h-11 items-center whitespace-nowrap rounded-lg px-2.5 text-[0.9375rem] text-ink hover:text-link',
+                current && 'font-medium text-link',
                 column && 'w-full text-lg',
               )}
             >

@@ -33,6 +33,17 @@
   /* Hairline between sections and around cards (Ahmad's design reference, 15 Nov 2026) */
   --color-line: #e6eef4;
 
+  /* Theme roles (light values; .dark below swaps them, DESIGN.md 12).
+     page = band background, surface = cards, field = inputs, ink = headings
+     and strong text, link = text links and outlines, deep = the black
+     sections (footer, map, production, Alrabiaa band). */
+  --color-page: #ffffff;
+  --color-surface: #ffffff;
+  --color-field: #ffffff;
+  --color-ink: #000000;
+  --color-link: #0161a6;
+  --color-deep: #000000;
+
   /* Shapes: pills for buttons and chips, 20 px cards, 12 px fields */
   --radius-card: 1.25rem;
   --radius-field: 0.75rem;
@@ -64,6 +75,45 @@
   --border: #e6eef4;
   --input: #c6d8e0;
   --ring: #0161a6;
+}
+
+/*
+ * Dark theme (Ahmad, 16 Nov 2026): dark blue from Target blue, never pure
+ * black. Accents stay: yellow (main buttons), green (Alrabiaa), grey, and
+ * blue #0161A6 for filled buttons. The 10% tints become the colour mixed
+ * into the dark surface, so text on them stays readable.
+ */
+.dark {
+  color-scheme: dark;
+  --color-page: #071a2e;
+  --color-brand-ghost: #0b2340;
+  --color-deep: #04111f;
+  --color-surface: #0f2b4d;
+  --color-field: #0b2340;
+  --color-line: #1f4a78;
+  --color-ink: #eaf2f8;
+  --color-brand-text: #a9c1d4;
+  --color-link: #4da8e8;
+  --color-brand-blue-10: #14365a;
+  --color-brand-green-10: #144559;
+  --color-brand-yellow-10: #344045;
+  --color-brand-grey-10: #20405f;
+  --shadow-soft: 0 10px 30px rgb(0 0 0 / 0.25);
+  --shadow-float: 0 24px 60px rgb(0 0 0 / 0.35);
+
+  --background: #071a2e;
+  --foreground: #a9c1d4;
+  --card: #0f2b4d;
+  --card-foreground: #a9c1d4;
+  --popover: #0f2b4d;
+  --popover-foreground: #a9c1d4;
+  --secondary: #0b2340;
+  --secondary-foreground: #4da8e8;
+  --muted: #0b2340;
+  --muted-foreground: #a9c1d4;
+  --border: #1f4a78;
+  --input: #3c5c70;
+  --ring: #4da8e8;
 }
 
 @theme inline {

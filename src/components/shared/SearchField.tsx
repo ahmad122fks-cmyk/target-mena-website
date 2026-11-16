@@ -15,7 +15,7 @@ export function SearchField({ id, label, placeholder, value, onChange, className
   return (
     <div
       className={cn(
-        'flex h-11 min-w-0 items-center gap-2 rounded-full border border-input bg-white px-4 focus-within:border-brand-blue',
+        'flex h-11 min-w-0 items-center gap-2 rounded-full border border-input bg-field px-4 focus-within:border-link',
         className,
       )}
     >
@@ -29,7 +29,7 @@ export function SearchField({ id, label, placeholder, value, onChange, className
         value={value}
         placeholder={placeholder}
         onChange={(e) => onChange(e.target.value)}
-        className="h-full min-w-0 flex-1 bg-transparent text-[0.9375rem] text-brand-black outline-none placeholder:text-brand-text"
+        className="h-full min-w-0 flex-1 bg-transparent text-[0.9375rem] text-ink outline-none placeholder:text-brand-text"
       />
     </div>
   )

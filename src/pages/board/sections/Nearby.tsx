@@ -19,7 +19,7 @@ export function Nearby({ board, nearby }: { board: Board; nearby: Board[] }) {
         </h2>
         <a
           href={link(`/network/${board.city}/`)}
-          className="inline-flex min-h-11 items-center font-semibold text-brand-blue hover:underline"
+          className="inline-flex min-h-11 items-center font-semibold text-link hover:underline"
         >
           {t(content.allIn).replace('{city}', city)}
         </a>

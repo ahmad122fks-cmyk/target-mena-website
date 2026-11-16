@@ -21,7 +21,7 @@ export function CampaignWizard() {
           <form
             onSubmit={send}
             noValidate
-            className="flex min-w-0 flex-[999_1_37.5rem] flex-col gap-6 rounded-[1.375rem] border border-line bg-white p-5 sm:p-8"
+            className="flex min-w-0 flex-[999_1_37.5rem] flex-col gap-6 rounded-[1.375rem] border border-line bg-surface p-5 sm:p-8"
           >
             <StepBody step={step} form={form} boardsError={boardsError} />
             {!done && (

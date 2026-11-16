@@ -26,7 +26,7 @@ export function CampaignSteps({ step, onStep }: { step: Step; onStep: (step: Ste
               <span
                 className={cn(
                   'flex items-center gap-2.5 text-sm sm:text-[0.9375rem]',
-                  i === current ? 'font-semibold text-brand-black' : 'text-brand-text',
+                  i === current ? 'font-semibold text-ink' : 'text-brand-text',
                 )}
               >
                 <span

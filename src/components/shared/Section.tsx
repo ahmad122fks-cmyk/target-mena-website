@@ -3,12 +3,14 @@ import { cn } from '@/lib/utils'
 
 /** Bands alternate white and ghost (hairline top and bottom); black only for the footer look. */
 export const SECTION_TONES = {
-  white: 'bg-white',
+  white: 'bg-page',
   ghost: 'border-y border-line bg-brand-ghost',
-  black: 'bg-brand-black text-white [--heading:var(--color-brand-white)]',
+  black: 'bg-deep text-white [--heading:var(--color-brand-white)]',
   /** Channel colours (DESIGN.md 2): black text, only on their own pages. */
-  yellow: 'bg-brand-yellow text-brand-black [--eyebrow:var(--color-brand-black)]',
-  green: 'bg-brand-green text-brand-black [--eyebrow:var(--color-brand-black)]',
+  yellow:
+    'bg-brand-yellow text-brand-black [--eyebrow:var(--color-brand-black)] [--heading:var(--color-brand-black)]',
+  green:
+    'bg-brand-green text-brand-black [--eyebrow:var(--color-brand-black)] [--heading:var(--color-brand-black)]',
 } as const
 
 export type SectionTone = keyof typeof SECTION_TONES

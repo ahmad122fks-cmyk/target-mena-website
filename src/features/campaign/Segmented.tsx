@@ -15,13 +15,13 @@ export function Segmented({ label, value, options, onChange }: Props) {
       value={value}
       onValueChange={(next) => next && onChange(next)}
       aria-label={label}
-      className="h-12 shrink-0 gap-0 overflow-hidden rounded-full border border-input bg-white"
+      className="h-12 shrink-0 gap-0 overflow-hidden rounded-full border border-input bg-field"
     >
       {options.map((option) => (
         <ToggleGroupItem
           key={option.value}
           value={option.value}
-          className="h-full rounded-none px-4 text-[0.9375rem] text-brand-black first:rounded-s-full last:rounded-e-full data-[state=on]:bg-brand-blue data-[state=on]:text-white"
+          className="h-full rounded-none px-4 text-[0.9375rem] text-ink first:rounded-s-full last:rounded-e-full data-[state=on]:bg-brand-blue data-[state=on]:text-white"
         >
           {option.label}
         </ToggleGroupItem>

@@ -51,7 +51,7 @@ export function BlockBody({ block }: { block: Block }) {
           {block.items.map((item) => (
             <li
               key={item.en}
-              className="rounded-full border border-input bg-white px-4 py-2 text-[0.9375rem] text-brand-black"
+              className="rounded-full border border-input bg-field px-4 py-2 text-[0.9375rem] text-ink"
             >
               {t(item)}
             </li>

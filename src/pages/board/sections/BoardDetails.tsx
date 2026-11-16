@@ -27,7 +27,7 @@ export function BoardDetails({ board }: { board: Board }) {
   return (
     <div className="flex flex-col gap-5">
       <div className="flex flex-wrap items-center gap-3">
-        <span className="ltr-run text-4xl font-semibold text-brand-blue">{board.code}</span>
+        <span className="ltr-run text-4xl font-semibold text-link">{board.code}</span>
         <Badge variant="secondary" className="text-sm">
           {typeLabel(board.type, lang)}
         </Badge>
@@ -40,7 +40,7 @@ export function BoardDetails({ board }: { board: Board }) {
         {facts.map(([label, value]) => (
           <div key={label} className="contents">
             <dt className="py-2">{label}</dt>
-            <dd className="py-2 font-semibold text-brand-black">{value}</dd>
+            <dd className="py-2 font-semibold text-ink">{value}</dd>
           </div>
         ))}
       </dl>
@@ -49,7 +49,7 @@ export function BoardDetails({ board }: { board: Board }) {
           href={map}
           target="_blank"
           rel="noopener"
-          className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border px-4 font-semibold text-brand-blue hover:bg-brand-blue-10"
+          className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border px-4 font-semibold text-link hover:bg-brand-blue-10"
         >
           <MapPin className="size-5" strokeWidth={1.75} aria-hidden="true" />
           {t(content.map)}

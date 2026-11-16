@@ -33,9 +33,9 @@ export default function FiltersSheet({
         dir={useDir()}
         aria-describedby={undefined}
         closeLabel={t(content.filters.close)}
-        className="max-h-[85vh] gap-4 overflow-y-auto rounded-t-2xl bg-white p-5"
+        className="max-h-[85vh] gap-4 overflow-y-auto rounded-t-2xl bg-surface p-5"
       >
-        <SheetTitle className="text-lg text-brand-black">{t(content.filters.button)}</SheetTitle>
+        <SheetTitle className="text-lg text-ink">{t(content.filters.button)}</SheetTitle>
         <div className="grid gap-3">
           <BoardFilters
             filters={filters}

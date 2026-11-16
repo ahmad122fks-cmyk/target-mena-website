@@ -19,14 +19,14 @@ export function ReviewStep({ getValues, register }: Props) {
   return (
     <div className="flex flex-col gap-4">
       <p className="leading-[1.8]">{t(content.review.text)}</p>
-      <dl className="divide-y divide-line rounded-[14px] border border-line bg-white">
+      <dl className="divide-y divide-line rounded-[14px] border border-line bg-surface">
         {lines.slice(1).map((line) => {
           const at = line.indexOf(': ')
           return (
             <div key={line} className="grid gap-1 px-4 py-3 sm:grid-cols-[12rem_1fr]">
               <dt className="font-medium">{line.slice(0, at)}</dt>
               <dd
-                className="font-medium text-brand-black"
+                className="font-medium text-ink"
                 data-review={line.startsWith(t(content.message.boards)) ? 'boards' : undefined}
               >
                 {line.slice(at + 2)}

@@ -24,7 +24,7 @@ export function BoardCard({ board, layout = 'grid', priority = false, onAdd }: P
   return (
     <article
       className={cn(
-        'flex w-full flex-col overflow-hidden rounded-[1.125rem] border border-line bg-white',
+        'flex w-full flex-col overflow-hidden rounded-[1.125rem] border border-line bg-surface',
         list && 'sm:flex-row',
       )}
     >
@@ -41,7 +41,7 @@ export function BoardCard({ board, layout = 'grid', priority = false, onAdd }: P
       />
       <div className="flex flex-1 flex-col gap-2 p-4">
         <div className="flex items-center justify-between gap-2">
-          <span className="ltr-run text-lg font-semibold text-brand-blue">{board.code}</span>
+          <span className="ltr-run text-lg font-semibold text-link">{board.code}</span>
           <span className="rounded-full bg-brand-grey-10 px-2.5 py-1 text-xs font-medium">
             {typeLabel(board.type, lang)}
           </span>

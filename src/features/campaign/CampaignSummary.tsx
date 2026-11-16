@@ -42,11 +42,9 @@ export function CampaignSummary({ control }: { control: Control<CampaignValues> 
   return (
     <aside
       aria-label={t(s.title)}
-      className="min-w-0 flex-[1_1_20rem] overflow-hidden rounded-[1.375rem] border border-line bg-white lg:sticky lg:top-20"
+      className="min-w-0 flex-[1_1_20rem] overflow-hidden rounded-[1.375rem] border border-line bg-surface lg:sticky lg:top-20"
     >
-      <p className="border-b border-line px-5 py-4 text-lg font-semibold text-brand-black">
-        {t(s.title)}
-      </p>
+      <p className="border-b border-line px-5 py-4 text-lg font-semibold text-ink">{t(s.title)}</p>
       <dl className="flex flex-col px-5 py-1">
         {rows.map(([label, shown]) => (
           <div
@@ -54,7 +52,7 @@ export function CampaignSummary({ control }: { control: Control<CampaignValues> 
             className="flex justify-between gap-3 border-b border-line py-3 text-[0.9375rem] last:border-b-0"
           >
             <dt>{label}</dt>
-            <dd className="text-end font-medium text-brand-black">{shown}</dd>
+            <dd className="text-end font-medium text-ink">{shown}</dd>
           </div>
         ))}
       </dl>
@@ -63,7 +61,7 @@ export function CampaignSummary({ control }: { control: Control<CampaignValues> 
           {items.map((item) => (
             <li
               key={item.code}
-              className="ltr-run rounded-full bg-brand-blue-10 px-2.5 py-1 text-[0.8125rem] font-semibold text-brand-blue"
+              className="ltr-run rounded-full bg-brand-blue-10 px-2.5 py-1 text-[0.8125rem] font-semibold text-link"
             >
               {item.code}
             </li>
@@ -72,12 +70,12 @@ export function CampaignSummary({ control }: { control: Control<CampaignValues> 
       )}
       <div className="flex flex-col gap-1 bg-brand-ghost px-5 py-4 text-[0.8125rem] leading-[1.7]">
         <span>{t(s.direct)}</span>
-        <span className="ltr-run text-brand-black">
-          <a href={telHref(CONTACT.phones[0])} className="hover:text-brand-blue">
+        <span className="ltr-run text-ink">
+          <a href={telHref(CONTACT.phones[0])} className="hover:text-link">
             {CONTACT.phones[0]}
           </a>{' '}
           ·{' '}
-          <a href={`mailto:${CONTACT.email}`} className="hover:text-brand-blue">
+          <a href={`mailto:${CONTACT.email}`} className="hover:text-link">
             {CONTACT.email}
           </a>
         </span>

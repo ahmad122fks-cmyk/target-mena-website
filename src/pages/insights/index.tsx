@@ -31,7 +31,7 @@ export default function InsightsPage() {
                 <p className="text-[0.9375rem]">{t(article.description)}</p>
                 <a
                   href={link(`/insights/${article.slug}/`)}
-                  className="mt-auto inline-flex min-h-11 items-end font-medium text-brand-blue hover:underline"
+                  className="mt-auto inline-flex min-h-11 items-end font-medium text-link hover:underline"
                 >
                   {t(content.read)}
                 </a>

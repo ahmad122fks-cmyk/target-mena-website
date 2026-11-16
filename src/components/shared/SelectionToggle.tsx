@@ -24,7 +24,7 @@ export function SelectionToggle({ board, onAdd, className }: Props) {
       className={cn(
         'h-11 rounded-full px-4 text-sm font-medium',
         added
-          ? 'border border-brand-green bg-brand-green-10 text-brand-black hover:bg-brand-green-10'
+          ? 'border border-brand-green bg-brand-green-10 text-ink hover:bg-brand-green-10'
           : 'bg-brand-blue text-white hover:bg-brand-blue-80',
         className,
       )}

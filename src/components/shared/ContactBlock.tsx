@@ -7,7 +7,7 @@ import { PillButton } from './PillButton'
 import { Section } from './Section'
 import { SectionHeading } from './SectionHeading'
 
-const linkClass = 'ltr-run inline-block py-1 text-brand-black hover:text-brand-blue'
+const linkClass = 'ltr-run inline-block py-1 text-ink hover:text-link'
 
 /** The one contact block, identical on every page (CLAUDE.md): centred, phone field, exact details. */
 export function ContactBlock() {
@@ -35,7 +35,7 @@ export function ContactBlock() {
             autoComplete="tel"
             dir="ltr"
             placeholder={t(c.phoneLabel)}
-            className="h-12 min-w-0 flex-[0_1_18.75rem] rounded-full border border-input bg-white px-5 text-base text-brand-black placeholder:text-brand-text rtl:text-right"
+            className="h-12 min-w-0 flex-[0_1_18.75rem] rounded-full border border-input bg-field px-5 text-base text-ink placeholder:text-brand-text rtl:text-right"
           />
           <PillButton type="submit">{t(c.submit)}</PillButton>
         </form>

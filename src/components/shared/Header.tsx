@@ -6,16 +6,17 @@ import { Logo } from './Logo'
 import { MobileNav } from './MobileNav'
 import { NavLinks } from './NavLinks'
 import { PillButton } from './PillButton'
+import { ThemeToggle } from './ThemeToggle'
 
-/** White sticky header: logo, plain menu, language, outlined "Plan your campaign" pill. */
+/** Sticky header: logo, plain menu, language, theme, yellow "Plan your campaign" pill. */
 export function Header() {
   const t = useT()
   const link = useLink()
   return (
-    <header className="sticky top-0 z-40 border-b border-line bg-white">
+    <header className="sticky top-0 z-40 border-b border-line bg-page">
       <a
         href="#main"
-        className="sr-only focus:not-sr-only focus:absolute focus:start-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-white focus:p-3 focus:text-brand-blue"
+        className="sr-only focus:not-sr-only focus:absolute focus:start-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-surface focus:p-3 focus:text-link"
       >
         {t(site.skipLink)}
       </a>
@@ -28,9 +29,10 @@ export function Header() {
         </div>
         <div className="flex items-center gap-1 sm:gap-2">
           <ClientLogin className="hidden sm:inline-flex" />
-          <LangSwitch className="font-normal text-brand-black" />
+          <LangSwitch className="font-normal text-ink" />
+          <ThemeToggle className="hidden sm:inline-flex" />
           <PillButton
-            tone="outline"
+            tone="yellow"
             size="sm"
             href={link(site.headerCta.path)}
             className="hidden sm:inline-flex"

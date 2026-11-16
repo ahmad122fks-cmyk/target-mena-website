@@ -12,7 +12,7 @@ export function ClientLogin({ className }: { className?: string }) {
       target="_blank"
       rel="noopener noreferrer"
       className={cn(
-        'inline-flex min-h-11 items-center whitespace-nowrap px-2 text-[0.9375rem] text-brand-black hover:text-brand-blue',
+        'inline-flex min-h-11 items-center whitespace-nowrap px-2 text-[0.9375rem] text-ink hover:text-link',
         className,
       )}
     >

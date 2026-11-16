@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#0161A6" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <!-- Theme before first paint (src/features/theme/theme.ts, THEME_BOOT) -->
+    <!-- prettier-ignore -->
+    <script>try{var q=new URLSearchParams(location.search).get('theme'),t=q==='light'||q==='dark'?q:localStorage.getItem('theme');if(t!=='light'&&t!=='dark')t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';var r=document.documentElement;r.classList.toggle('dark',t==='dark');r.style.colorScheme=t}catch(e){}</script>
     <!--app-head-->
   </head>
   <body>

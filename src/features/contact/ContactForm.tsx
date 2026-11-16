@@ -30,7 +30,7 @@ export function ContactForm() {
   return (
     <form
       onSubmit={send}
-      className="flex flex-col gap-4 rounded-card border border-line bg-white p-6 lg:p-8"
+      className="flex flex-col gap-4 rounded-card border border-line bg-surface p-6 lg:p-8"
     >
       <h2 className="text-2xl font-semibold">{t(f.title)}</h2>
       <div className="grid gap-4 sm:grid-cols-2">

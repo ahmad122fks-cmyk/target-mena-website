@@ -64,12 +64,12 @@ export function CampaignStep({ control }: { control: Control<CampaignValues> }) 
         name="objective"
         render={({ field }) => (
           <FormItem>
-            <FormLabel className="text-brand-black">{t(f.objective)}</FormLabel>
+            <FormLabel className="text-ink">{t(f.objective)}</FormLabel>
             <FormControl>
               <Textarea
                 rows={3}
                 placeholder={t(f.objectivePlaceholder)}
-                className="rounded-field border-input bg-white text-base shadow-none"
+                className="rounded-field border-input bg-field text-base shadow-none"
                 {...field}
               />
             </FormControl>

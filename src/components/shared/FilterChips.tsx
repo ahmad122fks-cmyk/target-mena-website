@@ -27,7 +27,7 @@ export function FilterChips({ filters, onChange, cityKeys }: Props) {
           <button
             type="button"
             onClick={() => onChange({ [chip.key]: '' })}
-            className="inline-flex min-h-9 items-center gap-1 rounded-full border border-input bg-white px-3 text-sm text-brand-black hover:border-brand-blue"
+            className="inline-flex min-h-9 items-center gap-1 rounded-full border border-input bg-field px-3 text-sm text-ink hover:border-link"
           >
             {chip.label}
             <X className="size-4" aria-hidden="true" />
@@ -39,7 +39,7 @@ export function FilterChips({ filters, onChange, cityKeys }: Props) {
         <button
           type="button"
           onClick={() => onChange({ city: '', format: '', size: '', faces: '', query: '' })}
-          className="min-h-9 px-2 text-sm font-semibold text-brand-blue underline-offset-4 hover:underline"
+          className="min-h-9 px-2 text-sm font-semibold text-link underline-offset-4 hover:underline"
         >
           {t(content.filters.clearAll)}
         </button>
