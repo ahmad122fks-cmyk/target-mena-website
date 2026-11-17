@@ -1,8 +1,10 @@
 {
-  "_rule": "Prompt 4b: muted loops, no audio track, WebM (VP9) + MP4 (H.264, faststart) in public/video/, ≤ 1280 px wide, ≈ 3 MB each, true ratio, poster from a strong frame. Set ready to true only when the files and the poster are in place (tests check). Until then the section shows a placeholder in development and is left out of the production build.",
+  "_rule": "Prompt 4b: muted loops, no audio track, MP4 (H.264, faststart) in public/video/: {file}.mp4 at 1280 px (≈ 3 MB) and, with phone, {file}-640.mp4 for screens up to 767 px; WebM (VP9) only with webm true. True ratio, poster (AVIF + WebP) from a strong frame. Set ready to true only when the files and the poster are in place (tests check). Until then the section shows a placeholder in development and is left out of the production build. Encoded on the Mac with AVFoundation (17 Nov 2026: built-in tools, no ffmpeg).",
   "driveToHq": {
     "file": "target-drive-to-hq",
-    "ready": false,
+    "ready": true,
+    "webm": false,
+    "phone": true,
     "ratio": "16 / 9",
     "source": "Target Drive to HQ (Motion export, no music)",
     "label": {
@@ -12,7 +14,9 @@
   },
   "unipoleStreet": {
     "file": "target-unipole-street",
-    "ready": false,
+    "ready": true,
+    "webm": false,
+    "phone": true,
     "ratio": "16 / 9",
     "source": "Target Unipole Street Scene (Motion export)",
     "label": {

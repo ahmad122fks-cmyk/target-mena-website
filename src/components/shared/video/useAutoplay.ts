@@ -9,9 +9,32 @@ function savesData(): boolean {
 }
 
 /**
+ * Calls `start` once the page has finished loading and the browser is idle,
+ * so a video (1–3 MB) never shares the connection with the page's first view
+ * (Contact opens on one: its LCP went 0.9 → 2.6 s). Returns a cancel.
+ */
+function whenPageIdle(start: () => void): () => void {
+  let idle = 0
+  let timer = 0
+  const go = () => {
+    if (typeof window.requestIdleCallback === 'function')
+      idle = window.requestIdleCallback(start, { timeout: 2000 })
+    else timer = window.setTimeout(start, 300)
+  }
+  if (document.readyState === 'complete') go()
+  else window.addEventListener('load', go, { once: true })
+  return () => {
+    window.removeEventListener('load', go)
+    if (idle) cancelIdleCallback(idle)
+    clearTimeout(timer)
+  }
+}
+
+/**
  * Plays the muted loop only while at least half of it is on screen and
- * pauses it when it leaves (prompt 4b). With reduced motion or Save-Data it
- * never starts by itself: the poster stays and the play button is shown.
+ * pauses it when it leaves (prompt 4b), starting once the page is idle. With
+ * reduced motion or Save-Data it never starts by itself: the poster stays
+ * and the play button is shown.
  */
 export function useAutoplay(): {
   ref: RefObject<HTMLVideoElement | null>
@@ -35,8 +58,11 @@ export function useAutoplay(): {
       },
       { threshold: 0.5 },
     )
-    observer.observe(video)
-    return () => observer.disconnect()
+    const cancel = whenPageIdle(() => observer.observe(video))
+    return () => {
+      cancel()
+      observer.disconnect()
+    }
   }, [manual])
   useEffect(() => {
     const video = ref.current

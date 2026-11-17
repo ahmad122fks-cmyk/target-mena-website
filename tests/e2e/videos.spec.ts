@@ -30,5 +30,10 @@ for (const [url, key] of PAGES) {
     await expect(video.first()).toHaveAttribute('preload', 'none')
     await expect(video.first()).toHaveAttribute('playsinline', '')
     await expect(video.first()).toHaveAttribute('poster', /-poster\.webp$/)
+    // Phones get the 640 px file first; everyone else falls through to the 1280 px one.
+    const sources = video.first().locator('source')
+    await expect(sources.first()).toHaveAttribute('src', `/video/${videos[key].file}-640.mp4`)
+    await expect(sources.first()).toHaveAttribute('media', '(max-width: 767px)')
+    await expect(sources.last()).toHaveAttribute('src', `/video/${videos[key].file}.mp4`)
   })
 }

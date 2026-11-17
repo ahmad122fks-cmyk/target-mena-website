@@ -20,7 +20,7 @@ export function DriveToHq() {
     <Section labelledBy="drive-title" pad="md">
       <SectionHeading id="drive-title" title={t(drive.title)} size="band" />
       <div className="mt-6 overflow-hidden rounded-card bg-navy shadow-frame">
-        <LazyVideo video="driveToHq" />
+        <LazyVideo video="driveToHq" firstView />
       </div>
       <div className="mt-4 flex flex-wrap items-center gap-3">
         <span className="text-lg font-medium text-ink">{t(site.contact.address)}</span>

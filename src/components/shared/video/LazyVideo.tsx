@@ -16,15 +16,21 @@ type Props = {
   video: VideoKey
   /** Size from the className (e.g. a slim strip) instead of the video's ratio. */
   fill?: boolean
+  /** On screen at first view (Contact): the build preloads its poster and runs the photo-first loader. */
+  firstView?: boolean
   className?: string
 }
 
+/** Phones get the 640 px file (about half the data); the browser picks the first source that fits. */
+const PHONE = '(max-width: 767px)'
+
 /**
  * A muted, looping video at its true ratio (object-fit contain, never
- * cropped): WebM then MP4, nothing loads until it plays (preload none,
- * poster first). Until the files exist it is a placeholder of the same size.
+ * cropped): the phone MP4 on small screens, WebM if there is one, then the
+ * 1280 px MP4. Nothing loads until it plays (preload none, poster first).
+ * Until the files exist it is a placeholder of the same size.
  */
-export function LazyVideo({ video, fill, className }: Props) {
+export function LazyVideo({ video, fill, firstView, className }: Props) {
   const t = useT()
   const v = videos[video]
   const { ref, manual, playing, toggle } = useAutoplay()
@@ -46,10 +52,12 @@ export function LazyVideo({ video, fill, className }: Props) {
         loop
         preload="none"
         poster={`${base}-poster.webp`}
+        data-first-view={firstView ? '' : undefined}
         aria-label={t(v.label)}
         className="size-full object-contain"
       >
-        <source src={`${base}.webm`} type="video/webm" />
+        {v.phone && <source src={`${base}-640.mp4`} type="video/mp4" media={PHONE} />}
+        {v.webm && <source src={`${base}.webm`} type="video/webm" />}
         <source src={`${base}.mp4`} type="video/mp4" />
       </video>
       {manual && (

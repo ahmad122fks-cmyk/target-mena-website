@@ -26,6 +26,16 @@ export function heroPreload(html: string): string {
     : ''
 }
 
+/**
+ * A video on screen at first view (<video data-first-view>, Contact): its
+ * poster is the page's LCP element, so it is preloaded like a hero photo.
+ */
+export function posterPreload(html: string): string {
+  const video = html.match(/<video[^>]*data-first-view[^>]*>/i)?.[0]
+  const poster = video?.match(/poster="([^"]+)"/i)?.[1]
+  return poster ? `<link rel="preload" as="image" href="${poster}" fetchpriority="high">` : ''
+}
+
 /** modulepreload for a page's own chunk and the chunks it imports (not the entry). */
 export function modulePreloads(manifest: Manifest, source: string): string {
   const files = new Set<string>()

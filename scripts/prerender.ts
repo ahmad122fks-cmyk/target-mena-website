@@ -7,7 +7,13 @@
 import fs from 'node:fs/promises'
 import path from 'node:path'
 import { pathToFileURL } from 'node:url'
-import { fontPreload, heroPreload, modulePreloads, photoFirstEntry } from './prerender-head'
+import {
+  fontPreload,
+  heroPreload,
+  modulePreloads,
+  photoFirstEntry,
+  posterPreload,
+} from './prerender-head'
 import { seoFiles } from './seo-files'
 
 const DIST = path.resolve('dist')
@@ -40,10 +46,11 @@ function page(url: string): string {
   if (head.noindex) noindex.add(url)
   const json = JSON.stringify(data).replace(/</g, '\\u003c')
   // A page led by a photo (finder, board pages, network map, production
-  // camera): that photo is its LCP, so let it download before the page
-  // scripts, which the entry loads itself once the photo is shown
-  // (entry-client.tsx). Measured on /network/: LCP 2.68 s -> 2.47 s.
-  const hero = heroPreload(html)
+  // camera) or a video poster (Contact): that image is its LCP, so let it
+  // download before the page scripts, which the entry loads itself once the
+  // photo is shown (entry-client.tsx). Measured on /network/: LCP 2.68 s ->
+  // 2.47 s; Contact with the drive video: 2.57 s before.
+  const hero = heroPreload(html) || posterPreload(html)
   const photoLed = key === 'boards' || hero !== ''
   const preloads = key && !photoLed ? modulePreloads(manifest, server.PAGE_SOURCES[key]) : ''
   return (photoLed ? photoFirstEntry(template) : template)
