@@ -5,6 +5,7 @@
  */
 import { createElement, type ComponentType } from 'react'
 import { renderToString } from 'react-dom/server'
+import { StaticRouter } from 'react-router'
 import { describe, expect, it, vi } from 'vitest'
 import { PageDataProvider } from '@/app/PageData'
 import type { StaticPage } from '@/app/routes'
@@ -24,9 +25,9 @@ const PAGES: [StaticPage, ComponentType][] = [
 
 function html(page: StaticPage, Page: ComponentType, lang: 'ar' | 'en') {
   const body = createElement(LangProvider, { lang, children: createElement(Page) })
-  return renderToString(
-    createElement(PageDataProvider, { value: { kind: 'static', page }, children: body }),
-  )
+  // As in entry-server.tsx: the campaign key reads the route (quiet on its own page).
+  const data = createElement(PageDataProvider, { value: { kind: 'static', page }, children: body })
+  return renderToString(createElement(StaticRouter, { location: `/${page}/`, children: data }))
 }
 
 /** Class lists of every <section> element in the markup. */

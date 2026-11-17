@@ -1,8 +1,8 @@
 import { Sheet, SheetContent, SheetTitle } from '@/components/ui/sheet'
 import site from '@/content/site.json'
-import { useDir, useLang, useLink, useT } from '@/features/i18n/LangContext'
+import { useDir, useLang, useT } from '@/features/i18n/LangContext'
+import { CampaignButton } from './CampaignButton'
 import { ClientLogin } from './ClientLogin'
-import { PillButton } from './PillButton'
 import { NavLinks } from './NavLinks'
 import { ThemeToggle } from './ThemeToggle'
 
@@ -13,7 +13,6 @@ export default function MobileNavSheet({ open, onOpenChange }: Props) {
   const t = useT()
   const lang = useLang()
   const dir = useDir()
-  const link = useLink()
   return (
     <Sheet open={open} onOpenChange={onOpenChange}>
       <SheetContent
@@ -31,7 +30,7 @@ export default function MobileNavSheet({ open, onOpenChange }: Props) {
           <ClientLogin className="text-lg" />
           <ThemeToggle className="border border-line" />
         </div>
-        <PillButton href={link(site.headerCta.path)}>{t(site.headerCta.label)}</PillButton>
+        <CampaignButton size="md" className="w-full justify-between" />
       </SheetContent>
     </Sheet>
   )

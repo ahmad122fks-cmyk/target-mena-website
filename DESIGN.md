@@ -83,9 +83,15 @@ writing anything new; a second copy of the same markup is a bug.
 - **PillButton** (shadcn Button; the name stays, the shape changed in v3):
   10 px corners (`rounded-btn`), 48 px tall (44 px small), 15–16 px semibold.
   Tones: `blue` (primary), `outline` (v3 secondary: white, 1 px `line-strong`),
-  `yellow` (the one main call to action: header button on the home hero, CTA
-  band), `green` (Alrabiaa only), `outlineWhite` (secondary on blue). Pills
-  stay only for filters and small tags. See section 14.
+  `yellow` (a main action other than the campaign one, e.g. Network's
+  "Find a board"), `green` (Alrabiaa only), `outlineWhite` (secondary on
+  blue). Pills stay only for filters and small tags. See section 14.
+- **CampaignButton**: "Plan your campaign", the site's main action (header,
+  phone menu, CTA band). A yellow key with a black arrow chip that asks to be
+  pressed (Ahmad, 17 Nov 2026): it rests on a 3 px dark edge, rises 2 px on
+  hover and sinks when pressed; every 8 s two Target rings leave it and the
+  arrow nudges forward (transform/opacity only, still under reduced motion
+  and on the campaign page). Phones: in the menu, the header has no room.
 - **Eyebrow**: 13 px semibold blue label above a title. No bar, no icon.
 - **FeatureCard**: white, `rounded-card` (20 px), 1 px `line` border, 28–36 px
   padding: Eyebrow, title, text, optional inset preview (`bg-brand-ghost`,
@@ -104,8 +110,8 @@ writing anything new; a second copy of the same markup is a bug.
   (weeks/months, IQD/USD) inside one 12 px outline; selected = blue fill.
 - **Header**: page colour (white / dark blue), sticky, hairline bottom; logo
   (blue on light, white on dark), plain menu (xl and up), client login,
-  language link, sun/moon theme toggle, yellow pill "Plan your campaign"
-  (prompt 4). Phones: shadcn Sheet menu (with the theme toggle).
+  language link, sun/moon theme toggle, the yellow CampaignButton. Phones:
+  shadcn Sheet menu (with the theme toggle and the CampaignButton).
 - **ContactBlock**: centred, ghost band, "Let's work together", phone field +
   "Request a proposal", and the exact contact line. Same on every page.
 - **Footer**: black, white logo, contact details, three link columns, blue
@@ -330,9 +336,10 @@ disagree, this one wins.
   `0 18px 40px rgb(1 97 166 / .12)`). Service art sits on soft panels:
   `panel-blue #EAF3FA`, `panel-yellow #FFF4DC`, `panel-green #E8F7F3`,
   `panel-grey #EEF2F5` (Alrabiaa keeps its dark green).
-- **Header:** white with a blue "Plan your campaign" on every page; on the home
-  page it sits on the blue hero (white logo and links, yellow button) and turns
-  solid blue once the page scrolls (`header-on-hero`, `useScrolled`).
+- **Header:** white with the yellow "Plan your campaign" key (CampaignButton,
+  17 Nov 2026; was blue) on every page; on the home page it sits on the blue
+  hero (white logo and links) and turns solid blue once the page scrolls
+  (`header-on-hero`, `useScrolled`).
 - **Home hero:** the Target brand pattern in CSS/SVG (no image): blue gradient
   `#0161A6 → #01508C → #0B3B66` (`hero-1/2/3`; navy in dark), the big ring
   turning slowly, the dot grid fading out, the four diagonal stripes (white,

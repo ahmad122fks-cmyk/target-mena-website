@@ -9,7 +9,7 @@ export function NavLinks({ column = false }: { column?: boolean }) {
   const link = useLink()
   const { pathname } = useLocation()
   return (
-    <ul className={cn('flex', column ? 'flex-col gap-1' : 'items-center gap-0.5 xl:gap-2')}>
+    <ul className={cn('flex', column ? 'flex-col gap-1' : 'items-center gap-0.5')}>
       {site.nav.map((item) => {
         const href = link(item.path)
         const current = href === pathname

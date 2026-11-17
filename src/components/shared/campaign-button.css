@@ -1,0 +1,96 @@
+/*
+ * "Plan your campaign" (CampaignButton): a yellow key that asks to be
+ * pressed. It rests on a dark edge, rises on hover and sinks when pressed.
+ * Every 8 s two Target rings leave it and the arrow nudges forward once.
+ * Only transform and opacity loop (motion.css stops them under reduced
+ * motion); `data-still` (the campaign page itself) keeps it quiet.
+ */
+.cta-press {
+  --edge: rgb(0 0 0 / 0.24);
+  --fwd: 4px;
+  position: relative;
+  isolation: isolate;
+  box-shadow: 0 3px 0 var(--edge);
+  transition:
+    transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.2s cubic-bezier(0.2, 0.8, 0.2, 1),
+    background-color 0.2s;
+}
+
+.dark .cta-press {
+  --edge: rgb(0 0 0 / 0.5);
+}
+
+[dir='rtl'] .cta-press {
+  --fwd: -4px;
+}
+
+/* The two Target rings: the button's own shape, growing and fading. */
+.cta-press::before,
+.cta-press::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  z-index: -1;
+  border: 2px solid var(--color-brand-yellow);
+  border-radius: inherit;
+  opacity: 0;
+  pointer-events: none;
+  animation: cta-ring 8s cubic-bezier(0.2, 0.8, 0.2, 1) 1.2s infinite;
+}
+
+.cta-press::after {
+  animation-delay: 1.5s;
+}
+
+.cta-arrow {
+  transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+  animation: cta-nudge 8s cubic-bezier(0.2, 0.8, 0.2, 1) 1.2s infinite;
+}
+
+@media (hover: hover) {
+  .cta-press:hover {
+    background-color: var(--color-brand-yellow-80);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 0 var(--edge);
+  }
+
+  .cta-press:hover .cta-arrow {
+    animation: none;
+    transform: translateX(var(--fwd));
+  }
+}
+
+.cta-press:active {
+  transform: translateY(3px);
+  box-shadow: 0 0 0 var(--edge);
+}
+
+.cta-press[data-still]::before,
+.cta-press[data-still]::after,
+.cta-press[data-still] .cta-arrow {
+  animation: none;
+}
+
+@keyframes cta-ring {
+  0% {
+    opacity: 0.9;
+    transform: scale(1);
+  }
+  15%,
+  100% {
+    opacity: 0;
+    transform: scale(1.12, 1.5);
+  }
+}
+
+@keyframes cta-nudge {
+  0%,
+  10%,
+  100% {
+    transform: translateX(0);
+  }
+  4% {
+    transform: translateX(var(--fwd));
+  }
+}

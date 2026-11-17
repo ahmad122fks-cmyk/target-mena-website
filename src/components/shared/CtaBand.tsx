@@ -1,5 +1,7 @@
+import site from '@/content/site.json'
 import type { Localized } from '@/features/i18n/lang'
 import { useLink, useT } from '@/features/i18n/LangContext'
+import { CampaignButton } from './CampaignButton'
 import { PhoneStart } from './PhoneStart'
 import { PillButton } from './PillButton'
 
@@ -21,6 +23,8 @@ type Props = CtaContent & {
 /**
  * The one blue closing band per page (v3, prompt 5): question and line on
  * one side, the yellow main action (and an outlined one) on the other.
+ * "Plan your campaign" is the CampaignButton key; other main actions
+ * (Network: "Find a board") stay a plain yellow button.
  */
 export function CtaBand({ id, title, text, primary, secondary, phone }: Props) {
   const t = useT()
@@ -36,9 +40,13 @@ export function CtaBand({ id, title, text, primary, secondary, phone }: Props) {
           {phone && <PhoneStart id={`${id}-phone`} tone="onBlue" className="mt-3 max-w-[30rem]" />}
         </div>
         <div className="flex flex-wrap gap-3">
-          <PillButton tone="yellow" href={link(primary.path)}>
-            {t(primary.label)}
-          </PillButton>
+          {primary.path === site.headerCta.path ? (
+            <CampaignButton size="md" label={primary.label} />
+          ) : (
+            <PillButton tone="yellow" href={link(primary.path)}>
+              {t(primary.label)}
+            </PillButton>
+          )}
           {secondary && (
             <PillButton tone="outlineWhite" href={link(secondary.path)}>
               {t(secondary.label)}
