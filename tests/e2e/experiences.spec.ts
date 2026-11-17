@@ -23,7 +23,29 @@ test('the network tour drives the map', async ({ page }) => {
   await expect(page.locator('[data-stop="baghdad"]')).toHaveAttribute('aria-current', 'step')
   await page.locator('[data-stop="south"]').click()
   await expect(map).toHaveAttribute('data-view', 'south', { timeout: 10_000 })
+  // The stop card is the tour's panel (panel={false} in the Network canvases).
+  await expect(map.getByRole('region', { name: 'ملخص الشبكة' })).toHaveCount(0)
 })
+
+for (const [path, summary, zoomIn] of [
+  ['/', 'ملخص الشبكة', 'تكبير'],
+  ['/en/', 'Network summary', 'Zoom in'],
+]) {
+  test(`the map never mirrors: panel left, zoom right (${path})`, async ({ page }) => {
+    // Item 61: in English the panel moved right, over Babel and the southern highway.
+    await page.goto(path)
+    const map = page.getByTestId('network-map')
+    await map.scrollIntoViewIfNeeded()
+    await expect(map).toHaveAttribute('data-ready', 'true', { timeout: 10_000 })
+    const frame = await map.boundingBox()
+    const panel = await map.getByRole('region', { name: summary }).boundingBox()
+    const zoom = await map.getByRole('button', { name: zoomIn }).boundingBox()
+    if (!frame || !panel || !zoom) throw new Error('map, panel or zoom button not drawn')
+    // Pinned by edge (12-16 px in), at every width: on phones the sheet spans most of the map.
+    expect(panel.x - frame.x).toBeLessThan(24)
+    expect(frame.x + frame.width - (zoom.x + zoom.width)).toBeLessThan(24)
+  })
+}
 
 test('the Digital tabs change what plays in the phone', async ({ page }) => {
   await page.goto('/en/digital/')

@@ -11,14 +11,15 @@ const ICON = { className: 'size-[18px]', strokeWidth: 2, 'aria-hidden': true } a
 
 /**
  * Zoom in, zoom out, whole Iraq, and the layer switch (provinces / density;
- * one toggle button on phones). Bottom corner on the start side.
+ * one toggle button on phones). Always bottom-right, as in the canvas, in
+ * Arabic and English (the map never mirrors; the panel has the left).
  */
 export const Controls = memo(function Controls(props: { layer: Layer; actions: MapActions }) {
   const { layer, actions } = props
   const t = useT()
   const density = layer === 'density'
   return (
-    <div className="pointer-events-none absolute start-3 bottom-3 flex flex-col items-start gap-2 sm:start-4 sm:bottom-4">
+    <div className="pointer-events-none absolute right-3 bottom-3 flex flex-col items-end gap-2 sm:right-4 sm:bottom-4 rtl:items-start">
       <div
         data-map-ui=""
         className="pointer-events-auto flex flex-col divide-y divide-white/12 overflow-hidden rounded-[14px] border border-white/12 bg-[#04111F]/60 backdrop-blur-md"

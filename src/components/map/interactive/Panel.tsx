@@ -10,8 +10,10 @@ import { TypeBars } from './TypeBars'
 
 /**
  * Totals and top 5 types of the selection («كل الشبكة» = every board,
- * the 2 mupis without a province included). Counts only. Under 640 px a
- * small bottom sheet the visitor opens.
+ * the 2 mupis without a province included). Counts only. Under 1024 px a
+ * small bottom sheet the visitor opens. Always bottom-left, over the western
+ * desert, in Arabic and English (the map never mirrors; at the right it
+ * covered Babel and the southern highway in English).
  */
 export const Panel = memo(function Panel({ sel }: { sel: string }) {
   const t = useT()
@@ -30,13 +32,13 @@ export const Panel = memo(function Panel({ sel }: { sel: string }) {
     <section
       aria-label={t(content.panelLabel)}
       data-map-ui=""
-      className="absolute end-3 bottom-3 w-[min(270px,calc(100%-80px))] rounded-[18px] border border-white/12 bg-[#04111F]/72 px-3 py-1.5 backdrop-blur-md sm:end-4 sm:bottom-4 sm:w-[min(270px,calc(100%-100px))] sm:p-4"
+      className="absolute bottom-3 left-3 w-[min(270px,calc(100%-80px))] rounded-[18px] border border-white/12 bg-[#04111F]/72 px-3 py-1.5 backdrop-blur-md sm:bottom-4 sm:left-4 sm:w-[min(270px,calc(100%-100px))] lg:p-4"
     >
       <button
         type="button"
         aria-expanded={open}
         onClick={() => setOpen(!open)}
-        className="flex min-h-11 w-full cursor-pointer items-center justify-between gap-2.5 sm:hidden"
+        className="flex min-h-11 w-full cursor-pointer items-center justify-between gap-2.5 lg:hidden"
       >
         {head}
         <ChevronUp
@@ -44,9 +46,9 @@ export const Panel = memo(function Panel({ sel }: { sel: string }) {
           className={cn('size-4 shrink-0 transition-transform', !open && 'rotate-180')}
         />
       </button>
-      <div className="hidden items-baseline justify-between gap-2.5 sm:flex">{head}</div>
+      <div className="hidden items-baseline justify-between gap-2.5 lg:flex">{head}</div>
       <div
-        className={cn('flex-col gap-2.5 pt-2.5 pb-1.5 sm:flex sm:pb-0', open ? 'flex' : 'hidden')}
+        className={cn('flex-col gap-2.5 pt-2.5 pb-1.5 lg:flex lg:pb-0', open ? 'flex' : 'hidden')}
       >
         <TypeBars counts={spot ? spot.bt : totals.byType} max={5} />
         <p className="text-[10px] text-[#A9C1D4]">{t(content.footnote)}</p>

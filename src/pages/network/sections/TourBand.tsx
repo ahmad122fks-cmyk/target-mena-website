@@ -50,8 +50,15 @@ export function TourBand() {
               <StopCard {...tour} />
             </div>
           </div>
+          {/* No map panel (panel={false} in both Network canvases): the stop card is the panel. */}
           <div className="min-w-0 lg:sticky lg:top-24">
-            <NetworkMap height={700} view={tour.stop.view} selected={tour.stop.selected} priority />
+            <NetworkMap
+              height={700}
+              view={tour.stop.view}
+              selected={tour.stop.selected}
+              panel={false}
+              priority
+            />
           </div>
           <div className="lg:hidden">
             <StopCard {...tour} />
