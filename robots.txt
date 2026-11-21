@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /target-
+
+Sitemap: https://target-mena.com/sitemap-index.xml

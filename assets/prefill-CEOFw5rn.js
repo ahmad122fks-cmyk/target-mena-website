@@ -1,0 +1,1 @@
+var e=`target-campaign-draft-v1`;function t(t){try{let n=JSON.parse(window.localStorage.getItem(`target-campaign-draft-v1`)??`null`),r=n&&typeof n==`object`?n:{};window.localStorage.setItem(e,JSON.stringify({...r,phone:t.trim()}))}catch{}}export{t as n,e as t};

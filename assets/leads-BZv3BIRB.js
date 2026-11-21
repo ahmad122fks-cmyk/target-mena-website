@@ -1,0 +1,1 @@
+import"./index-D9py5oY8.js";async function e(e,t=``){if(!t)return`fallback`;let n=new AbortController,r=setTimeout(()=>n.abort(),15e3);try{return(await fetch(t,{method:`POST`,headers:{"Content-Type":`application/json`},body:JSON.stringify({...e,page:window.location.href}),signal:n.signal})).ok?`sent`:`error`}catch{return`error`}finally{clearTimeout(r)}}export{e as t};
