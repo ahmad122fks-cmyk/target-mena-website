@@ -1,0 +1,1 @@
+var e=`/assets/alrabiaa-pCsdXCzY.png`;export{e as t};
